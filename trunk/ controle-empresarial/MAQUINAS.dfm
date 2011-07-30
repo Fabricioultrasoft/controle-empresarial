@@ -849,8 +849,8 @@ object frmMAQUINAS: TfrmMAQUINAS
     IndexFieldNames = 'DESCRICAO'
     StoreDefs = True
     TableName = 'MAN_MAQUINAS_N'
-    Left = 448
-    Top = 392
+    Left = 504
+    Top = 400
     object smlntfldMAQUINASFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
     end
@@ -955,8 +955,8 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object dsMAQUINAS: TDataSource
     DataSet = ibtbMAQUINAS
-    Left = 656
-    Top = 280
+    Left = 672
+    Top = 288
   end
   object dsPROCESSOS: TDataSource
     DataSet = ibqryPROCESSOS
@@ -965,16 +965,16 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object dsDEPTOS: TDataSource
     DataSet = ibqryDEPARTAMENTOS
-    Left = 704
-    Top = 336
+    Left = 712
+    Top = 552
   end
   object ibqryEmpresas: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from EMPRESA')
-    Left = 504
-    Top = 448
+    Left = 520
+    Top = 544
     object intgrfldEmpresasPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
       Origin = '"EMPRESA"."PK_EMPRESA"'
@@ -1081,21 +1081,21 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object dsEMPRESA: TDataSource
     DataSet = ibqryEmpresas
-    Left = 672
-    Top = 416
+    Left = 600
+    Top = 552
   end
   object dsFILIAL: TDataSource
     DataSet = ibqryFiliais
-    Left = 600
-    Top = 392
+    Left = 432
+    Top = 504
   end
   object ibqryFiliais: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from FILIAL')
-    Left = 280
-    Top = 424
+    Left = 384
+    Top = 504
     object intgrfldFiliaisPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
       Origin = '"FILIAL"."PK_EMPRESA"'
@@ -1214,8 +1214,8 @@ object frmMAQUINAS: TfrmMAQUINAS
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from MAN_PRIORIDADE_N')
-    Left = 376
-    Top = 416
+    Left = 392
+    Top = 384
   end
   object dsPRIORIDADE: TDataSource
     DataSet = ibqryPRIORIDADE
@@ -1224,8 +1224,8 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object dsSETORES: TDataSource
     DataSet = ibqrySETORES
-    Left = 608
-    Top = 496
+    Left = 584
+    Top = 504
   end
   object ibqrySETORES: TIBQuery
     Database = dmod.bdIndustrias
@@ -1233,8 +1233,8 @@ object frmMAQUINAS: TfrmMAQUINAS
     SQL.Strings = (
       'select * from SETORES'
       'order by descricao')
-    Left = 424
-    Top = 288
+    Left = 520
+    Top = 496
   end
   object ibqryPROCESSOS: TIBQuery
     Database = dmod.bdIndustrias
@@ -1247,16 +1247,16 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object dsCENTROCUSTO: TDataSource
     DataSet = ibqryCENTROCUSTO
-    Left = 680
-    Top = 456
+    Left = 272
+    Top = 496
   end
   object ibqryDEPARTAMENTOS: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from DEPARTAMENTOS order by descricao')
-    Left = 328
-    Top = 304
+    Left = 240
+    Top = 552
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
@@ -1268,8 +1268,8 @@ object frmMAQUINAS: TfrmMAQUINAS
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from CENTROCUSTO')
-    Left = 504
-    Top = 344
+    Left = 192
+    Top = 496
     object ibstrngfldCENTROCUSTOCC_CODIGO: TIBStringField
       FieldName = 'CC_CODIGO'
       Origin = '"CENTROCUSTO"."CC_CODIGO"'
@@ -1480,13 +1480,13 @@ object frmMAQUINAS: TfrmMAQUINAS
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from MAN_EQUIPAMENTOS_N')
-    Left = 216
-    Top = 280
+    Left = 248
+    Top = 224
   end
   object dsEQUIPAMENTOS: TDataSource
     DataSet = ibqryEQUIPAMENTOS
-    Left = 144
-    Top = 280
+    Left = 232
+    Top = 424
   end
   object ibqryMAQ_PECAS: TIBQuery
     Database = dmod.bdIndustrias
@@ -1497,367 +1497,436 @@ object frmMAQUINAS: TfrmMAQUINAS
     Left = 144
     Top = 336
     object intgrfldMAQ_PECASPK_PRODUTOS: TIntegerField
+      DisplayWidth = 10
       FieldName = 'PK_PRODUTOS'
       Origin = '"PRODUTOS"."PK_PRODUTOS"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object smlntfldMAQ_PECASFK_SECOES: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_SECOES'
       Origin = '"PRODUTOS"."FK_SECOES"'
     end
     object smlntfldMAQ_PECASFK_GRUPOS: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_GRUPOS'
       Origin = '"PRODUTOS"."FK_GRUPOS"'
     end
     object smlntfldMAQ_PECASFK_SUBGRUPOS: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_SUBGRUPOS'
       Origin = '"PRODUTOS"."FK_SUBGRUPOS"'
     end
     object smlntfldMAQ_PECASPK_UNIDVENDA: TSmallintField
+      DisplayWidth = 10
       FieldName = 'PK_UNIDVENDA'
       Origin = '"PRODUTOS"."PK_UNIDVENDA"'
     end
     object ibstrngfldMAQ_PECASDESCRICAO: TIBStringField
+      DisplayWidth = 100
       FieldName = 'DESCRICAO'
       Origin = '"PRODUTOS"."DESCRICAO"'
       Required = True
       Size = 100
     end
     object ibstrngfldMAQ_PECASPRODUTOATIVO: TIBStringField
+      DisplayWidth = 1
       FieldName = 'PRODUTOATIVO'
       Origin = '"PRODUTOS"."PRODUTOATIVO"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASFLAG_PROD: TIBStringField
+      DisplayWidth = 1
       FieldName = 'FLAG_PROD'
       Origin = '"PRODUTOS"."FLAG_PROD"'
       FixedChar = True
       Size = 1
     end
     object ibqryMAQ_PECASQUANT_UNIDVENDA: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'QUANT_UNIDVENDA'
       Origin = '"PRODUTOS"."QUANT_UNIDVENDA"'
       Precision = 18
       Size = 2
     end
     object ibstrngfldMAQ_PECASOPE_INC: TIBStringField
+      DisplayWidth = 10
       FieldName = 'OPE_INC'
       Origin = '"PRODUTOS"."OPE_INC"'
       Size = 10
     end
     object dtmfldMAQ_PECASDTHR_INC: TDateTimeField
+      DisplayWidth = 18
       FieldName = 'DTHR_INC'
       Origin = '"PRODUTOS"."DTHR_INC"'
     end
     object ibstrngfldMAQ_PECASOPE_ALT: TIBStringField
+      DisplayWidth = 10
       FieldName = 'OPE_ALT'
       Origin = '"PRODUTOS"."OPE_ALT"'
       Size = 10
     end
     object dtmfldMAQ_PECASDTHR_ALT: TDateTimeField
+      DisplayWidth = 18
       FieldName = 'DTHR_ALT'
       Origin = '"PRODUTOS"."DTHR_ALT"'
     end
     object intgrfldMAQ_PECASPK_PROD_FAMILIA: TIntegerField
+      DisplayWidth = 10
       FieldName = 'PK_PROD_FAMILIA'
       Origin = '"PRODUTOS"."PK_PROD_FAMILIA"'
     end
     object ibstrngfldMAQ_PECASRESUMIDA: TIBStringField
+      DisplayWidth = 50
       FieldName = 'RESUMIDA'
       Origin = '"PRODUTOS"."RESUMIDA"'
       Size = 50
     end
     object ibstrngfldMAQ_PECASCODBARRA: TIBStringField
+      DisplayWidth = 13
       FieldName = 'CODBARRA'
       Origin = '"PRODUTOS"."CODBARRA"'
       Size = 13
     end
     object ibstrngfldMAQ_PECASTEMVALIDADE: TIBStringField
+      DisplayWidth = 1
       FieldName = 'TEMVALIDADE'
       Origin = '"PRODUTOS"."TEMVALIDADE"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASCONTROLAVALIDADE: TIBStringField
+      DisplayWidth = 1
       FieldName = 'CONTROLAVALIDADE'
       Origin = '"PRODUTOS"."CONTROLAVALIDADE"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASCONTROLALOTE: TIBStringField
+      DisplayWidth = 1
       FieldName = 'CONTROLALOTE'
       Origin = '"PRODUTOS"."CONTROLALOTE"'
       FixedChar = True
       Size = 1
     end
     object ibqryMAQ_PECASVALIDADEPRODUTO: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'VALIDADEPRODUTO'
       Origin = '"PRODUTOS"."VALIDADEPRODUTO"'
       Precision = 18
       Size = 2
     end
     object ibstrngfldMAQ_PECASTIPOVALIDADE: TIBStringField
+      DisplayWidth = 1
       FieldName = 'TIPOVALIDADE'
       Origin = '"PRODUTOS"."TIPOVALIDADE"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASMESANOREFERENCIA: TIBStringField
+      DisplayWidth = 6
       FieldName = 'MESANOREFERENCIA'
       Origin = '"PRODUTOS"."MESANOREFERENCIA"'
       FixedChar = True
       Size = 6
     end
     object ibstrngfldMAQ_PECASEMITEETIQUETABARRA: TIBStringField
+      DisplayWidth = 1
       FieldName = 'EMITEETIQUETABARRA'
       Origin = '"PRODUTOS"."EMITEETIQUETABARRA"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASEMITEETIQUETAGONDOLA: TIBStringField
+      DisplayWidth = 1
       FieldName = 'EMITEETIQUETAGONDOLA'
       Origin = '"PRODUTOS"."EMITEETIQUETAGONDOLA"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASEMITEETIQUEEMBALAGEM: TIBStringField
+      DisplayWidth = 1
       FieldName = 'EMITEETIQUEEMBALAGEM'
       Origin = '"PRODUTOS"."EMITEETIQUEEMBALAGEM"'
       FixedChar = True
       Size = 1
     end
     object ibqryMAQ_PECASPESOLIQUIDO: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'PESOLIQUIDO'
       Origin = '"PRODUTOS"."PESOLIQUIDO"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASPESOBRUTO: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'PESOBRUTO'
       Origin = '"PRODUTOS"."PESOBRUTO"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASMEDIDALARGURA: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'MEDIDALARGURA'
       Origin = '"PRODUTOS"."MEDIDALARGURA"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASMEDIDAALTURA: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'MEDIDAALTURA'
       Origin = '"PRODUTOS"."MEDIDAALTURA"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASMEDIDAPROFUNDIDADE: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'MEDIDAPROFUNDIDADE'
       Origin = '"PRODUTOS"."MEDIDAPROFUNDIDADE"'
       Precision = 18
       Size = 2
     end
     object ibstrngfldMAQ_PECASTEMVASILHAME: TIBStringField
+      DisplayWidth = 1
       FieldName = 'TEMVASILHAME'
       Origin = '"PRODUTOS"."TEMVASILHAME"'
       FixedChar = True
       Size = 1
     end
     object intgrfldMAQ_PECASPK_VASILHAME: TIntegerField
+      DisplayWidth = 10
       FieldName = 'PK_VASILHAME'
       Origin = '"PRODUTOS"."PK_VASILHAME"'
     end
     object ibstrngfldMAQ_PECASPRODUTOCONTROLADO: TIBStringField
+      DisplayWidth = 1
       FieldName = 'PRODUTOCONTROLADO'
       Origin = '"PRODUTOS"."PRODUTOCONTROLADO"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASCLASSIFICACAOFISCAL: TIBStringField
+      DisplayWidth = 10
       FieldName = 'CLASSIFICACAOFISCAL'
       Origin = '"PRODUTOS"."CLASSIFICACAOFISCAL"'
       Size = 10
     end
     object ibstrngfldMAQ_PECASSITUACAOTRIBUTARIA: TIBStringField
+      DisplayWidth = 10
       FieldName = 'SITUACAOTRIBUTARIA'
       Origin = '"PRODUTOS"."SITUACAOTRIBUTARIA"'
       Size = 10
     end
     object ibstrngfldMAQ_PECASCODIGONCM: TIBStringField
+      DisplayWidth = 10
       FieldName = 'CODIGONCM'
       Origin = '"PRODUTOS"."CODIGONCM"'
       Size = 10
     end
     object ibqryMAQ_PECASALICOTAICMS: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'ALICOTAICMS'
       Origin = '"PRODUTOS"."ALICOTAICMS"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASALICOTAICMSSUBST: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'ALICOTAICMSSUBST'
       Origin = '"PRODUTOS"."ALICOTAICMSSUBST"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASALICOTAIPI: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'ALICOTAIPI'
       Origin = '"PRODUTOS"."ALICOTAIPI"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASALICOTAISSQN: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'ALICOTAISSQN'
       Origin = '"PRODUTOS"."ALICOTAISSQN"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASALICOTAFRETE: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'ALICOTAFRETE'
       Origin = '"PRODUTOS"."ALICOTAFRETE"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASALICOTAREDBASECALCULO: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'ALICOTAREDBASECALCULO'
       Origin = '"PRODUTOS"."ALICOTAREDBASECALCULO"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASMEDIDACUBAGEM: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'MEDIDACUBAGEM'
       Origin = '"PRODUTOS"."MEDIDACUBAGEM"'
       Precision = 18
       Size = 2
     end
     object ibstrngfldMAQ_PECASPRODUTOFRACIONADO: TIBStringField
+      DisplayWidth = 1
       FieldName = 'PRODUTOFRACIONADO'
       Origin = '"PRODUTOS"."PRODUTOFRACIONADO"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASPRODUTOREFERENCIA: TIBStringField
+      DisplayWidth = 50
       FieldName = 'PRODUTOREFERENCIA'
       Origin = '"PRODUTOS"."PRODUTOREFERENCIA"'
       Size = 50
     end
     object ibqryMAQ_PECASALICOTABASECALCULO: TIBBCDField
+      DisplayWidth = 10
       FieldName = 'ALICOTABASECALCULO'
       Origin = '"PRODUTOS"."ALICOTABASECALCULO"'
       Precision = 9
       Size = 2
     end
     object ibstrngfldMAQ_PECASPRODUTOCOMPOSTO: TIBStringField
+      DisplayWidth = 1
       FieldName = 'PRODUTOCOMPOSTO'
       Origin = '"PRODUTOS"."PRODUTOCOMPOSTO"'
       FixedChar = True
       Size = 1
     end
     object ibqryMAQ_PECASVALORFRETE: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'VALORFRETE'
       Origin = '"PRODUTOS"."VALORFRETE"'
       Precision = 18
       Size = 2
     end
     object smlntfldMAQ_PECASTIPOPRODUTO: TSmallintField
+      DisplayWidth = 10
       FieldName = 'TIPOPRODUTO'
       Origin = '"PRODUTOS"."TIPOPRODUTO"'
     end
     object intgrfldMAQ_PECASPK_EMBALAGEM: TIntegerField
+      DisplayWidth = 10
       FieldName = 'PK_EMBALAGEM'
       Origin = '"PRODUTOS"."PK_EMBALAGEM"'
     end
     object ibqryMAQ_PECASQUANTIDADEMINIMA: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'QUANTIDADEMINIMA'
       Origin = '"PRODUTOS"."QUANTIDADEMINIMA"'
       Precision = 18
       Size = 2
     end
     object ibstrngfldMAQ_PECASSITUACAOPRODUTO: TIBStringField
+      DisplayWidth = 1
       FieldName = 'SITUACAOPRODUTO'
       Origin = '"PRODUTOS"."SITUACAOPRODUTO"'
       FixedChar = True
       Size = 1
     end
     object smlntfldMAQ_PECASFK_TIPOENTRADAPADRAO: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_TIPOENTRADAPADRAO'
       Origin = '"PRODUTOS"."FK_TIPOENTRADAPADRAO"'
     end
     object smlntfldMAQ_PECASFK_TIPOSAIDAPADRAO: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_TIPOSAIDAPADRAO'
       Origin = '"PRODUTOS"."FK_TIPOSAIDAPADRAO"'
     end
     object dtmfldMAQ_PECASCUSTO_ULTIMOCALCULO: TDateTimeField
+      DisplayWidth = 18
       FieldName = 'CUSTO_ULTIMOCALCULO'
       Origin = '"PRODUTOS"."CUSTO_ULTIMOCALCULO"'
     end
     object smlntfldMAQ_PECASFK_CTACONTABILCREDITO: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_CTACONTABILCREDITO'
       Origin = '"PRODUTOS"."FK_CTACONTABILCREDITO"'
     end
     object smlntfldMAQ_PECASFK_CTACONTABILDEBITO: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_CTACONTABILDEBITO'
       Origin = '"PRODUTOS"."FK_CTACONTABILDEBITO"'
     end
     object ibstrngfldMAQ_PECASFK_CENTROCUSTO: TIBStringField
+      DisplayWidth = 10
       FieldName = 'FK_CENTROCUSTO'
       Origin = '"PRODUTOS"."FK_CENTROCUSTO"'
       Size = 10
     end
     object ibstrngfldMAQ_PECASFK_TIPOAPROPRIACAO: TIBStringField
+      DisplayWidth = 1
       FieldName = 'FK_TIPOAPROPRIACAO'
       Origin = '"PRODUTOS"."FK_TIPOAPROPRIACAO"'
       FixedChar = True
       Size = 1
     end
     object ibqryMAQ_PECASALICOTA_COMISSAO: TIBBCDField
+      DisplayWidth = 10
       FieldName = 'ALICOTA_COMISSAO'
       Origin = '"PRODUTOS"."ALICOTA_COMISSAO"'
       Precision = 9
       Size = 2
     end
     object ibstrngfldMAQ_PECASTIPORASTREABILIDADE: TIBStringField
+      DisplayWidth = 1
       FieldName = 'TIPORASTREABILIDADE'
       Origin = '"PRODUTOS"."TIPORASTREABILIDADE"'
       FixedChar = True
       Size = 1
     end
     object ibstrngfldMAQ_PECASPRODUTOIMPORTADO: TIBStringField
+      DisplayWidth = 1
       FieldName = 'PRODUTOIMPORTADO'
       Origin = '"PRODUTOS"."PRODUTOIMPORTADO"'
       FixedChar = True
       Size = 1
     end
     object smlntfldMAQ_PECASFK_CQ_TIPO: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_CQ_TIPO'
       Origin = '"PRODUTOS"."FK_CQ_TIPO"'
     end
     object smlntfldMAQ_PECASCQ_NOTAMINIMA: TSmallintField
+      DisplayWidth = 10
       FieldName = 'CQ_NOTAMINIMA'
       Origin = '"PRODUTOS"."CQ_NOTAMINIMA"'
     end
     object smlntfldMAQ_PECASCQ_QUANTPRODUCAO: TSmallintField
+      DisplayWidth = 10
       FieldName = 'CQ_QUANTPRODUCAO'
       Origin = '"PRODUTOS"."CQ_QUANTPRODUCAO"'
     end
     object smlntfldMAQ_PECASPRAZOENTREGA: TSmallintField
+      DisplayWidth = 10
       FieldName = 'PRAZOENTREGA'
       Origin = '"PRODUTOS"."PRAZOENTREGA"'
     end
     object ibqryMAQ_PECASLOTEECONOMICO: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'LOTEECONOMICO'
       Origin = '"PRODUTOS"."LOTEECONOMICO"'
       Precision = 18
       Size = 2
     end
     object ibqryMAQ_PECASLOTEMINIMO: TIBBCDField
+      DisplayWidth = 19
       FieldName = 'LOTEMINIMO'
       Origin = '"PRODUTOS"."LOTEMINIMO"'
       Precision = 18
       Size = 2
     end
     object smlntfldMAQ_PECASFK_TIPOCARGA: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_TIPOCARGA'
       Origin = '"PRODUTOS"."FK_TIPOCARGA"'
     end

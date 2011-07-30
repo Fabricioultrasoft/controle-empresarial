@@ -1,7 +1,7 @@
 object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
   Left = 0
   Top = 0
-  Caption = 'SOLICITA'#199#195'O DE MATERIAIS'
+  Caption = 'MATERIAIS - SOLICITA'#199#195'O DE MATERIAIS'
   ClientHeight = 635
   ClientWidth = 812
   Color = clBtnFace
@@ -13,6 +13,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
   OldCreateOrder = False
   Position = poDesktopCenter
   ShowHint = True
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object DBEditEh2: TDBEditEh
@@ -159,27 +160,18 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     TabOrder = 10
     Visible = True
   end
-  object DBLookupComboboxEh6: TDBLookupComboboxEh
-    Left = 463
-    Top = 104
-    Width = 290
-    Height = 21
-    DataField = 'FK_CENTROCUSTRO'
-    DataSource = dsSolicitacao
-    EditButtons = <>
-    KeyField = 'CC_CODIGO'
-    ListField = 'CC_DESCRIC'
-    ListSource = dsCENTROCUSTO
-    ShowHint = True
-    TabOrder = 11
-    Visible = True
-  end
   object StatusBar1: TStatusBar
     Left = 0
     Top = 616
     Width = 812
     Height = 19
-    Panels = <>
+    Panels = <
+      item
+        Width = 200
+      end
+      item
+        Width = 200
+      end>
   end
   object DBEditEh10: TDBEditEh
     Left = 24
@@ -190,7 +182,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     DataSource = dsSolicitacao
     EditButtons = <>
     ShowHint = True
-    TabOrder = 12
+    TabOrder = 11
     Visible = True
   end
   object DBLookupComboboxEh7: TDBLookupComboboxEh
@@ -202,7 +194,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     DataSource = dsSolicitacao
     EditButtons = <>
     ShowHint = True
-    TabOrder = 13
+    TabOrder = 12
     Visible = True
   end
   object DBDateTimeEditEh1: TDBDateTimeEditEh
@@ -215,7 +207,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     EditButtons = <>
     Kind = dtkDateEh
     ShowHint = True
-    TabOrder = 14
+    TabOrder = 13
     Visible = True
   end
   object DBNumberEditEh1: TDBNumberEditEh
@@ -225,7 +217,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     Height = 21
     EditButtons = <>
     ShowHint = True
-    TabOrder = 17
+    TabOrder = 16
     Visible = True
   end
   object DBNumberEditEh2: TDBNumberEditEh
@@ -237,7 +229,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     DataSource = dsSolicitacao
     EditButtons = <>
     ShowHint = True
-    TabOrder = 16
+    TabOrder = 15
     Visible = True
   end
   object DBDateTimeEditEh2: TDBDateTimeEditEh
@@ -250,7 +242,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     EditButtons = <>
     Kind = dtkDateEh
     ShowHint = True
-    TabOrder = 15
+    TabOrder = 14
     Visible = True
   end
   object gpboxSituacao: TDBRadioGroup
@@ -262,6 +254,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     Columns = 4
     DataField = 'SITUACAO'
     DataSource = dsSolicitacao
+    Enabled = False
     Items.Strings = (
       '&ABERTA'
       'P&ENDENTE'
@@ -272,7 +265,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
       'CONCLUIDA (&FECHADA)'
       'O&UTROS')
     ParentBackground = True
-    TabOrder = 18
+    TabOrder = 17
     Values.Strings = (
       'A'
       'E'
@@ -285,17 +278,14 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
   end
   object PageControl1: TPageControl
     Left = 24
-    Top = 264
+    Top = 263
     Width = 729
-    Height = 346
+    Height = 330
     ActivePage = TabSheet1
-    TabOrder = 23
+    TabOrder = 22
     object TabSheet1: TTabSheet
       Caption = 'Itens Solicitados'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 289
       object DBGridEh1: TDBGridEh
         Left = 3
         Top = 85
@@ -320,50 +310,132 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
         Columns = <
           item
             EditButtons = <>
-            FieldName = 'PK_ITEM_SOLICITACAO'
+            FieldName = 'PRODUTOS'
             Footers = <>
-            Title.Caption = 'Item'
-            Width = 34
-          end
-          item
-            EditButtons = <>
-            FieldName = 'FK_PRODUTOS'
-            Footers = <>
-            Title.Caption = 'Produto'
-          end
-          item
-            EditButtons = <>
-            FieldName = 'FK_EMBALAGEM'
-            Footers = <>
-            Title.Caption = 'Embalagem'
+            Title.Caption = 'Produtos'
           end
           item
             EditButtons = <>
             FieldName = 'FK_UNIDADE'
             Footers = <>
-            Title.Caption = 'Unidade'
+            Title.Caption = 'Und.'
+            Width = 30
           end
           item
             EditButtons = <>
             FieldName = 'QUANTSOLICITADA'
             Footers = <>
-            Title.Caption = 'Solicitado'
+            Title.Caption = 'At. Sol'
+            Width = 54
           end
           item
             EditButtons = <>
             FieldName = 'QUANTAPROVADA'
             Footers = <>
-            Title.Caption = 'Aprovado'
+            Title.Caption = 'Aprov.'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'QUANTCOTADA'
+            Footers = <>
+            Title.Caption = 'Cotada'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'QUANTCOMPRADA'
+            Footers = <>
+            Title.Caption = 'Comprada'
           end
           item
             EditButtons = <>
             FieldName = 'QUANTATENDIDA'
             Footers = <>
-            Title.Caption = 'Atendido'
+            Title.Caption = 'Atendida'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'DATAATENDIMENTO'
+            Footers = <>
+            Title.Caption = 'Atendimento'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_EMPRESA'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_FILIAL'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_DEPARTAMENTO'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_SETOR'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_FUNCIONARIO'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_SOLICITACAO'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'PK_ITEM_SOLICITACAO'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_PRODUTOS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_EMBALAGEM'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'DATASOLICITACAO'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'DATAAPROVACAO'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'DATACOTACAO'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'DATACOMPRA'
+            Footers = <>
           end
           item
             EditButtons = <>
             FieldName = 'FK_COTACAO'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_COMPRA'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'OBSERVACAO'
             Footers = <>
           end>
         object RowDetailData: TRowDetailPanelControlEh
@@ -405,10 +477,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     object TabSheet2: TTabSheet
       Caption = 'Itens Atendidos'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitHeight = 318
     end
   end
   object DBNavigator1: TDBNavigator
@@ -428,7 +497,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
       'Gravar'
       'Cancelar'
       'atualizar')
-    TabOrder = 19
+    TabOrder = 18
   end
   object BitBtn1: TBitBtn
     Left = 518
@@ -438,7 +507,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     Caption = 'BitBtn1'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 20
+    TabOrder = 19
   end
   object BitBtn2: TBitBtn
     Left = 599
@@ -448,7 +517,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     Caption = 'BitBtn1'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 21
+    TabOrder = 20
   end
   object BitBtn3: TBitBtn
     Left = 680
@@ -460,12 +529,13 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
     Kind = bkClose
     NumGlyphs = 2
     ParentDoubleBuffered = False
-    TabOrder = 22
+    TabOrder = 21
     OnClick = BitBtn3Click
   end
   object tbSolicitacao: TIBTable
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'FK_EMPRESA'
@@ -619,6 +689,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
   object ibqrySol_item: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from ALM_SOLIC_ITENS')
     Left = 704
@@ -731,6 +802,15 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
       ProviderFlags = [pfInUpdate]
       Size = 8
     end
+    object strngfldSol_itemPRODUTOS: TStringField
+      FieldKind = fkLookup
+      FieldName = 'PRODUTOS'
+      LookupDataSet = ibqryPRODUTOS
+      LookupKeyFields = 'PK_PRODUTOS'
+      LookupResultField = 'RESUMIDA'
+      KeyFields = 'FK_PRODUTOS'
+      Lookup = True
+    end
   end
   object dsSol_Item: TDataSource
     DataSet = ibqrySol_item
@@ -740,6 +820,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
   object ibqryFiliais: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from FILIAL')
     Left = 440
@@ -868,13 +949,11 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
       FieldName = 'PK_EMPRESA'
       Origin = '"DEPARTAMENTOS"."PK_EMPRESA"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
     object intgrfldDeptosPK_FILIAL: TIntegerField
       FieldName = 'PK_FILIAL'
       Origin = '"DEPARTAMENTOS"."PK_FILIAL"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
     object intgrfldDeptosPK_DEPARTAMENTO: TIntegerField
       FieldName = 'PK_DEPARTAMENTO'
@@ -895,18 +974,20 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
       FieldName = 'QUANTFUNCIONARIOS'
       Origin = '"DEPARTAMENTOS"."QUANTFUNCIONARIOS"'
     end
-    object smlntfldDeptosPK_CENTROCUSTO: TSmallintField
+    object ibstrngfldDeptosPK_CENTROCUSTO: TIBStringField
       FieldName = 'PK_CENTROCUSTO'
       Origin = '"DEPARTAMENTOS"."PK_CENTROCUSTO"'
+      Size = 10
     end
   end
   object ibqryEmpresas: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from EMPRESA')
-    Left = 488
-    Top = 544
+    Left = 504
+    Top = 496
     object intgrfldEmpresasPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
       Origin = '"EMPRESA"."PK_EMPRESA"'
@@ -1034,6 +1115,7 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
   object ibqrySETORES: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from SETORES')
     Left = 600
@@ -1068,10 +1150,16 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
       Required = True
       Size = 50
     end
+    object ibstrngfldSETORESFK_CENTROCUSTO: TIBStringField
+      FieldName = 'FK_CENTROCUSTO'
+      Origin = '"SETORES"."FK_CENTROCUSTO"'
+      Size = 10
+    end
   end
   object ibqryCENTROCUSTO: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from CENTROCUSTO')
     Left = 536
@@ -1083,9 +1171,10 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
       Required = True
       Size = 30
     end
-    object ibstrngfldCENTROCUSTOCC_DESCRIC: TIBStringField
-      FieldName = 'CC_DESCRIC'
-      Origin = '"CENTROCUSTO"."CC_DESCRIC"'
+    object ibstrngfldCENTROCUSTODESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"CENTROCUSTO"."DESCRICAO"'
+      Required = True
       Size = 50
     end
     object smlntfldCENTROCUSTOPESO: TSmallintField
@@ -1096,10 +1185,71 @@ object frmALM_SOLICITACAO: TfrmALM_SOLICITACAO
       FieldName = 'RESPONSAVEL'
       Origin = '"CENTROCUSTO"."RESPONSAVEL"'
     end
+    object smlntfldCENTROCUSTOFK_CONTABILCREDITO: TSmallintField
+      FieldName = 'FK_CONTABILCREDITO'
+      Origin = '"CENTROCUSTO"."FK_CONTABILCREDITO"'
+    end
+    object smlntfldCENTROCUSTOFK_CONTABILDEBITO: TSmallintField
+      FieldName = 'FK_CONTABILDEBITO'
+      Origin = '"CENTROCUSTO"."FK_CONTABILDEBITO"'
+    end
+    object smlntfldCENTROCUSTOFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"CENTROCUSTO"."FK_EMPRESAS"'
+    end
+    object smlntfldCENTROCUSTOFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"CENTROCUSTO"."FK_FILIAIS"'
+    end
+    object smlntfldCENTROCUSTOFK_DEPARTAMENTOS: TSmallintField
+      FieldName = 'FK_DEPARTAMENTOS'
+      Origin = '"CENTROCUSTO"."FK_DEPARTAMENTOS"'
+    end
+    object smlntfldCENTROCUSTOFK_SETORES: TSmallintField
+      FieldName = 'FK_SETORES'
+      Origin = '"CENTROCUSTO"."FK_SETORES"'
+    end
+    object smlntfldCENTROCUSTOSEQUENCIAL: TSmallintField
+      FieldName = 'SEQUENCIAL'
+      Origin = '"CENTROCUSTO"."SEQUENCIAL"'
+      Required = True
+    end
+    object ibstrngfldCENTROCUSTOCLASSECENTROCUSTO: TIBStringField
+      FieldName = 'CLASSECENTROCUSTO'
+      Origin = '"CENTROCUSTO"."CLASSECENTROCUSTO"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibstrngfldCENTROCUSTOACEITAITENS: TIBStringField
+      FieldName = 'ACEITAITENS'
+      Origin = '"CENTROCUSTO"."ACEITAITENS"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibstrngfldCENTROCUSTOTIPOCENTROCUSTO: TIBStringField
+      FieldName = 'TIPOCENTROCUSTO'
+      Origin = '"CENTROCUSTO"."TIPOCENTROCUSTO"'
+      FixedChar = True
+      Size = 1
+    end
   end
   object dsCENTROCUSTO: TDataSource
     DataSet = ibqryCENTROCUSTO
     Left = 128
     Top = 536
+  end
+  object ibqryPRODUTOS: TIBQuery
+    Database = dmod.bdIndustrias
+    Transaction = dmod.transIndustrias
+    Active = True
+    SQL.Strings = (
+      'select * from PRODUTOS')
+    Left = 648
+    Top = 432
+  end
+  object acbrntrtb1: TACBrEnterTab
+    EnterAsTab = True
+    Left = 616
+    Top = 280
   end
 end
