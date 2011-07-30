@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   dmodule, Dialogs, DB, IBCustomDataSet, IBTable, DBGridEhGrouping, GridsEh,
   DBGridEh, DBLookupEh, StdCtrls, Mask, DBCtrlsEh, ComCtrls, ExtCtrls, DBCtrls,
-  Buttons, IBQuery;
+  Buttons, principal, IBQuery, ACBrBase, ACBrEnterTab;
 
 type
   TfrmALM_SOLICITACAO = class(TForm)
@@ -38,7 +38,6 @@ type
     DBEditEh5: TDBEditEh;
     DBLookupComboboxEh5: TDBLookupComboboxEh;
     DBEditEh6: TDBEditEh;
-    DBLookupComboboxEh6: TDBLookupComboboxEh;
     StatusBar1: TStatusBar;
     DBEditEh10: TDBEditEh;
     DBLookupComboboxEh7: TDBLookupComboboxEh;
@@ -108,13 +107,6 @@ type
     smlntfldFiliaisDDD: TSmallintField;
     ibstrngfldFiliaisFK_NATUREZAJURIDICA: TIBStringField;
     ibqryDeptos: TIBQuery;
-    intgrfldDeptosPK_EMPRESA: TIntegerField;
-    intgrfldDeptosPK_FILIAL: TIntegerField;
-    intgrfldDeptosPK_DEPARTAMENTO: TIntegerField;
-    ibstrngfldDeptosDESCRICAO: TIBStringField;
-    intgrfldDeptosRESPONSAVEL: TIntegerField;
-    intgrfldDeptosQUANTFUNCIONARIOS: TIntegerField;
-    smlntfldDeptosPK_CENTROCUSTO: TSmallintField;
     ibqryEmpresas: TIBQuery;
     intgrfldEmpresasPK_EMPRESA: TIntegerField;
     ibstrngfldEmpresasRAZAOSOCIAL: TIBStringField;
@@ -148,12 +140,34 @@ type
     intgrfldSETORESPK_SETOR: TIntegerField;
     ibstrngfldSETORESDESCRICAO: TIBStringField;
     ibqryCENTROCUSTO: TIBQuery;
+    dsCENTROCUSTO: TDataSource;
+    ibqryPRODUTOS: TIBQuery;
+    strngfldSol_itemPRODUTOS: TStringField;
     ibstrngfldCENTROCUSTOCC_CODIGO: TIBStringField;
-    ibstrngfldCENTROCUSTOCC_DESCRIC: TIBStringField;
+    ibstrngfldCENTROCUSTODESCRICAO: TIBStringField;
     smlntfldCENTROCUSTOPESO: TSmallintField;
     ibstrngfldCENTROCUSTORESPONSAVEL: TIBStringField;
-    dsCENTROCUSTO: TDataSource;
+    smlntfldCENTROCUSTOFK_CONTABILCREDITO: TSmallintField;
+    smlntfldCENTROCUSTOFK_CONTABILDEBITO: TSmallintField;
+    smlntfldCENTROCUSTOFK_EMPRESAS: TSmallintField;
+    smlntfldCENTROCUSTOFK_FILIAIS: TSmallintField;
+    smlntfldCENTROCUSTOFK_DEPARTAMENTOS: TSmallintField;
+    smlntfldCENTROCUSTOFK_SETORES: TSmallintField;
+    smlntfldCENTROCUSTOSEQUENCIAL: TSmallintField;
+    ibstrngfldCENTROCUSTOCLASSECENTROCUSTO: TIBStringField;
+    ibstrngfldCENTROCUSTOACEITAITENS: TIBStringField;
+    ibstrngfldCENTROCUSTOTIPOCENTROCUSTO: TIBStringField;
+    intgrfldDeptosPK_EMPRESA: TIntegerField;
+    intgrfldDeptosPK_FILIAL: TIntegerField;
+    intgrfldDeptosPK_DEPARTAMENTO: TIntegerField;
+    ibstrngfldDeptosDESCRICAO: TIBStringField;
+    intgrfldDeptosRESPONSAVEL: TIntegerField;
+    intgrfldDeptosQUANTFUNCIONARIOS: TIntegerField;
+    ibstrngfldDeptosPK_CENTROCUSTO: TIBStringField;
+    ibstrngfldSETORESFK_CENTROCUSTO: TIBStringField;
+    acbrntrtb1: TACBrEnterTab;
     procedure BitBtn3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -162,6 +176,8 @@ type
 
 var
   frmALM_SOLICITACAO: TfrmALM_SOLICITACAO;
+  empresas , filiais : smallint ;
+
 
 implementation
 
@@ -170,6 +186,22 @@ implementation
 procedure TfrmALM_SOLICITACAO.BitBtn3Click(Sender: TObject);
 begin
 Close;
+end;
+
+procedure TfrmALM_SOLICITACAO.FormCreate(Sender: TObject);
+begin
+ibqryPRODUTOS.Open;
+tbSolicitacao.Open;
+ibqrySol_item.Open;
+ibqrySETORES.Open;
+ibqryCENTROCUSTO.Open;
+ibqryEmpresas.Open;
+ibqryFiliais.Open;
+ibqryDeptos.Open;
+ibqryEmpresas.Open;
+StatusBar1.Panels[0].Text := 'Empresa: ' + ibstrngfldEmpresasRAZAOSOCIAL.value; ;
+StatusBar1.Panels[1].Text := 'Filial: ' + ibstrngfldFiliaisRAZAOSOCIAL.Value;
+StatusBar1.Refresh;
 end;
 
 end.
