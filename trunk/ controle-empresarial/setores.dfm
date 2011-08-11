@@ -265,7 +265,6 @@ object frmSetores: TfrmSetores
     Width = 829
     Height = 19
     Panels = <>
-    ExplicitWidth = 484
   end
   object dbedtDESCRICAO: TDBEdit
     Left = 87
@@ -300,10 +299,10 @@ object frmSetores: TfrmSetores
   end
   object pgc1: TPageControl
     Left = 17
-    Top = 177
+    Top = 139
     Width = 776
     Height = 248
-    ActivePage = ts2
+    ActivePage = ts1
     TabOrder = 20
     object ts1: TTabSheet
       Caption = 'Funcion'#225'rios'
@@ -447,12 +446,12 @@ object frmSetores: TfrmSetores
   object dsDEPTOS: TDataSource
     DataSet = ibqryDeptos
     Left = 448
-    Top = 264
+    Top = 240
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
     Left = 280
-    Top = 208
+    Top = 232
   end
   object ibqryEmpresas: TIBQuery
     Database = dmod.bdIndustrias
@@ -460,8 +459,8 @@ object frmSetores: TfrmSetores
     Active = True
     SQL.Strings = (
       'select * from EMPRESA')
-    Left = 376
-    Top = 224
+    Left = 360
+    Top = 240
     object ibqryEmpresasPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
       Origin = '"EMPRESA"."PK_EMPRESA"'
@@ -573,7 +572,7 @@ object frmSetores: TfrmSetores
     SQL.Strings = (
       'select * from FILIAL')
     Left = 392
-    Top = 280
+    Top = 304
     object ibqryFiliaisPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
       Origin = '"FILIAL"."PK_EMPRESA"'
@@ -740,8 +739,8 @@ object frmSetores: TfrmSetores
       end>
     StoreDefs = True
     TableName = 'SETORES'
-    Left = 232
-    Top = 296
+    Left = 240
+    Top = 304
     object tbSetoresPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
       Required = True
@@ -775,11 +774,10 @@ object frmSetores: TfrmSetores
   object ibqryPROCESSOS: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'SELECT * FROM MAN_PROCESSOS_N')
-    Left = 648
-    Top = 224
+    Left = 536
+    Top = 240
     object smlntfldPROCESSOSFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
       Origin = '"MAN_PROCESSOS_N"."FK_EMPRESAS"'
@@ -873,8 +871,8 @@ object frmSetores: TfrmSetores
   end
   object dsPROCESSOS: TDataSource
     DataSet = ibqryPROCESSOS
-    Left = 648
-    Top = 280
+    Left = 568
+    Top = 312
   end
   object ibqryCENTROCUSTO: TIBQuery
     Database = dmod.bdIndustrias
@@ -882,7 +880,7 @@ object frmSetores: TfrmSetores
     Active = True
     SQL.Strings = (
       'select * from CENTROCUSTO')
-    Left = 536
-    Top = 264
+    Left = 472
+    Top = 312
   end
 end

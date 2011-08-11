@@ -222,7 +222,6 @@ object frmVENCTOIMPOSTOS: TfrmVENCTOIMPOSTOS
   object ibtbVENCTOIMPOSTOS: TIBTable
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     FieldDefs = <
       item
         Name = 'COD'

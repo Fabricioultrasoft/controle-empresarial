@@ -49,6 +49,7 @@ type
 
 var
   frmVENCTOIMPOSTOS: TfrmVENCTOIMPOSTOS;
+  EMPRESA, FILIAL : SmallInt;
 
 implementation
 

@@ -16,13 +16,174 @@ object frmMAQUINAS: TfrmMAQUINAS
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object lbl1: TLabel
+    Left = 16
+    Top = 8
+    Width = 33
+    Height = 13
+    Caption = 'C'#243'digo'
+  end
+  object lbl2: TLabel
+    Left = 32
+    Top = 51
+    Width = 29
+    Height = 13
+    Caption = 'Depto'
+  end
+  object lbl3: TLabel
+    Left = 32
+    Top = 90
+    Width = 43
+    Height = 13
+    Caption = 'Processo'
+  end
+  object lbl4: TLabel
+    Left = 32
+    Top = 130
+    Width = 42
+    Height = 13
+    Caption = 'C. Custo'
+  end
+  object lbl5: TLabel
+    Left = 32
+    Top = 170
+    Width = 28
+    Height = 13
+    Caption = 'T.M.P'
+  end
+  object lbl6: TLabel
+    Left = 95
+    Top = 51
+    Width = 114
+    Height = 13
+    Caption = 'Nome do Departamento'
+  end
+  object lbl7: TLabel
+    Left = 95
+    Top = 8
+    Width = 85
+    Height = 13
+    Caption = 'Nome da M'#225'quina'
+  end
+  object lbl8: TLabel
+    Left = 400
+    Top = 51
+    Width = 26
+    Height = 13
+    Caption = 'Setor'
+  end
+  object lbl9: TLabel
+    Left = 400
+    Top = 90
+    Width = 29
+    Height = 13
+    Caption = 'C'#233'lula'
+  end
+  object lbl10: TLabel
+    Left = 463
+    Top = 51
+    Width = 71
+    Height = 13
+    Caption = 'Nome do Setor'
+  end
+  object lbl11: TLabel
+    Left = 463
+    Top = 90
+    Width = 74
+    Height = 13
+    Caption = 'Nome da C'#233'lula'
+  end
+  object lbl12: TLabel
+    Left = 95
+    Top = 130
+    Width = 124
+    Height = 13
+    Caption = 'Nome do Centro de Custo'
+  end
+  object lbl13: TLabel
+    Left = 400
+    Top = 130
+    Width = 23
+    Height = 13
+    Caption = 'Peso'
+  end
+  object lbl14: TLabel
+    Left = 463
+    Top = 130
+    Width = 58
+    Height = 13
+    Caption = 'P. Produ'#231#227'o'
+  end
+  object lbl15: TLabel
+    Left = 527
+    Top = 128
+    Width = 50
+    Height = 13
+    Caption = 'Criticidade'
+  end
+  object lbl16: TLabel
+    Left = 95
+    Top = 170
+    Width = 24
+    Height = 13
+    Caption = 'Acm.'
+  end
+  object lbl17: TLabel
+    Left = 158
+    Top = 170
+    Width = 55
+    Height = 13
+    Caption = 'Custo Man.'
+  end
+  object lbl18: TLabel
+    Left = 248
+    Top = 170
+    Width = 44
+    Height = 13
+    Caption = 'Faturam.'
+  end
+  object lbl19: TLabel
+    Left = 332
+    Top = 168
+    Width = 29
+    Height = 13
+    Caption = 'C.T.M'
+  end
+  object lbl20: TLabel
+    Left = 419
+    Top = 170
+    Width = 43
+    Height = 13
+    Caption = 'Tot. Fat.'
+  end
+  object lbl21: TLabel
+    Left = 506
+    Top = 170
+    Width = 50
+    Height = 13
+    Caption = 'Patrimonio'
+  end
+  object lbl22: TLabel
+    Left = 634
+    Top = 170
+    Width = 75
+    Height = 13
+    Caption = 'Maq. Dispon'#237'vel'
+  end
+  object lbl23: TLabel
+    Left = 95
+    Top = 90
+    Width = 88
+    Height = 13
+    Caption = 'Nome do Processo'
+  end
   object edtPK_MAQUINAS: TDBEditEh
     Left = 16
     Top = 24
     Width = 73
     Height = 21
     DataField = 'PK_MAQUINAS'
-    DataSource = dsMAQUINAS
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 0
@@ -34,43 +195,32 @@ object frmMAQUINAS: TfrmMAQUINAS
     Width = 410
     Height = 21
     DataField = 'DESCRICAO'
-    DataSource = dsMAQUINAS
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 1
     Visible = True
   end
   object DBCheckBoxEh1: TDBCheckBoxEh
-    Left = 687
-    Top = 26
+    Left = 665
+    Top = 149
     Width = 97
     Height = 17
     Caption = 'Maq. Ativa'
+    Checked = True
     DataField = 'MAQ_ATIVA'
-    DataSource = dsMAQUINAS
-    TabOrder = 2
+    DataSource = Man_dmodule.dsMAQUINAS
+    TabOrder = 3
     ValueChecked = 'S'
     ValueUnchecked = 'N'
   end
-  object edtFK_PRODUTOS: TDBEditEh
-    Left = 511
-    Top = 24
-    Width = 81
-    Height = 21
-    DataField = 'FK_PRODUTOS'
-    DataSource = dsMAQUINAS
-    EditButtons = <>
-    ShowHint = True
-    TabOrder = 3
-    Visible = True
-  end
   object edtFK_EMPRESAS: TDBEditEh
     Left = 32
-    Top = 59
+    Top = 67
     Width = 57
     Height = 21
-    DataField = 'FK_EMPRESAS'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_DEPARTAMENTOS'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 4
@@ -78,26 +228,26 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object cbbFK_EMPRESAS: TDBLookupComboboxEh
     Left = 95
-    Top = 59
+    Top = 67
     Width = 299
     Height = 21
-    DataField = 'FK_EMPRESAS'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_DEPARTAMENTOS'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
-    KeyField = 'PK_EMPRESA'
-    ListField = 'RAZAOSOCIAL'
-    ListSource = dsEMPRESA
+    KeyField = 'PK_DEPARTAMENTO'
+    ListField = 'DESCRICAO'
+    ListSource = Man_dmodule.dsDEPTOS
     ShowHint = True
     TabOrder = 5
     Visible = True
   end
   object edtFK_FILIAIS: TDBEditEh
     Left = 400
-    Top = 59
+    Top = 67
     Width = 57
     Height = 21
-    DataField = 'FK_FILIAIS'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_SETORES'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 6
@@ -105,26 +255,26 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object cbbFK_FILIAIS: TDBLookupComboboxEh
     Left = 463
-    Top = 59
+    Top = 67
     Width = 299
     Height = 21
-    DataField = 'FK_FILIAIS'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_SETORES'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
-    KeyField = 'PK_FILIAL'
-    ListField = 'RAZAOSOCIAL'
-    ListSource = dsFILIAL
+    KeyField = 'PK_SETOR'
+    ListField = 'DESCRICAO'
+    ListSource = Man_dmodule.dsSETORES
     ShowHint = True
     TabOrder = 7
     Visible = True
   end
   object edtFK_DEPARTAMENTOS: TDBEditEh
     Left = 32
-    Top = 99
+    Top = 107
     Width = 57
     Height = 21
-    DataField = 'FK_DEPARTAMENTOS'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_PROCESSOS'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 8
@@ -132,26 +282,26 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object cbbFK_DEPARTAMENTOS: TDBLookupComboboxEh
     Left = 95
-    Top = 99
+    Top = 109
     Width = 299
     Height = 21
-    DataField = 'FK_DEPARTAMENTOS'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_PROCESSOS'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
-    KeyField = 'PK_DEPARTAMENTO'
+    KeyField = 'PK_PROCESSOS'
     ListField = 'DESCRICAO'
-    ListSource = dsDEPTOS
+    ListSource = Man_dmodule.dsPROCESSOS
     ShowHint = True
     TabOrder = 9
     Visible = True
   end
   object edtFK_SETORES: TDBEditEh
     Left = 400
-    Top = 99
+    Top = 107
     Width = 57
     Height = 21
-    DataField = 'FK_SETORES'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_CELULAS'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 10
@@ -159,213 +309,174 @@ object frmMAQUINAS: TfrmMAQUINAS
   end
   object cbbFK_SETORES: TDBLookupComboboxEh
     Left = 463
-    Top = 99
+    Top = 107
     Width = 299
     Height = 21
-    DataField = 'FK_SETORES'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_CELULAS'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
-    KeyField = 'PK_SETOR'
+    KeyField = 'PK_CELULAS'
     ListField = 'DESCRICAO'
-    ListSource = dsSETORES
+    ListSource = Man_dmodule.dsCELULAS
     ShowHint = True
     TabOrder = 11
     Visible = True
   end
-  object edtFK_EMPRESAS1: TDBEditEh
+  object edtFK_PRIORIDADE: TDBEditEh
     Left = 32
-    Top = 139
+    Top = 147
     Width = 57
     Height = 21
-    DataField = 'FK_PROCESSOS'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_CENTROCUSTOS'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 12
     Visible = True
   end
-  object cbbFK_EMPRESAS1: TDBLookupComboboxEh
-    Left = 95
-    Top = 139
-    Width = 299
-    Height = 21
-    DataField = 'FK_PROCESSOS'
-    DataSource = dsMAQUINAS
-    EditButtons = <>
-    KeyField = 'PK_PROCESSOS'
-    ListField = 'DESCRICAO'
-    ListSource = dsPROCESSOS
-    ShowHint = True
-    TabOrder = 13
-    Visible = True
-  end
-  object edtFK_PRIORIDADE: TDBEditEh
+  object edtFK_PROCESSOS: TDBEditEh
     Left = 400
-    Top = 139
+    Top = 147
     Width = 57
     Height = 21
-    DataField = 'FK_CENTROCUSTO'
-    DataSource = dsMAQUINAS
+    DataField = 'PESO'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
+    Enabled = False
     ShowHint = True
     TabOrder = 14
     Visible = True
   end
-  object edtFK_PROCESSOS: TDBEditEh
-    Left = 32
-    Top = 179
+  object edtFK_PROCESSOS1: TDBEditEh
+    Left = 463
+    Top = 147
     Width = 57
     Height = 21
-    DataField = 'PESO'
-    DataSource = dsMAQUINAS
+    DataField = 'PESOPRODUCAO'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 15
     Visible = True
   end
-  object edtFK_PROCESSOS1: TDBEditEh
-    Left = 95
-    Top = 179
+  object edtFK_PROCESSOS2: TDBEditEh
+    Left = 526
+    Top = 147
     Width = 57
     Height = 21
-    DataField = 'PESO_PRODRUCAO'
-    DataSource = dsMAQUINAS
+    DataField = 'VALORCRITICIDADE'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     ShowHint = True
     TabOrder = 16
     Visible = True
   end
-  object edtFK_PROCESSOS2: TDBEditEh
-    Left = 158
-    Top = 179
+  object edtFK_PROCESSOS4: TDBEditEh
+    Left = 32
+    Top = 187
     Width = 57
     Height = 21
-    DataField = 'VALOR_CRITICIDADE'
-    DataSource = dsMAQUINAS
-    EditButtons = <>
-    ShowHint = True
-    TabOrder = 17
-    Visible = True
-  end
-  object edtFK_PROCESSOS3: TDBEditEh
-    Left = 221
-    Top = 179
-    Width = 57
-    Height = 21
-    DataField = 'DH_MAQDISPONIVEL'
-    DataSource = dsMAQUINAS
+    DataField = 'TEMPO_MAXIMO_PARADA'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     Enabled = False
     ShowHint = True
     TabOrder = 18
     Visible = True
   end
-  object edtFK_PROCESSOS4: TDBEditEh
-    Left = 284
-    Top = 179
+  object edtFK_PRODUTOS1: TDBEditEh
+    Left = 506
+    Top = 187
+    Width = 81
+    Height = 21
+    DataField = 'FK_PATRIMONIO'
+    DataSource = Man_dmodule.dsMAQUINAS
+    EditButtons = <>
+    ShowHint = True
+    TabOrder = 2
+    Visible = True
+  end
+  object edtPESO: TDBEditEh
+    Left = 95
+    Top = 187
     Width = 57
     Height = 21
-    DataField = 'TEMPO_MAXIMO_PARADA'
-    DataSource = dsMAQUINAS
+    DataField = 'ACUM_PARA'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     Enabled = False
     ShowHint = True
     TabOrder = 19
     Visible = True
   end
-  object edtFK_PRODUTOS1: TDBEditEh
-    Left = 598
-    Top = 24
+  object edtFK_PRODUTOS2: TDBEditEh
+    Left = 158
+    Top = 187
     Width = 81
     Height = 21
-    DataField = 'NRO_PATRIMONIAL'
-    DataSource = dsMAQUINAS
+    DataField = 'CUSTOMANUTENCAO'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
+    Enabled = False
     ShowHint = True
     TabOrder = 20
     Visible = True
   end
-  object edtPESO: TDBEditEh
-    Left = 347
-    Top = 179
-    Width = 57
+  object edtFK_PRODUTOS3: TDBEditEh
+    Left = 245
+    Top = 187
+    Width = 81
     Height = 21
-    DataField = 'ACUM_PARA'
-    DataSource = dsMAQUINAS
+    DataField = 'FATURAMENTO'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     Enabled = False
     ShowHint = True
     TabOrder = 21
     Visible = True
   end
-  object edtFK_PRODUTOS2: TDBEditEh
-    Left = 410
-    Top = 179
+  object edtFK_PRODUTOS4: TDBEditEh
+    Left = 332
+    Top = 187
     Width = 81
     Height = 21
-    DataField = 'PO_CUS_MAN'
-    DataSource = dsMAQUINAS
+    DataField = 'CUSTOTOTALMANUTENCAO'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     Enabled = False
     ShowHint = True
     TabOrder = 22
     Visible = True
   end
-  object edtFK_PRODUTOS3: TDBEditEh
-    Left = 497
-    Top = 179
+  object edtFK_PRODUTOS5: TDBEditEh
+    Left = 419
+    Top = 187
     Width = 81
     Height = 21
-    DataField = 'PO_FATURAM'
-    DataSource = dsMAQUINAS
+    DataField = 'TOTALFATURAMENTO'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     Enabled = False
     ShowHint = True
     TabOrder = 23
     Visible = True
   end
-  object edtFK_PRODUTOS4: TDBEditEh
-    Left = 584
-    Top = 179
-    Width = 81
-    Height = 21
-    DataField = 'TOT_CUSMAN'
-    DataSource = dsMAQUINAS
-    EditButtons = <>
-    Enabled = False
-    ShowHint = True
-    TabOrder = 24
-    Visible = True
-  end
-  object edtFK_PRODUTOS5: TDBEditEh
-    Left = 671
-    Top = 179
-    Width = 81
-    Height = 21
-    DataField = 'TOT_FATURA'
-    DataSource = dsMAQUINAS
-    EditButtons = <>
-    Enabled = False
-    ShowHint = True
-    TabOrder = 25
-    Visible = True
-  end
   object pgc1: TPageControl
     Left = 32
-    Top = 224
+    Top = 280
     Width = 730
     Height = 321
-    ActivePage = ts3
-    TabOrder = 26
+    ActivePage = ts1
+    TabOrder = 24
     object ts1: TTabSheet
       Caption = 'Tags'
       object dbgrdh1: TDBGridEh
         Left = 0
-        Top = 0
+        Top = 24
         Width = 719
         Height = 241
         DataGrouping.GroupLevels = <>
-        DataSource = dsTAGS
+        DataSource = Man_dmodule.dsTAGS
         Flat = False
         FooterColor = clWindow
         FooterFont.Charset = DEFAULT_CHARSET
@@ -492,7 +603,7 @@ object frmMAQUINAS: TfrmMAQUINAS
         Width = 716
         Height = 246
         DataGrouping.GroupLevels = <>
-        DataSource = dsEQUIPAMENTOS
+        DataSource = Man_dmodule.dsEQUIPAMENTOS
         Flat = False
         FooterColor = clWindow
         FooterFont.Charset = DEFAULT_CHARSET
@@ -657,7 +768,7 @@ object frmMAQUINAS: TfrmMAQUINAS
         Width = 719
         Height = 246
         DataGrouping.GroupLevels = <>
-        DataSource = dsMAQ_PECAS
+        DataSource = Man_dmodule.dsMAQ_PECAS
         Flat = False
         FooterColor = clWindow
         FooterFont.Charset = DEFAULT_CHARSET
@@ -672,1268 +783,292 @@ object frmMAQUINAS: TfrmMAQUINAS
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+        Columns = <
+          item
+            EditButtons = <>
+            FieldName = 'PK_MAQUINAS_PECAS'
+            Footers = <>
+            Title.Caption = 'Item'
+            Width = 36
+          end
+          item
+            EditButtons = <>
+            FieldName = 'DescPecas'
+            Footers = <>
+            Title.Caption = 'Pe'#231'a'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_UNIDADES'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'QUANTIDADES'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_EMPRESAS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_FILIAIS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_DEPARTAMENTOS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_SETORES'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_PROCESSOS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_MAQUINAS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_PECAS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_CELULAS'
+            Footers = <>
+          end>
         object RowDetailData: TRowDetailPanelControlEh
         end
       end
     end
+    object ts4: TTabSheet
+      Caption = 'Anexos'
+      ImageIndex = 3
+      object dbgrdh4: TDBGridEh
+        Left = -2
+        Top = -3
+        Width = 723
+        Height = 236
+        DataGrouping.GroupLevels = <>
+        DataSource = Man_dmodule.dsMAQ_ANEXOS
+        Flat = False
+        FooterColor = clWindow
+        FooterFont.Charset = DEFAULT_CHARSET
+        FooterFont.Color = clWindowText
+        FooterFont.Height = -11
+        FooterFont.Name = 'Tahoma'
+        FooterFont.Style = []
+        RowDetailPanel.Color = clBtnFace
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        Columns = <
+          item
+            EditButtons = <>
+            FieldName = 'FK_EMPRESAS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_FILIAIS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_DEPARTAMENTOS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_SETORES'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_PROCESSOS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_CELULAS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_MAQUINAS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'PK_MAQUINAS_ANEXOS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_ANEXOS'
+            Footers = <>
+          end>
+        object RowDetailData: TRowDetailPanelControlEh
+        end
+      end
+    end
+    object ts5: TTabSheet
+      Caption = 'Fun'#231#245'es'
+      ImageIndex = 4
+    end
+    object ts6: TTabSheet
+      Caption = 'Funcion'#225'rios'
+      ImageIndex = 5
+    end
+    object ts7: TTabSheet
+      Caption = 'Hist'#243'ricos'
+      ImageIndex = 6
+      object edtPK_MAQ_HISTORICOS: TDBEditEh
+        Left = 3
+        Top = 16
+        Width = 67
+        Height = 21
+        DataField = 'PK_MAQ_HISTORICOS'
+        DataSource = Man_dmodule.dsMAQ_HISTORICOS
+        EditButtons = <>
+        Enabled = False
+        ShowHint = True
+        TabOrder = 0
+        Visible = True
+      end
+      object dbmmoMAQ_HISTO: TDBMemo
+        Left = 76
+        Top = 16
+        Width = 633
+        Height = 217
+        DataField = 'MAQ_HISTO'
+        DataSource = Man_dmodule.dsMAQ_HISTORICOS
+        TabOrder = 1
+      end
+    end
+    object ts8: TTabSheet
+      Caption = 'Imagens'
+      ImageIndex = 7
+    end
+    object ts9: TTabSheet
+      Caption = 'Interven'#231#245'es'
+      ImageIndex = 8
+      object pgc2: TPageControl
+        Left = 0
+        Top = 3
+        Width = 719
+        Height = 287
+        ActivePage = ts12
+        TabOrder = 0
+        object ts10: TTabSheet
+          Caption = 'Sintomas'
+        end
+        object ts11: TTabSheet
+          Caption = 'Defeitos'
+          ImageIndex = 1
+        end
+        object ts12: TTabSheet
+          Caption = 'Solu'#231#245'es'
+          ImageIndex = 2
+        end
+      end
+    end
+    object ts13: TTabSheet
+      Caption = 'Patrim'#244'nio'
+      ImageIndex = 9
+    end
   end
   object dbnvgr1: TDBNavigator
-    Left = 32
-    Top = 551
+    Left = 34
+    Top = 231
     Width = 360
     Height = 25
-    DataSource = dsMAQUINAS
-    TabOrder = 27
+    DataSource = Man_dmodule.dsMAQUINAS
+    Hints.Strings = (
+      'Primeiro '
+      'Anterior'
+      'Pr'#243'ximo'
+      #218'ltimo'
+      'Inserir '
+      'Apagar'
+      'Editar'
+      'Gravar'
+      'Cancelar'
+      'atualizar')
+    TabOrder = 25
+    OnClick = dbnvgr1Click
   end
   object cbbFK_CENTROCUSTO: TDBLookupComboboxEh
-    Left = 463
-    Top = 139
+    Left = 95
+    Top = 147
     Width = 299
     Height = 21
-    DataField = 'FK_CENTROCUSTO'
-    DataSource = dsMAQUINAS
+    DataField = 'FK_CENTROCUSTOS'
+    DataSource = Man_dmodule.dsMAQUINAS
     EditButtons = <>
     KeyField = 'CC_CODIGO'
     ListField = 'DESCRICAO'
-    ListSource = dsCENTROCUSTO
+    ListSource = Man_dmodule.dsCENTROCUSTO
     ShowHint = True
-    TabOrder = 28
+    TabOrder = 13
     Visible = True
   end
-  object ibtbMAQUINAS: TIBTable
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    FieldDefs = <
-      item
-        Name = 'FK_EMPRESAS'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FK_FILIAIS'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FK_DEPARTAMENTOS'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FK_SETORES'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FK_PROCESSOS'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'PK_MAQUINAS'
-        Attributes = [faRequired]
-        DataType = ftInteger
-      end
-      item
-        Name = 'DESCRICAO'
-        Attributes = [faRequired]
-        DataType = ftWideString
-        Size = 100
-      end
-      item
-        Name = 'FK_FAMILIAS'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FK_SITUACAO'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'FK_IMAGEM'
-        DataType = ftInteger
-      end
-      item
-        Name = 'FK_ANEXOS'
-        DataType = ftInteger
-      end
-      item
-        Name = 'FK_CENTROCUSTO'
-        DataType = ftWideString
-        Size = 10
-      end
-      item
-        Name = 'PESO'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'PO_CUS_MAN'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'PO_FATURAM'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'PO_MAQ_PAR'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'VALOR_CRITICIDADE'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'TOT_CUSMAN'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'TOT_FATURA'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'DH_MAQDISPONIVEL'
-        DataType = ftDateTime
-      end
-      item
-        Name = 'PESO_PRODRUCAO'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'PERI_CODIG'
-        DataType = ftWideString
-        Size = 10
-      end
-      item
-        Name = 'TEMPO_MAXIMO_PARADA'
-        DataType = ftTime
-      end
-      item
-        Name = 'MTBF'
-        DataType = ftInteger
-      end
-      item
-        Name = 'NRO_PATRIMONIAL'
-        DataType = ftWideString
-        Size = 20
-      end
-      item
-        Name = 'MAQ_ATIVA'
-        Attributes = [faFixed]
-        DataType = ftWideString
-        Size = 1
-      end
-      item
-        Name = 'ACUM_PARA'
-        DataType = ftInteger
-      end
-      item
-        Name = 'FK_PRODUTOS'
-        DataType = ftInteger
-      end>
-    IndexDefs = <
-      item
-        Name = 'MAN_MAQUINAS_N_INDEX01'
-        Fields = 
-          'FK_EMPRESAS;FK_FILIAIS;FK_DEPARTAMENTOS;FK_SETORES;FK_PROCESSOS;' +
-          'PK_MAQUINAS'
-        Options = [ixUnique]
-      end
-      item
-        Name = 'MAN_MAQUINAS_N_INDEX02'
-        Fields = 'DESCRICAO'
-      end>
-    IndexFieldNames = 'DESCRICAO'
-    StoreDefs = True
-    TableName = 'MAN_MAQUINAS_N'
-    Left = 504
-    Top = 400
-    object smlntfldMAQUINASFK_EMPRESAS: TSmallintField
-      FieldName = 'FK_EMPRESAS'
-    end
-    object smlntfldMAQUINASFK_FILIAIS: TSmallintField
-      FieldName = 'FK_FILIAIS'
-    end
-    object smlntfldMAQUINASFK_DEPARTAMENTOS: TSmallintField
-      FieldName = 'FK_DEPARTAMENTOS'
-    end
-    object smlntfldMAQUINASFK_SETORES: TSmallintField
-      FieldName = 'FK_SETORES'
-    end
-    object smlntfldMAQUINASFK_PROCESSOS: TSmallintField
-      FieldName = 'FK_PROCESSOS'
-    end
-    object intgrfldMAQUINASPK_MAQUINAS: TIntegerField
-      FieldName = 'PK_MAQUINAS'
-      Required = True
-    end
-    object ibstrngfldMAQUINASDESCRICAO: TIBStringField
-      FieldName = 'DESCRICAO'
-      Required = True
-      Size = 100
-    end
-    object smlntfldMAQUINASFK_FAMILIAS: TSmallintField
-      FieldName = 'FK_FAMILIAS'
-    end
-    object smlntfldMAQUINASFK_SITUACAO: TSmallintField
-      FieldName = 'FK_SITUACAO'
-    end
-    object intgrfldMAQUINASFK_IMAGEM: TIntegerField
-      FieldName = 'FK_IMAGEM'
-    end
-    object intgrfldMAQUINASFK_ANEXOS: TIntegerField
-      FieldName = 'FK_ANEXOS'
-    end
-    object ibstrngfldMAQUINASFK_CENTROCUSTO: TIBStringField
-      FieldName = 'FK_CENTROCUSTO'
-      Size = 10
-    end
-    object smlntfldMAQUINASPESO: TSmallintField
-      FieldName = 'PESO'
-    end
-    object ibtbMAQUINASPO_CUS_MAN: TIBBCDField
-      FieldName = 'PO_CUS_MAN'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbMAQUINASPO_FATURAM: TIBBCDField
-      FieldName = 'PO_FATURAM'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbMAQUINASPO_MAQ_PAR: TIBBCDField
-      FieldName = 'PO_MAQ_PAR'
-      Precision = 18
-      Size = 2
-    end
-    object smlntfldMAQUINASVALOR_CRITICIDADE: TSmallintField
-      FieldName = 'VALOR_CRITICIDADE'
-    end
-    object ibtbMAQUINASTOT_CUSMAN: TIBBCDField
-      FieldName = 'TOT_CUSMAN'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbMAQUINASTOT_FATURA: TIBBCDField
-      FieldName = 'TOT_FATURA'
-      Precision = 18
-      Size = 2
-    end
-    object dtmfldMAQUINASDH_MAQDISPONIVEL: TDateTimeField
-      FieldName = 'DH_MAQDISPONIVEL'
-      DisplayFormat = '00:00;1'
-    end
-    object smlntfldMAQUINASPESO_PRODRUCAO: TSmallintField
-      FieldName = 'PESO_PRODRUCAO'
-    end
-    object ibstrngfldMAQUINASPERI_CODIG: TIBStringField
-      FieldName = 'PERI_CODIG'
-      Size = 10
-    end
-    object tmfldMAQUINASTEMPO_MAXIMO_PARADA: TTimeField
-      FieldName = 'TEMPO_MAXIMO_PARADA'
-    end
-    object intgrfldMAQUINASMTBF: TIntegerField
-      FieldName = 'MTBF'
-    end
-    object ibstrngfldMAQUINASNRO_PATRIMONIAL: TIBStringField
-      FieldName = 'NRO_PATRIMONIAL'
-    end
-    object ibstrngfldMAQUINASMAQ_ATIVA: TIBStringField
-      FieldName = 'MAQ_ATIVA'
-      Size = 1
-    end
-    object intgrfldMAQUINASACUM_PARA: TIntegerField
-      FieldName = 'ACUM_PARA'
-    end
-    object intgrfldMAQUINASFK_PRODUTOS: TIntegerField
-      FieldName = 'FK_PRODUTOS'
-    end
+  object edtDATAHORAMAQDISPONIVEL: TDBDateTimeEditEh
+    Left = 634
+    Top = 187
+    Width = 121
+    Height = 21
+    DataField = 'DATAHORAMAQDISPONIVEL'
+    DataSource = Man_dmodule.dsMAQUINAS
+    EditButtons = <>
+    Kind = dtkDateEh
+    ShowHint = True
+    TabOrder = 17
+    Visible = True
   end
-  object dsMAQUINAS: TDataSource
-    DataSet = ibtbMAQUINAS
-    Left = 672
-    Top = 288
+  object stat1: TStatusBar
+    Left = 0
+    Top = 670
+    Width = 837
+    Height = 19
+    Panels = <>
   end
-  object dsPROCESSOS: TDataSource
-    DataSet = ibqryPROCESSOS
-    Left = 664
-    Top = 368
-  end
-  object dsDEPTOS: TDataSource
-    DataSet = ibqryDEPARTAMENTOS
-    Left = 712
-    Top = 552
-  end
-  object ibqryEmpresas: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from EMPRESA')
-    Left = 520
-    Top = 544
-    object intgrfldEmpresasPK_EMPRESA: TIntegerField
-      FieldName = 'PK_EMPRESA'
-      Origin = '"EMPRESA"."PK_EMPRESA"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object ibstrngfldEmpresasRAZAOSOCIAL: TIBStringField
-      FieldName = 'RAZAOSOCIAL'
-      Origin = '"EMPRESA"."RAZAOSOCIAL"'
-      Size = 100
-    end
-    object ibstrngfldEmpresasENDERECO: TIBStringField
-      FieldName = 'ENDERECO'
-      Origin = '"EMPRESA"."ENDERECO"'
-      Size = 100
-    end
-    object ibstrngfldEmpresasEND_NUMERO: TIBStringField
-      FieldName = 'END_NUMERO'
-      Origin = '"EMPRESA"."END_NUMERO"'
-      Size = 10
-    end
-    object ibstrngfldEmpresasEND_COMPLEMENTO: TIBStringField
-      FieldName = 'END_COMPLEMENTO'
-      Origin = '"EMPRESA"."END_COMPLEMENTO"'
-    end
-    object intgrfldEmpresasPK_BAIRRO: TIntegerField
-      FieldName = 'PK_BAIRRO'
-      Origin = '"EMPRESA"."PK_BAIRRO"'
-    end
-    object intgrfldEmpresasPK_CIDADE: TIntegerField
-      FieldName = 'PK_CIDADE'
-      Origin = '"EMPRESA"."PK_CIDADE"'
-    end
-    object intgrfldEmpresasPK_PAIS: TIntegerField
-      FieldName = 'PK_PAIS'
-      Origin = '"EMPRESA"."PK_PAIS"'
-    end
-    object ibstrngfldEmpresasTELEFONE: TIBStringField
-      FieldName = 'TELEFONE'
-      Origin = '"EMPRESA"."TELEFONE"'
-      Size = 15
-    end
-    object ibstrngfldEmpresasTELEFAX: TIBStringField
-      FieldName = 'TELEFAX'
-      Origin = '"EMPRESA"."TELEFAX"'
-      Size = 15
-    end
-    object ibstrngfldEmpresasEMAIL: TIBStringField
-      FieldName = 'EMAIL'
-      Origin = '"EMPRESA"."EMAIL"'
-      Size = 50
-    end
-    object ibstrngfldEmpresasWEBSITE: TIBStringField
-      FieldName = 'WEBSITE'
-      Origin = '"EMPRESA"."WEBSITE"'
-      Size = 50
-    end
-    object ibstrngfldEmpresasCNAE: TIBStringField
-      FieldName = 'CNAE'
-      Origin = '"EMPRESA"."CNAE"'
-      Size = 10
-    end
-    object ibstrngfldEmpresasCNAE2: TIBStringField
-      FieldName = 'CNAE2'
-      Origin = '"EMPRESA"."CNAE2"'
-      Size = 10
-    end
-    object ibstrngfldEmpresasCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"EMPRESA"."CNPJ"'
-      Size = 14
-    end
-    object ibstrngfldEmpresasINSC_ESTADUAL: TIBStringField
-      FieldName = 'INSC_ESTADUAL'
-      Origin = '"EMPRESA"."INSC_ESTADUAL"'
-      Size = 14
-    end
-    object ibstrngfldEmpresasINSC_MUNICIPAL: TIBStringField
-      FieldName = 'INSC_MUNICIPAL'
-      Origin = '"EMPRESA"."INSC_MUNICIPAL"'
-      Size = 14
-    end
-    object ibstrngfldEmpresasCEP: TIBStringField
-      FieldName = 'CEP'
-      Origin = '"EMPRESA"."CEP"'
-      FixedChar = True
-      Size = 8
-    end
-    object ibstrngfldEmpresasUF: TIBStringField
-      FieldName = 'UF'
-      Origin = '"EMPRESA"."UF"'
-      FixedChar = True
-      Size = 2
-    end
-    object ibstrngfldEmpresasNOMEFANTASIA: TIBStringField
-      FieldName = 'NOMEFANTASIA'
-      Origin = '"EMPRESA"."NOMEFANTASIA"'
-      Size = 50
-    end
-    object smlntfldEmpresasDDD: TSmallintField
-      FieldName = 'DDD'
-      Origin = '"EMPRESA"."DDD"'
-    end
-  end
-  object dsEMPRESA: TDataSource
-    DataSet = ibqryEmpresas
-    Left = 600
-    Top = 552
-  end
-  object dsFILIAL: TDataSource
-    DataSet = ibqryFiliais
-    Left = 432
-    Top = 504
-  end
-  object ibqryFiliais: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from FILIAL')
-    Left = 384
-    Top = 504
-    object intgrfldFiliaisPK_EMPRESA: TIntegerField
-      FieldName = 'PK_EMPRESA'
-      Origin = '"FILIAL"."PK_EMPRESA"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object intgrfldFiliaisPK_FILIAL: TIntegerField
-      FieldName = 'PK_FILIAL'
-      Origin = '"FILIAL"."PK_FILIAL"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object ibstrngfldFiliaisRAZAOSOCIAL: TIBStringField
-      FieldName = 'RAZAOSOCIAL'
-      Origin = '"FILIAL"."RAZAOSOCIAL"'
-      Size = 100
-    end
-    object ibstrngfldFiliaisENDERECO: TIBStringField
-      FieldName = 'ENDERECO'
-      Origin = '"FILIAL"."ENDERECO"'
-      Size = 100
-    end
-    object ibstrngfldFiliaisEND_NUMERO: TIBStringField
-      FieldName = 'END_NUMERO'
-      Origin = '"FILIAL"."END_NUMERO"'
-      Size = 10
-    end
-    object ibstrngfldFiliaisEND_COMPLEMENTO: TIBStringField
-      FieldName = 'END_COMPLEMENTO'
-      Origin = '"FILIAL"."END_COMPLEMENTO"'
-    end
-    object intgrfldFiliaisPK_BAIRRO: TIntegerField
-      FieldName = 'PK_BAIRRO'
-      Origin = '"FILIAL"."PK_BAIRRO"'
-    end
-    object intgrfldFiliaisPK_CIDADE: TIntegerField
-      FieldName = 'PK_CIDADE'
-      Origin = '"FILIAL"."PK_CIDADE"'
-    end
-    object intgrfldFiliaisPK_PAIS: TIntegerField
-      FieldName = 'PK_PAIS'
-      Origin = '"FILIAL"."PK_PAIS"'
-    end
-    object ibstrngfldFiliaisTELEFONE: TIBStringField
-      FieldName = 'TELEFONE'
-      Origin = '"FILIAL"."TELEFONE"'
-      Size = 15
-    end
-    object ibstrngfldFiliaisTELEFAX: TIBStringField
-      FieldName = 'TELEFAX'
-      Origin = '"FILIAL"."TELEFAX"'
-      Size = 15
-    end
-    object ibstrngfldFiliaisEMAIL: TIBStringField
-      FieldName = 'EMAIL'
-      Origin = '"FILIAL"."EMAIL"'
-      Size = 50
-    end
-    object ibstrngfldFiliaisWEBSITE: TIBStringField
-      FieldName = 'WEBSITE'
-      Origin = '"FILIAL"."WEBSITE"'
-      Size = 50
-    end
-    object ibstrngfldFiliaisCNAE: TIBStringField
-      FieldName = 'CNAE'
-      Origin = '"FILIAL"."CNAE"'
-      Size = 10
-    end
-    object ibstrngfldFiliaisCNAE2: TIBStringField
-      FieldName = 'CNAE2'
-      Origin = '"FILIAL"."CNAE2"'
-      Size = 10
-    end
-    object ibstrngfldFiliaisCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"FILIAL"."CNPJ"'
-      Size = 14
-    end
-    object ibstrngfldFiliaisINSC_ESTADUAL: TIBStringField
-      FieldName = 'INSC_ESTADUAL'
-      Origin = '"FILIAL"."INSC_ESTADUAL"'
-    end
-    object ibstrngfldFiliaisINSC_MUNICIPAL: TIBStringField
-      FieldName = 'INSC_MUNICIPAL'
-      Origin = '"FILIAL"."INSC_MUNICIPAL"'
-    end
-    object ibstrngfldFiliaisCEP: TIBStringField
-      FieldName = 'CEP'
-      Origin = '"FILIAL"."CEP"'
-      FixedChar = True
-      Size = 8
-    end
-    object ibstrngfldFiliaisUF: TIBStringField
-      FieldName = 'UF'
-      Origin = '"FILIAL"."UF"'
-      FixedChar = True
-      Size = 2
-    end
-    object ibstrngfldFiliaisNOMEFANTASIA: TIBStringField
-      FieldName = 'NOMEFANTASIA'
-      Origin = '"FILIAL"."NOMEFANTASIA"'
-      Size = 50
-    end
-    object smlntfldFiliaisDDD: TSmallintField
-      FieldName = 'DDD'
-      Origin = '"FILIAL"."DDD"'
-    end
-    object ibstrngfldFiliaisFK_NATUREZAJURIDICA: TIBStringField
-      FieldName = 'FK_NATUREZAJURIDICA'
-      Origin = '"FILIAL"."FK_NATUREZAJURIDICA"'
-      Size = 10
-    end
-  end
-  object ibqryPRIORIDADE: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from MAN_PRIORIDADE_N')
-    Left = 392
-    Top = 384
-  end
-  object dsPRIORIDADE: TDataSource
-    DataSet = ibqryPRIORIDADE
-    Left = 600
-    Top = 344
-  end
-  object dsSETORES: TDataSource
-    DataSet = ibqrySETORES
-    Left = 584
-    Top = 504
-  end
-  object ibqrySETORES: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from SETORES'
-      'order by descricao')
-    Left = 520
-    Top = 496
-  end
-  object ibqryPROCESSOS: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from MAN_PROCESSOS_N'
-      'order by descricao')
-    Left = 392
-    Top = 264
-  end
-  object dsCENTROCUSTO: TDataSource
-    DataSet = ibqryCENTROCUSTO
-    Left = 272
-    Top = 496
-  end
-  object ibqryDEPARTAMENTOS: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from DEPARTAMENTOS order by descricao')
-    Left = 240
-    Top = 552
+  object dbrgrpTIPOMAQUINAS: TDBRadioGroup
+    Left = 511
+    Top = 18
+    Width = 251
+    Height = 29
+    Caption = 'Tipo'
+    Columns = 3
+    DataField = 'TIPOMAQUINAS'
+    DataSource = Man_dmodule.dsMAQUINAS
+    Items.Strings = (
+      'Industrial'
+      'Predial'
+      'Outros')
+    ParentBackground = True
+    TabOrder = 27
+    Values.Strings = (
+      'I'
+      'P'
+      'O')
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
-    Left = 568
-    Top = 264
-  end
-  object ibqryCENTROCUSTO: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from CENTROCUSTO')
-    Left = 192
-    Top = 496
-    object ibstrngfldCENTROCUSTOCC_CODIGO: TIBStringField
-      FieldName = 'CC_CODIGO'
-      Origin = '"CENTROCUSTO"."CC_CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Size = 30
-    end
-    object ibstrngfldCENTROCUSTODESCRICAO: TIBStringField
-      FieldName = 'DESCRICAO'
-      Origin = '"CENTROCUSTO"."DESCRICAO"'
-      Required = True
-      Size = 50
-    end
-    object smlntfldCENTROCUSTOPESO: TSmallintField
-      FieldName = 'PESO'
-      Origin = '"CENTROCUSTO"."PESO"'
-    end
-    object ibstrngfldCENTROCUSTORESPONSAVEL: TIBStringField
-      FieldName = 'RESPONSAVEL'
-      Origin = '"CENTROCUSTO"."RESPONSAVEL"'
-    end
-    object smlntfldCENTROCUSTOFK_CONTABILCREDITO: TSmallintField
-      FieldName = 'FK_CONTABILCREDITO'
-      Origin = '"CENTROCUSTO"."FK_CONTABILCREDITO"'
-    end
-    object smlntfldCENTROCUSTOFK_CONTABILDEBITO: TSmallintField
-      FieldName = 'FK_CONTABILDEBITO'
-      Origin = '"CENTROCUSTO"."FK_CONTABILDEBITO"'
-    end
-    object smlntfldCENTROCUSTOFK_EMPRESAS: TSmallintField
-      FieldName = 'FK_EMPRESAS'
-      Origin = '"CENTROCUSTO"."FK_EMPRESAS"'
-    end
-    object smlntfldCENTROCUSTOFK_FILIAIS: TSmallintField
-      FieldName = 'FK_FILIAIS'
-      Origin = '"CENTROCUSTO"."FK_FILIAIS"'
-    end
-    object smlntfldCENTROCUSTOFK_DEPARTAMENTOS: TSmallintField
-      FieldName = 'FK_DEPARTAMENTOS'
-      Origin = '"CENTROCUSTO"."FK_DEPARTAMENTOS"'
-    end
-    object smlntfldCENTROCUSTOFK_SETORES: TSmallintField
-      FieldName = 'FK_SETORES'
-      Origin = '"CENTROCUSTO"."FK_SETORES"'
-    end
-    object smlntfldCENTROCUSTOSEQUENCIAL: TSmallintField
-      FieldName = 'SEQUENCIAL'
-      Origin = '"CENTROCUSTO"."SEQUENCIAL"'
-      Required = True
-    end
-    object ibstrngfldCENTROCUSTOCLASSECENTROCUSTO: TIBStringField
-      FieldName = 'CLASSECENTROCUSTO'
-      Origin = '"CENTROCUSTO"."CLASSECENTROCUSTO"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldCENTROCUSTOACEITAITENS: TIBStringField
-      FieldName = 'ACEITAITENS'
-      Origin = '"CENTROCUSTO"."ACEITAITENS"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldCENTROCUSTOTIPOCENTROCUSTO: TIBStringField
-      FieldName = 'TIPOCENTROCUSTO'
-      Origin = '"CENTROCUSTO"."TIPOCENTROCUSTO"'
-      FixedChar = True
-      Size = 1
-    end
-  end
-  object ibqryTAGS: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from MAN_TAGS')
-    Left = 264
-    Top = 304
-    object intgrfldTAGSFK_EMPRESAS: TIntegerField
-      FieldName = 'FK_EMPRESAS'
-      Origin = '"MAN_TAGS"."FK_EMPRESAS"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object intgrfldTAGSFK_FILIAIS: TIntegerField
-      FieldName = 'FK_FILIAIS'
-      Origin = '"MAN_TAGS"."FK_FILIAIS"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object intgrfldTAGSFK_DEPARTAMENTO: TIntegerField
-      FieldName = 'FK_DEPARTAMENTO'
-      Origin = '"MAN_TAGS"."FK_DEPARTAMENTO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object intgrfldTAGSFK_SETORES: TIntegerField
-      FieldName = 'FK_SETORES'
-      Origin = '"MAN_TAGS"."FK_SETORES"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object intgrfldTAGSFK_PROCESSOS: TIntegerField
-      FieldName = 'FK_PROCESSOS'
-      Origin = '"MAN_TAGS"."FK_PROCESSOS"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object intgrfldTAGSFK_MAQUINAS: TIntegerField
-      FieldName = 'FK_MAQUINAS'
-      Origin = '"MAN_TAGS"."FK_MAQUINAS"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object intgrfldTAGSPK_TAG: TIntegerField
-      FieldName = 'PK_TAG'
-      Origin = '"MAN_TAGS"."PK_TAG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      DisplayFormat = '####000'
-    end
-    object ibstrngfldTAGSDESCRICAO: TIBStringField
-      FieldName = 'DESCRICAO'
-      Origin = '"MAN_TAGS"."DESCRICAO"'
-      Required = True
-      Size = 100
-    end
-    object ibstrngfldTAGSPRODUTOS: TIBStringField
-      FieldName = 'PRODUTOS'
-      Origin = '"MAN_TAGS"."PRODUTOS"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibqryTAGSDATAINICIAL: TDateField
-      FieldName = 'DATAINICIAL'
-      Origin = '"MAN_TAGS"."DATAINICIAL"'
-    end
-    object intgrfldTAGSFK_CENTROCUSTO: TIntegerField
-      FieldName = 'FK_CENTROCUSTO'
-      Origin = '"MAN_TAGS"."FK_CENTROCUSTO"'
-    end
-    object intgrfldTAGSFK_FAMILIAS: TIntegerField
-      FieldName = 'FK_FAMILIAS'
-      Origin = '"MAN_TAGS"."FK_FAMILIAS"'
-    end
-    object intgrfldTAGSFK_PRIORIDADE: TIntegerField
-      FieldName = 'FK_PRIORIDADE'
-      Origin = '"MAN_TAGS"."FK_PRIORIDADE"'
-    end
-    object ibstrngfldTAGSTAG_MULTIPLO: TIBStringField
-      FieldName = 'TAG_MULTIPLO'
-      Origin = '"MAN_TAGS"."TAG_MULTIPLO"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldTAGSTAG_PARADO: TIBStringField
-      FieldName = 'TAG_PARADO'
-      Origin = '"MAN_TAGS"."TAG_PARADO"'
-      FixedChar = True
-      Size = 1
-    end
-    object intgrfldTAGSFK_IMAGEM: TIntegerField
-      FieldName = 'FK_IMAGEM'
-      Origin = '"MAN_TAGS"."FK_IMAGEM"'
-    end
-    object smlntfldTAGSTAG_PESO: TSmallintField
-      FieldName = 'TAG_PESO'
-      Origin = '"MAN_TAGS"."TAG_PESO"'
-    end
-    object intgrfldTAGSFK_ANEXOS: TIntegerField
-      FieldName = 'FK_ANEXOS'
-      Origin = '"MAN_TAGS"."FK_ANEXOS"'
-    end
-    object smlntfldTAGSVALORCRITICIDADE: TSmallintField
-      FieldName = 'VALORCRITICIDADE'
-      Origin = '"MAN_TAGS"."VALORCRITICIDADE"'
-    end
-    object smlntfldTAGSDIAS_RETRABALHO: TSmallintField
-      FieldName = 'DIAS_RETRABALHO'
-      Origin = '"MAN_TAGS"."DIAS_RETRABALHO"'
-    end
-    object ibstrngfldTAGSAFETA_PRODUCAO: TIBStringField
-      FieldName = 'AFETA_PRODUCAO'
-      Origin = '"MAN_TAGS"."AFETA_PRODUCAO"'
-      FixedChar = True
-      Size = 1
-    end
-    object tmfldTAGSHORA_DISPONIVEL: TTimeField
-      FieldName = 'HORA_DISPONIVEL'
-      Origin = '"MAN_TAGS"."HORA_DISPONIVEL"'
-    end
-    object tmfldTAGSTEMPO_MAXIMO_PARADA: TTimeField
-      FieldName = 'TEMPO_MAXIMO_PARADA'
-      Origin = '"MAN_TAGS"."TEMPO_MAXIMO_PARADA"'
-    end
-    object intgrfldTAGSMTBF: TIntegerField
-      FieldName = 'MTBF'
-      Origin = '"MAN_TAGS"."MTBF"'
-    end
-    object ibqryTAGSTAG_DATA: TDateField
-      FieldName = 'TAG_DATA'
-      Origin = '"MAN_TAGS"."TAG_DATA"'
-    end
-    object intgrfldTAGSFK_HISTORICOS: TIntegerField
-      FieldName = 'FK_HISTORICOS'
-      Origin = '"MAN_TAGS"."FK_HISTORICOS"'
-    end
-  end
-  object dsTAGS: TDataSource
-    DataSet = ibqryTAGS
-    Left = 240
-    Top = 360
-  end
-  object ibqryEQUIPAMENTOS: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from MAN_EQUIPAMENTOS_N')
-    Left = 248
-    Top = 224
-  end
-  object dsEQUIPAMENTOS: TDataSource
-    DataSet = ibqryEQUIPAMENTOS
-    Left = 232
-    Top = 424
-  end
-  object ibqryMAQ_PECAS: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    Active = True
-    SQL.Strings = (
-      'select * from PRODUTOS WHERE TIPOPRODUTO = 16')
-    Left = 144
-    Top = 336
-    object intgrfldMAQ_PECASPK_PRODUTOS: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'PK_PRODUTOS'
-      Origin = '"PRODUTOS"."PK_PRODUTOS"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object smlntfldMAQ_PECASFK_SECOES: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_SECOES'
-      Origin = '"PRODUTOS"."FK_SECOES"'
-    end
-    object smlntfldMAQ_PECASFK_GRUPOS: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_GRUPOS'
-      Origin = '"PRODUTOS"."FK_GRUPOS"'
-    end
-    object smlntfldMAQ_PECASFK_SUBGRUPOS: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_SUBGRUPOS'
-      Origin = '"PRODUTOS"."FK_SUBGRUPOS"'
-    end
-    object smlntfldMAQ_PECASPK_UNIDVENDA: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'PK_UNIDVENDA'
-      Origin = '"PRODUTOS"."PK_UNIDVENDA"'
-    end
-    object ibstrngfldMAQ_PECASDESCRICAO: TIBStringField
-      DisplayWidth = 100
-      FieldName = 'DESCRICAO'
-      Origin = '"PRODUTOS"."DESCRICAO"'
-      Required = True
-      Size = 100
-    end
-    object ibstrngfldMAQ_PECASPRODUTOATIVO: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'PRODUTOATIVO'
-      Origin = '"PRODUTOS"."PRODUTOATIVO"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASFLAG_PROD: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'FLAG_PROD'
-      Origin = '"PRODUTOS"."FLAG_PROD"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibqryMAQ_PECASQUANT_UNIDVENDA: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'QUANT_UNIDVENDA'
-      Origin = '"PRODUTOS"."QUANT_UNIDVENDA"'
-      Precision = 18
-      Size = 2
-    end
-    object ibstrngfldMAQ_PECASOPE_INC: TIBStringField
-      DisplayWidth = 10
-      FieldName = 'OPE_INC'
-      Origin = '"PRODUTOS"."OPE_INC"'
-      Size = 10
-    end
-    object dtmfldMAQ_PECASDTHR_INC: TDateTimeField
-      DisplayWidth = 18
-      FieldName = 'DTHR_INC'
-      Origin = '"PRODUTOS"."DTHR_INC"'
-    end
-    object ibstrngfldMAQ_PECASOPE_ALT: TIBStringField
-      DisplayWidth = 10
-      FieldName = 'OPE_ALT'
-      Origin = '"PRODUTOS"."OPE_ALT"'
-      Size = 10
-    end
-    object dtmfldMAQ_PECASDTHR_ALT: TDateTimeField
-      DisplayWidth = 18
-      FieldName = 'DTHR_ALT'
-      Origin = '"PRODUTOS"."DTHR_ALT"'
-    end
-    object intgrfldMAQ_PECASPK_PROD_FAMILIA: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'PK_PROD_FAMILIA'
-      Origin = '"PRODUTOS"."PK_PROD_FAMILIA"'
-    end
-    object ibstrngfldMAQ_PECASRESUMIDA: TIBStringField
-      DisplayWidth = 50
-      FieldName = 'RESUMIDA'
-      Origin = '"PRODUTOS"."RESUMIDA"'
-      Size = 50
-    end
-    object ibstrngfldMAQ_PECASCODBARRA: TIBStringField
-      DisplayWidth = 13
-      FieldName = 'CODBARRA'
-      Origin = '"PRODUTOS"."CODBARRA"'
-      Size = 13
-    end
-    object ibstrngfldMAQ_PECASTEMVALIDADE: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'TEMVALIDADE'
-      Origin = '"PRODUTOS"."TEMVALIDADE"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASCONTROLAVALIDADE: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'CONTROLAVALIDADE'
-      Origin = '"PRODUTOS"."CONTROLAVALIDADE"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASCONTROLALOTE: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'CONTROLALOTE'
-      Origin = '"PRODUTOS"."CONTROLALOTE"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibqryMAQ_PECASVALIDADEPRODUTO: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'VALIDADEPRODUTO'
-      Origin = '"PRODUTOS"."VALIDADEPRODUTO"'
-      Precision = 18
-      Size = 2
-    end
-    object ibstrngfldMAQ_PECASTIPOVALIDADE: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'TIPOVALIDADE'
-      Origin = '"PRODUTOS"."TIPOVALIDADE"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASMESANOREFERENCIA: TIBStringField
-      DisplayWidth = 6
-      FieldName = 'MESANOREFERENCIA'
-      Origin = '"PRODUTOS"."MESANOREFERENCIA"'
-      FixedChar = True
-      Size = 6
-    end
-    object ibstrngfldMAQ_PECASEMITEETIQUETABARRA: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'EMITEETIQUETABARRA'
-      Origin = '"PRODUTOS"."EMITEETIQUETABARRA"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASEMITEETIQUETAGONDOLA: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'EMITEETIQUETAGONDOLA'
-      Origin = '"PRODUTOS"."EMITEETIQUETAGONDOLA"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASEMITEETIQUEEMBALAGEM: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'EMITEETIQUEEMBALAGEM'
-      Origin = '"PRODUTOS"."EMITEETIQUEEMBALAGEM"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibqryMAQ_PECASPESOLIQUIDO: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'PESOLIQUIDO'
-      Origin = '"PRODUTOS"."PESOLIQUIDO"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASPESOBRUTO: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'PESOBRUTO'
-      Origin = '"PRODUTOS"."PESOBRUTO"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASMEDIDALARGURA: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'MEDIDALARGURA'
-      Origin = '"PRODUTOS"."MEDIDALARGURA"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASMEDIDAALTURA: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'MEDIDAALTURA'
-      Origin = '"PRODUTOS"."MEDIDAALTURA"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASMEDIDAPROFUNDIDADE: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'MEDIDAPROFUNDIDADE'
-      Origin = '"PRODUTOS"."MEDIDAPROFUNDIDADE"'
-      Precision = 18
-      Size = 2
-    end
-    object ibstrngfldMAQ_PECASTEMVASILHAME: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'TEMVASILHAME'
-      Origin = '"PRODUTOS"."TEMVASILHAME"'
-      FixedChar = True
-      Size = 1
-    end
-    object intgrfldMAQ_PECASPK_VASILHAME: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'PK_VASILHAME'
-      Origin = '"PRODUTOS"."PK_VASILHAME"'
-    end
-    object ibstrngfldMAQ_PECASPRODUTOCONTROLADO: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'PRODUTOCONTROLADO'
-      Origin = '"PRODUTOS"."PRODUTOCONTROLADO"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASCLASSIFICACAOFISCAL: TIBStringField
-      DisplayWidth = 10
-      FieldName = 'CLASSIFICACAOFISCAL'
-      Origin = '"PRODUTOS"."CLASSIFICACAOFISCAL"'
-      Size = 10
-    end
-    object ibstrngfldMAQ_PECASSITUACAOTRIBUTARIA: TIBStringField
-      DisplayWidth = 10
-      FieldName = 'SITUACAOTRIBUTARIA'
-      Origin = '"PRODUTOS"."SITUACAOTRIBUTARIA"'
-      Size = 10
-    end
-    object ibstrngfldMAQ_PECASCODIGONCM: TIBStringField
-      DisplayWidth = 10
-      FieldName = 'CODIGONCM'
-      Origin = '"PRODUTOS"."CODIGONCM"'
-      Size = 10
-    end
-    object ibqryMAQ_PECASALICOTAICMS: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'ALICOTAICMS'
-      Origin = '"PRODUTOS"."ALICOTAICMS"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASALICOTAICMSSUBST: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'ALICOTAICMSSUBST'
-      Origin = '"PRODUTOS"."ALICOTAICMSSUBST"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASALICOTAIPI: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'ALICOTAIPI'
-      Origin = '"PRODUTOS"."ALICOTAIPI"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASALICOTAISSQN: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'ALICOTAISSQN'
-      Origin = '"PRODUTOS"."ALICOTAISSQN"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASALICOTAFRETE: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'ALICOTAFRETE'
-      Origin = '"PRODUTOS"."ALICOTAFRETE"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASALICOTAREDBASECALCULO: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'ALICOTAREDBASECALCULO'
-      Origin = '"PRODUTOS"."ALICOTAREDBASECALCULO"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASMEDIDACUBAGEM: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'MEDIDACUBAGEM'
-      Origin = '"PRODUTOS"."MEDIDACUBAGEM"'
-      Precision = 18
-      Size = 2
-    end
-    object ibstrngfldMAQ_PECASPRODUTOFRACIONADO: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'PRODUTOFRACIONADO'
-      Origin = '"PRODUTOS"."PRODUTOFRACIONADO"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASPRODUTOREFERENCIA: TIBStringField
-      DisplayWidth = 50
-      FieldName = 'PRODUTOREFERENCIA'
-      Origin = '"PRODUTOS"."PRODUTOREFERENCIA"'
-      Size = 50
-    end
-    object ibqryMAQ_PECASALICOTABASECALCULO: TIBBCDField
-      DisplayWidth = 10
-      FieldName = 'ALICOTABASECALCULO'
-      Origin = '"PRODUTOS"."ALICOTABASECALCULO"'
-      Precision = 9
-      Size = 2
-    end
-    object ibstrngfldMAQ_PECASPRODUTOCOMPOSTO: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'PRODUTOCOMPOSTO'
-      Origin = '"PRODUTOS"."PRODUTOCOMPOSTO"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibqryMAQ_PECASVALORFRETE: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'VALORFRETE'
-      Origin = '"PRODUTOS"."VALORFRETE"'
-      Precision = 18
-      Size = 2
-    end
-    object smlntfldMAQ_PECASTIPOPRODUTO: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'TIPOPRODUTO'
-      Origin = '"PRODUTOS"."TIPOPRODUTO"'
-    end
-    object intgrfldMAQ_PECASPK_EMBALAGEM: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'PK_EMBALAGEM'
-      Origin = '"PRODUTOS"."PK_EMBALAGEM"'
-    end
-    object ibqryMAQ_PECASQUANTIDADEMINIMA: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'QUANTIDADEMINIMA'
-      Origin = '"PRODUTOS"."QUANTIDADEMINIMA"'
-      Precision = 18
-      Size = 2
-    end
-    object ibstrngfldMAQ_PECASSITUACAOPRODUTO: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'SITUACAOPRODUTO'
-      Origin = '"PRODUTOS"."SITUACAOPRODUTO"'
-      FixedChar = True
-      Size = 1
-    end
-    object smlntfldMAQ_PECASFK_TIPOENTRADAPADRAO: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_TIPOENTRADAPADRAO'
-      Origin = '"PRODUTOS"."FK_TIPOENTRADAPADRAO"'
-    end
-    object smlntfldMAQ_PECASFK_TIPOSAIDAPADRAO: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_TIPOSAIDAPADRAO'
-      Origin = '"PRODUTOS"."FK_TIPOSAIDAPADRAO"'
-    end
-    object dtmfldMAQ_PECASCUSTO_ULTIMOCALCULO: TDateTimeField
-      DisplayWidth = 18
-      FieldName = 'CUSTO_ULTIMOCALCULO'
-      Origin = '"PRODUTOS"."CUSTO_ULTIMOCALCULO"'
-    end
-    object smlntfldMAQ_PECASFK_CTACONTABILCREDITO: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_CTACONTABILCREDITO'
-      Origin = '"PRODUTOS"."FK_CTACONTABILCREDITO"'
-    end
-    object smlntfldMAQ_PECASFK_CTACONTABILDEBITO: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_CTACONTABILDEBITO'
-      Origin = '"PRODUTOS"."FK_CTACONTABILDEBITO"'
-    end
-    object ibstrngfldMAQ_PECASFK_CENTROCUSTO: TIBStringField
-      DisplayWidth = 10
-      FieldName = 'FK_CENTROCUSTO'
-      Origin = '"PRODUTOS"."FK_CENTROCUSTO"'
-      Size = 10
-    end
-    object ibstrngfldMAQ_PECASFK_TIPOAPROPRIACAO: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'FK_TIPOAPROPRIACAO'
-      Origin = '"PRODUTOS"."FK_TIPOAPROPRIACAO"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibqryMAQ_PECASALICOTA_COMISSAO: TIBBCDField
-      DisplayWidth = 10
-      FieldName = 'ALICOTA_COMISSAO'
-      Origin = '"PRODUTOS"."ALICOTA_COMISSAO"'
-      Precision = 9
-      Size = 2
-    end
-    object ibstrngfldMAQ_PECASTIPORASTREABILIDADE: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'TIPORASTREABILIDADE'
-      Origin = '"PRODUTOS"."TIPORASTREABILIDADE"'
-      FixedChar = True
-      Size = 1
-    end
-    object ibstrngfldMAQ_PECASPRODUTOIMPORTADO: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'PRODUTOIMPORTADO'
-      Origin = '"PRODUTOS"."PRODUTOIMPORTADO"'
-      FixedChar = True
-      Size = 1
-    end
-    object smlntfldMAQ_PECASFK_CQ_TIPO: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_CQ_TIPO'
-      Origin = '"PRODUTOS"."FK_CQ_TIPO"'
-    end
-    object smlntfldMAQ_PECASCQ_NOTAMINIMA: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'CQ_NOTAMINIMA'
-      Origin = '"PRODUTOS"."CQ_NOTAMINIMA"'
-    end
-    object smlntfldMAQ_PECASCQ_QUANTPRODUCAO: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'CQ_QUANTPRODUCAO'
-      Origin = '"PRODUTOS"."CQ_QUANTPRODUCAO"'
-    end
-    object smlntfldMAQ_PECASPRAZOENTREGA: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'PRAZOENTREGA'
-      Origin = '"PRODUTOS"."PRAZOENTREGA"'
-    end
-    object ibqryMAQ_PECASLOTEECONOMICO: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'LOTEECONOMICO'
-      Origin = '"PRODUTOS"."LOTEECONOMICO"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryMAQ_PECASLOTEMINIMO: TIBBCDField
-      DisplayWidth = 19
-      FieldName = 'LOTEMINIMO'
-      Origin = '"PRODUTOS"."LOTEMINIMO"'
-      Precision = 18
-      Size = 2
-    end
-    object smlntfldMAQ_PECASFK_TIPOCARGA: TSmallintField
-      DisplayWidth = 10
-      FieldName = 'FK_TIPOCARGA'
-      Origin = '"PRODUTOS"."FK_TIPOCARGA"'
-    end
-  end
-  object dsMAQ_PECAS: TDataSource
-    DataSet = ibqryMAQ_PECAS
-    Left = 152
-    Top = 408
+    Left = 584
+    Top = 232
   end
 end

@@ -48,7 +48,7 @@ type
     ts8: TTabSheet;
     ts9: TTabSheet;
     ibqrySINT_NORMAS: TIBQuery;
-    dsNORMAS: TDataSource;
+    dsSINTOMAS_NORMAS: TDataSource;
     smlntfldNORMASFK_SINT_NORMAS: TSmallintField;
     smlntfldNORMASFK_SINTOMAS: TSmallintField;
     smlntfldNORMASFK_NORMAS: TSmallintField;
@@ -67,6 +67,7 @@ type
     smlntfldEQUIPESPK_EQUIPES: TSmallintField;
     ibstrngfldEQUIPESNOMEEQUIPE: TIBStringField;
     ibstrngfldSINTOMASRESPONSAVEL: TIBStringField;
+    ts10: TTabSheet;
     procedure FormCreate(Sender: TObject);
     procedure edtFK_EQUIPES1DblClick(Sender: TObject);
   private

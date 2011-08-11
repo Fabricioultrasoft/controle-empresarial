@@ -19,30 +19,30 @@ object frmCCUSTOS: TfrmCCUSTOS
   object lbl1: TLabel
     Left = 16
     Top = 8
-    Width = 16
+    Width = 33
     Height = 13
-    Caption = 'lbl1'
+    Caption = 'C'#243'digo'
   end
   object lbl2: TLabel
     Left = 111
     Top = 8
-    Width = 16
+    Width = 129
     Height = 13
-    Caption = 'lbl2'
+    Caption = 'Nome do Centro de Custos'
   end
   object lbl3: TLabel
     Left = 16
     Top = 53
-    Width = 16
+    Width = 23
     Height = 13
-    Caption = 'lbl3'
+    Caption = 'Peso'
   end
   object lbl4: TLabel
     Left = 111
     Top = 53
-    Width = 16
+    Width = 61
     Height = 13
-    Caption = 'lbl4'
+    Caption = 'Respons'#225'vel'
   end
   object lbl5: TLabel
     Left = 16
@@ -158,7 +158,6 @@ object frmCCUSTOS: TfrmCCUSTOS
     Width = 527
     Height = 19
     Panels = <>
-    ExplicitTop = 468
   end
   object BitBtn1: TBitBtn
     Left = 22
@@ -211,7 +210,7 @@ object frmCCUSTOS: TfrmCCUSTOS
     TabOrder = 10
   end
   object BitBtn6: TBitBtn
-    Left = 437
+    Left = 444
     Top = 352
     Width = 75
     Height = 25
@@ -310,7 +309,6 @@ object frmCCUSTOS: TfrmCCUSTOS
   object tbCCUSTOS: TIBTable
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     FieldDefs = <
       item
         Name = 'CC_CODIGO'
@@ -319,7 +317,8 @@ object frmCCUSTOS: TfrmCCUSTOS
         Size = 30
       end
       item
-        Name = 'CC_DESCRIC'
+        Name = 'DESCRICAO'
+        Attributes = [faRequired]
         DataType = ftWideString
         Size = 50
       end
@@ -337,8 +336,47 @@ object frmCCUSTOS: TfrmCCUSTOS
         DataType = ftSmallint
       end
       item
-        Name = 'FK_CANTABILDEBITO'
+        Name = 'FK_CONTABILDEBITO'
         DataType = ftSmallint
+      end
+      item
+        Name = 'FK_EMPRESAS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_FILIAIS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_DEPARTAMENTOS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_SETORES'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'SEQUENCIAL'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'CLASSECENTROCUSTO'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'ACEITAITENS'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'TIPOCENTROCUSTO'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
       end>
     IndexDefs = <
       item
