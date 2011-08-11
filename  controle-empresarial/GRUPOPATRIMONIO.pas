@@ -11,26 +11,19 @@ uses
 type
   TfrmGrupoPatrimonio = class(TForm)
     stat1: TStatusBar;
-    ibtbGRUPOPATRI: TIBTable;
-    dsGRUPOPATRIMONIO: TDataSource;
-    edtCODGRUPO: TDBEditEh;
+    dsGRUPOS: TDataSource;
+    edtFK_GRUPOSPATRIMONIO: TDBEditEh;
     edtDESCRICAO: TDBEditEh;
-    edtEMPRESA: TDBEditEh;
-    DBLookupComboboxEh1: TDBLookupComboboxEh;
-    edtFILIAL: TDBEditEh;
-    DBLookupComboboxEh2: TDBLookupComboboxEh;
-    DBCheckBoxEh1: TDBCheckBoxEh;
+    dbchckbxhIMOBILIZAR: TDBCheckBoxEh;
     DBNumberEditEh1: TDBNumberEditEh;
     DBNumberEditEh2: TDBNumberEditEh;
     dbimgFOTO: TDBImage;
-    btn1: TBitBtn;
     btn2: TBitBtn;
     btn3: TBitBtn;
     edtCAMINHOFOTO: TDBEditEh;
     dbnvgr1: TDBNavigator;
     btn4: TBitBtn;
     btn5: TBitBtn;
-    btn6: TBitBtn;
     btn7: TBitBtn;
     lbledt1: TLabeledEdit;
     lbledt2: TLabeledEdit;
@@ -84,18 +77,41 @@ type
     smlntfldFiliaisDDD: TSmallintField;
     ibstrngfldFiliaisFK_NATUREZAJURIDICA: TIBStringField;
     dsFILIAL: TDataSource;
-    smlntfldGRUPOPATRIEMPRESA: TSmallintField;
-    smlntfldGRUPOPATRIFILIAL: TSmallintField;
-    intgrfldGRUPOPATRICODGRUPO: TIntegerField;
-    ibstrngfldGRUPOPATRIDESCRICAO: TIBStringField;
-    ibstrngfldGRUPOPATRISIGLA: TIBStringField;
-    ibtbGRUPOPATRIFOTO: TBlobField;
-    ibstrngfldGRUPOPATRICAMINHOFOTO: TIBStringField;
-    ibtbGRUPOPATRITAXADEPRECIACAO: TFloatField;
-    ibtbGRUPOPATRITAXAVALORIZACAO: TIBBCDField;
-    ibstrngfldGRUPOPATRIIMOBILIZAR: TIBStringField;
+    ibtbGRUPOS: TIBTable;
+    smlntfldGRUPOSFK_EMPRESAS: TSmallintField;
+    smlntfldGRUPOSFK_FILIAIS: TSmallintField;
+    smlntfldGRUPOSFK_GRUPOSPATRIMONIO: TSmallintField;
+    ibstrngfldGRUPOSDESCRICAO: TIBStringField;
+    ibstrngfldGRUPOSSIGLA: TIBStringField;
+    blbfldGRUPOSFOTO: TBlobField;
+    ibstrngfldGRUPOSCAMINHOFOTO: TIBStringField;
+    fltfldGRUPOSTAXADEPRECIACAO: TFloatField;
+    ibtbGRUPOSTAXAVALORIZACAO: TIBBCDField;
+    ibstrngfldGRUPOSIMOBILIZAR: TIBStringField;
+    dbgrdh1: TDBGridEh;
+    ibqrySUBGRUPOS: TIBQuery;
+    dsSUBGRUPOS: TDataSource;
+    smlntfldSUBGRUPOSFK_EMPRESAS: TSmallintField;
+    smlntfldSUBGRUPOSFK_FILIAIS: TSmallintField;
+    smlntfldSUBGRUPOSFK_GRUPOS: TSmallintField;
+    smlntfldSUBGRUPOSPK_SUBGRUPOS: TSmallintField;
+    ibstrngfldSUBGRUPOSDESCRICAO: TIBStringField;
+    ibstrngfldSUBGRUPOSSIGLA: TIBStringField;
+    blbfldSUBGRUPOSFOTO: TBlobField;
+    ibstrngfldSUBGRUPOSCAMINHOFOTO: TIBStringField;
+    ibstrngfldSUBGRUPOSIMOBILIZAR: TIBStringField;
+    ibqrySUBGRUPOSTAXADEPRECIACAO: TIBBCDField;
+    ibqrySUBGRUPOSTAXAVALORIZACAO: TIBBCDField;
+    smlntfldSUBGRUPOSCTACONTABILPAICREDITO: TSmallintField;
+    smlntfldSUBGRUPOSCTACONTABILPAIDEBITO: TSmallintField;
+    lbl1: TLabel;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    lbl5: TLabel;
     procedure btn7Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
   private
     { Private declarations }
   public
@@ -104,7 +120,8 @@ type
 
 var
   frmGrupoPatrimonio: TfrmGrupoPatrimonio;
-
+  EMPRESA : SmallInt;
+  FILIAL : SmallInt;
 implementation
 
 {$R *.dfm}
@@ -114,9 +131,30 @@ begin
 Close;
 end;
 
+procedure TfrmGrupoPatrimonio.dbnvgr1Click(Sender: TObject;
+  Button: TNavigateBtn);
+var texto : string;
+begin
+texto := 'select * from cont_sgpatrimo where FK_GRUPOS = ';
+texto := texto + QuotedStr(edtFK_GRUPOSPATRIMONIO.Field.Value );
+texto := texto + ' order by descricao';
+ibqrySUBGRUPOS.Close;
+ibqrySUBGRUPOS.SQL.Clear;
+ibqrySUBGRUPOS.SQL.Add(texto);
+ibqrySUBGRUPOS.Open;
+
+end;
+
 procedure TfrmGrupoPatrimonio.FormCreate(Sender: TObject);
 begin
-ibtbGRUPOPATRI.Open;
+EMPRESA := 1;
+FILIAL := 1;
+ibqrySUBGRUPOS.Open;
+ibqryEmpresas.Open;
+ibqryFiliais.Open;
+ibtbGRUPOS.Open;
+stat1.Panels[0].Text := 'Empresa: ' + ibqryEmpresas.FieldByName('razaosocial').Value;
+stat1.Refresh;
 end;
 
 end.

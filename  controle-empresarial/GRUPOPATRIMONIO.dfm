@@ -2,7 +2,7 @@ object frmGrupoPatrimonio: TfrmGrupoPatrimonio
   Left = 0
   Top = 0
   Caption = 'CONTROLADORIA - GRUPOS DE PATRIM'#212'NIOS'
-  ClientHeight = 458
+  ClientHeight = 463
   ClientWidth = 729
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,20 +16,61 @@ object frmGrupoPatrimonio: TfrmGrupoPatrimonio
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object lbl1: TLabel
+    Left = 24
+    Top = 8
+    Width = 33
+    Height = 13
+    Caption = 'C'#243'digo'
+  end
+  object lbl2: TLabel
+    Left = 95
+    Top = 8
+    Width = 161
+    Height = 13
+    Caption = 'Descri'#231#227'o do Grupo de patrimonio'
+  end
+  object lbl3: TLabel
+    Left = 24
+    Top = 51
+    Width = 59
+    Height = 13
+    Caption = 'Deprecia'#231#227'o'
+  end
+  object lbl4: TLabel
+    Left = 120
+    Top = 51
+    Width = 54
+    Height = 13
+    Caption = 'Valoriza'#231#227'o'
+  end
+  object lbl5: TLabel
+    Left = 216
+    Top = 51
+    Width = 66
+    Height = 13
+    Caption = 'Caminho Foto'
+  end
   object stat1: TStatusBar
     Left = 0
-    Top = 439
+    Top = 444
     Width = 729
     Height = 19
-    Panels = <>
+    Panels = <
+      item
+        Width = 350
+      end
+      item
+        Width = 200
+      end>
   end
-  object edtCODGRUPO: TDBEditEh
+  object edtFK_GRUPOSPATRIMONIO: TDBEditEh
     Left = 24
     Top = 24
     Width = 65
     Height = 21
-    DataField = 'CODGRUPO'
-    DataSource = dsGRUPOPATRIMONIO
+    DataField = 'FK_GRUPOSPATRIMONIO'
+    DataSource = dsGRUPOS
     EditButtons = <>
     ShowHint = True
     TabOrder = 0
@@ -41,202 +82,156 @@ object frmGrupoPatrimonio: TfrmGrupoPatrimonio
     Width = 458
     Height = 21
     DataField = 'DESCRICAO'
-    DataSource = dsGRUPOPATRIMONIO
+    DataSource = dsGRUPOS
     EditButtons = <>
     ShowHint = True
     TabOrder = 1
     Visible = True
   end
-  object edtEMPRESA: TDBEditEh
-    Left = 24
-    Top = 72
-    Width = 73
-    Height = 21
-    DataField = 'EMPRESA'
-    DataSource = dsGRUPOPATRIMONIO
-    EditButtons = <>
-    ShowHint = True
+  object dbchckbxhIMOBILIZAR: TDBCheckBoxEh
+    Left = 559
+    Top = 26
+    Width = 97
+    Height = 17
+    Caption = 'Imobilizar'
+    DataField = 'IMOBILIZAR'
+    DataSource = dsGRUPOS
     TabOrder = 2
-    Visible = True
+    ValueChecked = 'S'
+    ValueUnchecked = 'N'
   end
-  object DBLookupComboboxEh1: TDBLookupComboboxEh
-    Left = 103
-    Top = 72
-    Width = 250
+  object DBNumberEditEh1: TDBNumberEditEh
+    Left = 24
+    Top = 70
+    Width = 90
     Height = 21
-    DataField = 'EMPRESA'
-    DataSource = dsGRUPOPATRIMONIO
+    DataField = 'TAXADEPRECIACAO'
+    DataSource = dsGRUPOS
     EditButtons = <>
-    KeyField = 'PK_EMPRESA'
-    ListField = 'RAZAOSOCIAL'
-    ListSource = dsEMPRESA
     ShowHint = True
     TabOrder = 3
     Visible = True
   end
-  object edtFILIAL: TDBEditEh
-    Left = 360
-    Top = 72
-    Width = 73
+  object DBNumberEditEh2: TDBNumberEditEh
+    Left = 120
+    Top = 70
+    Width = 90
     Height = 21
-    DataField = 'FILIAL'
-    DataSource = dsGRUPOPATRIMONIO
+    DataField = 'TAXAVALORIZACAO'
+    DataSource = dsGRUPOS
     EditButtons = <>
     ShowHint = True
     TabOrder = 4
     Visible = True
   end
-  object DBLookupComboboxEh2: TDBLookupComboboxEh
-    Left = 439
-    Top = 72
-    Width = 250
-    Height = 21
-    DataField = 'FILIAL'
-    DataSource = dsGRUPOPATRIMONIO
-    EditButtons = <>
-    KeyField = 'PK_FILIAL'
-    ListField = 'RAZAOSOCIAL'
-    ListSource = dsFILIAL
-    ShowHint = True
-    TabOrder = 5
-    Visible = True
-  end
-  object DBCheckBoxEh1: TDBCheckBoxEh
-    Left = 24
-    Top = 120
-    Width = 97
-    Height = 17
-    Caption = 'Imobilizar'
-    DataField = 'IMOBILIZAR'
-    DataSource = dsGRUPOPATRIMONIO
-    TabOrder = 10
-    ValueChecked = 'S'
-    ValueUnchecked = 'N'
-  end
-  object DBNumberEditEh1: TDBNumberEditEh
-    Left = 143
-    Top = 118
-    Width = 90
-    Height = 21
-    DataField = 'TAXADEPRECIACAO'
-    DataSource = dsGRUPOPATRIMONIO
-    EditButtons = <>
-    ShowHint = True
-    TabOrder = 8
-    Visible = True
-  end
-  object DBNumberEditEh2: TDBNumberEditEh
-    Left = 239
-    Top = 118
-    Width = 90
-    Height = 21
-    DataField = 'TAXAVALORIZACAO'
-    DataSource = dsGRUPOPATRIMONIO
-    EditButtons = <>
-    ShowHint = True
-    TabOrder = 9
-    Visible = True
-  end
   object dbimgFOTO: TDBImage
-    Left = 584
-    Top = 99
-    Width = 105
+    Left = 559
+    Top = 49
+    Width = 113
     Height = 105
     DataField = 'FOTO'
-    DataSource = dsGRUPOPATRIMONIO
+    DataSource = dsGRUPOS
     TabOrder = 6
   end
-  object btn1: TBitBtn
-    Left = 503
-    Top = 117
-    Width = 75
-    Height = 25
-    Caption = 'btn1'
-    DoubleBuffered = True
-    ParentDoubleBuffered = False
-    TabOrder = 7
-  end
   object btn2: TBitBtn
-    Left = 503
-    Top = 148
+    Left = 478
+    Top = 97
     Width = 75
     Height = 25
     Caption = 'btn2'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 11
+    TabOrder = 7
   end
   object btn3: TBitBtn
-    Left = 503
-    Top = 179
+    Left = 478
+    Top = 128
     Width = 75
     Height = 25
     Caption = 'btn3'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 13
+    TabOrder = 8
   end
   object edtCAMINHOFOTO: TDBEditEh
-    Left = 24
-    Top = 179
-    Width = 473
+    Left = 216
+    Top = 70
+    Width = 337
     Height = 21
     DataField = 'CAMINHOFOTO'
-    DataSource = dsGRUPOPATRIMONIO
+    DataSource = dsGRUPOS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 12
+    TabOrder = 5
     Visible = True
   end
   object dbnvgr1: TDBNavigator
     Left = 24
-    Top = 336
+    Top = 168
     Width = 360
     Height = 25
-    DataSource = dsGRUPOPATRIMONIO
-    TabOrder = 14
+    DataSource = dsGRUPOS
+    Hints.Strings = (
+      'Primeiro '
+      'Anterior'
+      'Pr'#243'ximo'
+      #218'ltimo'
+      'Inserir '
+      'Apagar'
+      'Editar'
+      'Gravar'
+      'Cancelar'
+      'atualizar')
+    TabOrder = 9
+    OnClick = dbnvgr1Click
   end
   object btn4: TBitBtn
-    Left = 390
-    Top = 336
+    Left = 397
+    Top = 168
     Width = 75
     Height = 25
     Caption = 'btn4'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 15
+    TabOrder = 10
   end
   object btn5: TBitBtn
-    Left = 471
-    Top = 336
+    Left = 478
+    Top = 168
     Width = 75
     Height = 25
     Caption = 'btn4'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 16
-  end
-  object btn6: TBitBtn
-    Left = 552
-    Top = 336
-    Width = 75
-    Height = 25
-    Caption = 'btn4'
-    DoubleBuffered = True
-    ParentDoubleBuffered = False
-    TabOrder = 17
+    TabOrder = 11
   end
   object btn7: TBitBtn
-    Left = 633
-    Top = 336
+    Left = 597
+    Top = 168
     Width = 75
     Height = 25
     Caption = 'Fechar'
     DoubleBuffered = True
-    Kind = bkClose
+    Glyph.Data = {
+      DE010000424DDE01000000000000760000002800000024000000120000000100
+      0400000000006801000000000000000000001000000000000000000000000000
+      80000080000000808000800000008000800080800000C0C0C000808080000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00388888888877
+      F7F787F8888888888333333F00004444400888FFF444448888888888F333FF8F
+      000033334D5007FFF4333388888888883338888F0000333345D50FFFF4333333
+      338F888F3338F33F000033334D5D0FFFF43333333388788F3338F33F00003333
+      45D50FEFE4333333338F878F3338F33F000033334D5D0FFFF43333333388788F
+      3338F33F0000333345D50FEFE4333333338F878F3338F33F000033334D5D0FFF
+      F43333333388788F3338F33F0000333345D50FEFE4333333338F878F3338F33F
+      000033334D5D0EFEF43333333388788F3338F33F0000333345D50FEFE4333333
+      338F878F3338F33F000033334D5D0EFEF43333333388788F3338F33F00003333
+      4444444444333333338F8F8FFFF8F33F00003333333333333333333333888888
+      8888333F00003333330000003333333333333FFFFFF3333F00003333330AAAA0
+      333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
+      0000}
     NumGlyphs = 2
     ParentDoubleBuffered = False
-    TabOrder = 18
+    TabOrder = 12
     OnClick = btn7Click
   end
   object lbledt1: TLabeledEdit
@@ -244,150 +239,125 @@ object frmGrupoPatrimonio: TfrmGrupoPatrimonio
     Top = 392
     Width = 65
     Height = 21
-    EditLabel.Width = 32
+    EditLabel.Width = 33
     EditLabel.Height = 13
-    EditLabel.Caption = 'lbledt1'
-    TabOrder = 20
+    EditLabel.Caption = 'C'#243'digo'
+    TabOrder = 14
   end
   object lbledt2: TLabeledEdit
     Left = 95
     Top = 392
     Width = 458
     Height = 21
-    EditLabel.Width = 32
+    EditLabel.Width = 46
     EditLabel.Height = 13
-    EditLabel.Caption = 'lbledt2'
-    TabOrder = 21
+    EditLabel.Caption = 'Descri'#231#227'o'
+    TabOrder = 15
   end
   object btn8: TBitBtn
-    Left = 633
-    Top = 388
+    Left = 598
+    Top = 390
     Width = 75
     Height = 25
-    Caption = 'btn4'
+    Caption = 'Procurar'
     DoubleBuffered = True
+    Kind = bkRetry
+    NumGlyphs = 2
     ParentDoubleBuffered = False
-    TabOrder = 19
+    TabOrder = 13
     OnClick = btn7Click
   end
-  object ibtbGRUPOPATRI: TIBTable
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    FieldDefs = <
+  object dbgrdh1: TDBGridEh
+    Left = 23
+    Top = 199
+    Width = 649
+    Height = 170
+    DataGrouping.GroupLevels = <>
+    DataSource = dsSUBGRUPOS
+    Flat = False
+    FooterColor = clWindow
+    FooterFont.Charset = DEFAULT_CHARSET
+    FooterFont.Color = clWindowText
+    FooterFont.Height = -11
+    FooterFont.Name = 'Tahoma'
+    FooterFont.Style = []
+    RowDetailPanel.Color = clBtnFace
+    TabOrder = 17
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
       item
-        Name = 'EMPRESA'
-        DataType = ftSmallint
+        EditButtons = <>
+        FieldName = 'DESCRICAO'
+        Footers = <>
+        Title.Caption = 'Descri'#231#227'o'
       end
       item
-        Name = 'FILIAL'
-        DataType = ftSmallint
+        EditButtons = <>
+        FieldName = 'CODSGRUPO'
+        Footers = <>
+        Title.Caption = 'SubGrupo'
       end
       item
-        Name = 'CODGRUPO'
-        Attributes = [faRequired]
-        DataType = ftInteger
+        EditButtons = <>
+        FieldName = 'IMOBILIZAR'
+        Footers = <>
+        Title.Caption = 'Imob.'
       end
       item
-        Name = 'DESCRICAO'
-        Attributes = [faRequired]
-        DataType = ftWideString
-        Size = 50
+        EditButtons = <>
+        FieldName = 'TAXADEPRECIACAO'
+        Footers = <>
+        Title.Caption = 'Depr. %'
+        Width = 66
       end
       item
-        Name = 'SIGLA'
-        Attributes = [faFixed]
-        DataType = ftWideString
-        Size = 2
+        EditButtons = <>
+        FieldName = 'TAXAVALORIZACAO'
+        Footers = <>
+        Title.Caption = 'Valoriza %'
+        Width = 73
       end
       item
-        Name = 'FOTO'
-        DataType = ftBlob
-        Size = 8
+        EditButtons = <>
+        FieldName = 'SIGLA'
+        Footers = <>
       end
       item
-        Name = 'CAMINHOFOTO'
-        DataType = ftWideString
-        Size = 100
+        EditButtons = <>
+        FieldName = 'FOTO'
+        Footers = <>
       end
       item
-        Name = 'TAXADEPRECIACAO'
-        DataType = ftFloat
+        EditButtons = <>
+        FieldName = 'CAMINHOFOTO'
+        Footers = <>
       end
       item
-        Name = 'TAXAVALORIZACAO'
-        DataType = ftBCD
-        Precision = 18
-        Size = 4
+        EditButtons = <>
+        FieldName = 'EMPRESA'
+        Footers = <>
       end
       item
-        Name = 'IMOBILIZAR'
-        Attributes = [faFixed]
-        DataType = ftWideString
-        Size = 3
+        EditButtons = <>
+        FieldName = 'FILIAL'
+        Footers = <>
+      end
+      item
+        EditButtons = <>
+        FieldName = 'CODGRUPO'
+        Footers = <>
       end>
-    IndexDefs = <
-      item
-        Name = 'PK_PATRIMONIO_GRUPOS_1'
-        Fields = 'EMPRESA;FILIAL;CODGRUPO'
-        Options = [ixUnique]
-      end
-      item
-        Name = 'IDX_GRPATRIMO'
-        Fields = 'DESCRICAO'
-        Options = [ixUnique]
-      end>
-    StoreDefs = True
-    TableName = 'PATRIMONIO_GRUPOS'
-    Left = 312
-    Top = 152
-    object smlntfldGRUPOPATRIEMPRESA: TSmallintField
-      FieldName = 'EMPRESA'
-    end
-    object smlntfldGRUPOPATRIFILIAL: TSmallintField
-      FieldName = 'FILIAL'
-    end
-    object intgrfldGRUPOPATRICODGRUPO: TIntegerField
-      FieldName = 'CODGRUPO'
-      Required = True
-    end
-    object ibstrngfldGRUPOPATRIDESCRICAO: TIBStringField
-      FieldName = 'DESCRICAO'
-      Required = True
-      Size = 50
-    end
-    object ibstrngfldGRUPOPATRISIGLA: TIBStringField
-      FieldName = 'SIGLA'
-      FixedChar = True
-      Size = 2
-    end
-    object ibtbGRUPOPATRIFOTO: TBlobField
-      FieldName = 'FOTO'
-      Size = 8
-    end
-    object ibstrngfldGRUPOPATRICAMINHOFOTO: TIBStringField
-      FieldName = 'CAMINHOFOTO'
-      Size = 100
-    end
-    object ibtbGRUPOPATRITAXADEPRECIACAO: TFloatField
-      FieldName = 'TAXADEPRECIACAO'
-      DisplayFormat = '##0.00%'
-    end
-    object ibtbGRUPOPATRITAXAVALORIZACAO: TIBBCDField
-      FieldName = 'TAXAVALORIZACAO'
-      DisplayFormat = '##0.00%'
-      Precision = 18
-      Size = 4
-    end
-    object ibstrngfldGRUPOPATRIIMOBILIZAR: TIBStringField
-      FieldName = 'IMOBILIZAR'
-      FixedChar = True
-      Size = 3
+    object RowDetailData: TRowDetailPanelControlEh
     end
   end
-  object dsGRUPOPATRIMONIO: TDataSource
-    DataSet = ibtbGRUPOPATRI
-    Left = 416
-    Top = 128
+  object dsGRUPOS: TDataSource
+    DataSet = ibtbGRUPOS
+    Left = 632
+    Top = 120
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
@@ -396,16 +366,16 @@ object frmGrupoPatrimonio: TfrmGrupoPatrimonio
   end
   object dsEMPRESA: TDataSource
     DataSet = ibqryEmpresas
-    Left = 208
-    Top = 248
+    Left = 400
+    Top = 112
   end
   object ibqryEmpresas: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from EMPRESA')
-    Left = 376
-    Top = 224
+    Left = 480
+    Top = 104
     object intgrfldEmpresasPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
       Origin = '"EMPRESA"."PK_EMPRESA"'
@@ -515,8 +485,8 @@ object frmGrupoPatrimonio: TfrmGrupoPatrimonio
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from FILIAL')
-    Left = 392
-    Top = 280
+    Left = 432
+    Top = 96
     object intgrfldFiliaisPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
       Origin = '"FILIAL"."PK_EMPRESA"'
@@ -632,7 +602,204 @@ object frmGrupoPatrimonio: TfrmGrupoPatrimonio
   end
   object dsFILIAL: TDataSource
     DataSet = ibqryFiliais
-    Left = 152
-    Top = 248
+    Left = 312
+    Top = 112
+  end
+  object ibtbGRUPOS: TIBTable
+    Database = dmod.bdIndustrias
+    Transaction = dmod.transIndustrias
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'FK_EMPRESAS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_FILIAIS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_GRUPOSPATRIMONIO'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'DESCRICAO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 50
+      end
+      item
+        Name = 'SIGLA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 2
+      end
+      item
+        Name = 'FOTO'
+        DataType = ftBlob
+        Size = 8
+      end
+      item
+        Name = 'CAMINHOFOTO'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'TAXADEPRECIACAO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'TAXAVALORIZACAO'
+        DataType = ftBCD
+        Precision = 18
+        Size = 4
+      end
+      item
+        Name = 'IMOBILIZAR'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 3
+      end>
+    IndexDefs = <
+      item
+        Name = 'PK_CONT_GRPATRIMO_1'
+        Fields = 'FK_EMPRESAS;FK_FILIAIS;FK_GRUPOSPATRIMONIO'
+        Options = [ixUnique]
+      end
+      item
+        Name = 'CONT_GRPATRIMO_DESCRICAO_A'
+        Fields = 'DESCRICAO'
+      end>
+    IndexFieldNames = 'DESCRICAO'
+    StoreDefs = True
+    TableName = 'CONT_GRPATRIMO'
+    Left = 640
+    Top = 56
+    object smlntfldGRUPOSFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+    end
+    object smlntfldGRUPOSFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+    end
+    object smlntfldGRUPOSFK_GRUPOSPATRIMONIO: TSmallintField
+      FieldName = 'FK_GRUPOSPATRIMONIO'
+    end
+    object ibstrngfldGRUPOSDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Required = True
+      Size = 50
+    end
+    object ibstrngfldGRUPOSSIGLA: TIBStringField
+      FieldName = 'SIGLA'
+      Size = 2
+    end
+    object blbfldGRUPOSFOTO: TBlobField
+      FieldName = 'FOTO'
+      Size = 8
+    end
+    object ibstrngfldGRUPOSCAMINHOFOTO: TIBStringField
+      FieldName = 'CAMINHOFOTO'
+      Size = 100
+    end
+    object fltfldGRUPOSTAXADEPRECIACAO: TFloatField
+      FieldName = 'TAXADEPRECIACAO'
+    end
+    object ibtbGRUPOSTAXAVALORIZACAO: TIBBCDField
+      FieldName = 'TAXAVALORIZACAO'
+      Precision = 18
+      Size = 4
+    end
+    object ibstrngfldGRUPOSIMOBILIZAR: TIBStringField
+      FieldName = 'IMOBILIZAR'
+      Size = 3
+    end
+  end
+  object ibqrySUBGRUPOS: TIBQuery
+    Database = dmod.bdIndustrias
+    Transaction = dmod.transIndustrias
+    Active = True
+    SQL.Strings = (
+      'select * from CONT_SGPATRIMO')
+    Left = 232
+    Top = 112
+    object smlntfldSUBGRUPOSFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"CONT_SGPATRIMO"."FK_EMPRESAS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldSUBGRUPOSFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"CONT_SGPATRIMO"."FK_FILIAIS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldSUBGRUPOSFK_GRUPOS: TSmallintField
+      FieldName = 'FK_GRUPOS'
+      Origin = '"CONT_SGPATRIMO"."FK_GRUPOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object smlntfldSUBGRUPOSPK_SUBGRUPOS: TSmallintField
+      FieldName = 'PK_SUBGRUPOS'
+      Origin = '"CONT_SGPATRIMO"."PK_SUBGRUPOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibstrngfldSUBGRUPOSDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"CONT_SGPATRIMO"."DESCRICAO"'
+      Required = True
+      Size = 50
+    end
+    object ibstrngfldSUBGRUPOSSIGLA: TIBStringField
+      FieldName = 'SIGLA'
+      Origin = '"CONT_SGPATRIMO"."SIGLA"'
+      FixedChar = True
+      Size = 3
+    end
+    object blbfldSUBGRUPOSFOTO: TBlobField
+      FieldName = 'FOTO'
+      Origin = '"CONT_SGPATRIMO"."FOTO"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object ibstrngfldSUBGRUPOSCAMINHOFOTO: TIBStringField
+      FieldName = 'CAMINHOFOTO'
+      Origin = '"CONT_SGPATRIMO"."CAMINHOFOTO"'
+      Size = 100
+    end
+    object ibstrngfldSUBGRUPOSIMOBILIZAR: TIBStringField
+      FieldName = 'IMOBILIZAR'
+      Origin = '"CONT_SGPATRIMO"."IMOBILIZAR"'
+      FixedChar = True
+      Size = 3
+    end
+    object ibqrySUBGRUPOSTAXADEPRECIACAO: TIBBCDField
+      FieldName = 'TAXADEPRECIACAO'
+      Origin = '"CONT_SGPATRIMO"."TAXADEPRECIACAO"'
+      DisplayFormat = '##0.00%'
+      Precision = 18
+      Size = 4
+    end
+    object ibqrySUBGRUPOSTAXAVALORIZACAO: TIBBCDField
+      FieldName = 'TAXAVALORIZACAO'
+      Origin = '"CONT_SGPATRIMO"."TAXAVALORIZACAO"'
+      DisplayFormat = '##0.00%'
+      Precision = 18
+      Size = 4
+    end
+    object smlntfldSUBGRUPOSCTACONTABILPAICREDITO: TSmallintField
+      FieldName = 'CTACONTABILPAICREDITO'
+      Origin = '"CONT_SGPATRIMO"."CTACONTABILPAICREDITO"'
+    end
+    object smlntfldSUBGRUPOSCTACONTABILPAIDEBITO: TSmallintField
+      FieldName = 'CTACONTABILPAIDEBITO'
+      Origin = '"CONT_SGPATRIMO"."CTACONTABILPAIDEBITO"'
+    end
+  end
+  object dsSUBGRUPOS: TDataSource
+    DataSet = ibqrySUBGRUPOS
+    Left = 144
+    Top = 112
   end
 end

@@ -13,8 +13,79 @@ object frmCELULAS: TfrmCELULAS
   OldCreateOrder = False
   Position = poDesktopCenter
   ShowHint = True
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object lbl1: TLabel
+    Left = 16
+    Top = 8
+    Width = 33
+    Height = 13
+    Caption = 'C'#243'digo'
+  end
+  object lbl2: TLabel
+    Left = 87
+    Top = 8
+    Width = 74
+    Height = 13
+    Caption = 'Nome da C'#233'lula'
+  end
+  object lbl3: TLabel
+    Left = 16
+    Top = 92
+    Width = 42
+    Height = 13
+    Caption = 'C. Custo'
+  end
+  object lbl4: TLabel
+    Left = 87
+    Top = 92
+    Width = 124
+    Height = 13
+    Caption = 'Nome do Centro de Custo'
+  end
+  object lbl5: TLabel
+    Left = 439
+    Top = 8
+    Width = 29
+    Height = 13
+    Caption = 'Depto'
+  end
+  object lbl6: TLabel
+    Left = 510
+    Top = 8
+    Width = 114
+    Height = 13
+    Caption = 'Nome do Departamento'
+  end
+  object lbl7: TLabel
+    Left = 439
+    Top = 45
+    Width = 43
+    Height = 13
+    Caption = 'Processo'
+  end
+  object lbl8: TLabel
+    Left = 510
+    Top = 45
+    Width = 88
+    Height = 13
+    Caption = 'Nome do Processo'
+  end
+  object lbl9: TLabel
+    Left = 16
+    Top = 45
+    Width = 26
+    Height = 13
+    Caption = 'Setor'
+  end
+  object lbl10: TLabel
+    Left = 87
+    Top = 45
+    Width = 71
+    Height = 13
+    Caption = 'Nome do Setor'
+  end
   object edtPK_CELULAS: TDBEditEh
     Left = 16
     Top = 24
@@ -40,20 +111,21 @@ object frmCELULAS: TfrmCELULAS
     Visible = True
   end
   object edtFK_CENTROCUSTO: TDBEditEh
-    Left = 439
-    Top = 24
+    Left = 16
+    Top = 108
     Width = 65
     Height = 21
     DataField = 'FK_CENTROCUSTO'
     DataSource = dsCELULAS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 2
+    TabOrder = 8
     Visible = True
+    OnDblClick = edtFK_CENTROCUSTODblClick
   end
   object cbbFK_CENTROCUSTO: TDBLookupComboboxEh
-    Left = 510
-    Top = 24
+    Left = 87
+    Top = 108
     Width = 299
     Height = 21
     DataField = 'FK_CENTROCUSTO'
@@ -63,24 +135,24 @@ object frmCELULAS: TfrmCELULAS
     ListField = 'DESCRICAO'
     ListSource = dsCENTROCUSTO
     ShowHint = True
-    TabOrder = 3
+    TabOrder = 9
     Visible = True
   end
   object edtFK_PROCESSOS: TDBEditEh
-    Left = 16
-    Top = 64
+    Left = 439
+    Top = 24
     Width = 65
     Height = 21
     DataField = 'FK_DEPARTAMENTOS'
     DataSource = dsCELULAS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 4
+    TabOrder = 2
     Visible = True
   end
   object cbbFK_PROCESSOS: TDBLookupComboboxEh
-    Left = 87
-    Top = 64
+    Left = 510
+    Top = 24
     Width = 299
     Height = 21
     DataField = 'FK_DEPARTAMENTOS'
@@ -90,24 +162,25 @@ object frmCELULAS: TfrmCELULAS
     ListField = 'DESCRICAO'
     ListSource = dsPROCESSOS
     ShowHint = True
-    TabOrder = 5
+    TabOrder = 3
     Visible = True
+    OnExit = cbbFK_PROCESSOSExit
   end
   object edtFK_SETORES: TDBEditEh
-    Left = 439
-    Top = 64
+    Left = 16
+    Top = 61
     Width = 65
     Height = 21
     DataField = 'FK_SETORES'
     DataSource = dsCELULAS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 6
+    TabOrder = 4
     Visible = True
   end
   object cbbFK_SETORES: TDBLookupComboboxEh
-    Left = 510
-    Top = 64
+    Left = 87
+    Top = 61
     Width = 299
     Height = 21
     DataField = 'FK_SETORES'
@@ -117,7 +190,7 @@ object frmCELULAS: TfrmCELULAS
     ListField = 'DESCRICAO'
     ListSource = dsSETORES
     ShowHint = True
-    TabOrder = 7
+    TabOrder = 5
     Visible = True
   end
   object stat1: TStatusBar
@@ -126,32 +199,32 @@ object frmCELULAS: TfrmCELULAS
     Width = 839
     Height = 19
     Panels = <>
-    ExplicitLeft = 536
-    ExplicitTop = 520
-    ExplicitWidth = 0
   end
   object edtFK_PROCESSOS1: TDBEditEh
-    Left = 16
-    Top = 104
+    Left = 439
+    Top = 61
     Width = 65
     Height = 21
     DataField = 'FK_PROCESSOS'
     DataSource = dsCELULAS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 9
+    TabOrder = 6
     Visible = True
   end
   object cbbFK_PROCESSOS1: TDBLookupComboboxEh
-    Left = 87
-    Top = 104
+    Left = 510
+    Top = 61
     Width = 299
     Height = 21
     DataField = 'FK_PROCESSOS'
     DataSource = dsCELULAS
     EditButtons = <>
+    KeyField = 'PK_PROCESSOS'
+    ListField = 'DESCRICAO'
+    ListSource = dsPROCESSOS
     ShowHint = True
-    TabOrder = 10
+    TabOrder = 7
     Visible = True
   end
   object pgc1: TPageControl
@@ -159,7 +232,7 @@ object frmCELULAS: TfrmCELULAS
     Top = 152
     Width = 801
     Height = 353
-    ActivePage = ts3
+    ActivePage = ts1
     TabOrder = 11
     object ts1: TTabSheet
       Caption = 'M'#225'quinas'
@@ -580,7 +653,6 @@ object frmCELULAS: TfrmCELULAS
   object ibtbCELULAS: TIBTable
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     FieldDefs = <
       item
         Name = 'FK_EMPRESAS'
@@ -664,8 +736,8 @@ object frmCELULAS: TfrmCELULAS
       end>
     StoreDefs = True
     TableName = 'CELULAS'
-    Left = 680
-    Top = 16
+    Left = 704
+    Top = 8
     object smlntfldCELULASFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
     end
@@ -720,16 +792,15 @@ object frmCELULAS: TfrmCELULAS
   object dsCELULAS: TDataSource
     DataSet = ibtbCELULAS
     Left = 560
-    Top = 8
+    Top = 16
   end
   object ibqryPROCESSOS: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'SELECT * FROM PROCESSOS'
       'ORDER BY DESCRICAO')
-    Left = 768
+    Left = 752
     Top = 64
     object smlntfldPROCESSOSFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
@@ -750,10 +821,6 @@ object frmCELULAS: TfrmCELULAS
       FieldName = 'FK_SETORES'
       Origin = '"PROCESSOS"."FK_SETORES"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object smlntfldPROCESSOSFK_PROCESSOS: TSmallintField
-      FieldName = 'FK_PROCESSOS'
-      Origin = '"PROCESSOS"."FK_PROCESSOS"'
     end
     object smlntfldPROCESSOSPK_PROCESSOS: TSmallintField
       FieldName = 'PK_PROCESSOS'
@@ -820,7 +887,7 @@ object frmCELULAS: TfrmCELULAS
   end
   object dsPROCESSOS: TDataSource
     DataSet = ibqryPROCESSOS
-    Left = 720
+    Left = 680
     Top = 64
   end
   object dsSETORES: TDataSource
@@ -828,34 +895,61 @@ object frmCELULAS: TfrmCELULAS
     Left = 400
     Top = 64
   end
-  object ibqrySETORES: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    Active = True
-    SQL.Strings = (
-      'select * from SETORES'
-      'order by descricao')
-    Left = 656
-    Top = 72
-  end
   object dsDEPTOS: TDataSource
     DataSet = ibqryDEPARTAMENTOS
-    Left = 624
-    Top = 8
+    Left = 632
+    Top = 16
   end
   object ibqryDEPARTAMENTOS: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from DEPARTAMENTOS order by descricao')
-    Left = 472
-    Top = 80
+    Left = 496
+    Top = 120
+    object intgrfldDEPARTAMENTOSPK_EMPRESA: TIntegerField
+      FieldName = 'PK_EMPRESA'
+      Origin = '"DEPARTAMENTOS"."PK_EMPRESA"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object intgrfldDEPARTAMENTOSPK_FILIAL: TIntegerField
+      FieldName = 'PK_FILIAL'
+      Origin = '"DEPARTAMENTOS"."PK_FILIAL"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object intgrfldDEPARTAMENTOSPK_DEPARTAMENTO: TIntegerField
+      FieldName = 'PK_DEPARTAMENTO'
+      Origin = '"DEPARTAMENTOS"."PK_DEPARTAMENTO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibstrngfldDEPARTAMENTOSDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"DEPARTAMENTOS"."DESCRICAO"'
+      Size = 50
+    end
+    object intgrfldDEPARTAMENTOSRESPONSAVEL: TIntegerField
+      FieldName = 'RESPONSAVEL'
+      Origin = '"DEPARTAMENTOS"."RESPONSAVEL"'
+    end
+    object intgrfldDEPARTAMENTOSQUANTFUNCIONARIOS: TIntegerField
+      FieldName = 'QUANTFUNCIONARIOS'
+      Origin = '"DEPARTAMENTOS"."QUANTFUNCIONARIOS"'
+    end
+    object ibstrngfldDEPARTAMENTOSPK_CENTROCUSTO: TIBStringField
+      FieldName = 'PK_CENTROCUSTO'
+      Origin = '"DEPARTAMENTOS"."PK_CENTROCUSTO"'
+      Size = 10
+    end
+    object ibstrngfldDEPARTAMENTOSCODIGOANTIGO: TIBStringField
+      FieldName = 'CODIGOANTIGO'
+      Origin = '"DEPARTAMENTOS"."CODIGOANTIGO"'
+      Size = 10
+    end
   end
   object ibqryCENTROCUSTO: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from CENTROCUSTO')
     Left = 600
@@ -936,13 +1030,12 @@ object frmCELULAS: TfrmCELULAS
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
-    Left = 352
-    Top = 144
+    Left = 320
+    Top = 136
   end
   object ibqryMAQUINAS: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from MAQUINAS')
     Left = 656
@@ -956,7 +1049,6 @@ object frmCELULAS: TfrmCELULAS
   object ibqryEQUIPAMENTOS: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from EQUIPAMENTOS')
     Left = 584
@@ -964,7 +1056,16 @@ object frmCELULAS: TfrmCELULAS
   end
   object dsEQUIPAMENTOS: TDataSource
     DataSet = ibqryEQUIPAMENTOS
-    Left = 504
+    Left = 472
     Top = 520
+  end
+  object ibqrySETORES: TIBQuery
+    Database = dmod.bdIndustrias
+    Transaction = dmod.transIndustrias
+    DataSource = dsDEPTOS
+    SQL.Strings = (
+      'select * from SETORES')
+    Left = 600
+    Top = 128
   end
 end

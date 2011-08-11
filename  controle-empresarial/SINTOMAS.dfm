@@ -19,7 +19,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   TextHeight = 13
   object edtPK_SINTOMAS: TDBEditEh
     Left = 16
-    Top = 16
+    Top = 24
     Width = 65
     Height = 21
     DataField = 'PK_SINTOMAS'
@@ -31,7 +31,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object edtDESCRICAO: TDBEditEh
     Left = 87
-    Top = 16
+    Top = 24
     Width = 354
     Height = 21
     DataField = 'DESCRICAO'
@@ -43,7 +43,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object edtPESO: TDBEditEh
     Left = 447
-    Top = 16
+    Top = 24
     Width = 50
     Height = 21
     DataField = 'PESO'
@@ -55,7 +55,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object DBCheckBoxEh1: TDBCheckBoxEh
     Left = 503
-    Top = 18
+    Top = 26
     Width = 97
     Height = 17
     Caption = 'Imprime OS'
@@ -67,7 +67,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object DBCheckBoxEh2: TDBCheckBoxEh
     Left = 606
-    Top = 18
+    Top = 26
     Width = 97
     Height = 17
     Caption = 'Afeta Produ'#231#227'o'
@@ -79,7 +79,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object edtFK_AREAEXEC: TDBEditEh
     Left = 16
-    Top = 56
+    Top = 64
     Width = 65
     Height = 21
     DataField = 'FK_AREAEXEC'
@@ -91,7 +91,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object cbbFK_AREAEXEC: TDBLookupComboboxEh
     Left = 87
-    Top = 56
+    Top = 64
     Width = 354
     Height = 21
     DataField = 'FK_AREAEXEC'
@@ -106,7 +106,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object edtMSG_OS: TDBEditEh
     Left = 16
-    Top = 96
+    Top = 104
     Width = 337
     Height = 21
     DataField = 'MSG_OS'
@@ -118,7 +118,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object edtFK_EQUIPES: TDBEditEh
     Left = 447
-    Top = 56
+    Top = 64
     Width = 50
     Height = 21
     DataField = 'FK_TIPO_OS'
@@ -130,7 +130,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object cbbFK_EQUIPES: TDBLookupComboboxEh
     Left = 503
-    Top = 56
+    Top = 64
     Width = 200
     Height = 21
     DataField = 'FK_TIPO_OS'
@@ -145,7 +145,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object edtFK_EQUIPES1: TDBEditEh
     Left = 359
-    Top = 96
+    Top = 104
     Width = 50
     Height = 21
     DataField = 'FK_EQUIPES'
@@ -158,7 +158,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object cbbFK_EQUIPES1: TDBLookupComboboxEh
     Left = 415
-    Top = 96
+    Top = 104
     Width = 288
     Height = 21
     DataField = 'FK_EQUIPES'
@@ -173,7 +173,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object dbgrd1: TDBGrid
     Left = 16
-    Top = 123
+    Top = 131
     Width = 687
     Height = 120
     DataSource = dsSINTOMAS
@@ -186,7 +186,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   end
   object dbnvgr1: TDBNavigator
     Left = 16
-    Top = 249
+    Top = 257
     Width = 680
     Height = 25
     DataSource = dsSINTOMAS
@@ -209,13 +209,14 @@ object frmSINTOMAS: TfrmSINTOMAS
     Width = 718
     Height = 19
     Panels = <>
+    ExplicitTop = 628
   end
   object pgc1: TPageControl
     Left = 16
-    Top = 280
+    Top = 288
     Width = 680
     Height = 289
-    ActivePage = ts9
+    ActivePage = ts10
     TabOrder = 15
     object ts1: TTabSheet
       Caption = 'Normas'
@@ -225,7 +226,7 @@ object frmSINTOMAS: TfrmSINTOMAS
         Width = 669
         Height = 158
         DataGrouping.GroupLevels = <>
-        DataSource = dsNORMAS
+        DataSource = dsSINTOMAS_NORMAS
         Flat = False
         FooterColor = clWindow
         FooterFont.Charset = DEFAULT_CHARSET
@@ -251,13 +252,7 @@ object frmSINTOMAS: TfrmSINTOMAS
             EditButtons = <>
             FieldName = 'FK_SINT_NORMAS'
             Footers = <>
-            Title.Caption = 'C'#243'dito'
-          end
-          item
-            EditButtons = <>
-            FieldName = 'FK_SINTOMAS'
-            Footers = <>
-            Title.Caption = 'Sintomas'
+            Title.Caption = 'C'#243'digo'
           end
           item
             EditButtons = <>
@@ -273,7 +268,7 @@ object frmSINTOMAS: TfrmSINTOMAS
         Top = 167
         Width = 240
         Height = 25
-        DataSource = dsNORMAS
+        DataSource = dsSINTOMAS_NORMAS
         TabOrder = 1
       end
     end
@@ -308,6 +303,10 @@ object frmSINTOMAS: TfrmSINTOMAS
     object ts9: TTabSheet
       Caption = 'Paradas'
       ImageIndex = 8
+    end
+    object ts10: TTabSheet
+      Caption = 'Materiais'
+      ImageIndex = 9
     end
   end
   object ibtbSINTOMAS: TIBTable
@@ -386,7 +385,7 @@ object frmSINTOMAS: TfrmSINTOMAS
     StoreDefs = True
     TableName = 'MAN_SINTOMAS_N'
     Left = 568
-    Top = 176
+    Top = 184
     object smlntfldSINTOMASPK_SINTOMAS: TSmallintField
       FieldName = 'PK_SINTOMAS'
     end
@@ -430,7 +429,7 @@ object frmSINTOMAS: TfrmSINTOMAS
   object dsSINTOMAS: TDataSource
     DataSet = ibtbSINTOMAS
     Left = 392
-    Top = 168
+    Top = 176
   end
   object ibqrySINT_NORMAS: TIBQuery
     Database = dmod.bdIndustrias
@@ -439,7 +438,7 @@ object frmSINTOMAS: TfrmSINTOMAS
     SQL.Strings = (
       'select * from MAN_SINTOMAS_NORMAS ')
     Left = 640
-    Top = 128
+    Top = 136
     object smlntfldNORMASFK_SINT_NORMAS: TSmallintField
       FieldName = 'FK_SINT_NORMAS'
       Origin = '"MAN_SINTOMAS_NORMAS"."FK_SINT_NORMAS"'
@@ -464,10 +463,10 @@ object frmSINTOMAS: TfrmSINTOMAS
       Lookup = True
     end
   end
-  object dsNORMAS: TDataSource
+  object dsSINTOMAS_NORMAS: TDataSource
     DataSet = ibqrySINT_NORMAS
-    Left = 544
-    Top = 88
+    Left = 528
+    Top = 152
   end
   object ibqryAREAEXEC: TIBQuery
     Database = dmod.bdIndustrias
@@ -476,12 +475,12 @@ object frmSINTOMAS: TfrmSINTOMAS
     SQL.Strings = (
       'select * from MAN_AREAEXEC')
     Left = 320
-    Top = 168
+    Top = 176
   end
   object dsAREAEXEC: TDataSource
     DataSet = ibqryAREAEXEC
     Left = 216
-    Top = 168
+    Top = 176
   end
   object ibqryNORMAS: TIBQuery
     Database = dmod.bdIndustrias
@@ -490,20 +489,21 @@ object frmSINTOMAS: TfrmSINTOMAS
     SQL.Strings = (
       'select * from MAN_NORMAS')
     Left = 136
-    Top = 160
+    Top = 168
   end
   object ibqryTIPO_OS: TIBQuery
     Database = dmod.bdIndustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from MAN_TIPO_OS')
     Left = 472
-    Top = 160
+    Top = 168
   end
   object dsTIPO_OS: TDataSource
     DataSet = ibqryTIPO_OS
-    Left = 440
-    Top = 328
+    Left = 464
+    Top = 336
   end
   object ibqryEQUIPES: TIBQuery
     Database = dmod.bdIndustrias
@@ -512,7 +512,7 @@ object frmSINTOMAS: TfrmSINTOMAS
     SQL.Strings = (
       'SELECT * FROM MAN_EQUIPES_N')
     Left = 608
-    Top = 328
+    Top = 336
     object smlntfldEQUIPESFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
       Origin = '"MAN_EQUIPES_N"."FK_EMPRESAS"'
@@ -536,6 +536,6 @@ object frmSINTOMAS: TfrmSINTOMAS
   object dsEQUIPES: TDataSource
     DataSet = ibqryEQUIPES
     Left = 528
-    Top = 328
+    Top = 336
   end
 end

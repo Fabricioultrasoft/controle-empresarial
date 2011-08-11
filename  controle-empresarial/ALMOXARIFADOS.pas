@@ -20,10 +20,6 @@ Interface
       tbAlmoxarifadosPK_CENTROCUSTO: TSmallintField;
       dsAlmoxarifados: TDataSource;
       DBGridEh1: TDBGridEh;
-      DBEditEh1: TDBEditEh;
-      DBLookupComboboxEh1: TDBLookupComboboxEh;
-      DBLookupComboboxEh2: TDBLookupComboboxEh;
-      DBEditEh2: TDBEditEh;
       DBLookupComboboxEh3: TDBLookupComboboxEh;
       DBEditEh3: TDBEditEh;
       DBLookupComboboxEh4: TDBLookupComboboxEh;
@@ -41,10 +37,6 @@ Interface
       BitBtn5: TBitBtn;
     lbl1: TLabel;
     lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    lbl5: TLabel;
-    lbl6: TLabel;
     lbl7: TLabel;
     lbl8: TLabel;
     lbl9: TLabel;
@@ -56,6 +48,8 @@ Interface
     dsEMPRESAS: TDataSource;
     dsFILIAIS: TDataSource;
     dsCENTROCUSTO: TDataSource;
+    lbl4: TLabel;
+    cbb1: TComboBox;
       Procedure BitBtn3Click(Sender: TObject);
       Procedure FormCreate(Sender: TObject);
       Private

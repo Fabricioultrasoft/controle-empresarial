@@ -1,8 +1,8 @@
 ﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<PropertyGroup>
-			<ProjectGuid>{CDE5A7A6-F67E-4E9D-B12F-419E75705DB5}</ProjectGuid>
-			<MainSource>industrias.dpr</MainSource>
+			<ProjectGuid>{6B66A6C5-1AF3-46B9-AE8D-2D5893DF1475}</ProjectGuid>
 			<ProjectVersion>12.3</ProjectVersion>
+			<MainSource>industrias.dpr</MainSource>
 			<Base>True</Base>
 			<Config Condition="'$(Config)'==''">Debug</Config>
 			<Platform>Win32</Platform>
@@ -28,20 +28,11 @@
 			<DCC_DcuOutput>.\$(Config)\$(Platform)</DCC_DcuOutput>
 			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
 			<DCC_ExeOutput>.\$(Config)\$(Platform)</DCC_ExeOutput>
-			<DCC_E>false</DCC_E>
-			<DCC_N>false</DCC_N>
-			<DCC_S>false</DCC_S>
-			<DCC_F>false</DCC_F>
-			<DCC_K>false</DCC_K>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1)'!=''">
-			<DCC_Optimize>false</DCC_Optimize>
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
-			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
-			<ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
-			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<DCC_Optimize>false</DCC_Optimize>
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
-			<BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
 			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -54,77 +45,7 @@
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
 			<DCCReference Include="principal.pas">
-				<Form>frmPrincipal</Form>
-			</DCCReference>
-			<DCCReference Include="dmodule.pas">
-				<Form>dmod</Form>
-				<DesignClass>TDataModule</DesignClass>
-			</DCCReference>
-			<DCCReference Include="EMPRESAS.pas">
-				<Form>frmEmpresas</Form>
-			</DCCReference>
-			<DCCReference Include="FILIAIS.pas">
-				<Form>frmFiliais</Form>
-			</DCCReference>
-			<DCCReference Include="departamentos.pas">
-				<Form>frmDeptos</Form>
-			</DCCReference>
-			<DCCReference Include="feriado.pas">
-				<Form>frmFeriado</Form>
-			</DCCReference>
-			<DCCReference Include="ALMOXARIFADOS.pas">
-				<Form>frmAlmoxarifados</Form>
-			</DCCReference>
-			<DCCReference Include="MAN_AREAEXEC.pas">
-				<Form>frmAREAEXEC</Form>
-			</DCCReference>
-			<DCCReference Include="MAN_CAUSAS.pas">
-				<Form>frmCAUSAS</Form>
-			</DCCReference>
-			<DCCReference Include="logradouros.pas">
-				<Form>frmLogradouros</Form>
-			</DCCReference>
-			<DCCReference Include="cidades.pas">
-				<Form>frmcidades</Form>
-			</DCCReference>
-			<DCCReference Include="setores.pas">
-				<Form>frmSetores</Form>
-			</DCCReference>
-			<DCCReference Include="alm_solicitacao.pas">
-				<Form>frmALM_SOLICITACAO</Form>
-			</DCCReference>
-			<DCCReference Include="bairros.pas">
-				<Form>frmBairros</Form>
-			</DCCReference>
-			<DCCReference Include="GRUPOPATRIMONIO.pas">
-				<Form>frmGrupoPatrimonio</Form>
-			</DCCReference>
-			<DCCReference Include="SUBGRUPOPAT.pas">
-				<Form>frmSubGrupoPat</Form>
-			</DCCReference>
-			<DCCReference Include="PATRIMONIO.pas">
-				<Form>frmPATRIMONIO</Form>
-			</DCCReference>
-			<DCCReference Include="SUBTIPOPATRIMONIO.pas">
-				<Form>frmSUBTIPOPATRIMONIO</Form>
-			</DCCReference>
-			<DCCReference Include="bancos.pas">
-				<Form>FRMbANCOS</Form>
-			</DCCReference>
-			<DCCReference Include="CARTAOCREDITO.pas">
-				<Form>frmCARTAOCREDITO</Form>
-			</DCCReference>
-			<DCCReference Include="SITUACAOTRIBUTARIA.pas">
-				<Form>Form1</Form>
-			</DCCReference>
-			<DCCReference Include="VENCTOIMPOSTOS.pas">
-				<Form>frmVENCTOIMPOSTOS</Form>
-			</DCCReference>
-			<DCCReference Include="FORNECEDORES.pas">
-				<Form>frmFORNECEDOR</Form>
-			</DCCReference>
-			<DCCReference Include="PNEUS.pas">
-				<Form>frmPNEUS</Form>
+				<Form>frmPRINCIPAL</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
@@ -172,6 +93,14 @@
 						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\DataSetManager150.bpl">Devart DataSet Manager</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k150.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k150.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp150.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp150.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Documents and Settings\All Users\Documentos\RAD Studio\8.0\BPL\QBuilderDT_C15.bpl">EMS Advanced Query Builder component suite for C++Builder</Excluded_Packages>
+					</Excluded_Packages>
 					<Source>
 						<Source Name="MainSource">industrias.dpr</Source>
 					</Source>
