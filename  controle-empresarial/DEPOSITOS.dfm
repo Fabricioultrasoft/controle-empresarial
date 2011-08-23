@@ -1,7 +1,7 @@
 object frmDEPOSITOS: TfrmDEPOSITOS
   Left = 0
   Top = 0
-  Caption = 'MATERIAIS - CADASTRO DE DEPOSITOS'
+  Caption = 'MATERIAIS - CADASTRO DE DEPOSITOS, ARMAZENS E ALMOXARIFADOS'
   ClientHeight = 593
   ClientWidth = 840
   Color = clBtnFace
@@ -77,7 +77,7 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     ListField = 'DESCRICAO'
     ListSource = dsCENTROCUSTO
     ShowHint = True
-    TabOrder = 3
+    TabOrder = 4
     Visible = True
   end
   object edtPK_CENTROCUSTO: TDBEditEh
@@ -89,7 +89,7 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     DataSource = dsDEPOSITOS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 2
+    TabOrder = 3
     Visible = True
   end
   object cbbPK_RESPONSAVEL: TDBLookupComboboxEh
@@ -101,7 +101,7 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     DataSource = dsDEPOSITOS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 5
+    TabOrder = 6
     Visible = True
   end
   object edtPK_RESPONSAVEL: TDBEditEh
@@ -113,7 +113,7 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     DataSource = dsDEPOSITOS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 4
+    TabOrder = 5
     Visible = True
   end
   object edtPK_ALMOXARIFADO: TDBEditEh
@@ -247,12 +247,12 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     Top = 24
     Width = 286
     Height = 21
-    ItemIndex = 1
-    TabOrder = 6
+    TabOrder = 2
     Text = 'Dep'#243'sitos'
     Items.Strings = (
       'Almoxarifado'
-      'Dep'#243'sitos')
+      'Dep'#243'sitos'
+      'Armazem')
   end
   object pgc1: TPageControl
     Left = 32
@@ -263,7 +263,6 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     TabOrder = 16
     object ts1: TTabSheet
       Caption = 'Locais de Estoques'
-      ExplicitHeight = 261
       object dbgrdh1: TDBGridEh
         Left = 3
         Top = 0
@@ -366,17 +365,18 @@ object frmDEPOSITOS: TfrmDEPOSITOS
       end
       object pgc2: TPageControl
         Left = 3
-        Top = 103
+        Top = 127
         Width = 701
         Height = 186
         ActivePage = ts2
         TabOrder = 1
         object ts2: TTabSheet
           Caption = 'Endere'#231'os'
-          ExplicitHeight = 117
+          ExplicitLeft = 0
+          ExplicitTop = 28
           object dbgrdh2: TDBGridEh
             Left = 3
-            Top = 3
+            Top = 35
             Width = 687
             Height = 93
             DataGrouping.GroupLevels = <>
@@ -402,7 +402,6 @@ object frmDEPOSITOS: TfrmDEPOSITOS
         object ts3: TTabSheet
           Caption = 'Produtos'
           ImageIndex = 1
-          ExplicitHeight = 117
         end
       end
     end
@@ -427,7 +426,7 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     TabOrder = 17
   end
   object ibtbDEPOSITOS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <
@@ -538,23 +537,23 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     Top = 24
   end
   object ibqryEMPRESAS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from EMPRESA')
-    Left = 120
-    Top = 72
+    Left = 96
+    Top = 88
   end
   object ibqryFILIAIS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from FILIAL')
-    Left = 168
-    Top = 80
+    Left = 88
+    Top = 128
   end
   object ibqryCENTROCUSTO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     SQL.Strings = (
@@ -578,7 +577,7 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     Top = 112
   end
   object ibqryLOCAIS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     SQL.Strings = (
@@ -669,7 +668,7 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     Top = 72
   end
   object ibqryENDERECOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     SQL.Strings = (

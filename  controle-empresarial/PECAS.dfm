@@ -301,7 +301,6 @@ object frmPECAS: TfrmPECAS
     TabOrder = 21
     object ts1: TTabSheet
       Caption = 'Fornecimento'
-      ExplicitHeight = 261
       object edt1: TDBEditEh
         Left = 16
         Top = 16
@@ -503,7 +502,6 @@ object frmPECAS: TfrmPECAS
     object ts2: TTabSheet
       Caption = 'Anexos'
       ImageIndex = 1
-      ExplicitHeight = 261
       object dbgrdh1: TDBGridEh
         Left = 3
         Top = 3
@@ -532,7 +530,6 @@ object frmPECAS: TfrmPECAS
     object ts3: TTabSheet
       Caption = 'Imagens'
       ImageIndex = 2
-      ExplicitHeight = 261
       object dbgrdh2: TDBGridEh
         Left = 0
         Top = 3
@@ -561,7 +558,6 @@ object frmPECAS: TfrmPECAS
     object ts4: TTabSheet
       Caption = 'Normas'
       ImageIndex = 3
-      ExplicitHeight = 261
       object dbgrdh3: TDBGridEh
         Left = 0
         Top = 3
@@ -590,7 +586,6 @@ object frmPECAS: TfrmPECAS
     object ts5: TTabSheet
       Caption = 'Lota'#231#227'o'
       ImageIndex = 4
-      ExplicitHeight = 261
       object pgc3: TPageControl
         Left = 0
         Top = 3
@@ -600,8 +595,6 @@ object frmPECAS: TfrmPECAS
         TabOrder = 0
         object ts16: TTabSheet
           Caption = 'Lota'#231#227'o'
-          ExplicitLeft = 0
-          ExplicitTop = 20
           object edtFK_EMPRESASLOTACAO: TDBEditEh
             Left = 3
             Top = 21
@@ -776,8 +769,6 @@ object frmPECAS: TfrmPECAS
         object ts17: TTabSheet
           Caption = 'Locais Estoque'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 20
         end
         object ts18: TTabSheet
           Caption = 'Endere'#231'os'
@@ -788,7 +779,6 @@ object frmPECAS: TfrmPECAS
     object ts6: TTabSheet
       Caption = 'Movimenta'#231#227'o'
       ImageIndex = 5
-      ExplicitHeight = 261
       object pgc2: TPageControl
         Left = 3
         Top = 19
@@ -809,7 +799,6 @@ object frmPECAS: TfrmPECAS
           Hint = 'Refere-se a Transferencias de pe'#231'as dos almoxarifados'
           Caption = 'Transfer'#234'ncias'
           ImageIndex = 2
-          ExplicitLeft = -16
         end
         object ts10: TTabSheet
           Hint = 'Refere-se a Devolu'#231#245'es de pe'#231'as dos almoxarifados'
@@ -933,17 +922,14 @@ object frmPECAS: TfrmPECAS
     object ts13: TTabSheet
       Caption = 'M'#225'quinas'
       ImageIndex = 6
-      ExplicitHeight = 261
     end
     object ts14: TTabSheet
       Caption = 'Tag'#39's'
       ImageIndex = 7
-      ExplicitHeight = 261
     end
     object ts15: TTabSheet
       Caption = 'Equipamentos'
       ImageIndex = 8
-      ExplicitHeight = 261
     end
   end
   object dbmmoDESCRICAODETALHADA: TDBMemo
@@ -1118,20 +1104,20 @@ object frmPECAS: TfrmPECAS
     Top = 168
   end
   object ibqryUNIDADES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from UNIDADES')
-    Left = 584
-    Top = 200
+    Left = 408
+    Top = 472
   end
   object dsUNIDADES: TDataSource
     DataSet = ibqryUNIDADES
-    Left = 664
-    Top = 184
+    Left = 336
+    Top = 496
   end
   object ibqryPECAS_ANEXOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PECAS_ANEXOS')
@@ -1144,25 +1130,25 @@ object frmPECAS: TfrmPECAS
     Top = 168
   end
   object ibqryPECAS_IMAGEM: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PECAS_IMAGEM')
-    Left = 256
-    Top = 216
+    Left = 160
+    Top = 312
   end
   object dsPECAS_IMAGEM: TDataSource
     DataSet = ibqryPECAS_IMAGEM
-    Left = 416
-    Top = 176
+    Left = 368
+    Top = 168
   end
   object ibqryPECAS_NORMAS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'SELECT * FROM  PECAS_NORMAS ')
-    Left = 336
-    Top = 184
+    Left = 272
+    Top = 152
   end
   object dsPECAS_NORMAS: TDataSource
     DataSet = ibqryPECAS_NORMAS
@@ -1170,7 +1156,7 @@ object frmPECAS: TfrmPECAS
     Top = 224
   end
   object ibqryPECAS_LOTACAO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PECAS_LOTACAO')
@@ -1246,11 +1232,11 @@ object frmPECAS: TfrmPECAS
   end
   object dsPECAS_LOTACAO: TDataSource
     DataSet = ibqryPECAS_LOTACAO
-    Left = 632
-    Top = 144
+    Left = 600
+    Top = 136
   end
   object ibtbPECAS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <
@@ -1436,8 +1422,8 @@ object frmPECAS: TfrmPECAS
     IndexFieldNames = 'DESCRICAO'
     StoreDefs = True
     TableName = 'PECAS'
-    Left = 552
-    Top = 168
+    Left = 464
+    Top = 208
     object smlntfldPECASFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
     end
@@ -1569,7 +1555,7 @@ object frmPECAS: TfrmPECAS
     end
   end
   object ibqryPECASCOTACAO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PECAS_COTACAO')
@@ -1649,7 +1635,7 @@ object frmPECAS: TfrmPECAS
     Top = 568
   end
   object ibqryFORNECEDORES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from FORNECEDORES')
@@ -1662,7 +1648,7 @@ object frmPECAS: TfrmPECAS
     Top = 568
   end
   object ibqryPRODUTOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTOS')
@@ -1680,7 +1666,7 @@ object frmPECAS: TfrmPECAS
     Top = 112
   end
   object ibtbLOTACAO: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     IndexFieldNames = 'FK_EMPRESAS;FK_FILIAIS;FK_PECAS;PK_PECAS_LOTACAO'
     MasterSource = dsPECAS
@@ -1741,41 +1727,41 @@ object frmPECAS: TfrmPECAS
     Top = 384
   end
   object ibqryEMPRESAS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from EMPRESA'
       'ORDER BY RAZAOSOCIAL')
-    Left = 648
-    Top = 360
+    Left = 336
+    Top = 448
   end
   object dsEMPRESAS: TDataSource
     DataSet = ibqryEMPRESAS
-    Left = 584
-    Top = 360
+    Left = 344
+    Top = 392
   end
   object ibqryFILIAIS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from FILIAL'
       'ORDER BY RAZAOSOCIAL')
-    Left = 384
-    Top = 304
+    Left = 336
+    Top = 296
   end
   object dsFILIAIS: TDataSource
     DataSet = ibqryFILIAIS
-    Left = 496
-    Top = 304
+    Left = 344
+    Top = 344
   end
   object ibqryDEPOSITOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from DEPOSITOS'
       'ORDER BY DESCRICAO')
-    Left = 544
-    Top = 304
+    Left = 568
+    Top = 296
   end
   object dsDEPOSITOS: TDataSource
     DataSet = ibqryDEPOSITOS
@@ -1783,13 +1769,13 @@ object frmPECAS: TfrmPECAS
     Top = 304
   end
   object ibqryLOCALESTOQUE: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from LOCALESTOQUE'
       'ORDER BY DESCRICAO')
-    Left = 712
-    Top = 408
+    Left = 744
+    Top = 456
   end
   object dsLOCALESTOQUE: TDataSource
     DataSet = ibqryLOCALESTOQUE
@@ -1801,12 +1787,12 @@ object frmPECAS: TfrmPECAS
     Top = 408
   end
   object ibqryLOCALESTENDERECO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from LOCALESTOQUEENDERECOS'
       '')
-    Left = 624
-    Top = 304
+    Left = 680
+    Top = 288
   end
 end

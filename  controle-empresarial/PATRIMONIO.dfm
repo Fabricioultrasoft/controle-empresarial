@@ -634,7 +634,7 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     TabOrder = 25
   end
   object ibtbPATRIMONIO: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     FieldDefs = <
       item
@@ -902,7 +902,7 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     Top = 128
   end
   object ibqryTIPOGARANTIA: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from TIPO_GARANTIA')
@@ -931,7 +931,7 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     Top = 48
   end
   object ibqryMARCAS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTOS_MARCAS')
@@ -973,7 +973,7 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     Top = 152
   end
   object ibqryMODELOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTOS_MODELOS')
@@ -982,11 +982,11 @@ object frmPATRIMONIO: TfrmPATRIMONIO
   end
   object dsMODELOS: TDataSource
     DataSet = ibqryMODELOS
-    Left = 624
-    Top = 112
+    Left = 720
+    Top = 168
   end
   object ibqryFORNECEDORES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     DataSource = dsMARCAS
     SQL.Strings = (
@@ -996,11 +996,11 @@ object frmPATRIMONIO: TfrmPATRIMONIO
   end
   object dsFORNECEDORES: TDataSource
     DataSet = ibqryFORNECEDORES
-    Left = 592
-    Top = 80
+    Left = 704
+    Top = 216
   end
   object ibqryGRUPOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PATRIMONIO_GRUPOS')
@@ -1009,11 +1009,11 @@ object frmPATRIMONIO: TfrmPATRIMONIO
   end
   object dsGRUPOS: TDataSource
     DataSet = ibqryGRUPOS
-    Left = 416
-    Top = 136
+    Left = 360
+    Top = 248
   end
   object ibqrySUBGRUPOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from CONT_SGPATRIMO')
@@ -1023,15 +1023,15 @@ object frmPATRIMONIO: TfrmPATRIMONIO
   object dsSUBGRUPOS: TDataSource
     DataSet = ibqrySUBGRUPOS
     Left = 480
-    Top = 128
+    Top = 248
   end
   object ibqrySUBTIPOPATRIMONIO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from SUBTIPOPATRIMONIO')
-    Left = 448
-    Top = 488
+    Left = 504
+    Top = 480
   end
   object dsSUBTIPOPATRIMONIO: TDataSource
     DataSet = ibqrySUBTIPOPATRIMONIO
@@ -1039,17 +1039,17 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     Top = 120
   end
   object ibqryPRODUTOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTOS')
-    Left = 352
-    Top = 440
+    Left = 608
+    Top = 416
   end
   object dsPRODUTOS: TDataSource
     DataSet = ibqryPRODUTOS
-    Left = 632
-    Top = 208
+    Left = 664
+    Top = 416
   end
   object dsFILIAL: TDataSource
     DataSet = ibqryFiliais
@@ -1057,7 +1057,7 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     Top = 104
   end
   object ibqryFiliais: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from FILIAL')
@@ -1177,7 +1177,7 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     end
   end
   object ibqryEmpresas: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from EMPRESA')
@@ -1293,7 +1293,7 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     Top = 40
   end
   object ibqryDEPARTAMENTOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from DEPARTAMENTOS')
@@ -1306,7 +1306,7 @@ object frmPATRIMONIO: TfrmPATRIMONIO
     Top = 136
   end
   object ibqrySETORES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from SETORES')
