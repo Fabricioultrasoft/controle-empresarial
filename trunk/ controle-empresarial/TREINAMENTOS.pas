@@ -11,29 +11,8 @@ uses
 type
   TfrmTREINAMENTOS = class(TForm)
     ibtbTREINAMENTOS: TIBTable;
-    smlntfldTREINAMENTOSPK_TREINAMENTOS: TSmallintField;
-    blbfldTREINAMENTOSTEXTO: TBlobField;
-    ibstrngfldTREINAMENTOSINCLUIRPPRA: TIBStringField;
-    ibstrngfldTREINAMENTOSTITULO: TIBStringField;
-    ibstrngfldTREINAMENTOSCABECALHO: TIBStringField;
-    ibstrngfldTREINAMENTOSRODAPE: TIBStringField;
-    ibstrngfldTREINAMENTOSFOTO: TIBStringField;
-    smlntfldTREINAMENTOSVALIDADE: TSmallintField;
-    ibstrngfldTREINAMENTOSVALIDADEUN: TIBStringField;
-    smlntfldTREINAMENTOSFK_GRUPOSTREINAMENTOS: TSmallintField;
-    smlntfldTREINAMENTOSFK_SUBGRUPOSTREINAMENTOS: TSmallintField;
-    ibstrngfldTREINAMENTOSINCLUIRCARGOS: TIBStringField;
-    ibstrngfldTREINAMENTOSCABECALHORELATORIO: TIBStringField;
-    ibstrngfldTREINAMENTOSCAMINHOFLASH: TIBStringField;
-    wdmfldTREINAMENTOSDESCRITIVO: TWideMemoField;
-    ibstrngfldTREINAMENTOSDESCRICAO: TIBStringField;
     ibtbTREIN_GRUPOS: TIBTable;
-    smlntfldTREIN_GRUPOSPK_GRUPOSTREINAMENTOS: TSmallintField;
-    ibstrngfldTREIN_GRUPOSDESCRICAO: TIBStringField;
     ibtbTREIN_SUBGRUPOS: TIBTable;
-    smlntfldTREIN_SUBGRUPOSFK_GRUPOSTREINAMENTOS: TSmallintField;
-    smlntfldTREIN_SUBGRUPOSPK_SUBGRUPOSTREINAMENTOS: TSmallintField;
-    ibstrngfldTREIN_SUBGRUPOSDESCRICAO: TIBStringField;
     dsTREIN_SUBGRUPOS: TDataSource;
     dsTREIN_GRUPOS: TDataSource;
     dsTREINAMENTOS: TDataSource;
@@ -62,6 +41,27 @@ type
     edtVALIDADE: TDBEditEh;
     dbchckbxhINCLUIRPPRA: TDBCheckBoxEh;
     dbchckbxhINCLUIRCARGOS: TDBCheckBoxEh;
+    lrgntfldTREIN_SUBGRUPOSIDGRUPO: TLargeintField;
+    lrgntfldTREIN_SUBGRUPOSID: TLargeintField;
+    ibstrngfldTREIN_SUBGRUPOSDESCRICAO: TIBStringField;
+    lrgntfldTREIN_GRUPOSID: TLargeintField;
+    ibstrngfldTREIN_GRUPOSDESCRICAO: TIBStringField;
+    lrgntfldTREINAMENTOSID: TLargeintField;
+    blbfldTREINAMENTOSTEXTO: TBlobField;
+    ibstrngfldTREINAMENTOSINCLUIRPPRA: TIBStringField;
+    ibstrngfldTREINAMENTOSTITULO: TIBStringField;
+    ibstrngfldTREINAMENTOSCABECALHO: TIBStringField;
+    ibstrngfldTREINAMENTOSRODAPE: TIBStringField;
+    ibstrngfldTREINAMENTOSFOTO: TIBStringField;
+    lrgntfldTREINAMENTOSVALIDADE: TLargeintField;
+    ibstrngfldTREINAMENTOSVALIDADEUN: TIBStringField;
+    lrgntfldTREINAMENTOSIDGRUPO: TLargeintField;
+    lrgntfldTREINAMENTOSIDSUBGRUPO: TLargeintField;
+    ibstrngfldTREINAMENTOSINCLUIRCARGOS: TIBStringField;
+    ibstrngfldTREINAMENTOSCABECALHORELATORIO: TIBStringField;
+    ibstrngfldTREINAMENTOSCAMINHOFLASH: TIBStringField;
+    wdmfldTREINAMENTOSDESCRICAO: TWideMemoField;
+    dbmmoDESCRICAO: TDBMemo;
     procedure btn1Click(Sender: TObject);
   private
     { Private declarations }
@@ -78,7 +78,7 @@ implementation
 
 procedure TfrmTREINAMENTOS.btn1Click(Sender: TObject);
 begin
-CLOSE ;
+Close ;
 end;
 
 end.

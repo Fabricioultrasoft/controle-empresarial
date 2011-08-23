@@ -2,8 +2,8 @@ object frmTIPOPRODUTOS: TfrmTIPOPRODUTOS
   Left = 0
   Top = 0
   Caption = 'PRODUTOS - TIPOS DE PRODUTOS'
-  ClientHeight = 329
-  ClientWidth = 463
+  ClientHeight = 332
+  ClientWidth = 494
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -109,8 +109,10 @@ object frmTIPOPRODUTOS: TfrmTIPOPRODUTOS
     Top = 224
     Width = 75
     Height = 25
-    Caption = 'btn1'
+    Caption = 'Fechar'
     DoubleBuffered = True
+    Kind = bkClose
+    NumGlyphs = 2
     ParentDoubleBuffered = False
     TabOrder = 4
     OnClick = btn1Click
@@ -120,8 +122,10 @@ object frmTIPOPRODUTOS: TfrmTIPOPRODUTOS
     Top = 224
     Width = 75
     Height = 25
-    Caption = 'btn1'
+    Caption = 'Retornar'
     DoubleBuffered = True
+    Kind = bkYes
+    NumGlyphs = 2
     ParentDoubleBuffered = False
     TabOrder = 5
   end
@@ -180,25 +184,25 @@ object frmTIPOPRODUTOS: TfrmTIPOPRODUTOS
     Top = 262
     Width = 75
     Height = 25
-    Caption = 'btn1'
+    Caption = 'Procurar'
     DoubleBuffered = True
+    Kind = bkRetry
+    NumGlyphs = 2
     ParentDoubleBuffered = False
     TabOrder = 11
   end
   object stat1: TStatusBar
     Left = 0
-    Top = 310
-    Width = 463
+    Top = 313
+    Width = 494
     Height = 19
     Panels = <>
-    ExplicitLeft = 376
-    ExplicitTop = 312
-    ExplicitWidth = 0
+    ExplicitTop = 310
+    ExplicitWidth = 463
   end
   object ibtbTIPOPRODUTOS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     FieldDefs = <
       item
         Name = 'PK_TIPO_PRODUTO'

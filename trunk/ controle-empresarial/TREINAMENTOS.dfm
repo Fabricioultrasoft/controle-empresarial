@@ -22,7 +22,7 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
     Top = 24
     Width = 73
     Height = 21
-    DataField = 'PK_GRUPOSTREINAMENTOS'
+    DataField = 'ID'
     DataSource = dsTREIN_GRUPOS
     EditButtons = <>
     Enabled = False
@@ -56,9 +56,6 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
     Width = 643
     Height = 19
     Panels = <>
-    ExplicitLeft = 536
-    ExplicitTop = 496
-    ExplicitWidth = 0
   end
   object btn1: TBitBtn
     Left = 471
@@ -122,8 +119,6 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
     TabOrder = 9
     object ts1: TTabSheet
       Caption = 'SubGrupos '
-      ExplicitLeft = 0
-      ExplicitTop = 28
       object dbgrd1: TDBGrid
         Left = 5
         Top = -3
@@ -136,6 +131,23 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'DESCRICAO'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'IDGRUPO'
+            Width = 54
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ID'
+            Visible = True
+          end>
       end
       object edtPK_SUBGRUPOSTREINAMENTOS: TDBEditEh
         Left = 3
@@ -173,8 +185,6 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
     object ts2: TTabSheet
       Caption = 'Treinamentos'
       ImageIndex = 1
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object dbgrdh1: TDBGridEh
         Left = 3
         Top = 3
@@ -212,7 +222,7 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
         Top = 208
         Width = 74
         Height = 21
-        DataField = 'PK_TREINAMENTOS'
+        DataField = 'ID'
         DataSource = dsTREINAMENTOS
         EditButtons = <>
         ShowHint = True
@@ -224,7 +234,7 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
         Top = 208
         Width = 510
         Height = 21
-        DataField = 'DESCRICAO'
+        DataField = 'TITULO'
         DataSource = dsTREINAMENTOS
         EditButtons = <>
         ShowHint = True
@@ -293,15 +303,25 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
       end
     end
   end
+  object dbmmoDESCRICAO: TDBMemo
+    Left = 16
+    Top = 417
+    Width = 589
+    Height = 114
+    DataField = 'DESCRICAO'
+    DataSource = dsTREINAMENTOS
+    ScrollBars = ssVertical
+    TabOrder = 10
+  end
   object ibtbTREINAMENTOS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <
       item
-        Name = 'PK_TREINAMENTOS'
+        Name = 'ID'
         Attributes = [faRequired]
-        DataType = ftSmallint
+        DataType = ftLargeint
       end
       item
         Name = 'TEXTO'
@@ -336,7 +356,7 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
       end
       item
         Name = 'VALIDADE'
-        DataType = ftSmallint
+        DataType = ftLargeint
       end
       item
         Name = 'VALIDADEUN'
@@ -345,14 +365,12 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
         Size = 1
       end
       item
-        Name = 'FK_GRUPOSTREINAMENTOS'
-        Attributes = [faRequired]
-        DataType = ftSmallint
+        Name = 'IDGRUPO'
+        DataType = ftLargeint
       end
       item
-        Name = 'FK_SUBGRUPOSTREINAMENTOS'
-        Attributes = [faRequired]
-        DataType = ftSmallint
+        Name = 'IDSUBGRUPO'
+        DataType = ftLargeint
       end
       item
         Name = 'INCLUIRCARGOS'
@@ -371,33 +389,29 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
         Size = 1500
       end
       item
-        Name = 'DESCRITIVO'
+        Name = 'DESCRICAO'
         DataType = ftMemo
         Size = 8
-      end
-      item
-        Name = 'DESCRICAO'
-        DataType = ftWideString
-        Size = 100
       end>
     IndexDefs = <
       item
-        Name = 'PK_ST_TREINAMENTOS'
-        Fields = 'PK_TREINAMENTOS;FK_GRUPOSTREINAMENTOS;FK_SUBGRUPOSTREINAMENTOS'
+        Name = 'PK_TREINAMENTOS'
+        Fields = 'ID'
         Options = [ixUnique]
       end
       item
-        Name = 'ST_TREINAMENTOS_DESCRICAO_A'
-        Fields = 'DESCRICAO'
+        Name = 'FK_TREINAMENTOS_1'
+        Fields = 'IDGRUPO;IDSUBGRUPO'
       end>
-    IndexFieldNames = 'PK_TREINAMENTOS;FK_GRUPOSTREINAMENTOS;FK_SUBGRUPOSTREINAMENTOS'
+    IndexFieldNames = 'IDGRUPO;IDSUBGRUPO'
     MasterSource = dsTREIN_SUBGRUPOS
     StoreDefs = True
-    TableName = 'ST_TREINAMENTOS'
+    TableName = 'TREINAMENTOS'
     Left = 560
     Top = 256
-    object smlntfldTREINAMENTOSPK_TREINAMENTOS: TSmallintField
-      FieldName = 'PK_TREINAMENTOS'
+    object lrgntfldTREINAMENTOSID: TLargeintField
+      FieldName = 'ID'
+      Required = True
     end
     object blbfldTREINAMENTOSTEXTO: TBlobField
       FieldName = 'TEXTO'
@@ -423,20 +437,18 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
       FieldName = 'FOTO'
       Size = 200
     end
-    object smlntfldTREINAMENTOSVALIDADE: TSmallintField
+    object lrgntfldTREINAMENTOSVALIDADE: TLargeintField
       FieldName = 'VALIDADE'
     end
     object ibstrngfldTREINAMENTOSVALIDADEUN: TIBStringField
       FieldName = 'VALIDADEUN'
       Size = 1
     end
-    object smlntfldTREINAMENTOSFK_GRUPOSTREINAMENTOS: TSmallintField
-      FieldName = 'FK_GRUPOSTREINAMENTOS'
-      Required = True
+    object lrgntfldTREINAMENTOSIDGRUPO: TLargeintField
+      FieldName = 'IDGRUPO'
     end
-    object smlntfldTREINAMENTOSFK_SUBGRUPOSTREINAMENTOS: TSmallintField
-      FieldName = 'FK_SUBGRUPOSTREINAMENTOS'
-      Required = True
+    object lrgntfldTREINAMENTOSIDSUBGRUPO: TLargeintField
+      FieldName = 'IDSUBGRUPO'
     end
     object ibstrngfldTREINAMENTOSINCLUIRCARGOS: TIBStringField
       FieldName = 'INCLUIRCARGOS'
@@ -450,25 +462,21 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
       FieldName = 'CAMINHOFLASH'
       Size = 1500
     end
-    object wdmfldTREINAMENTOSDESCRITIVO: TWideMemoField
-      FieldName = 'DESCRITIVO'
+    object wdmfldTREINAMENTOSDESCRICAO: TWideMemoField
+      FieldName = 'DESCRICAO'
       BlobType = ftMemo
       Size = 8
     end
-    object ibstrngfldTREINAMENTOSDESCRICAO: TIBStringField
-      FieldName = 'DESCRICAO'
-      Size = 100
-    end
   end
   object ibtbTREIN_GRUPOS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <
       item
-        Name = 'PK_GRUPOSTREINAMENTOS'
+        Name = 'ID'
         Attributes = [faRequired]
-        DataType = ftSmallint
+        DataType = ftLargeint
       end
       item
         Name = 'DESCRICAO'
@@ -477,20 +485,17 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
       end>
     IndexDefs = <
       item
-        Name = 'PK_ST_TREINAMENTOSGRUPOS'
-        Fields = 'PK_GRUPOSTREINAMENTOS'
+        Name = 'PK_TREINAMENTOSGRUPOS'
+        Fields = 'ID'
         Options = [ixUnique]
-      end
-      item
-        Name = 'ST_TREINAMENTOSGRUP_DESCRICAO_A'
-        Fields = 'DESCRICAO'
       end>
     StoreDefs = True
-    TableName = 'ST_TREINAMENTOSGRUPOS'
+    TableName = 'TREINAMENTOSGRUPOS'
     Left = 568
     Top = 216
-    object smlntfldTREIN_GRUPOSPK_GRUPOSTREINAMENTOS: TSmallintField
-      FieldName = 'PK_GRUPOSTREINAMENTOS'
+    object lrgntfldTREIN_GRUPOSID: TLargeintField
+      FieldName = 'ID'
+      Required = True
     end
     object ibstrngfldTREIN_GRUPOSDESCRICAO: TIBStringField
       FieldName = 'DESCRICAO'
@@ -498,19 +503,19 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
     end
   end
   object ibtbTREIN_SUBGRUPOS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <
       item
-        Name = 'FK_GRUPOSTREINAMENTOS'
+        Name = 'IDGRUPO'
         Attributes = [faRequired]
-        DataType = ftSmallint
+        DataType = ftLargeint
       end
       item
-        Name = 'PK_SUBGRUPOSTREINAMENTOS'
+        Name = 'ID'
         Attributes = [faRequired]
-        DataType = ftSmallint
+        DataType = ftLargeint
       end
       item
         Name = 'DESCRICAO'
@@ -519,26 +524,27 @@ object frmTREINAMENTOS: TfrmTREINAMENTOS
       end>
     IndexDefs = <
       item
-        Name = 'PK_ST_TREINAMENTOSSUBGRUPOS'
-        Fields = 'FK_GRUPOSTREINAMENTOS;PK_SUBGRUPOSTREINAMENTOS'
+        Name = 'PK_TREINAMENTOSSUBGRUPOS'
+        Fields = 'IDGRUPO;ID'
         Options = [ixUnique]
       end
       item
-        Name = 'ST_TREINAMENTOSSUBG_DESCRICAO_A'
-        Fields = 'DESCRICAO'
+        Name = 'FK_TREINAMENTOSSUBGRUPOS_1'
+        Fields = 'IDGRUPO'
       end>
-    IndexFieldNames = 'FK_GRUPOSTREINAMENTOS;PK_SUBGRUPOSTREINAMENTOS'
+    IndexFieldNames = 'IDGRUPO;ID'
     MasterSource = dsTREIN_GRUPOS
     StoreDefs = True
-    TableName = 'ST_TREINAMENTOSSUBGRUPOS'
+    TableName = 'TREINAMENTOSSUBGRUPOS'
     Left = 560
     Top = 168
-    object smlntfldTREIN_SUBGRUPOSFK_GRUPOSTREINAMENTOS: TSmallintField
-      FieldName = 'FK_GRUPOSTREINAMENTOS'
+    object lrgntfldTREIN_SUBGRUPOSIDGRUPO: TLargeintField
+      FieldName = 'IDGRUPO'
       Required = True
     end
-    object smlntfldTREIN_SUBGRUPOSPK_SUBGRUPOSTREINAMENTOS: TSmallintField
-      FieldName = 'PK_SUBGRUPOSTREINAMENTOS'
+    object lrgntfldTREIN_SUBGRUPOSID: TLargeintField
+      FieldName = 'ID'
+      Required = True
     end
     object ibstrngfldTREIN_SUBGRUPOSDESCRICAO: TIBStringField
       FieldName = 'DESCRICAO'

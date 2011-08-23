@@ -3,7 +3,7 @@ object frmProdutos: TfrmProdutos
   Top = 0
   Caption = 'PRODUTOS'
   ClientHeight = 648
-  ClientWidth = 805
+  ClientWidth = 826
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,9 @@ object frmProdutos: TfrmProdutos
     Top = 8
     Width = 65
     Height = 32
+    Alignment = taCenter
     DataField = 'PK_PRODUTOS'
+    DataSource = dsPRODUTOS
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -20
@@ -32,9 +34,10 @@ object frmProdutos: TfrmProdutos
   object dbtxt2: TDBText
     Left = 87
     Top = 8
-    Width = 402
+    Width = 362
     Height = 32
     DataField = 'DESCRICAO'
+    DataSource = dsPRODUTOS
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -20
@@ -43,8 +46,8 @@ object frmProdutos: TfrmProdutos
     ParentFont = False
   end
   object btn10: TSpeedButton
-    Left = 707
-    Top = 23
+    Left = 731
+    Top = 18
     Width = 23
     Height = 22
     Hint = 'Filtrar por este tipo'
@@ -63,6 +66,14 @@ object frmProdutos: TfrmProdutos
       5990555555555555577755555555555555555555555555555555}
     NumGlyphs = 2
   end
+  object lbl11: TLabel
+    Left = 317
+    Top = 80
+    Width = 42
+    Height = 13
+    Caption = 'C. Custo'
+    FocusControl = dbedtFK_CENTROCUSTO
+  end
   object btn1: TBitBtn
     Left = 696
     Top = 504
@@ -71,52 +82,54 @@ object frmProdutos: TfrmProdutos
     Caption = 'btn1'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 0
+    TabOrder = 12
   end
   object edtPK_PRODUTOS: TDBEditEh
     Left = 8
-    Top = 72
+    Top = 56
     Width = 65
     Height = 21
     DataField = 'PK_PRODUTOS'
     DataSource = dsPRODUTOS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 1
+    TabOrder = 3
     Visible = True
   end
   object edt2: TDBEditEh
     Left = 79
-    Top = 72
+    Top = 56
     Width = 370
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'DESCRICAO'
     DataSource = dsPRODUTOS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 2
+    TabOrder = 4
     Visible = True
   end
   object edt3: TDBEditEh
     Left = 455
-    Top = 72
-    Width = 326
+    Top = 56
+    Width = 270
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'RESUMIDA'
     DataSource = dsPRODUTOS
     EditButtons = <>
     ShowHint = True
-    TabOrder = 3
+    TabOrder = 5
     Visible = True
   end
-  object pgc1: TPageControl
-    Left = 8
-    Top = 201
+  object pgcESTOQUES: TPageControl
+    Left = 16
+    Top = 185
     Width = 789
     Height = 353
-    ActivePage = ts1
-    TabOrder = 4
-    object ts1: TTabSheet
+    ActivePage = tsLOTES
+    TabOrder = 13
+    object tsCLASSIFICACAO: TTabSheet
       Caption = 'Classifica'#231#227'o/Localiza'#231#227'o'
       object btn2: TSpeedButton
         Left = 67
@@ -286,19 +299,19 @@ object frmProdutos: TfrmProdutos
         Top = 152
         Width = 57
         Height = 21
-        DataField = 'PK_PROD_FAMILIA'
+        DataField = 'FK_FAMILIAS'
         DataSource = dsPRODUTOS
         EditButtons = <>
         ShowHint = True
         TabOrder = 6
         Visible = True
       end
-      object cbb5: TDBLookupComboboxEh
+      object cbbFK_FAMILIAS: TDBLookupComboboxEh
         Left = 96
         Top = 152
         Width = 278
         Height = 21
-        DataField = 'PK_PROD_FAMILIA'
+        DataField = 'FK_FAMILIAS'
         DataSource = dsPRODUTOS
         EditButtons = <>
         KeyField = 'PK_FAMILIA'
@@ -308,7 +321,7 @@ object frmProdutos: TfrmProdutos
         TabOrder = 7
         Visible = True
       end
-      object dbchckbxh2: TDBCheckBoxEh
+      object dbchckbxhCONTROLALOTE: TDBCheckBoxEh
         Left = 424
         Top = 26
         Width = 113
@@ -319,6 +332,7 @@ object frmProdutos: TfrmProdutos
         TabOrder = 8
         ValueChecked = 'S'
         ValueUnchecked = 'N'
+        OnClick = dbchckbxhCONTROLALOTEClick
       end
       object dbchckbxh3: TDBCheckBoxEh
         Left = 424
@@ -326,14 +340,13 @@ object frmProdutos: TfrmProdutos
         Width = 177
         Height = 17
         Caption = 'Controla Validade / Tempo / Tipo '
-        Checked = True
         DataField = 'CONTROLAVALIDADE'
         DataSource = dsPRODUTOS
         TabOrder = 9
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
-      object dbchckbxh4: TDBCheckBoxEh
+      object dbchckbxhPRODUTOCOMPOSTO: TDBCheckBoxEh
         Left = 424
         Top = 49
         Width = 97
@@ -344,6 +357,7 @@ object frmProdutos: TfrmProdutos
         TabOrder = 10
         ValueChecked = 'S'
         ValueUnchecked = 'N'
+        OnClick = dbchckbxhPRODUTOCOMPOSTOClick
       end
       object dbchckbxh5: TDBCheckBoxEh
         Left = 424
@@ -479,8 +493,20 @@ object frmProdutos: TfrmProdutos
         TabOrder = 20
         Visible = True
       end
+      object dbchckbxhCONTROLAVALIDADE: TDBCheckBoxEh
+        Left = 424
+        Top = 241
+        Width = 177
+        Height = 17
+        Caption = 'Controlado'
+        DataField = 'PRODUTOCONTROLADO'
+        DataSource = dsPRODUTOS
+        TabOrder = 21
+        ValueChecked = 'S'
+        ValueUnchecked = 'N'
+      end
     end
-    object ts2: TTabSheet
+    object tsEMBALAGEM: TTabSheet
       Caption = 'Embalagens'
       ImageIndex = 1
       object dbgrdhEMBALAGEM: TDBGridEh
@@ -597,6 +623,7 @@ object frmProdutos: TfrmProdutos
         Top = 159
         Width = 231
         Height = 25
+        DataSource = dsEMBALAGEM
         VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbRefresh]
         Hints.Strings = (
           'Primeiro '
@@ -612,374 +639,281 @@ object frmProdutos: TfrmProdutos
         TabOrder = 1
       end
     end
-    object ts3: TTabSheet
+    object tsFORNECEDORES: TTabSheet
       Caption = 'Fornecedores'
       ImageIndex = 2
-      object dbgrdhFORNECEDOR: TDBGridEh
-        Left = 3
-        Top = 16
-        Width = 766
-        Height = 145
-        DataGrouping.GroupLevels = <>
-        DataSource = dsFORN_PROD
-        Flat = False
-        FooterColor = clWindow
-        FooterFont.Charset = DEFAULT_CHARSET
-        FooterFont.Color = clWindowText
-        FooterFont.Height = -11
-        FooterFont.Name = 'Tahoma'
-        FooterFont.Style = []
-        RowDetailPanel.Color = clBtnFace
+      object pgc1: TPageControl
+        Left = 4
+        Top = 3
+        Width = 774
+        Height = 319
+        ActivePage = tsFORNECEDORES1
         TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        Columns = <
-          item
-            EditButtons = <>
-            FieldName = 'FORNECEDOR'
-            Footers = <>
-            Title.Alignment = taCenter
-            Title.Caption = 'Fornecedor'
+        object tsFORNECEDORES1: TTabSheet
+          Caption = 'Dados de Fornecimento'
+          object dbgrdhFORNECEDOR: TDBGridEh
+            Left = 3
+            Top = 3
+            Width = 766
+            Height = 145
+            DataGrouping.GroupLevels = <>
+            DataSource = dsFORN_PROD
+            Flat = False
+            FooterColor = clWindow
+            FooterFont.Charset = DEFAULT_CHARSET
+            FooterFont.Color = clWindowText
+            FooterFont.Height = -11
+            FooterFont.Name = 'Tahoma'
+            FooterFont.Style = []
+            RowDetailPanel.Color = clBtnFace
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            Columns = <
+              item
+                EditButtons = <>
+                FieldName = 'FORNECEDOR'
+                Footers = <>
+                Title.Alignment = taCenter
+                Title.Caption = 'Fornecedor'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PK_EMBALAGEM'
+                Footers = <>
+                Title.Caption = 'Embalagem'
+                Width = 60
+              end
+              item
+                EditButtons = <>
+                FieldName = 'REFERENCIAFORNECEDOR'
+                Footers = <>
+                Title.Caption = 'Referencia'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRAZOENTREGA'
+                Footers = <>
+                Title.Caption = 'P.Ent.'
+                Width = 37
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOBASICO'
+                Footers = <>
+                Title.Caption = 'Custo'
+                Width = 63
+              end
+              item
+                EditButtons = <>
+                FieldName = 'QUANTIDADEMINIMA'
+                Footers = <>
+                Title.Caption = 'Minimo'
+                Width = 38
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICOTAIPI'
+                Footers = <>
+                Title.Alignment = taCenter
+                Title.Caption = 'IPI'
+                Width = 56
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICOTAICMS'
+                Footers = <>
+                Title.Alignment = taCenter
+                Title.Caption = 'ICMS'
+                Width = 55
+              end
+              item
+                EditButtons = <>
+                FieldName = 'REDBASEICMS'
+                Footers = <>
+                Title.Alignment = taCenter
+                Title.Caption = 'Red.B.C.'
+                Width = 51
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICOTAICMSSUBST'
+                Footers = <>
+                Title.Caption = 'ICMS.SBT'
+                Width = 53
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICOTAFRETE'
+                Footers = <>
+                Title.Caption = 'Frete'
+                Width = 47
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FRETEFOBFIB'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICOTADESCONTO'
+                Footers = <>
+                Title.Caption = 'Desconto'
+                Width = 53
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PK_TRIBUTACAO'
+                Footers = <>
+                Title.Caption = 'Trb.'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRIMEIRACOMPRA'
+                Footers = <>
+                Title.Caption = 'P.Compra'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ULTIMACOMPRA'
+                Footers = <>
+                Title.Caption = 'Ult. Compra'
+              end>
+            object RowDetailData: TRowDetailPanelControlEh
+            end
           end
-          item
+          object edtFORNECEDOR: TDBEditEh
+            Left = 3
+            Top = 167
+            Width = 398
+            Height = 21
+            DataField = 'FORNECEDOR'
             EditButtons = <>
-            FieldName = 'PK_EMBALAGEM'
-            Footers = <>
-            Title.Caption = 'Embalagem'
-            Width = 60
+            ShowHint = True
+            TabOrder = 1
+            Visible = True
           end
-          item
+          object edtREFERENCIAFORNECEDOR: TDBEditEh
+            Left = 407
+            Top = 167
+            Width = 74
+            Height = 21
+            DataField = 'REFERENCIAFORNECEDOR'
             EditButtons = <>
-            FieldName = 'REFERENCIAFORNECEDOR'
-            Footers = <>
-            Title.Caption = 'Referencia'
+            ShowHint = True
+            TabOrder = 2
+            Visible = True
           end
-          item
+          object edt9: TDBEditEh
+            Left = 487
+            Top = 167
+            Width = 90
+            Height = 21
             EditButtons = <>
-            FieldName = 'PRAZOENTREGA'
-            Footers = <>
-            Title.Caption = 'P.Ent.'
-            Width = 37
+            ShowHint = True
+            TabOrder = 3
+            Visible = True
           end
-          item
+          object edtCUSTOBASICO: TDBEditEh
+            Left = 583
+            Top = 167
+            Width = 121
+            Height = 21
+            DataField = 'CUSTOBASICO'
             EditButtons = <>
-            FieldName = 'CUSTOBASICO'
-            Footers = <>
-            Title.Caption = 'Custo'
-            Width = 63
+            ShowHint = True
+            TabOrder = 4
+            Visible = True
           end
-          item
-            EditButtons = <>
-            FieldName = 'QUANTIDADEMINIMA'
-            Footers = <>
-            Title.Caption = 'Minimo'
-            Width = 38
+          object dbnvgr2: TDBNavigator
+            Left = 3
+            Top = 207
+            Width = 378
+            Height = 25
+            DataSource = dsFORN_PROD
+            VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbRefresh]
+            TabOrder = 5
           end
-          item
-            EditButtons = <>
-            FieldName = 'ALICOTAIPI'
-            Footers = <>
-            Title.Alignment = taCenter
-            Title.Caption = 'IPI'
-            Width = 56
-          end
-          item
-            EditButtons = <>
-            FieldName = 'ALICOTAICMS'
-            Footers = <>
-            Title.Alignment = taCenter
-            Title.Caption = 'ICMS'
-            Width = 55
-          end
-          item
-            EditButtons = <>
-            FieldName = 'REDBASEICMS'
-            Footers = <>
-            Title.Alignment = taCenter
-            Title.Caption = 'Red.B.C.'
-            Width = 51
-          end
-          item
-            EditButtons = <>
-            FieldName = 'ALICOTAICMSSUBST'
-            Footers = <>
-            Title.Caption = 'ICMS.SBT'
-            Width = 53
-          end
-          item
-            EditButtons = <>
-            FieldName = 'ALICOTAFRETE'
-            Footers = <>
-            Title.Caption = 'Frete'
-            Width = 47
-          end
-          item
-            EditButtons = <>
-            FieldName = 'FRETEFOBFIB'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'ALICOTADESCONTO'
-            Footers = <>
-            Title.Caption = 'Desconto'
-            Width = 53
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PK_TRIBUTACAO'
-            Footers = <>
-            Title.Caption = 'Trb.'
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PRIMEIRACOMPRA'
-            Footers = <>
-            Title.Caption = 'P.Compra'
-          end
-          item
-            EditButtons = <>
-            FieldName = 'ULTIMACOMPRA'
-            Footers = <>
-            Title.Caption = 'Ult. Compra'
-          end>
-        object RowDetailData: TRowDetailPanelControlEh
         end
-      end
-      object edt1: TDBEditEh
-        Left = 3
-        Top = 176
-        Width = 398
-        Height = 21
-        DataField = 'FORNECEDOR'
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 1
-        Visible = True
-      end
-      object edt6: TDBEditEh
-        Left = 407
-        Top = 176
-        Width = 74
-        Height = 21
-        DataField = 'REFERENCIAFORNECEDOR'
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 2
-        Visible = True
-      end
-      object edt9: TDBEditEh
-        Left = 487
-        Top = 176
-        Width = 90
-        Height = 21
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 3
-        Visible = True
-      end
-      object edt10: TDBEditEh
-        Left = 583
-        Top = 176
-        Width = 121
-        Height = 21
-        DataField = 'CUSTOBASICO'
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 4
-        Visible = True
-      end
-      object dbnvgr2: TDBNavigator
-        Left = 3
-        Top = 216
-        Width = 378
-        Height = 25
-        DataSource = dsFORN_PROD
-        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbRefresh]
-        TabOrder = 5
+        object tsREGRAS: TTabSheet
+          Caption = 'Regras de Fornecimento'
+          ImageIndex = 1
+          object dbgrdh1: TDBGridEh
+            Left = 0
+            Top = 0
+            Width = 763
+            Height = 206
+            DataGrouping.GroupLevels = <>
+            DataSource = dsREGRAS
+            Flat = False
+            FooterColor = clWindow
+            FooterFont.Charset = DEFAULT_CHARSET
+            FooterFont.Color = clWindowText
+            FooterFont.Height = -11
+            FooterFont.Name = 'Tahoma'
+            FooterFont.Style = []
+            RowDetailPanel.Color = clBtnFace
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            Columns = <
+              item
+                EditButtons = <>
+                FieldName = 'fornecedor'
+                Footers = <>
+                Title.Caption = 'Fornecedor'
+                Width = 250
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PK_REGRAS_ENTRADA'
+                Footers = <>
+                Title.Caption = 'Regra'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'DESCRICAO'
+                Footers = <>
+                Title.Caption = 'Descri'#231#227'o'
+                Width = 230
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PERCQUANTIDADE'
+                Footers = <>
+                Title.Caption = 'Quant.'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PERCVALOR'
+                Footers = <>
+                Title.Caption = 'Valor'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_FORNECEDORES'
+                Footers = <>
+                Title.Caption = 'Forn.'
+              end>
+            object RowDetailData: TRowDetailPanelControlEh
+            end
+          end
+        end
+        object tsCOMPRASHISTORICOS: TTabSheet
+          Caption = 'Hist'#243'rico de Compras'
+          ImageIndex = 2
+        end
       end
     end
-    object ts4: TTabSheet
+    object tsCUSTOS: TTabSheet
       Caption = 'Custos e Pre'#231'os'
       ImageIndex = 3
-      object dbgrdhPRECOS: TDBGridEh
-        Left = 0
-        Top = 3
-        Width = 778
-        Height = 110
-        ColumnDefValues.HighlightRequired = True
-        ColumnDefValues.ToolTips = True
-        DataGrouping.GroupLevels = <>
-        Flat = False
-        FooterColor = clWindow
-        FooterFont.Charset = DEFAULT_CHARSET
-        FooterFont.Color = clWindowText
-        FooterFont.Height = -11
-        FooterFont.Name = 'Tahoma'
-        FooterFont.Style = []
-        RowDetailPanel.Color = clBtnFace
-        SumList.Active = True
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        Columns = <
-          item
-            EditButtons = <>
-            FieldName = 'PRECOVENDA'
-            Footers = <>
-            Title.Alignment = taCenter
-            Title.Caption = 'Venda'
-            Width = 61
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOREPOSICAO'
-            Footers = <>
-            Title.Caption = 'Reposi'#231#227'o'
-            Width = 68
-          end
-          item
-            EditButtons = <>
-            FieldName = 'MARGEMMINIMA'
-            Footers = <>
-            Title.Caption = 'M.Min'
-            Width = 38
-          end
-          item
-            EditButtons = <>
-            FieldName = 'MARGEMMAXIMA'
-            Footers = <>
-            Title.Caption = 'M.Max'
-            Width = 48
-          end
-          item
-            EditButtons = <>
-            FieldName = 'MARGEMMEDIA'
-            Footers = <>
-            Title.Caption = 'M.M'#233'd'
-            Width = 47
-          end
-          item
-            EditButtons = <>
-            FieldName = 'ALICOTADESCVISTA'
-            Footers = <>
-            Title.Caption = 'Desc.Vista'
-            Width = 65
-          end
-          item
-            EditButtons = <>
-            FieldName = 'ALICDESCPRAZO'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Des.'
-            Font.Style = []
-            Footers = <>
-            Title.Caption = 'Desc.Prazo'
-            Width = 66
-          end
-          item
-            EditButtons = <>
-            FieldName = 'ALICDESCMAXIMO'
-            Footers = <>
-            Title.Caption = 'Desc.Max.'
-            Width = 56
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOCONTABIL'
-            Footers = <>
-            Title.Caption = 'C. Cont'#225'bil'
-            Width = 63
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOMEDIO'
-            Footers = <>
-            Title.Caption = 'C. M'#233'dio'
-            Width = 62
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOEMEDIOCALCULADO'
-            Footers = <>
-            Title.Caption = 'M'#233'dio Calc.'
-            Width = 69
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PODETERDESCPRAZO'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOMEDIOFINANCEIRO'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOMEDIODATAINICIO'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOMEDIODATAFINAL'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PRECOVENDAANTERIOR'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PRECOVENDADATA'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PRECOVENDAPROMOCAO'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'INICIOPROMOCAO'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'FINALPROMOCAO'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'SEQUENCIAL'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTODOLAR'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PRECOVENDADOLAR'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'TIPOPRECOVENDA'
-            Footers = <>
-          end>
-        object RowDetailData: TRowDetailPanelControlEh
-        end
-      end
       object dbnvgr3: TDBNavigator
         Left = 3
         Top = 297
@@ -987,86 +921,7 @@ object frmProdutos: TfrmProdutos
         Height = 25
         VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbRefresh]
         ConfirmDelete = False
-        TabOrder = 1
-      end
-      object dbgrdhHISTORICO: TDBGridEh
-        Left = 3
-        Top = 119
-        Width = 775
-        Height = 90
-        DataGrouping.GroupLevels = <>
-        EvenRowColor = 16776176
-        Flat = False
-        FooterColor = clWindow
-        FooterFont.Charset = DEFAULT_CHARSET
-        FooterFont.Color = clWindowText
-        FooterFont.Height = -11
-        FooterFont.Name = 'Tahoma'
-        FooterFont.Style = []
-        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-        RowDetailPanel.Color = clBtnFace
-        EditButtonsShowOptions = [sebShowOnlyForCurCellEh]
-        SumList.Active = True
-        TabOrder = 2
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        Columns = <
-          item
-            EditButtons = <>
-            FieldName = 'PK_EMPRESA'
-            Footers = <>
-            Title.Caption = 'Empresa'
-            Width = 43
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PK_FILIAL'
-            Footers = <>
-            Title.Caption = 'Filial'
-            Width = 26
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PK_DATAALTERACAO'
-            Footers = <>
-            Title.Caption = 'Data Alt.'
-          end
-          item
-            EditButtons = <>
-            FieldName = 'MOTIVO'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'MOTIVODESC'
-            Footers = <>
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOREPOSICAO'
-            Footers = <>
-            Title.Caption = 'C. Reposi'#231#227'o'
-            Width = 69
-          end
-          item
-            EditButtons = <>
-            FieldName = 'CUSTOCONTABIL'
-            Footers = <>
-            Title.Caption = 'C.Cont'#225'bil'
-            Width = 71
-          end
-          item
-            EditButtons = <>
-            FieldName = 'PRECOVENDA'
-            Footers = <>
-            Title.Caption = 'P.Venda'
-            Width = 80
-          end>
-        object RowDetailData: TRowDetailPanelControlEh
-        end
+        TabOrder = 0
       end
       object dbchckbxh1: TDBCheckBoxEh
         Left = 681
@@ -1075,191 +930,1461 @@ object frmProdutos: TfrmProdutos
         Height = 34
         Caption = 'Em Promo'#231#227'o'
         DataField = 'EMPROMOCAO'
-        TabOrder = 3
+        TabOrder = 1
         ValueChecked = 'S'
         ValueUnchecked = 'N'
+      end
+      object pgc5: TPageControl
+        Left = 3
+        Top = 3
+        Width = 775
+        Height = 319
+        ActivePage = tsSUBCUSTOS
+        TabOrder = 2
+        object tsSUBCUSTOS: TTabSheet
+          Caption = 'Custos e Pre'#231'os'
+          object dbgrdhHISTORICO: TDBGridEh
+            Left = -8
+            Top = 119
+            Width = 775
+            Height = 90
+            DataGrouping.GroupLevels = <>
+            EvenRowColor = 16776176
+            Flat = False
+            FooterColor = clWindow
+            FooterFont.Charset = DEFAULT_CHARSET
+            FooterFont.Color = clWindowText
+            FooterFont.Height = -11
+            FooterFont.Name = 'Tahoma'
+            FooterFont.Style = []
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+            RowDetailPanel.Color = clBtnFace
+            EditButtonsShowOptions = [sebShowOnlyForCurCellEh]
+            SumList.Active = True
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            Columns = <
+              item
+                EditButtons = <>
+                FieldName = 'PK_EMPRESA'
+                Footers = <>
+                Title.Caption = 'Empresa'
+                Width = 43
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PK_FILIAL'
+                Footers = <>
+                Title.Caption = 'Filial'
+                Width = 26
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PK_DATAALTERACAO'
+                Footers = <>
+                Title.Caption = 'Data Alt.'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MOTIVO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MOTIVODESC'
+                Footers = <>
+                Width = 202
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOREPOSICAO'
+                Footers = <>
+                Title.Caption = 'C. Reposi'#231#227'o'
+                Width = 69
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOCONTABIL'
+                Footers = <>
+                Title.Caption = 'C.Cont'#225'bil'
+                Width = 71
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRECOVENDA'
+                Footers = <>
+                Title.Caption = 'P.Venda'
+                Width = 80
+              end>
+            object RowDetailData: TRowDetailPanelControlEh
+            end
+          end
+          object dbgrdhPRECOS: TDBGridEh
+            Left = -11
+            Top = 3
+            Width = 778
+            Height = 110
+            ColumnDefValues.HighlightRequired = True
+            ColumnDefValues.ToolTips = True
+            DataGrouping.GroupLevels = <>
+            Flat = False
+            FooterColor = clWindow
+            FooterFont.Charset = DEFAULT_CHARSET
+            FooterFont.Color = clWindowText
+            FooterFont.Height = -11
+            FooterFont.Name = 'Tahoma'
+            FooterFont.Style = []
+            RowDetailPanel.Color = clBtnFace
+            SumList.Active = True
+            TabOrder = 1
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            Columns = <
+              item
+                EditButtons = <>
+                FieldName = 'PRECOVENDA'
+                Footers = <>
+                Title.Alignment = taCenter
+                Title.Caption = 'Venda'
+                Width = 61
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOREPOSICAO'
+                Footers = <>
+                Title.Caption = 'Reposi'#231#227'o'
+                Width = 68
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MARGEMMINIMA'
+                Footers = <>
+                Title.Caption = 'M.Min'
+                Width = 38
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MARGEMMAXIMA'
+                Footers = <>
+                Title.Caption = 'M.Max'
+                Width = 48
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MARGEMMEDIA'
+                Footers = <>
+                Title.Caption = 'M.M'#233'd'
+                Width = 47
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICOTADESCVISTA'
+                Footers = <>
+                Title.Caption = 'Desc.Vista'
+                Width = 65
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICDESCPRAZO'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -11
+                Font.Name = 'Des.'
+                Font.Style = []
+                Footers = <>
+                Title.Caption = 'Desc.Prazo'
+                Width = 66
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICDESCMAXIMO'
+                Footers = <>
+                Title.Caption = 'Desc.Max.'
+                Width = 56
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOCONTABIL'
+                Footers = <>
+                Title.Caption = 'C. Cont'#225'bil'
+                Width = 63
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOMEDIO'
+                Footers = <>
+                Title.Caption = 'C. M'#233'dio'
+                Width = 62
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOEMEDIOCALCULADO'
+                Footers = <>
+                Title.Caption = 'M'#233'dio Calc.'
+                Width = 69
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PODETERDESCPRAZO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOMEDIOFINANCEIRO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOMEDIODATAINICIO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOMEDIODATAFINAL'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRECOVENDAANTERIOR'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRECOVENDADATA'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRECOVENDAPROMOCAO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'INICIOPROMOCAO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FINALPROMOCAO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'SEQUENCIAL'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTODOLAR'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRECOVENDADOLAR'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'TIPOPRECOVENDA'
+                Footers = <>
+              end>
+            object RowDetailData: TRowDetailPanelControlEh
+            end
+          end
+        end
+        object tsCUSTOSHISTORICOS: TTabSheet
+          Caption = 'Hist'#243'ricos de Pre'#231'os e Custos'
+          ImageIndex = 1
+        end
       end
     end
     object ts5: TTabSheet
       Caption = 'Estoques e Saldos'
       ImageIndex = 4
-      object edt12: TDBEditEh
-        Left = 178
-        Top = 16
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEMINIMO'
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 1
-        Visible = True
-      end
-      object edt13: TDBEditEh
-        Left = 261
-        Top = 16
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEMAXIMO'
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 2
-        Visible = True
-      end
-      object edt14: TDBEditEh
-        Left = 344
-        Top = 16
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEMEDIO'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 3
-        Visible = True
-      end
-      object edt15: TDBEditEh
-        Left = 427
-        Top = 16
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEGARANTIA'
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 4
-        Visible = True
-      end
-      object edt16: TDBEditEh
-        Left = 510
-        Top = 56
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEDISPONIVEL'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 14
-        Visible = True
-      end
-      object edt17: TDBEditEh
-        Left = 427
-        Top = 56
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUERESERVADO'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 13
-        Visible = True
-      end
-      object edt18: TDBEditEh
-        Left = 344
-        Top = 56
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEFUTURO'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 12
-        Visible = True
-      end
-      object edt19: TDBEditEh
-        Left = 261
-        Top = 56
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEPEDIDO'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 11
-        Visible = True
-      end
-      object edt20: TDBEditEh
-        Left = 178
-        Top = 56
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEATUAL'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 10
-        Visible = True
-      end
-      object edt21: TDBEditEh
-        Left = 95
-        Top = 56
-        Width = 77
-        Height = 21
-        DataField = 'ULTIMASAIDA'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 9
-        Visible = True
-      end
-      object edt22: TDBEditEh
-        Left = 12
-        Top = 56
-        Width = 77
-        Height = 21
-        DataField = 'SAIDASACUMULADAS'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 8
-        Visible = True
-      end
-      object edt24: TDBEditEh
-        Left = 676
-        Top = 16
-        Width = 77
-        Height = 21
-        DataField = 'ULTIMAENTRADA'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 7
-        Visible = True
-      end
-      object edt25: TDBEditEh
-        Left = 593
-        Top = 16
-        Width = 77
-        Height = 21
-        DataField = 'ENTRADASACUMULADAS'
-        EditButtons = <>
-        Enabled = False
-        ShowHint = True
-        TabOrder = 6
-        Visible = True
-      end
-      object edt27: TDBEditEh
-        Left = 510
-        Top = 16
-        Width = 77
-        Height = 21
-        DataField = 'ESTOQUEINICIAL'
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 5
-        Visible = True
-      end
-      object cbb7: TDBLookupComboboxEh
-        Left = 12
-        Top = 16
-        Width = 160
-        Height = 21
-        DataField = 'PK_UNIDADE'
-        EditButtons = <>
-        KeyField = 'PK_UNIDADES'
-        ListField = 'DSC_UNI'
-        ShowHint = True
+      object pgc3: TPageControl
+        Left = 0
+        Top = 3
+        Width = 778
+        Height = 319
+        ActivePage = ts4
         TabOrder = 0
-        Visible = True
+        object ts4: TTabSheet
+          Caption = 'Estoques e Saldos'
+          object cbbPK_UNIDADE: TDBLookupComboboxEh
+            Left = 12
+            Top = 16
+            Width = 160
+            Height = 21
+            DataField = 'PK_UNIDADE'
+            EditButtons = <>
+            KeyField = 'PK_UNIDADES'
+            ListField = 'DSC_UNI'
+            ShowHint = True
+            TabOrder = 0
+            Visible = True
+          end
+          object edtESTOQUEMINIMO: TDBEditEh
+            Left = 178
+            Top = 16
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEMINIMO'
+            EditButtons = <>
+            ShowHint = True
+            TabOrder = 1
+            Visible = True
+          end
+          object edtESTOQUEMAXIMO: TDBEditEh
+            Left = 261
+            Top = 16
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEMAXIMO'
+            EditButtons = <>
+            ShowHint = True
+            TabOrder = 2
+            Visible = True
+          end
+          object edtESTOQUEMEDIO: TDBEditEh
+            Left = 344
+            Top = 16
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEMEDIO'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 3
+            Visible = True
+          end
+          object edtESTOQUEGARANTIA: TDBEditEh
+            Left = 427
+            Top = 16
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEGARANTIA'
+            EditButtons = <>
+            ShowHint = True
+            TabOrder = 4
+            Visible = True
+          end
+          object edtESTOQUEINICIAL: TDBEditEh
+            Left = 510
+            Top = 16
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEINICIAL'
+            EditButtons = <>
+            ShowHint = True
+            TabOrder = 5
+            Visible = True
+          end
+          object edtENTRADASACUMULADAS: TDBEditEh
+            Left = 593
+            Top = 16
+            Width = 77
+            Height = 21
+            DataField = 'ENTRADASACUMULADAS'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 6
+            Visible = True
+          end
+          object edtULTIMAENTRADA: TDBEditEh
+            Left = 676
+            Top = 16
+            Width = 77
+            Height = 21
+            DataField = 'ULTIMAENTRADA'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 7
+            Visible = True
+          end
+          object edtSAIDASACUMULADAS: TDBEditEh
+            Left = 12
+            Top = 56
+            Width = 77
+            Height = 21
+            DataField = 'SAIDASACUMULADAS'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 8
+            Visible = True
+          end
+          object edtULTIMASAIDA: TDBEditEh
+            Left = 95
+            Top = 56
+            Width = 77
+            Height = 21
+            DataField = 'ULTIMASAIDA'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 9
+            Visible = True
+          end
+          object edtESTOQUEATUAL: TDBEditEh
+            Left = 178
+            Top = 56
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEATUAL'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 10
+            Visible = True
+          end
+          object edtESTOQUEPEDIDO: TDBEditEh
+            Left = 261
+            Top = 56
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEPEDIDO'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 11
+            Visible = True
+          end
+          object edtESTOQUEFUTURO: TDBEditEh
+            Left = 344
+            Top = 56
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEFUTURO'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 12
+            Visible = True
+          end
+          object edtESTOQUERESERVADO: TDBEditEh
+            Left = 427
+            Top = 56
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUERESERVADO'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 13
+            Visible = True
+          end
+          object edtESTOQUEDISPONIVEL: TDBEditEh
+            Left = 510
+            Top = 56
+            Width = 77
+            Height = 21
+            DataField = 'ESTOQUEDISPONIVEL'
+            EditButtons = <>
+            Enabled = False
+            ShowHint = True
+            TabOrder = 14
+            Visible = True
+          end
+        end
+        object ts6: TTabSheet
+          Caption = 'Movimenta'#231#245'es'
+          ImageIndex = 1
+        end
       end
+    end
+    object tsDADOSFISCAIS: TTabSheet
+      Caption = 'Dados Fiscais'
+      ImageIndex = 5
+      object pgcISS: TPageControl
+        Left = 0
+        Top = 3
+        Width = 778
+        Height = 326
+        ActivePage = tsSubsTrib
+        TabOrder = 0
+        object tsDADOSFISCAIS1: TTabSheet
+          Caption = 'Dados Fiscais'
+          ExplicitLeft = 0
+          object lbl1: TLabel
+            Left = 294
+            Top = 5
+            Width = 116
+            Height = 13
+            Caption = 'CLASSIFICACAOFISCAL'
+            FocusControl = dbedtCLASSIFICACAOFISCAL
+          end
+          object lbl2: TLabel
+            Left = 434
+            Top = 5
+            Width = 100
+            Height = 13
+            Caption = 'GRUPOTRIBUTACAO'
+            FocusControl = dbedtGRUPOTRIBUTACAO
+          end
+          object lbl3: TLabel
+            Left = 3
+            Top = 136
+            Width = 63
+            Height = 13
+            Caption = 'Saida Padr'#227'o'
+            FocusControl = dbedtTIPOSAIDAPADRAO
+          end
+          object lbl4: TLabel
+            Left = 305
+            Top = 136
+            Width = 57
+            Height = 13
+            Caption = 'Ent. Padr'#227'o'
+            FocusControl = dbedtTIPOENTRADAPADRAO
+          end
+          object lbl5: TLabel
+            Left = 209
+            Top = 80
+            Width = 113
+            Height = 13
+            Caption = 'SITUACAOTRIBUTARIA'
+            FocusControl = dbedtSITUACAOTRIBUTARIA
+          end
+          object lbl6: TLabel
+            Left = 3
+            Top = 192
+            Width = 107
+            Height = 13
+            Caption = 'CTACONTABILDEBITO'
+            FocusControl = dbedtCTACONTABILDEBITO
+          end
+          object lbl7: TLabel
+            Left = 379
+            Top = 192
+            Width = 115
+            Height = 13
+            Caption = 'CTACONTABILCREDITO'
+            FocusControl = dbedtCTACONTABILCREDITO
+          end
+          object lbl8: TLabel
+            Left = 3
+            Top = 80
+            Width = 109
+            Height = 13
+            Caption = 'SOLIDARIO_ENTRADA'
+            FocusControl = dbedtSOLIDARIO_ENTRADA
+          end
+          object lbl9: TLabel
+            Left = 106
+            Top = 80
+            Width = 93
+            Height = 13
+            Caption = 'SOLIDARIO_SAIDA'
+            FocusControl = dbedtSOLIDARIO_SAIDA
+          end
+          object edtCODIGONCM: TDBEditEh
+            Left = 3
+            Top = 21
+            Width = 94
+            Height = 21
+            DataField = 'CODIGONCM'
+            DataSource = dsFISCAL
+            EditButtons = <>
+            ShowHint = True
+            TabOrder = 0
+            Visible = True
+          end
+          object dbrgrpORIGEMPRODUTO: TDBRadioGroup
+            Left = 103
+            Top = 21
+            Width = 185
+            Height = 44
+            Caption = 'Origem'
+            DataField = 'ORIGEMPRODUTO'
+            DataSource = dsFISCAL
+            Items.Strings = (
+              'Nacional'
+              'Importado')
+            ParentBackground = True
+            TabOrder = 1
+            Values.Strings = (
+              '0'
+              '1')
+          end
+          object dbedtCLASSIFICACAOFISCAL: TDBEdit
+            Left = 294
+            Top = 21
+            Width = 134
+            Height = 21
+            DataField = 'CLASSIFICACAOFISCAL'
+            DataSource = dsFISCAL
+            TabOrder = 2
+          end
+          object dbedtGRUPOTRIBUTACAO: TDBEdit
+            Left = 434
+            Top = 21
+            Width = 134
+            Height = 21
+            DataField = 'GRUPOTRIBUTACAO'
+            DataSource = dsFISCAL
+            TabOrder = 3
+          end
+          object dbedtTIPOSAIDAPADRAO: TDBEdit
+            Left = 3
+            Top = 155
+            Width = 54
+            Height = 21
+            DataField = 'TIPOSAIDAPADRAO'
+            DataSource = dsFISCAL
+            TabOrder = 4
+          end
+          object dbedtTIPOENTRADAPADRAO: TDBEdit
+            Left = 305
+            Top = 155
+            Width = 54
+            Height = 21
+            DataField = 'TIPOENTRADAPADRAO'
+            DataSource = dsFISCAL
+            TabOrder = 5
+          end
+          object dbedtSITUACAOTRIBUTARIA: TDBEdit
+            Left = 209
+            Top = 99
+            Width = 97
+            Height = 21
+            DataField = 'SITUACAOTRIBUTARIA'
+            DataSource = dsFISCAL
+            TabOrder = 6
+          end
+          object dbedtCTACONTABILDEBITO: TDBEdit
+            Left = 3
+            Top = 211
+            Width = 54
+            Height = 21
+            DataField = 'CTACONTABILDEBITO'
+            DataSource = dsFISCAL
+            TabOrder = 7
+          end
+          object dbedtCTACONTABILCREDITO: TDBEdit
+            Left = 379
+            Top = 211
+            Width = 97
+            Height = 21
+            DataField = 'CTACONTABILCREDITO'
+            DataSource = dsFISCAL
+            TabOrder = 8
+          end
+          object dbchkUTILIZASELO: TDBCheckBox
+            Left = 586
+            Top = 23
+            Width = 97
+            Height = 17
+            Caption = 'Utiliza Selo'
+            DataField = 'UTILIZASELO'
+            DataSource = dsFISCAL
+            TabOrder = 9
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+          end
+          object dbedtSOLIDARIO_ENTRADA: TDBEdit
+            Left = 3
+            Top = 99
+            Width = 97
+            Height = 21
+            DataField = 'SOLIDARIO_ENTRADA'
+            DataSource = dsFISCAL
+            TabOrder = 10
+          end
+          object dbedtSOLIDARIO_SAIDA: TDBEdit
+            Left = 106
+            Top = 99
+            Width = 97
+            Height = 21
+            DataField = 'SOLIDARIO_SAIDA'
+            DataSource = dsFISCAL
+            TabOrder = 11
+          end
+          object dblkcbbTIPOENTRADAPADRAO: TDBLookupComboBox
+            Left = 365
+            Top = 155
+            Width = 236
+            Height = 21
+            DataField = 'TIPOENTRADAPADRAO'
+            DataSource = dsFISCAL
+            TabOrder = 12
+          end
+          object dblkcbb2: TDBLookupComboBox
+            Left = 519
+            Top = 211
+            Width = 236
+            Height = 21
+            TabOrder = 13
+          end
+          object dblkcbbTIPOSAIDAPADRAO: TDBLookupComboBox
+            Left = 63
+            Top = 155
+            Width = 236
+            Height = 21
+            DataField = 'TIPOSAIDAPADRAO'
+            DataSource = dsFISCAL
+            TabOrder = 14
+          end
+          object dblkcbb4: TDBLookupComboBox
+            Left = 106
+            Top = 211
+            Width = 236
+            Height = 21
+            TabOrder = 15
+          end
+        end
+        object tsICMS: TTabSheet
+          Caption = 'ICMS'
+          ImageIndex = 1
+          object lbl10: TLabel
+            Left = 16
+            Top = 24
+            Width = 60
+            Height = 13
+            Caption = 'Al'#237'cota ICMS'
+            FocusControl = dbedtICMS_ALICOTA
+          end
+          object lbl12: TLabel
+            Left = 271
+            Top = 24
+            Width = 106
+            Height = 13
+            Caption = 'Al'#237'cota de ICMS Pauta'
+            FocusControl = dbedtICMS_PAUTAALICOTA
+          end
+          object dbedtICMS_ALICOTA: TDBEdit
+            Left = 16
+            Top = 40
+            Width = 134
+            Height = 21
+            DataField = 'ICMS_ALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+          end
+          object dbedtICMS_PAUTAALICOTA: TDBEdit
+            Left = 271
+            Top = 40
+            Width = 134
+            Height = 21
+            DataField = 'ICMS_PAUTAALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 1
+          end
+          object dbchkICMS_PAUTA: TDBCheckBox
+            Left = 168
+            Top = 40
+            Width = 97
+            Height = 17
+            Caption = 'ICMS Pauta'
+            DataField = 'ICMS_PAUTA'
+            DataSource = dsFISCAL
+            TabOrder = 2
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+          end
+        end
+        object tsISS: TTabSheet
+          Caption = 'ISS'
+          ImageIndex = 2
+          object lbl13: TLabel
+            Left = 16
+            Top = 16
+            Width = 66
+            Height = 13
+            Caption = 'ISS_ALICOTA'
+            FocusControl = dbedtISS_ALICOTA
+          end
+          object lbl14: TLabel
+            Left = 156
+            Top = 16
+            Width = 107
+            Height = 13
+            Caption = 'ISS_CODIGOSERVICO'
+            FocusControl = dbedtISS_CODIGOSERVICO
+          end
+          object dbedtISS_ALICOTA: TDBEdit
+            Left = 16
+            Top = 32
+            Width = 134
+            Height = 21
+            DataField = 'ISS_ALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+          end
+          object dbedtISS_CODIGOSERVICO: TDBEdit
+            Left = 156
+            Top = 32
+            Width = 134
+            Height = 21
+            DataField = 'ISS_CODIGOSERVICO'
+            DataSource = dsFISCAL
+            TabOrder = 1
+          end
+        end
+        object tsPIS: TTabSheet
+          Caption = 'PIS'
+          ImageIndex = 3
+          object lbl15: TLabel
+            Left = 16
+            Top = 16
+            Width = 66
+            Height = 13
+            Caption = 'PIS_ALICOTA'
+            FocusControl = dbedtPIS_ALICOTA
+          end
+          object lbl16: TLabel
+            Left = 156
+            Top = 16
+            Width = 115
+            Height = 13
+            Caption = 'PIS_ALICOTAREDUCAO'
+            FocusControl = dbedtPIS_ALICOTAREDUCAO
+          end
+          object lbl18: TLabel
+            Left = 299
+            Top = 56
+            Width = 99
+            Height = 13
+            Caption = 'PIS_PAUTAALICOTA'
+            FocusControl = dbedtPIS_PAUTAALICOTA
+          end
+          object dbedtPIS_ALICOTA: TDBEdit
+            Left = 16
+            Top = 32
+            Width = 134
+            Height = 21
+            DataField = 'PIS_ALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+          end
+          object dbedtPIS_ALICOTAREDUCAO: TDBEdit
+            Left = 156
+            Top = 32
+            Width = 134
+            Height = 21
+            DataField = 'PIS_ALICOTAREDUCAO'
+            DataSource = dsFISCAL
+            TabOrder = 1
+          end
+          object dbedtPIS_PAUTAALICOTA: TDBEdit
+            Left = 299
+            Top = 72
+            Width = 134
+            Height = 21
+            DataField = 'PIS_PAUTAALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 2
+          end
+          object dbchk1: TDBCheckBox
+            Left = 16
+            Top = 73
+            Width = 97
+            Height = 17
+            Caption = 'Reter PIS'
+            TabOrder = 3
+            ValueChecked = 'True'
+            ValueUnchecked = 'False'
+          end
+          object dbchk2: TDBCheckBox
+            Left = 156
+            Top = 73
+            Width = 97
+            Height = 17
+            Caption = 'PIS de Pauta'
+            TabOrder = 4
+            ValueChecked = 'True'
+            ValueUnchecked = 'False'
+          end
+        end
+        object tsCOFINS: TTabSheet
+          Caption = 'COFINS'
+          ImageIndex = 4
+          object lbl20: TLabel
+            Left = 16
+            Top = 16
+            Width = 88
+            Height = 13
+            Caption = 'COFINS_ALICOTA'
+            FocusControl = dbedtCOFINS_ALICOTA
+          end
+          object lbl21: TLabel
+            Left = 156
+            Top = 16
+            Width = 137
+            Height = 13
+            Caption = 'COFINS_ALICOTAREDUCAO'
+            FocusControl = dbedtCOFINS_ALICOTAREDUCAO
+          end
+          object lbl23: TLabel
+            Left = 439
+            Top = 16
+            Width = 121
+            Height = 13
+            Caption = 'COFINS_PAUTAALICOTA'
+            FocusControl = dbedtCOFINS_PAUTAALICOTA
+          end
+          object dbedtCOFINS_ALICOTA: TDBEdit
+            Left = 16
+            Top = 32
+            Width = 134
+            Height = 21
+            DataField = 'COFINS_ALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+          end
+          object dbedtCOFINS_ALICOTAREDUCAO: TDBEdit
+            Left = 156
+            Top = 32
+            Width = 134
+            Height = 21
+            DataField = 'COFINS_ALICOTAREDUCAO'
+            DataSource = dsFISCAL
+            TabOrder = 1
+          end
+          object dbedtCOFINS_PAUTAALICOTA: TDBEdit
+            Left = 439
+            Top = 32
+            Width = 134
+            Height = 21
+            DataField = 'COFINS_PAUTAALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 2
+          end
+          object dbchkCOFINS_PAUTA: TDBCheckBox
+            Left = 296
+            Top = 32
+            Width = 97
+            Height = 17
+            Caption = 'COFINS Pauta'
+            DataField = 'COFINS_PAUTA'
+            DataSource = dsFISCAL
+            TabOrder = 3
+            ValueChecked = 'True'
+            ValueUnchecked = 'False'
+          end
+          object dbchkCOFINS_PAUTA1: TDBCheckBox
+            Left = 16
+            Top = 72
+            Width = 97
+            Height = 17
+            Caption = 'Reter COFINS'
+            DataField = 'COFINS_RETER'
+            DataSource = dsFISCAL
+            TabOrder = 4
+            ValueChecked = 'True'
+            ValueUnchecked = 'False'
+          end
+        end
+        object tsINSS: TTabSheet
+          Caption = 'INSS'
+          ImageIndex = 5
+          object lbl24: TLabel
+            Left = 384
+            Top = 88
+            Width = 74
+            Height = 13
+            Caption = 'INSS_CALCULA'
+            FocusControl = dbedtINSS_CALCULA
+          end
+          object lbl25: TLabel
+            Left = 384
+            Top = 128
+            Width = 122
+            Height = 13
+            Caption = 'INSS_ALICOTAREDUCAO'
+            FocusControl = dbedtINSS_ALICOTAREDUCAO
+          end
+          object dbedtINSS_CALCULA: TDBEdit
+            Left = 384
+            Top = 104
+            Width = 17
+            Height = 21
+            DataField = 'INSS_CALCULA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+          end
+          object dbedtINSS_ALICOTAREDUCAO: TDBEdit
+            Left = 384
+            Top = 144
+            Width = 134
+            Height = 21
+            DataField = 'INSS_ALICOTAREDUCAO'
+            DataSource = dsFISCAL
+            TabOrder = 1
+          end
+        end
+        object tsIRRF: TTabSheet
+          Caption = 'IRRF'
+          ImageIndex = 6
+          object lbl26: TLabel
+            Left = 416
+            Top = 120
+            Width = 75
+            Height = 13
+            Caption = 'IRRF_CALCULA'
+            FocusControl = dbedtIRRF_CALCULA
+          end
+          object lbl27: TLabel
+            Left = 416
+            Top = 160
+            Width = 123
+            Height = 13
+            Caption = 'IRRF_ALICOTAREDUCAO'
+            FocusControl = dbedtIRRF_ALICOTAREDUCAO
+          end
+          object dbedtIRRF_CALCULA: TDBEdit
+            Left = 416
+            Top = 136
+            Width = 17
+            Height = 21
+            DataField = 'IRRF_CALCULA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+          end
+          object dbedtIRRF_ALICOTAREDUCAO: TDBEdit
+            Left = 416
+            Top = 176
+            Width = 134
+            Height = 21
+            DataField = 'IRRF_ALICOTAREDUCAO'
+            DataSource = dsFISCAL
+            TabOrder = 1
+          end
+        end
+        object tsCSLL: TTabSheet
+          Caption = 'CSLL'
+          ImageIndex = 7
+          object lbl28: TLabel
+            Left = 360
+            Top = 24
+            Width = 73
+            Height = 13
+            Caption = 'CSLL_ALICOTA'
+            FocusControl = dbedtCSLL_ALICOTA
+          end
+          object lbl29: TLabel
+            Left = 360
+            Top = 64
+            Width = 61
+            Height = 13
+            Caption = 'CSLL_RETER'
+            FocusControl = dbedtCSLL_RETER
+          end
+          object dbedtCSLL_ALICOTA: TDBEdit
+            Left = 360
+            Top = 40
+            Width = 134
+            Height = 21
+            DataField = 'CSLL_ALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+          end
+          object dbedtCSLL_RETER: TDBEdit
+            Left = 360
+            Top = 80
+            Width = 17
+            Height = 21
+            DataField = 'CSLL_RETER'
+            DataSource = dsFISCAL
+            TabOrder = 1
+          end
+        end
+        object tsIPI: TTabSheet
+          Caption = 'IPI'
+          ImageIndex = 8
+          object lbl30: TLabel
+            Left = 256
+            Top = 40
+            Width = 67
+            Height = 13
+            Caption = 'TIPI_ESPECIE'
+            FocusControl = dbedtTIPI_ESPECIE
+          end
+          object lbl31: TLabel
+            Left = 256
+            Top = 80
+            Width = 53
+            Height = 13
+            Caption = 'IPI_PAUTA'
+            FocusControl = dbedtIPI_PAUTA
+          end
+          object lbl32: TLabel
+            Left = 256
+            Top = 120
+            Width = 97
+            Height = 13
+            Caption = 'IPI_PAUTAALICOTA'
+            FocusControl = dbedtIPI_PAUTAALICOTA
+          end
+          object lbl33: TLabel
+            Left = 272
+            Top = 176
+            Width = 64
+            Height = 13
+            Caption = 'IPI_ALICOTA'
+            FocusControl = dbedtIPI_ALICOTA
+          end
+          object dbedtTIPI_ESPECIE: TDBEdit
+            Left = 256
+            Top = 56
+            Width = 134
+            Height = 21
+            DataField = 'TIPI_ESPECIE'
+            DataSource = dsFISCAL
+            TabOrder = 0
+          end
+          object dbedtIPI_PAUTA: TDBEdit
+            Left = 256
+            Top = 96
+            Width = 17
+            Height = 21
+            DataField = 'IPI_PAUTA'
+            DataSource = dsFISCAL
+            TabOrder = 1
+          end
+          object dbedtIPI_PAUTAALICOTA: TDBEdit
+            Left = 256
+            Top = 136
+            Width = 134
+            Height = 21
+            DataField = 'IPI_PAUTAALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 2
+          end
+          object dbedtIPI_ALICOTA: TDBEdit
+            Left = 272
+            Top = 192
+            Width = 134
+            Height = 21
+            DataField = 'IPI_ALICOTA'
+            DataSource = dsFISCAL
+            TabOrder = 3
+          end
+        end
+        object tsZonaFranca: TTabSheet
+          Caption = 'Zona Franca'
+          ImageIndex = 9
+          object dbchkDESCONTO_ZONAFRANCA: TDBCheckBox
+            Left = 248
+            Top = 112
+            Width = 144
+            Height = 17
+            Caption = 'Desconto Zona Franca'
+            DataField = 'DESCONTO_ZONAFRANCA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+          end
+        end
+        object tsfunrural: TTabSheet
+          Caption = 'Funrural'
+          ImageIndex = 10
+          object dbchkFUNRURAL_CALCULA: TDBCheckBox
+            Left = 280
+            Top = 113
+            Width = 97
+            Height = 17
+            Caption = 'Calcula Funrural'
+            DataField = 'FUNRURAL_CALCULA'
+            DataSource = dsFISCAL
+            TabOrder = 0
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+          end
+        end
+        object tsSubsTrib: TTabSheet
+          Caption = 'Subst. Tribut'#225'ria'
+          ImageIndex = 11
+        end
+      end
+    end
+    object tsCOMPOSICAO: TTabSheet
+      Caption = 'Composi'#231#227'o'
+      ImageIndex = 6
+      object dbgrdh2: TDBGridEh
+        Left = 3
+        Top = 0
+        Width = 775
+        Height = 214
+        DataGrouping.GroupLevels = <>
+        DataSource = dsCOMPOSICAO
+        Flat = False
+        FooterColor = clWindow
+        FooterFont.Charset = DEFAULT_CHARSET
+        FooterFont.Color = clWindowText
+        FooterFont.Height = -11
+        FooterFont.Name = 'Tahoma'
+        FooterFont.Style = []
+        RowDetailPanel.Color = clBtnFace
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        Columns = <
+          item
+            EditButtons = <>
+            FieldName = 'QUANTPRODUTO'
+            Footers = <>
+            Title.Caption = 'Quant. Prod.'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'INSUMO'
+            Footers = <>
+            Title.Caption = 'Desc. Insumo'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'QUANTDEFINIDA'
+            Footers = <>
+            Title.Caption = 'Quant. Insumo'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'SEQ_COMPOSICAO'
+            Footers = <>
+            Title.Caption = 'Sequencia'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'PK_PRODUTOS_COMPOSICOES'
+            Footers = <>
+            Title.Caption = 'Numero'
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_INSUMOS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_EMPRESAS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_FILIAIS'
+            Footers = <>
+          end
+          item
+            EditButtons = <>
+            FieldName = 'FK_PRODUTOS'
+            Footers = <>
+          end>
+        object RowDetailData: TRowDetailPanelControlEh
+        end
+      end
+    end
+    object tsVENDAS: TTabSheet
+      Caption = 'Vendas'
+      ImageIndex = 7
+      object pgc2: TPageControl
+        Left = 3
+        Top = 0
+        Width = 775
+        Height = 322
+        ActivePage = ts3
+        TabOrder = 0
+        object ts3: TTabSheet
+          Caption = 'Faixa de Comiss'#227'o'
+        end
+      end
+    end
+    object tsLOTES: TTabSheet
+      Caption = 'Lotes'
+      ImageIndex = 8
+      object pgc4: TPageControl
+        Left = 3
+        Top = 3
+        Width = 775
+        Height = 318
+        ActivePage = ts9
+        TabOrder = 0
+        object ts7: TTabSheet
+          Caption = 'Defini'#231#245'es '
+          object btn3: TBitBtn
+            Left = 16
+            Top = 145
+            Width = 75
+            Height = 25
+            Hint = 'Permite o bloqueio do lote ou parte dele'
+            Caption = 'Bloqueio'
+            DoubleBuffered = True
+            ParentDoubleBuffered = False
+            TabOrder = 0
+          end
+          object btn5: TBitBtn
+            Left = 97
+            Top = 145
+            Width = 75
+            Height = 25
+            Hint = 'Permite o desbloqueio do lote ou parte dele'
+            Caption = 'Desbloqueio'
+            DoubleBuffered = True
+            ParentDoubleBuffered = False
+            TabOrder = 1
+          end
+        end
+        object ts8: TTabSheet
+          Caption = 'Saldos de Lotes'
+          ImageIndex = 1
+        end
+        object ts9: TTabSheet
+          Caption = 'Bloqueados'
+          ImageIndex = 2
+        end
+      end
+    end
+    object tsMEDIDAS: TTabSheet
+      Caption = 'Medidas'
+      ImageIndex = 9
+      ExplicitLeft = 0
+      object lbl17: TLabel
+        Left = 3
+        Top = 8
+        Width = 39
+        Height = 13
+        Caption = 'Unidade'
+        FocusControl = dbedtFK_UNIDADES
+      end
+      object lbl19: TLabel
+        Left = 3
+        Top = 56
+        Width = 29
+        Height = 13
+        Caption = 'Altura'
+        FocusControl = dbedtMED_ALTURA
+      end
+      object lbl22: TLabel
+        Left = 78
+        Top = 56
+        Width = 37
+        Height = 13
+        Caption = 'Largura'
+        FocusControl = dbedtMED_LARGURA
+      end
+      object lbl34: TLabel
+        Left = 153
+        Top = 56
+        Width = 64
+        Height = 13
+        Caption = 'Profundidade'
+        FocusControl = dbedtMED_PROFUNDIDADE
+      end
+      object lbl35: TLabel
+        Left = 228
+        Top = 56
+        Width = 45
+        Height = 13
+        Caption = 'Cubagem'
+        FocusControl = dbedtMED_CUBAGEM
+      end
+      object lbl36: TLabel
+        Left = 303
+        Top = 56
+        Width = 46
+        Height = 13
+        Caption = 'P. L'#237'quido'
+        FocusControl = dbedtPESOLIQUIDO
+      end
+      object lbl37: TLabel
+        Left = 378
+        Top = 56
+        Width = 36
+        Height = 13
+        Caption = 'P.Bruto'
+        FocusControl = dbedtPESOBRUTO
+      end
+      object dbedtFK_UNIDADES: TDBEdit
+        Left = 3
+        Top = 27
+        Width = 69
+        Height = 21
+        DataField = 'FK_UNIDADES'
+        DataSource = dsMEDIDAS
+        TabOrder = 0
+      end
+      object dbedtMED_ALTURA: TDBEdit
+        Left = 3
+        Top = 72
+        Width = 69
+        Height = 21
+        DataField = 'MED_ALTURA'
+        DataSource = dsMEDIDAS
+        TabOrder = 1
+      end
+      object dbedtMED_LARGURA: TDBEdit
+        Left = 78
+        Top = 72
+        Width = 69
+        Height = 21
+        DataField = 'MED_LARGURA'
+        DataSource = dsMEDIDAS
+        TabOrder = 2
+      end
+      object dbedtMED_PROFUNDIDADE: TDBEdit
+        Left = 153
+        Top = 72
+        Width = 69
+        Height = 21
+        DataField = 'MED_PROFUNDIDADE'
+        DataSource = dsMEDIDAS
+        TabOrder = 3
+      end
+      object dbedtMED_CUBAGEM: TDBEdit
+        Left = 228
+        Top = 72
+        Width = 69
+        Height = 21
+        DataField = 'MED_CUBAGEM'
+        DataSource = dsMEDIDAS
+        TabOrder = 4
+      end
+      object dbedtPESOLIQUIDO: TDBEdit
+        Left = 303
+        Top = 72
+        Width = 69
+        Height = 21
+        DataField = 'PESOLIQUIDO'
+        DataSource = dsMEDIDAS
+        TabOrder = 5
+      end
+      object dbedtPESOBRUTO: TDBEdit
+        Left = 378
+        Top = 72
+        Width = 69
+        Height = 21
+        DataField = 'PESOBRUTO'
+        DataSource = dsMEDIDAS
+        TabOrder = 6
+      end
+      object dbnvgr5: TDBNavigator
+        Left = 3
+        Top = 99
+        Width = 440
+        Height = 25
+        DataSource = dsMEDIDAS
+        TabOrder = 7
+      end
+    end
+    object ts1: TTabSheet
+      Caption = 'Controle de Qualidade'
+      ImageIndex = 10
+    end
+    object ts2: TTabSheet
+      Caption = 'Tipos de Produtos'
+      ImageIndex = 11
     end
   end
   object dbnvgr1: TDBNavigator
@@ -1269,25 +2394,24 @@ object frmProdutos: TfrmProdutos
     Height = 25
     DataSource = dsPRODUTOS
     ConfirmDelete = False
-    TabOrder = 5
+    TabOrder = 14
     OnClick = dbnvgr1Click
   end
   object dbchckbxh7: TDBCheckBoxEh
-    Left = 736
-    Top = 28
+    Left = 760
+    Top = 24
     Width = 61
     Height = 17
     Caption = 'Ativo'
-    Checked = True
     DataField = 'PRODUTOATIVO'
     DataSource = dsPRODUTOS
-    TabOrder = 6
+    TabOrder = 2
     ValueChecked = 'S'
     ValueUnchecked = 'N'
   end
   object dbcbo1: TDBLookupComboBox
-    Left = 511
-    Top = 23
+    Left = 535
+    Top = 19
     Width = 190
     Height = 21
     Hint = 'Escolha aqui para filtrar os produtos'
@@ -1295,19 +2419,272 @@ object frmProdutos: TfrmProdutos
     DataSource = dsPRODUTOS
     KeyField = 'PK_TIPO_PRODUTO'
     ListField = 'DESCRICAO'
-    TabOrder = 7
+    ListSource = dsTIPOS
+    TabOrder = 1
   end
   object stat1: TStatusBar
     Left = 0
     Top = 629
-    Width = 805
+    Width = 826
     Height = 19
     Panels = <>
   end
-  object ibtbPRODUTOS: TIBTable
-    Database = dmod.bdIndustrias
+  object edtTIPOPRODUTO: TDBEditEh
+    Left = 464
+    Top = 19
+    Width = 65
+    Height = 21
+    DataField = 'TIPOPRODUTO'
+    DataSource = dsPRODUTOS
+    EditButtons = <>
+    ShowHint = True
+    TabOrder = 0
+    Visible = True
+  end
+  object dbchckbxhFLAG_PROD: TDBCheckBoxEh
+    Left = 731
+    Top = 58
+    Width = 97
+    Height = 17
+    Caption = 'Produto'
+    DataField = 'FLAG_PROD'
+    DataSource = dsPRODUTOS
+    TabOrder = 6
+    ValueChecked = 'S'
+    ValueUnchecked = 'N'
+  end
+  object edtFK_UNIDADES: TDBEditEh
+    Left = 8
+    Top = 96
+    Width = 49
+    Height = 21
+    DataField = 'FK_UNIDADES'
+    DataSource = dsPRODUTOS
+    EditButtons = <>
+    ShowHint = True
+    TabOrder = 7
+    Visible = True
+  end
+  object cbbFK_UNIDADES: TDBLookupComboboxEh
+    Left = 63
+    Top = 96
+    Width = 121
+    Height = 21
+    DataField = 'FK_UNIDADES'
+    DataSource = dsPRODUTOS
+    EditButtons = <>
+    KeyField = 'PK_UNIDADES'
+    ListField = 'DESCRICAO'
+    ListSource = dsUNIDADES
+    ShowHint = True
+    TabOrder = 8
+    Visible = True
+  end
+  object edtCODBARRA: TDBEditEh
+    Left = 190
+    Top = 96
+    Width = 121
+    Height = 21
+    DataField = 'CODBARRA'
+    DataSource = dsPRODUTOS
+    EditButtons = <>
+    ShowHint = True
+    TabOrder = 9
+    Visible = True
+  end
+  object dbedtFK_CENTROCUSTO: TDBEdit
+    Left = 317
+    Top = 96
+    Width = 60
+    Height = 21
+    DataField = 'FK_CENTROCUSTO'
+    DataSource = dsPRODUTOS
+    TabOrder = 10
+  end
+  object cbbFK_CENTROCUSTO: TDBLookupComboboxEh
+    Left = 383
+    Top = 96
+    Width = 150
+    Height = 21
+    DataField = 'FK_CENTROCUSTO'
+    DataSource = dsPRODUTOS
+    EditButtons = <>
+    KeyField = 'CC_CODIGO'
+    ListField = 'DESCRICAO'
+    ListSource = dsCENTROCUSTO
+    ShowHint = True
+    TabOrder = 11
+    Visible = True
+    OnExit = cbbFK_CENTROCUSTOExit
+  end
+  object dsPRODUTOS: TDataSource
+    DataSet = ibtbPRODUTOS
+    Left = 592
+    Top = 512
+  end
+  object dsEMBALAGEM: TDataSource
+    DataSet = ibqryEMBALAGEM
+    Left = 480
+    Top = 512
+  end
+  object ibqrySECAO: TIBQuery
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
+    SQL.Strings = (
+      'select * from PRODUTOS_SECAO')
+    Left = 464
+    Top = 576
+  end
+  object dsSECAO: TDataSource
+    DataSet = ibqrySECAO
+    Left = 544
+    Top = 576
+  end
+  object ibqryFORN_PROD: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_FORNECEDOR')
+    Left = 232
+    Top = 424
+  end
+  object dsFORN_PROD: TDataSource
+    DataSet = ibqryFORN_PROD
+    Left = 304
+    Top = 416
+  end
+  object ibqryGRUPOS: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_GRUPOS')
+    Left = 664
+    Top = 448
+  end
+  object dsGRUPOS: TDataSource
+    DataSet = ibqryGRUPOS
+    Left = 256
+    Top = 504
+  end
+  object ibqrySUBGRUPOS: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_SUBGRUPOS')
+    Left = 352
+    Top = 496
+  end
+  object dsSUBGRUPOS: TDataSource
+    DataSet = ibqrySUBGRUPOS
+    Left = 288
+    Top = 568
+  end
+  object ibqryFAMILIAS: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_FAMILIAS')
+    Left = 656
+    Top = 576
+  end
+  object dsFAMILIAS: TDataSource
+    DataSet = ibqryFAMILIAS
+    Left = 584
+    Top = 464
+  end
+  object ibqryUNIDADES: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from UNIDADES')
+    Left = 728
+    Top = 576
+    object smlntfldUNIDADESPK_UNIDADES: TSmallintField
+      FieldName = 'PK_UNIDADES'
+      Origin = '"UNIDADES"."PK_UNIDADES"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibstrngfldUNIDADESDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"UNIDADES"."DESCRICAO"'
+      Required = True
+      Size = 30
+    end
+    object ibstrngfldUNIDADESFRACIONADO: TIBStringField
+      FieldName = 'FRACIONADO'
+      Origin = '"UNIDADES"."FRACIONADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibstrngfldUNIDADESSIGLA: TIBStringField
+      FieldName = 'SIGLA'
+      Origin = '"UNIDADES"."SIGLA"'
+      Required = True
+      FixedChar = True
+      Size = 2
+    end
+    object ibstrngfldUNIDADESOPE_INC: TIBStringField
+      FieldName = 'OPE_INC'
+      Origin = '"UNIDADES"."OPE_INC"'
+      Size = 10
+    end
+    object dtmfldUNIDADESDTHR_INC: TDateTimeField
+      FieldName = 'DTHR_INC'
+      Origin = '"UNIDADES"."DTHR_INC"'
+    end
+    object ibstrngfldUNIDADESOPE_ALT: TIBStringField
+      FieldName = 'OPE_ALT'
+      Origin = '"UNIDADES"."OPE_ALT"'
+      Size = 10
+    end
+    object dtmfldUNIDADESDTHR_ALT: TDateTimeField
+      FieldName = 'DTHR_ALT'
+      Origin = '"UNIDADES"."DTHR_ALT"'
+    end
+    object ibstrngfldUNIDADESQUANTIDADE: TIBStringField
+      FieldName = 'QUANTIDADE'
+      Origin = '"UNIDADES"."QUANTIDADE"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibstrngfldUNIDADESALTURA: TIBStringField
+      FieldName = 'ALTURA'
+      Origin = '"UNIDADES"."ALTURA"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibstrngfldUNIDADESLARGURA: TIBStringField
+      FieldName = 'LARGURA'
+      Origin = '"UNIDADES"."LARGURA"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibstrngfldUNIDADESCOMPRIMENTO: TIBStringField
+      FieldName = 'COMPRIMENTO'
+      Origin = '"UNIDADES"."COMPRIMENTO"'
+      FixedChar = True
+      Size = 1
+    end
+    object smlntfldUNIDADESUNIDADE: TSmallintField
+      FieldName = 'UNIDADE'
+      Origin = '"UNIDADES"."UNIDADE"'
+    end
+    object ibstrngfldUNIDADESTEMPO: TIBStringField
+      FieldName = 'TEMPO'
+      Origin = '"UNIDADES"."TEMPO"'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object dsUNIDADES: TDataSource
+    DataSet = ibqryUNIDADES
+    Left = 376
+    Top = 584
+  end
+  object ibtbPRODUTOS: TIBTable
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
     FieldDefs = <
       item
         Name = 'PK_PRODUTOS'
@@ -1327,25 +2704,19 @@ object frmProdutos: TfrmProdutos
         DataType = ftSmallint
       end
       item
-        Name = 'PK_UNIDVENDA'
-        DataType = ftSmallint
-      end
-      item
         Name = 'DESCRICAO'
         Attributes = [faRequired]
-        DataType = ftWideString
-        Size = 50
+        DataType = ftString
+        Size = 100
       end
       item
         Name = 'PRODUTOATIVO'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
         Name = 'FLAG_PROD'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
@@ -1356,7 +2727,7 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'OPE_INC'
-        DataType = ftWideString
+        DataType = ftString
         Size = 10
       end
       item
@@ -1365,7 +2736,7 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'OPE_ALT'
-        DataType = ftWideString
+        DataType = ftString
         Size = 10
       end
       item
@@ -1373,35 +2744,32 @@ object frmProdutos: TfrmProdutos
         DataType = ftDateTime
       end
       item
-        Name = 'PK_PROD_FAMILIA'
+        Name = 'FK_FAMILIAS'
         DataType = ftInteger
       end
       item
         Name = 'RESUMIDA'
-        DataType = ftWideString
+        DataType = ftString
         Size = 50
       end
       item
         Name = 'CODBARRA'
-        DataType = ftWideString
+        DataType = ftString
         Size = 13
       end
       item
         Name = 'TEMVALIDADE'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
         Name = 'CONTROLAVALIDADE'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
         Name = 'CONTROLALOTE'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
@@ -1412,68 +2780,32 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'TIPOVALIDADE'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
         Name = 'MESANOREFERENCIA'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 6
       end
       item
         Name = 'EMITEETIQUETABARRA'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
         Name = 'EMITEETIQUETAGONDOLA'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
         Name = 'EMITEETIQUEEMBALAGEM'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
-        Name = 'PESOLIQUIDO'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'PESOBRUTO'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'MEDIDALARGURA'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'MEDIDAALTURA'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'MEDIDAPROFUNDIDADE'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
         Name = 'TEMVASILHAME'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
@@ -1482,48 +2814,8 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'PRODUTOCONTROLADO'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
-      end
-      item
-        Name = 'CLASSIFICACAOFISCAL'
-        DataType = ftWideString
-        Size = 10
-      end
-      item
-        Name = 'SITUACAOTRIBUTARIA'
-        DataType = ftWideString
-        Size = 10
-      end
-      item
-        Name = 'CODIGONCM'
-        DataType = ftWideString
-        Size = 10
-      end
-      item
-        Name = 'ALICOTAICMS'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'ALICOTAICMSSUBST'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'ALICOTAIPI'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'ALICOTAISSQN'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
       end
       item
         Name = 'ALICOTAFRETE'
@@ -1532,38 +2824,18 @@ object frmProdutos: TfrmProdutos
         Size = 2
       end
       item
-        Name = 'ALICOTAREDBASECALCULO'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
-        Name = 'MEDIDACUBAGEM'
-        DataType = ftBCD
-        Precision = 18
-        Size = 2
-      end
-      item
         Name = 'PRODUTOFRACIONADO'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
         Name = 'PRODUTOREFERENCIA'
-        DataType = ftWideString
+        DataType = ftString
         Size = 50
       end
       item
-        Name = 'ALICOTABASECALCULO'
-        DataType = ftBCD
-        Precision = 9
-        Size = 2
-      end
-      item
         Name = 'PRODUTOCOMPOSTO'
-        Attributes = [faFixed]
-        DataType = ftWideString
+        DataType = ftString
         Size = 1
       end
       item
@@ -1579,28 +2851,133 @@ object frmProdutos: TfrmProdutos
       item
         Name = 'PK_EMBALAGEM'
         DataType = ftInteger
+      end
+      item
+        Name = 'QUANTIDADEMINIMA'
+        DataType = ftBCD
+        Precision = 18
+        Size = 2
+      end
+      item
+        Name = 'SITUACAOPRODUTO'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'CUSTO_ULTIMOCALCULO'
+        DataType = ftDateTime
+      end
+      item
+        Name = 'FK_CENTROCUSTO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'FK_TIPOAPROPRIACAO'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'ALICOTA_COMISSAO'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'TIPORASTREABILIDADE'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'PRODUTOIMPORTADO'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'PRAZOENTREGA'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'LOTEECONOMICO'
+        DataType = ftBCD
+        Precision = 18
+        Size = 2
+      end
+      item
+        Name = 'LOTEMINIMO'
+        DataType = ftBCD
+        Precision = 18
+        Size = 2
+      end
+      item
+        Name = 'FK_TIPOCARGA'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_EMPRESAS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_FILIAIS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_UNIDADES'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_UNIDVENDAS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_UNIDCOMPRAS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FATORUNIDCOMPRAS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'FATORUNIDVENDAS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'FK_MARCAS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_MODELOS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'EMPROMOCAO'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'CODIGOTEMPO'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'IMOBILIZAR'
+        DataType = ftString
+        Size = 1
       end>
     IndexDefs = <
       item
-        Name = 'PK_PRODUTOS_1'
-        Fields = 'PK_PRODUTOS'
+        Name = 'PK_PRODUTOS'
+        Fields = 'FK_EMPRESAS;FK_FILIAIS;PK_PRODUTOS'
         Options = [ixUnique]
-      end
-      item
-        Name = 'PRODUTOS_IDX1'
-        Fields = 'PRODUTOATIVO;DESCRICAO'
-      end
-      item
-        Name = 'PRODUTOS_IDX2'
-        Fields = 'CODBARRA'
       end>
-    IndexFieldNames = 'PRODUTOATIVO;DESCRICAO'
     StoreDefs = True
     TableName = 'PRODUTOS'
-    Left = 520
-    Top = 112
+    Left = 144
+    Top = 456
     object intgrfldPRODUTOSPK_PRODUTOS: TIntegerField
       FieldName = 'PK_PRODUTOS'
+      Required = True
+      DisplayFormat = '##0000'
     end
     object smlntfldPRODUTOSFK_SECOES: TSmallintField
       FieldName = 'FK_SECOES'
@@ -1611,13 +2988,10 @@ object frmProdutos: TfrmProdutos
     object smlntfldPRODUTOSFK_SUBGRUPOS: TSmallintField
       FieldName = 'FK_SUBGRUPOS'
     end
-    object smlntfldPRODUTOSPK_UNIDVENDA: TSmallintField
-      FieldName = 'PK_UNIDVENDA'
-    end
     object ibstrngfldPRODUTOSDESCRICAO: TIBStringField
       FieldName = 'DESCRICAO'
       Required = True
-      Size = 50
+      Size = 100
     end
     object ibstrngfldPRODUTOSPRODUTOATIVO: TIBStringField
       FieldName = 'PRODUTOATIVO'
@@ -1646,8 +3020,8 @@ object frmProdutos: TfrmProdutos
     object dtmfldPRODUTOSDTHR_ALT: TDateTimeField
       FieldName = 'DTHR_ALT'
     end
-    object intgrfldPRODUTOSPK_PROD_FAMILIA: TIntegerField
-      FieldName = 'PK_PROD_FAMILIA'
+    object intgrfldPRODUTOSFK_FAMILIAS: TIntegerField
+      FieldName = 'FK_FAMILIAS'
     end
     object ibstrngfldPRODUTOSRESUMIDA: TIBStringField
       FieldName = 'RESUMIDA'
@@ -1694,31 +3068,6 @@ object frmProdutos: TfrmProdutos
       FieldName = 'EMITEETIQUEEMBALAGEM'
       Size = 1
     end
-    object ibtbPRODUTOSPESOLIQUIDO: TIBBCDField
-      FieldName = 'PESOLIQUIDO'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSPESOBRUTO: TIBBCDField
-      FieldName = 'PESOBRUTO'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSMEDIDALARGURA: TIBBCDField
-      FieldName = 'MEDIDALARGURA'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSMEDIDAALTURA: TIBBCDField
-      FieldName = 'MEDIDAALTURA'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSMEDIDAPROFUNDIDADE: TIBBCDField
-      FieldName = 'MEDIDAPROFUNDIDADE'
-      Precision = 18
-      Size = 2
-    end
     object ibstrngfldPRODUTOSTEMVASILHAME: TIBStringField
       FieldName = 'TEMVASILHAME'
       Size = 1
@@ -1730,50 +3079,8 @@ object frmProdutos: TfrmProdutos
       FieldName = 'PRODUTOCONTROLADO'
       Size = 1
     end
-    object ibstrngfldPRODUTOSCLASSIFICACAOFISCAL: TIBStringField
-      FieldName = 'CLASSIFICACAOFISCAL'
-      Size = 10
-    end
-    object ibstrngfldPRODUTOSSITUACAOTRIBUTARIA: TIBStringField
-      FieldName = 'SITUACAOTRIBUTARIA'
-      Size = 10
-    end
-    object ibstrngfldPRODUTOSCODIGONCM: TIBStringField
-      FieldName = 'CODIGONCM'
-      Size = 10
-    end
-    object ibtbPRODUTOSALICOTAICMS: TIBBCDField
-      FieldName = 'ALICOTAICMS'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSALICOTAICMSSUBST: TIBBCDField
-      FieldName = 'ALICOTAICMSSUBST'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSALICOTAIPI: TIBBCDField
-      FieldName = 'ALICOTAIPI'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSALICOTAISSQN: TIBBCDField
-      FieldName = 'ALICOTAISSQN'
-      Precision = 18
-      Size = 2
-    end
     object ibtbPRODUTOSALICOTAFRETE: TIBBCDField
       FieldName = 'ALICOTAFRETE'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSALICOTAREDBASECALCULO: TIBBCDField
-      FieldName = 'ALICOTAREDBASECALCULO'
-      Precision = 18
-      Size = 2
-    end
-    object ibtbPRODUTOSMEDIDACUBAGEM: TIBBCDField
-      FieldName = 'MEDIDACUBAGEM'
       Precision = 18
       Size = 2
     end
@@ -1784,11 +3091,6 @@ object frmProdutos: TfrmProdutos
     object ibstrngfldPRODUTOSPRODUTOREFERENCIA: TIBStringField
       FieldName = 'PRODUTOREFERENCIA'
       Size = 50
-    end
-    object ibtbPRODUTOSALICOTABASECALCULO: TIBBCDField
-      FieldName = 'ALICOTABASECALCULO'
-      Precision = 9
-      Size = 2
     end
     object ibstrngfldPRODUTOSPRODUTOCOMPOSTO: TIBStringField
       FieldName = 'PRODUTOCOMPOSTO'
@@ -1805,192 +3107,776 @@ object frmProdutos: TfrmProdutos
     object intgrfldPRODUTOSPK_EMBALAGEM: TIntegerField
       FieldName = 'PK_EMBALAGEM'
     end
-  end
-  object dsPRODUTOS: TDataSource
-    DataSet = ibtbPRODUTOS
-    Left = 440
-    Top = 112
-  end
-  object ibqryEMBALAGEM: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    Active = True
-    SQL.Strings = (
-      'select * from PRODUTO_EMBALAGEM')
-    Left = 352
-    Top = 112
-    object intgrfldEMBALAGEMPK_PRODUTO: TIntegerField
-      FieldName = 'PK_PRODUTO'
-      Origin = '"PRODUTO_EMBALAGEM"."PK_PRODUTO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
+    object ibtbPRODUTOSQUANTIDADEMINIMA: TIBBCDField
+      FieldName = 'QUANTIDADEMINIMA'
+      Precision = 18
+      Size = 2
     end
-    object intgrfldEMBALAGEMPK_PROD_EMBALAGEM: TIntegerField
-      FieldName = 'PK_PROD_EMBALAGEM'
-      Origin = '"PRODUTO_EMBALAGEM"."PK_PROD_EMBALAGEM"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object intgrfldEMBALAGEMPK_UNIDADE: TIntegerField
-      FieldName = 'PK_UNIDADE'
-      Origin = '"PRODUTO_EMBALAGEM"."PK_UNIDADE"'
-    end
-    object intgrfldEMBALAGEMQUANTUNIDADES: TIntegerField
-      FieldName = 'QUANTUNIDADES'
-      Origin = '"PRODUTO_EMBALAGEM"."QUANTUNIDADES"'
-    end
-    object ibstrngfldEMBALAGEMPRODUTOFRACIONADO: TIBStringField
-      FieldName = 'PRODUTOFRACIONADO'
-      Origin = '"PRODUTO_EMBALAGEM"."PRODUTOFRACIONADO"'
-      FixedChar = True
+    object ibstrngfldPRODUTOSSITUACAOPRODUTO: TIBStringField
+      FieldName = 'SITUACAOPRODUTO'
       Size = 1
     end
-    object ibstrngfldEMBALAGEMCODIGOBARRAS: TIBStringField
-      FieldName = 'CODIGOBARRAS'
-      Origin = '"PRODUTO_EMBALAGEM"."CODIGOBARRAS"'
-      Size = 30
+    object dtmfldPRODUTOSCUSTO_ULTIMOCALCULO: TDateTimeField
+      FieldName = 'CUSTO_ULTIMOCALCULO'
     end
-    object ibqryEMBALAGEMMED_LARGURA: TIBBCDField
-      FieldName = 'MED_LARGURA'
-      Origin = '"PRODUTO_EMBALAGEM"."MED_LARGURA"'
+    object ibstrngfldPRODUTOSFK_CENTROCUSTO: TIBStringField
+      FieldName = 'FK_CENTROCUSTO'
+      Size = 10
+    end
+    object ibstrngfldPRODUTOSFK_TIPOAPROPRIACAO: TIBStringField
+      FieldName = 'FK_TIPOAPROPRIACAO'
+      Size = 1
+    end
+    object ibtbPRODUTOSALICOTA_COMISSAO: TIBBCDField
+      FieldName = 'ALICOTA_COMISSAO'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldPRODUTOSTIPORASTREABILIDADE: TIBStringField
+      FieldName = 'TIPORASTREABILIDADE'
+      Size = 1
+    end
+    object ibstrngfldPRODUTOSPRODUTOIMPORTADO: TIBStringField
+      FieldName = 'PRODUTOIMPORTADO'
+      Size = 1
+    end
+    object smlntfldPRODUTOSPRAZOENTREGA: TSmallintField
+      FieldName = 'PRAZOENTREGA'
+    end
+    object ibtbPRODUTOSLOTEECONOMICO: TIBBCDField
+      FieldName = 'LOTEECONOMICO'
       Precision = 18
-      Size = 4
+      Size = 2
     end
-    object ibqryEMBALAGEMMED_ALTURA: TIBBCDField
-      FieldName = 'MED_ALTURA'
-      Origin = '"PRODUTO_EMBALAGEM"."MED_ALTURA"'
+    object ibtbPRODUTOSLOTEMINIMO: TIBBCDField
+      FieldName = 'LOTEMINIMO'
       Precision = 18
-      Size = 4
+      Size = 2
     end
-    object ibqryEMBALAGEMMED_PROFUNDIDADE: TIBBCDField
-      FieldName = 'MED_PROFUNDIDADE'
-      Origin = '"PRODUTO_EMBALAGEM"."MED_PROFUNDIDADE"'
-      Precision = 18
-      Size = 4
+    object smlntfldPRODUTOSFK_TIPOCARGA: TSmallintField
+      FieldName = 'FK_TIPOCARGA'
     end
-    object ibqryEMBALAGEMMED_CUBAGEM: TFMTBCDField
-      FieldName = 'MED_CUBAGEM'
-      Origin = '"PRODUTO_EMBALAGEM"."MED_CUBAGEM"'
-      Precision = 18
-      Size = 12
+    object smlntfldPRODUTOSFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
     end
-    object ibqryEMBALAGEMPESOLIQUIDO: TIBBCDField
-      FieldName = 'PESOLIQUIDO'
-      Origin = '"PRODUTO_EMBALAGEM"."PESOLIQUIDO"'
-      Precision = 18
-      Size = 4
+    object smlntfldPRODUTOSFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
     end
-    object ibqryEMBALAGEMPESOBRUTO: TIBBCDField
-      FieldName = 'PESOBRUTO'
-      Origin = '"PRODUTO_EMBALAGEM"."PESOBRUTO"'
-      Precision = 18
-      Size = 4
+    object smlntfldPRODUTOSFK_UNIDADES: TSmallintField
+      FieldName = 'FK_UNIDADES'
     end
-    object ibqryEMBALAGEMLASTROPALETE: TFloatField
-      FieldName = 'LASTROPALETE'
-      Origin = '"PRODUTO_EMBALAGEM"."LASTROPALETE"'
+    object smlntfldPRODUTOSFK_UNIDVENDAS: TSmallintField
+      FieldName = 'FK_UNIDVENDAS'
     end
-    object ibqryEMBALAGEMALTURAPALETE: TFloatField
-      FieldName = 'ALTURAPALETE'
-      Origin = '"PRODUTO_EMBALAGEM"."ALTURAPALETE"'
+    object smlntfldPRODUTOSFK_UNIDCOMPRAS: TSmallintField
+      FieldName = 'FK_UNIDCOMPRAS'
     end
-    object ibqryEMBALAGEMUNIDADES: TStringField
+    object fltfldPRODUTOSFATORUNIDCOMPRAS: TFloatField
+      FieldName = 'FATORUNIDCOMPRAS'
+    end
+    object fltfldPRODUTOSFATORUNIDVENDAS: TFloatField
+      FieldName = 'FATORUNIDVENDAS'
+    end
+    object smlntfldPRODUTOSFK_MARCAS: TSmallintField
+      FieldName = 'FK_MARCAS'
+    end
+    object smlntfldPRODUTOSFK_MODELOS: TSmallintField
+      FieldName = 'FK_MODELOS'
+    end
+    object ibstrngfldPRODUTOSEMPROMOCAO: TIBStringField
+      FieldName = 'EMPROMOCAO'
+      Size = 1
+    end
+    object ibstrngfldPRODUTOSCODIGOTEMPO: TIBStringField
+      FieldName = 'CODIGOTEMPO'
+      Size = 10
+    end
+    object ibstrngfldPRODUTOSIMOBILIZAR: TIBStringField
+      FieldName = 'IMOBILIZAR'
+      Size = 1
+    end
+  end
+  object ibqryTIPOS: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_TIPO'
+      'ORDER BY DESCRICAO')
+    Left = 408
+    Top = 472
+  end
+  object dsTIPOS: TDataSource
+    DataSet = ibqryTIPOS
+    Left = 608
+    Top = 416
+  end
+  object ibtbFISCAL: TIBTable
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    FieldDefs = <
+      item
+        Name = 'FK_EMPRESAS'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_FILIAIS'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_PRODUTOS'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'ICMS_ALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'IPI_ALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'CODIGONCM'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'TIPI_ESPECIE'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'ISS_ALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'ISS_CODIGOSERVICO'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'SOLIDARIO_SAIDA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'SOLIDARIO_ENTRADA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'DESCONTO_ZONAFRANCA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'ORIGEMPRODUTO'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'CLASSIFICACAOFISCAL'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'GRUPOTRIBUTACAO'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'FUNRURAL_CALCULA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'IRRF_CALCULA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'INSS_CALCULA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'INSS_ALICOTAREDUCAO'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'IRRF_ALICOTAREDUCAO'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'IPI_PAUTA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'CSLL_ALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'COFINS_ALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'PIS_ALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'IPI_PAUTAALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'PIS_ALICOTAREDUCAO'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'COFINS_ALICOTAREDUCAO'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'PIS_PAUTA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'PIS_PAUTAALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'COFINS_PAUTA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'COFINS_PAUTAALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'ICMS_PAUTA'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'ICMS_PAUTAALICOTA'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'PIS_RETER'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'COFINS_RETER'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'CSLL_RETER'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'UTILIZASELO'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'CTACONTABILCREDITO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'CTACONTABILDEBITO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'SITUACAOTRIBUTARIA'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'TIPOENTRADAPADRAO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'TIPOSAIDAPADRAO'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'PK_PRODUTOS_FISCAL'
+        Fields = 'FK_EMPRESAS;FK_FILIAIS;FK_PRODUTOS'
+        Options = [ixUnique]
+      end
+      item
+        Name = 'FK_PRODUTOS_FISCAL_PRODUTOS'
+        Fields = 'FK_EMPRESAS;FK_FILIAIS;FK_PRODUTOS'
+      end>
+    IndexFieldNames = 'FK_EMPRESAS;FK_FILIAIS;FK_PRODUTOS'
+    MasterSource = dsPRODUTOS
+    StoreDefs = True
+    TableName = 'PRODUTOS_FISCAL'
+    Left = 704
+    Top = 416
+    object smlntfldFISCALFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Required = True
+    end
+    object smlntfldFISCALFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Required = True
+    end
+    object intgrfldFISCALFK_PRODUTOS: TIntegerField
+      FieldName = 'FK_PRODUTOS'
+      Required = True
+    end
+    object ibtbFISCALICMS_ALICOTA: TIBBCDField
+      FieldName = 'ICMS_ALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibtbFISCALIPI_ALICOTA: TIBBCDField
+      FieldName = 'IPI_ALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldFISCALCODIGONCM: TIBStringField
+      FieldName = 'CODIGONCM'
+      Size = 10
+    end
+    object smlntfldFISCALTIPI_ESPECIE: TSmallintField
+      FieldName = 'TIPI_ESPECIE'
+    end
+    object ibtbFISCALISS_ALICOTA: TIBBCDField
+      FieldName = 'ISS_ALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldFISCALISS_CODIGOSERVICO: TIBStringField
+      FieldName = 'ISS_CODIGOSERVICO'
+      Size = 10
+    end
+    object ibtbFISCALSOLIDARIO_SAIDA: TIBBCDField
+      FieldName = 'SOLIDARIO_SAIDA'
+      Precision = 9
+      Size = 2
+    end
+    object ibtbFISCALSOLIDARIO_ENTRADA: TIBBCDField
+      FieldName = 'SOLIDARIO_ENTRADA'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldFISCALDESCONTO_ZONAFRANCA: TIBStringField
+      FieldName = 'DESCONTO_ZONAFRANCA'
+      Size = 1
+    end
+    object ibstrngfldFISCALORIGEMPRODUTO: TIBStringField
+      FieldName = 'ORIGEMPRODUTO'
+      Size = 1
+    end
+    object ibstrngfldFISCALCLASSIFICACAOFISCAL: TIBStringField
+      FieldName = 'CLASSIFICACAOFISCAL'
+      Size = 10
+    end
+    object ibstrngfldFISCALGRUPOTRIBUTACAO: TIBStringField
+      FieldName = 'GRUPOTRIBUTACAO'
+      Size = 10
+    end
+    object ibstrngfldFISCALFUNRURAL_CALCULA: TIBStringField
+      FieldName = 'FUNRURAL_CALCULA'
+      Size = 1
+    end
+    object ibstrngfldFISCALIRRF_CALCULA: TIBStringField
+      FieldName = 'IRRF_CALCULA'
+      Size = 1
+    end
+    object ibstrngfldFISCALINSS_CALCULA: TIBStringField
+      FieldName = 'INSS_CALCULA'
+      Size = 1
+    end
+    object ibtbFISCALINSS_ALICOTAREDUCAO: TIBBCDField
+      FieldName = 'INSS_ALICOTAREDUCAO'
+      Precision = 9
+      Size = 2
+    end
+    object ibtbFISCALIRRF_ALICOTAREDUCAO: TIBBCDField
+      FieldName = 'IRRF_ALICOTAREDUCAO'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldFISCALIPI_PAUTA: TIBStringField
+      FieldName = 'IPI_PAUTA'
+      Size = 1
+    end
+    object ibtbFISCALCSLL_ALICOTA: TIBBCDField
+      FieldName = 'CSLL_ALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibtbFISCALCOFINS_ALICOTA: TIBBCDField
+      FieldName = 'COFINS_ALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibtbFISCALPIS_ALICOTA: TIBBCDField
+      FieldName = 'PIS_ALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibtbFISCALIPI_PAUTAALICOTA: TIBBCDField
+      FieldName = 'IPI_PAUTAALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibtbFISCALPIS_ALICOTAREDUCAO: TIBBCDField
+      FieldName = 'PIS_ALICOTAREDUCAO'
+      Precision = 9
+      Size = 2
+    end
+    object ibtbFISCALCOFINS_ALICOTAREDUCAO: TIBBCDField
+      FieldName = 'COFINS_ALICOTAREDUCAO'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldFISCALPIS_PAUTA: TIBStringField
+      FieldName = 'PIS_PAUTA'
+      Size = 1
+    end
+    object ibtbFISCALPIS_PAUTAALICOTA: TIBBCDField
+      FieldName = 'PIS_PAUTAALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldFISCALCOFINS_PAUTA: TIBStringField
+      FieldName = 'COFINS_PAUTA'
+      Size = 1
+    end
+    object ibtbFISCALCOFINS_PAUTAALICOTA: TIBBCDField
+      FieldName = 'COFINS_PAUTAALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldFISCALICMS_PAUTA: TIBStringField
+      FieldName = 'ICMS_PAUTA'
+      Size = 1
+    end
+    object ibtbFISCALICMS_PAUTAALICOTA: TIBBCDField
+      FieldName = 'ICMS_PAUTAALICOTA'
+      Precision = 9
+      Size = 2
+    end
+    object ibstrngfldFISCALPIS_RETER: TIBStringField
+      FieldName = 'PIS_RETER'
+      Size = 1
+    end
+    object ibstrngfldFISCALCOFINS_RETER: TIBStringField
+      FieldName = 'COFINS_RETER'
+      Size = 1
+    end
+    object ibstrngfldFISCALCSLL_RETER: TIBStringField
+      FieldName = 'CSLL_RETER'
+      Size = 1
+    end
+    object ibstrngfldFISCALUTILIZASELO: TIBStringField
+      FieldName = 'UTILIZASELO'
+      Size = 1
+    end
+    object smlntfldFISCALCTACONTABILCREDITO: TSmallintField
+      FieldName = 'CTACONTABILCREDITO'
+    end
+    object smlntfldFISCALCTACONTABILDEBITO: TSmallintField
+      FieldName = 'CTACONTABILDEBITO'
+    end
+    object ibstrngfldFISCALSITUACAOTRIBUTARIA: TIBStringField
+      FieldName = 'SITUACAOTRIBUTARIA'
+      Size = 10
+    end
+    object smlntfldFISCALTIPOENTRADAPADRAO: TSmallintField
+      FieldName = 'TIPOENTRADAPADRAO'
+    end
+    object smlntfldFISCALTIPOSAIDAPADRAO: TSmallintField
+      FieldName = 'TIPOSAIDAPADRAO'
+    end
+  end
+  object dsFISCAL: TDataSource
+    DataSet = ibtbFISCAL
+    Left = 520
+    Top = 248
+  end
+  object ibqryEMBALAGEM: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_EMBALAGEM')
+    Left = 632
+    Top = 512
+  end
+  object ibqryCENTROCUSTO: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from CENTROCUSTO'
+      'ORDER BY DESCRICAO')
+    Left = 744
+    Top = 416
+  end
+  object dsCENTROCUSTO: TDataSource
+    DataSet = ibqryCENTROCUSTO
+    Left = 480
+    Top = 440
+  end
+  object acbrntrtb1: TACBrEnterTab
+    EnterAsTab = True
+    Left = 480
+    Top = 128
+  end
+  object ibqryREGRAS: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_TOLERANCIA_REC')
+    Left = 736
+    Top = 464
+    object smlntfldREGRASFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."FK_EMPRESAS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldREGRASFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."FK_FILIAIS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldREGRASFK_FORNECEDORES: TSmallintField
+      FieldName = 'FK_FORNECEDORES'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."FK_FORNECEDORES"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object intgrfldREGRASFK_PRODUTOS: TIntegerField
+      FieldName = 'FK_PRODUTOS'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."FK_PRODUTOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object smlntfldREGRASPK_REGRAS_ENTRADA: TSmallintField
+      FieldName = 'PK_REGRAS_ENTRADA'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."PK_REGRAS_ENTRADA"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibstrngfldREGRASDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."DESCRICAO"'
+      Size = 100
+    end
+    object fltfldREGRASPERCQUANTIDADE: TFloatField
+      FieldName = 'PERCQUANTIDADE'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."PERCQUANTIDADE"'
+    end
+    object fltfldREGRASPERCVALOR: TFloatField
+      FieldName = 'PERCVALOR'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."PERCVALOR"'
+    end
+    object ibstrngfldREGRASUSER_INC: TIBStringField
+      FieldName = 'USER_INC'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."USER_INC"'
+      Size = 10
+    end
+    object dtmfldREGRASDATA_INC: TDateTimeField
+      FieldName = 'DATA_INC'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."DATA_INC"'
+    end
+    object ibstrngfldREGRASUSER_ALT: TIBStringField
+      FieldName = 'USER_ALT'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."USER_ALT"'
+      Size = 10
+    end
+    object dtmfldREGRASDATA_ALT: TDateTimeField
+      FieldName = 'DATA_ALT'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."DATA_ALT"'
+    end
+    object strngfldREGRASfornecedor: TStringField
       FieldKind = fkLookup
-      FieldName = 'UNIDADES'
-      LookupDataSet = ibqryUNIDADES
-      LookupKeyFields = 'PK_UNIDADES'
-      LookupResultField = 'DSC_UNI'
-      KeyFields = 'PK_UNIDADE'
+      FieldName = 'fornecedor'
+      LookupDataSet = ibqryFORNECEDORES
+      LookupKeyFields = 'PK_FORNECEDOR'
+      LookupResultField = 'RAZAOSOCIAL'
+      KeyFields = 'FK_FORNECEDORES'
       Lookup = True
     end
   end
-  object dsEMBALAGEM: TDataSource
-    DataSet = ibqryEMBALAGEM
-    Left = 280
-    Top = 112
+  object dsREGRAS: TDataSource
+    DataSet = ibqryREGRAS
+    Left = 576
+    Top = 312
   end
-  object ibqrySECAO: TIBQuery
-    Database = dmod.bdIndustrias
+  object ibqryFORNECEDORES: TIBQuery
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
-      'select * from PRODUTOS_SECAO')
-    Left = 64
-    Top = 112
+      'select * from FORNECEDORES')
+    Left = 688
+    Top = 320
   end
-  object dsSECAO: TDataSource
-    DataSet = ibqrySECAO
-    Left = 16
-    Top = 112
-  end
-  object ibqryFORN_PROD: TIBQuery
-    Database = dmod.bdIndustrias
+  object ibqryCOMPOSICAO: TIBQuery
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
-      'select * from PRODUTOS_FORNECEDOR')
-    Left = 136
-    Top = 112
+      'select * from PRODUTOS_COMPOSICOES')
+    Left = 40
+    Top = 504
+    object smlntfldCOMPOSICAOFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"PRODUTOS_COMPOSICOES"."FK_EMPRESAS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldCOMPOSICAOFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"PRODUTOS_COMPOSICOES"."FK_FILIAIS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldCOMPOSICAOFK_PRODUTOS: TSmallintField
+      FieldName = 'FK_PRODUTOS'
+      Origin = '"PRODUTOS_COMPOSICOES"."FK_PRODUTOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldCOMPOSICAOPK_PRODUTOS_COMPOSICOES: TSmallintField
+      FieldName = 'PK_PRODUTOS_COMPOSICOES'
+      Origin = '"PRODUTOS_COMPOSICOES"."PK_PRODUTOS_COMPOSICOES"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object smlntfldCOMPOSICAOFK_INSUMOS: TSmallintField
+      FieldName = 'FK_INSUMOS'
+      Origin = '"PRODUTOS_COMPOSICOES"."FK_INSUMOS"'
+    end
+    object fltfldCOMPOSICAOQUANTPRODUTO: TFloatField
+      FieldName = 'QUANTPRODUTO'
+      Origin = '"PRODUTOS_COMPOSICOES"."QUANTPRODUTO"'
+    end
+    object smlntfldCOMPOSICAOSEQ_COMPOSICAO: TSmallintField
+      FieldName = 'SEQ_COMPOSICAO'
+      Origin = '"PRODUTOS_COMPOSICOES"."SEQ_COMPOSICAO"'
+    end
+    object fltfldCOMPOSICAOQUANTDEFINIDA: TFloatField
+      FieldName = 'QUANTDEFINIDA'
+      Origin = '"PRODUTOS_COMPOSICOES"."QUANTDEFINIDA"'
+    end
+    object strngfldCOMPOSICAOINSUMO: TStringField
+      FieldKind = fkLookup
+      FieldName = 'INSUMO'
+      LookupDataSet = ibtbPRODUTOS
+      LookupKeyFields = 'PK_PRODUTOS'
+      LookupResultField = 'DESCRICAO'
+      KeyFields = 'FK_PRODUTOS'
+      Lookup = True
+    end
   end
-  object dsFORN_PROD: TDataSource
-    DataSet = ibqryFORN_PROD
-    Left = 208
-    Top = 112
+  object dsCOMPOSICAO: TDataSource
+    DataSet = ibqryCOMPOSICAO
+    Left = 120
+    Top = 504
   end
-  object ibqryGRUPOS: TIBQuery
-    Database = dmod.bdIndustrias
+  object ibtbMEDIDAS: TIBTable
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
-    SQL.Strings = (
-      'select * from PRODUTOS_GRUPOS')
-    Left = 552
-    Top = 160
-  end
-  object dsGRUPOS: TDataSource
-    DataSet = ibqryGRUPOS
-    Left = 640
-    Top = 160
-  end
-  object ibqrySUBGRUPOS: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    Active = True
-    SQL.Strings = (
-      'select * from PRODUTOS_SUBGRUPOS')
-    Left = 720
-    Top = 160
-  end
-  object dsSUBGRUPOS: TDataSource
-    DataSet = ibqrySUBGRUPOS
-    Left = 720
-    Top = 112
-  end
-  object ibqryFAMILIAS: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    Active = True
-    SQL.Strings = (
-      'select * from PRODUTOS_FAMILIAS')
-    Left = 656
-    Top = 112
-  end
-  object dsFAMILIAS: TDataSource
-    DataSet = ibqryFAMILIAS
-    Left = 600
-    Top = 112
-  end
-  object ibqryUNIDADES: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    Active = True
-    SQL.Strings = (
-      'select * from UNIDADES')
+    IndexFieldNames = 'FK_EMPRESAS;FK_FILIAIS;FK_PRODUTOS'
+    MasterSource = dsPRODUTOS
+    TableName = 'PRODUTOS_MEDIDAS'
     Left = 56
-    Top = 160
+    Top = 432
+    object smlntfldMEDIDASFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Required = True
+    end
+    object smlntfldMEDIDASFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Required = True
+    end
+    object smlntfldMEDIDASFK_PRODUTOS: TSmallintField
+      FieldName = 'FK_PRODUTOS'
+      Required = True
+    end
+    object smlntfldMEDIDASFK_UNIDADES: TSmallintField
+      FieldName = 'FK_UNIDADES'
+      Required = True
+    end
+    object fltfldMEDIDASMED_ALTURA: TFloatField
+      FieldName = 'MED_ALTURA'
+      DisplayFormat = '###0.000'
+    end
+    object fltfldMEDIDASMED_LARGURA: TFloatField
+      FieldName = 'MED_LARGURA'
+      DisplayFormat = '###0.000'
+    end
+    object fltfldMEDIDASMED_PROFUNDIDADE: TFloatField
+      FieldName = 'MED_PROFUNDIDADE'
+      DisplayFormat = '###0.000'
+    end
+    object fltfldMEDIDASMED_CUBAGEM: TFloatField
+      FieldKind = fkInternalCalc
+      FieldName = 'MED_CUBAGEM'
+      ReadOnly = True
+      DisplayFormat = '###0.000'
+    end
+    object fltfldMEDIDASPESOLIQUIDO: TFloatField
+      FieldName = 'PESOLIQUIDO'
+      DisplayFormat = '###0.000'
+    end
+    object fltfldMEDIDASPESOBRUTO: TFloatField
+      FieldName = 'PESOBRUTO'
+      DisplayFormat = '###0.000'
+    end
   end
-  object dsUNIDADES: TDataSource
-    DataSet = ibqryUNIDADES
-    Left = 160
-    Top = 152
+  object dsMEDIDAS: TDataSource
+    DataSet = ibtbMEDIDAS
+    Left = 592
+    Top = 256
   end
 end
