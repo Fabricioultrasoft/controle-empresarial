@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   dmodule,Dialogs, StdCtrls, Buttons, DB, IBCustomDataSet, IBQuery,
   DBGridEhGrouping, GridsEh, DBGridEh, Mask, DBCtrlsEh, ComCtrls, DBCtrls,
-  ExtCtrls, DBLookupEh, IBTable , EMBALAGEM, ACBrBase, ACBrEnterTab ;
+  ExtCtrls, DBLookupEh, IBTable , EMBALAGEM, ACBrBase, ACBrEnterTab  ;
 
 type
   TfrmProdutos = class(TForm)
@@ -253,9 +253,7 @@ type
     dbchkCOFINS_PAUTA: TDBCheckBox;
     dbchkCOFINS_PAUTA1: TDBCheckBox;
     dblkcbbTIPOENTRADAPADRAO: TDBLookupComboBox;
-    dblkcbb2: TDBLookupComboBox;
     dblkcbbTIPOSAIDAPADRAO: TDBLookupComboBox;
-    dblkcbb4: TDBLookupComboBox;
     ibqryEMBALAGEM: TIBQuery;
     dbchckbxhFLAG_PROD: TDBCheckBoxEh;
     edtFK_UNIDADES: TDBEditEh;
@@ -391,6 +389,7 @@ type
     btn3: TBitBtn;
     btn5: TBitBtn;
     ts9: TTabSheet;
+    tsCONSUMO: TTabSheet;
     procedure dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
     procedure FormCreate(Sender: TObject);
     procedure edtFK_SECOESDblClick(Sender: TObject);
@@ -398,6 +397,7 @@ type
     procedure cbbFK_CENTROCUSTOExit(Sender: TObject);
     procedure dbchckbxhPRODUTOCOMPOSTOClick(Sender: TObject);
     procedure dbchckbxhCONTROLALOTEClick(Sender: TObject);
+    procedure edtFK_UNIDADESDblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -424,15 +424,17 @@ begin
   begin
     // quer cadastrar
     EMBALAGEM.frmEMBALAGEM := EMBALAGEM.TfrmEMBALAGEM.Create(SELF);
+    EMBALAGEM.frmEMBALAGEM.abreModal := True;
     EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.Open;
     EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.Append;
     EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.FieldByName('fk_empresas').Value := 1;
     EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.FieldByName('fk_filiais').Value := 1;
     EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.FieldByName('fk_produtos').Value :=
       edtPK_PRODUTOS.Field.Value;
-    embalagem.frmEMBALAGEM.ibtbEMBALAGEM.Refresh;
+    // embalagem.frmEMBALAGEM.ibtbEMBALAGEM.Refresh;
     EMBALAGEM.frmEMBALAGEM.ShowModal;
     EMBALAGEM.frmEMBALAGEM.Free;
+    ibqryEMBALAGEM.Refresh;
 
 
   end;
@@ -545,6 +547,12 @@ begin
 
 
 //end;
+end;
+
+procedure TfrmProdutos.edtFK_UNIDADESDblClick(Sender: TObject);
+begin
+// ao dar duplo clique, abre a tela de unidades.
+
 end;
 
 procedure TfrmProdutos.edtFK_GRUPOSDblClick(Sender: TObject);

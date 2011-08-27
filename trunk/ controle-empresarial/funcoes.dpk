@@ -1,0 +1,52 @@
+package funcoes;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'funcoes diversas para programa Industrial'}
+{$IMPLICITBUILD ON}
+{$DEFINE DEBUG}
+
+requires
+  rtl,
+  designide,
+  vcl,
+  vclactnband,
+  vclx,
+  xmlrtl,
+  vcldb,
+  dbrtl;
+
+contains
+  Arredonda in 'Arredonda.pas',
+  CelsoDBEdit in 'CelsoDBEdit.pas',
+  DBLabeledEdit in 'DBLabeledEdit.pas',
+  ERombBtn in 'ERombBtn.pas',
+  MaskEditMCT in 'MaskEditMCT.pas',
+  SuperEdit in 'SuperEdit.pas',
+  sxdbgrid2excel in 'sxdbgrid2excel.pas',
+  FocusEdit in 'FocusEdit.pas',
+  DBGrid3D in 'DBGrid3D.pas',
+  BSGrid3d in 'BSGrid3d.pas',
+  BSNAVIG in 'BSNAVIG.PAS';
+
+end.
