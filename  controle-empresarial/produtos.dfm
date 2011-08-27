@@ -127,7 +127,7 @@ object frmProdutos: TfrmProdutos
     Top = 185
     Width = 789
     Height = 353
-    ActivePage = tsLOTES
+    ActivePage = tsEMBALAGEM
     TabOrder = 13
     object tsCLASSIFICACAO: TTabSheet
       Caption = 'Classifica'#231#227'o/Localiza'#231#227'o'
@@ -1213,7 +1213,7 @@ object frmProdutos: TfrmProdutos
         Top = 3
         Width = 778
         Height = 319
-        ActivePage = ts4
+        ActivePage = tsCONSUMO
         TabOrder = 0
         object ts4: TTabSheet
           Caption = 'Estoques e Saldos'
@@ -1399,6 +1399,10 @@ object frmProdutos: TfrmProdutos
           Caption = 'Movimenta'#231#245'es'
           ImageIndex = 1
         end
+        object tsCONSUMO: TTabSheet
+          Caption = 'Consumo'
+          ImageIndex = 2
+        end
       end
     end
     object tsDADOSFISCAIS: TTabSheet
@@ -1409,25 +1413,24 @@ object frmProdutos: TfrmProdutos
         Top = 3
         Width = 778
         Height = 326
-        ActivePage = tsSubsTrib
+        ActivePage = tsDADOSFISCAIS1
         TabOrder = 0
         object tsDADOSFISCAIS1: TTabSheet
           Caption = 'Dados Fiscais'
-          ExplicitLeft = 0
           object lbl1: TLabel
-            Left = 294
-            Top = 5
-            Width = 116
+            Left = 208
+            Top = 80
+            Width = 53
             Height = 13
-            Caption = 'CLASSIFICACAOFISCAL'
+            Caption = 'Clas. Fiscal'
             FocusControl = dbedtCLASSIFICACAOFISCAL
           end
           object lbl2: TLabel
-            Left = 434
-            Top = 5
-            Width = 100
+            Left = 279
+            Top = 80
+            Width = 54
             Height = 13
-            Caption = 'GRUPOTRIBUTACAO'
+            Caption = 'Grupo Trib.'
             FocusControl = dbedtGRUPOTRIBUTACAO
           end
           object lbl3: TLabel
@@ -1447,43 +1450,43 @@ object frmProdutos: TfrmProdutos
             FocusControl = dbedtTIPOENTRADAPADRAO
           end
           object lbl5: TLabel
-            Left = 209
+            Left = 137
             Top = 80
-            Width = 113
+            Width = 65
             Height = 13
-            Caption = 'SITUACAOTRIBUTARIA'
+            Caption = 'Sit. Tribut'#225'ria'
             FocusControl = dbedtSITUACAOTRIBUTARIA
           end
           object lbl6: TLabel
-            Left = 3
-            Top = 192
-            Width = 107
+            Left = 350
+            Top = 80
+            Width = 55
             Height = 13
-            Caption = 'CTACONTABILDEBITO'
+            Caption = 'Cta. D'#233'bito'
             FocusControl = dbedtCTACONTABILDEBITO
           end
           object lbl7: TLabel
-            Left = 379
-            Top = 192
-            Width = 115
+            Left = 421
+            Top = 80
+            Width = 59
             Height = 13
-            Caption = 'CTACONTABILCREDITO'
+            Caption = 'Cta. Cr'#233'dito'
             FocusControl = dbedtCTACONTABILCREDITO
           end
           object lbl8: TLabel
             Left = 3
             Top = 80
-            Width = 109
+            Width = 59
             Height = 13
-            Caption = 'SOLIDARIO_ENTRADA'
+            Caption = 'Sol. Entrada'
             FocusControl = dbedtSOLIDARIO_ENTRADA
           end
           object lbl9: TLabel
-            Left = 106
+            Left = 72
             Top = 80
-            Width = 93
+            Width = 47
             Height = 13
-            Caption = 'SOLIDARIO_SAIDA'
+            Caption = 'Sol. Sa'#237'da'
             FocusControl = dbedtSOLIDARIO_SAIDA
           end
           object edtCODIGONCM: TDBEditEh
@@ -1516,18 +1519,18 @@ object frmProdutos: TfrmProdutos
               '1')
           end
           object dbedtCLASSIFICACAOFISCAL: TDBEdit
-            Left = 294
-            Top = 21
-            Width = 134
+            Left = 208
+            Top = 99
+            Width = 65
             Height = 21
             DataField = 'CLASSIFICACAOFISCAL'
             DataSource = dsFISCAL
             TabOrder = 2
           end
           object dbedtGRUPOTRIBUTACAO: TDBEdit
-            Left = 434
-            Top = 21
-            Width = 134
+            Left = 279
+            Top = 99
+            Width = 65
             Height = 21
             DataField = 'GRUPOTRIBUTACAO'
             DataSource = dsFISCAL
@@ -1552,34 +1555,34 @@ object frmProdutos: TfrmProdutos
             TabOrder = 5
           end
           object dbedtSITUACAOTRIBUTARIA: TDBEdit
-            Left = 209
+            Left = 137
             Top = 99
-            Width = 97
+            Width = 65
             Height = 21
             DataField = 'SITUACAOTRIBUTARIA'
             DataSource = dsFISCAL
             TabOrder = 6
           end
           object dbedtCTACONTABILDEBITO: TDBEdit
-            Left = 3
-            Top = 211
-            Width = 54
+            Left = 350
+            Top = 99
+            Width = 65
             Height = 21
             DataField = 'CTACONTABILDEBITO'
             DataSource = dsFISCAL
             TabOrder = 7
           end
           object dbedtCTACONTABILCREDITO: TDBEdit
-            Left = 379
-            Top = 211
-            Width = 97
+            Left = 421
+            Top = 99
+            Width = 65
             Height = 21
             DataField = 'CTACONTABILCREDITO'
             DataSource = dsFISCAL
             TabOrder = 8
           end
           object dbchkUTILIZASELO: TDBCheckBox
-            Left = 586
+            Left = 294
             Top = 23
             Width = 97
             Height = 17
@@ -1593,16 +1596,16 @@ object frmProdutos: TfrmProdutos
           object dbedtSOLIDARIO_ENTRADA: TDBEdit
             Left = 3
             Top = 99
-            Width = 97
+            Width = 63
             Height = 21
             DataField = 'SOLIDARIO_ENTRADA'
             DataSource = dsFISCAL
             TabOrder = 10
           end
           object dbedtSOLIDARIO_SAIDA: TDBEdit
-            Left = 106
+            Left = 72
             Top = 99
-            Width = 97
+            Width = 63
             Height = 21
             DataField = 'SOLIDARIO_SAIDA'
             DataSource = dsFISCAL
@@ -1617,13 +1620,6 @@ object frmProdutos: TfrmProdutos
             DataSource = dsFISCAL
             TabOrder = 12
           end
-          object dblkcbb2: TDBLookupComboBox
-            Left = 519
-            Top = 211
-            Width = 236
-            Height = 21
-            TabOrder = 13
-          end
           object dblkcbbTIPOSAIDAPADRAO: TDBLookupComboBox
             Left = 63
             Top = 155
@@ -1631,14 +1627,7 @@ object frmProdutos: TfrmProdutos
             Height = 21
             DataField = 'TIPOSAIDAPADRAO'
             DataSource = dsFISCAL
-            TabOrder = 14
-          end
-          object dblkcbb4: TDBLookupComboBox
-            Left = 106
-            Top = 211
-            Width = 236
-            Height = 21
-            TabOrder = 15
+            TabOrder = 13
           end
         end
         object tsICMS: TTabSheet
@@ -1653,7 +1642,7 @@ object frmProdutos: TfrmProdutos
             FocusControl = dbedtICMS_ALICOTA
           end
           object lbl12: TLabel
-            Left = 271
+            Left = 191
             Top = 24
             Width = 106
             Height = 13
@@ -1663,23 +1652,23 @@ object frmProdutos: TfrmProdutos
           object dbedtICMS_ALICOTA: TDBEdit
             Left = 16
             Top = 40
-            Width = 134
+            Width = 60
             Height = 21
             DataField = 'ICMS_ALICOTA'
             DataSource = dsFISCAL
             TabOrder = 0
           end
           object dbedtICMS_PAUTAALICOTA: TDBEdit
-            Left = 271
+            Left = 191
             Top = 40
-            Width = 134
+            Width = 60
             Height = 21
             DataField = 'ICMS_PAUTAALICOTA'
             DataSource = dsFISCAL
             TabOrder = 1
           end
           object dbchkICMS_PAUTA: TDBCheckBox
-            Left = 168
+            Left = 88
             Top = 40
             Width = 97
             Height = 17
@@ -1697,32 +1686,32 @@ object frmProdutos: TfrmProdutos
           object lbl13: TLabel
             Left = 16
             Top = 16
-            Width = 66
+            Width = 51
             Height = 13
-            Caption = 'ISS_ALICOTA'
+            Caption = 'Alic. Iss %'
             FocusControl = dbedtISS_ALICOTA
           end
           object lbl14: TLabel
-            Left = 156
+            Left = 87
             Top = 16
-            Width = 107
+            Width = 76
             Height = 13
-            Caption = 'ISS_CODIGOSERVICO'
+            Caption = 'Iss - C'#243'd. Serv.'
             FocusControl = dbedtISS_CODIGOSERVICO
           end
           object dbedtISS_ALICOTA: TDBEdit
             Left = 16
             Top = 32
-            Width = 134
+            Width = 65
             Height = 21
             DataField = 'ISS_ALICOTA'
             DataSource = dsFISCAL
             TabOrder = 0
           end
           object dbedtISS_CODIGOSERVICO: TDBEdit
-            Left = 156
+            Left = 87
             Top = 32
-            Width = 134
+            Width = 65
             Height = 21
             DataField = 'ISS_CODIGOSERVICO'
             DataSource = dsFISCAL
@@ -1735,57 +1724,57 @@ object frmProdutos: TfrmProdutos
           object lbl15: TLabel
             Left = 16
             Top = 16
-            Width = 66
+            Width = 50
             Height = 13
-            Caption = 'PIS_ALICOTA'
+            Caption = 'Al'#237'c. Pis %'
             FocusControl = dbedtPIS_ALICOTA
           end
           object lbl16: TLabel
-            Left = 156
+            Left = 87
             Top = 16
-            Width = 115
+            Width = 81
             Height = 13
-            Caption = 'PIS_ALICOTAREDUCAO'
+            Caption = 'Pis Al'#237'c. Redu'#231#227'o'
             FocusControl = dbedtPIS_ALICOTAREDUCAO
           end
           object lbl18: TLabel
-            Left = 299
-            Top = 56
-            Width = 99
+            Left = 364
+            Top = 16
+            Width = 67
             Height = 13
-            Caption = 'PIS_PAUTAALICOTA'
+            Caption = 'Pis Alic. Pauta'
             FocusControl = dbedtPIS_PAUTAALICOTA
           end
           object dbedtPIS_ALICOTA: TDBEdit
             Left = 16
             Top = 32
-            Width = 134
+            Width = 65
             Height = 21
             DataField = 'PIS_ALICOTA'
             DataSource = dsFISCAL
             TabOrder = 0
           end
           object dbedtPIS_ALICOTAREDUCAO: TDBEdit
-            Left = 156
+            Left = 87
             Top = 32
-            Width = 134
+            Width = 65
             Height = 21
             DataField = 'PIS_ALICOTAREDUCAO'
             DataSource = dsFISCAL
             TabOrder = 1
           end
           object dbedtPIS_PAUTAALICOTA: TDBEdit
-            Left = 299
-            Top = 72
-            Width = 134
+            Left = 364
+            Top = 32
+            Width = 65
             Height = 21
             DataField = 'PIS_PAUTAALICOTA'
             DataSource = dsFISCAL
             TabOrder = 2
           end
           object dbchk1: TDBCheckBox
-            Left = 16
-            Top = 73
+            Left = 158
+            Top = 32
             Width = 97
             Height = 17
             Caption = 'Reter PIS'
@@ -1794,8 +1783,8 @@ object frmProdutos: TfrmProdutos
             ValueUnchecked = 'False'
           end
           object dbchk2: TDBCheckBox
-            Left = 156
-            Top = 73
+            Left = 261
+            Top = 32
             Width = 97
             Height = 17
             Caption = 'PIS de Pauta'
@@ -2249,7 +2238,6 @@ object frmProdutos: TfrmProdutos
     object tsMEDIDAS: TTabSheet
       Caption = 'Medidas'
       ImageIndex = 9
-      ExplicitLeft = 0
       object lbl17: TLabel
         Left = 3
         Top = 8
@@ -2464,6 +2452,7 @@ object frmProdutos: TfrmProdutos
     ShowHint = True
     TabOrder = 7
     Visible = True
+    OnDblClick = edtFK_UNIDADESDblClick
   end
   object cbbFK_UNIDADES: TDBLookupComboboxEh
     Left = 63
@@ -2972,8 +2961,8 @@ object frmProdutos: TfrmProdutos
       end>
     StoreDefs = True
     TableName = 'PRODUTOS'
-    Left = 144
-    Top = 456
+    Left = 152
+    Top = 400
     object intgrfldPRODUTOSPK_PRODUTOS: TIntegerField
       FieldName = 'PK_PRODUTOS'
       Required = True
@@ -3646,8 +3635,8 @@ object frmProdutos: TfrmProdutos
   end
   object dsFISCAL: TDataSource
     DataSet = ibtbFISCAL
-    Left = 520
-    Top = 248
+    Left = 544
+    Top = 424
   end
   object ibqryEMBALAGEM: TIBQuery
     Database = dmod.bdindustrias
@@ -3753,16 +3742,16 @@ object frmProdutos: TfrmProdutos
   end
   object dsREGRAS: TDataSource
     DataSet = ibqryREGRAS
-    Left = 576
-    Top = 312
+    Left = 448
+    Top = 408
   end
   object ibqryFORNECEDORES: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from FORNECEDORES')
-    Left = 688
-    Top = 320
+    Left = 696
+    Top = 248
   end
   object ibqryCOMPOSICAO: TIBQuery
     Database = dmod.bdindustrias
@@ -3876,7 +3865,7 @@ object frmProdutos: TfrmProdutos
   end
   object dsMEDIDAS: TDataSource
     DataSet = ibtbMEDIDAS
-    Left = 592
-    Top = 256
+    Left = 664
+    Top = 288
   end
 end

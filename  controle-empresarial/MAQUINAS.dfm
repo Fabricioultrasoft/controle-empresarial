@@ -360,7 +360,7 @@ object frmMAQUINAS: TfrmMAQUINAS
     Visible = True
   end
   object edtFK_PROCESSOS2: TDBEditEh
-    Left = 526
+    Left = 527
     Top = 147
     Width = 57
     Height = 21

@@ -6,21 +6,15 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   dmodule,Dialogs, DB, IBCustomDataSet, IBTable, StdCtrls, Mask, DBCtrls,
   DBGridEh, DBCtrlsEh, DBLookupEh, DBGridEhGrouping, GridsEh, Buttons, ComCtrls,
-  ExtCtrls, ACBrBase, ACBrEnterTab, IBQuery;
+  ExtCtrls, ACBrBase, ACBrEnterTab, IBQuery, DBLabeledEdit;
 
 type
   TfrmEMBALAGEM = class(TForm)
     dsEMBALAGEM: TDataSource;
-    lbl1: TLabel;
-    dbedtFK_EMPRESAS: TDBEdit;
-    lbl2: TLabel;
-    dbedtFK_FILIAIS: TDBEdit;
     lbl3: TLabel;
     dbedtFK_PRODUTOS: TDBEdit;
     lbl4: TLabel;
     dbedtPK_UNIDADES: TDBEdit;
-    cbbFK_FILIAIS: TDBLookupComboboxEh;
-    cbbFK_EMPRESAS: TDBLookupComboboxEh;
     cbbFK_PRODUTOS: TDBLookupComboboxEh;
     cbbPK_UNIDADES: TDBLookupComboboxEh;
     dbedtFK_EMPRESAS1: TDBEdit;
@@ -77,6 +71,8 @@ type
     fltfldEMBALAGEMLASTROPALETE: TFloatField;
     fltfldEMBALAGEMALTURAPALETE: TFloatField;
     edtCUBAGEM: TEdit;
+    ibstrngfldEMBALAGEMDESCRICAO: TIBStringField;
+    edtDESCRICAO: TDBLabeledEdit;
     procedure btn1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -87,6 +83,7 @@ type
 
 var
   frmEMBALAGEM: TfrmEMBALAGEM;
+  abreModal : Boolean;
 
 implementation
 
@@ -99,12 +96,12 @@ end;
 
 procedure TfrmEMBALAGEM.FormCreate(Sender: TObject);
 begin
-//ibtbEMBALAGEM.Open;
-//ibqryUNIDADES.Open;
-//ibqryEMPRESAS.Open;
-//ibqryFILIAIS.Open;
-//ibqryPRODUTOS.Open;
-////edtCUBAGEM.Text := FloatToStr(dbedtFK_EMPRESAS3.Field.Value *
+ibtbEMBALAGEM.Open;
+ibqryUNIDADES.Open;
+ibqryEMPRESAS.Open;
+ibqryFILIAIS.Open;
+ibqryPRODUTOS.Open;
+//edtCUBAGEM.Text := FloatToStr(dbedtFK_EMPRESAS3.Field.Value *
 ////dbedtFK_EMPRESAS4.Field.Value * dbedtFK_EMPRESAS5.Field.Value );
 
 end;

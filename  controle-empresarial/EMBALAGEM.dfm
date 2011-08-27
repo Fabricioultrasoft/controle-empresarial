@@ -16,25 +16,9 @@ object frmEMBALAGEM: TfrmEMBALAGEM
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object lbl1: TLabel
-    Left = 19
-    Top = 16
-    Width = 41
-    Height = 13
-    Caption = 'Empresa'
-    FocusControl = dbedtFK_EMPRESAS
-  end
-  object lbl2: TLabel
-    Left = 387
-    Top = 16
-    Width = 20
-    Height = 13
-    Caption = 'Filial'
-    FocusControl = dbedtFK_FILIAIS
-  end
   object lbl3: TLabel
     Left = 19
-    Top = 72
+    Top = 0
     Width = 38
     Height = 13
     Caption = 'Produto'
@@ -42,7 +26,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
   end
   object lbl4: TLabel
     Left = 387
-    Top = 72
+    Top = 0
     Width = 39
     Height = 13
     Caption = 'Unidade'
@@ -50,143 +34,95 @@ object frmEMBALAGEM: TfrmEMBALAGEM
   end
   object lbl5: TLabel
     Left = 639
-    Top = 72
+    Top = 0
     Width = 56
     Height = 13
     Caption = 'Quantidade'
   end
   object lbl6: TLabel
-    Left = 22
-    Top = 120
+    Left = 19
+    Top = 96
     Width = 67
     Height = 13
     Caption = 'C'#243'digo Barras'
   end
   object lbl7: TLabel
-    Left = 127
-    Top = 120
+    Left = 124
+    Top = 96
     Width = 34
     Height = 13
     Caption = 'largura'
   end
   object lbl8: TLabel
-    Left = 203
-    Top = 120
+    Left = 200
+    Top = 96
     Width = 29
     Height = 13
     Caption = 'Altura'
   end
   object lbl9: TLabel
-    Left = 279
-    Top = 120
+    Left = 276
+    Top = 96
     Width = 64
     Height = 13
     Caption = 'Profundidade'
   end
   object lbl10: TLabel
-    Left = 355
-    Top = 120
+    Left = 352
+    Top = 96
     Width = 45
     Height = 13
     Caption = 'Cubagem'
   end
   object lbl11: TLabel
-    Left = 431
-    Top = 120
+    Left = 428
+    Top = 96
     Width = 33
     Height = 13
     Caption = 'L'#237'quido'
   end
   object lbl12: TLabel
-    Left = 507
-    Top = 120
+    Left = 504
+    Top = 96
     Width = 26
     Height = 13
     Caption = 'Bruto'
   end
   object lbl13: TLabel
-    Left = 583
-    Top = 120
+    Left = 580
+    Top = 96
     Width = 63
     Height = 13
     Caption = 'Lastro Palete'
   end
   object lbl14: TLabel
-    Left = 659
-    Top = 120
+    Left = 656
+    Top = 96
     Width = 62
     Height = 13
     Caption = 'Altura palete'
   end
-  object dbedtFK_EMPRESAS: TDBEdit
-    Left = 19
-    Top = 32
-    Width = 70
-    Height = 21
-    DataField = 'FK_EMPRESAS'
-    DataSource = dsEMBALAGEM
-    TabOrder = 0
-  end
-  object dbedtFK_FILIAIS: TDBEdit
-    Left = 387
-    Top = 32
-    Width = 70
-    Height = 21
-    DataField = 'FK_FILIAIS'
-    DataSource = dsEMBALAGEM
-    TabOrder = 2
-  end
   object dbedtFK_PRODUTOS: TDBEdit
     Left = 19
-    Top = 88
+    Top = 16
     Width = 70
     Height = 21
     DataField = 'FK_PRODUTOS'
     DataSource = dsEMBALAGEM
-    TabOrder = 4
+    TabOrder = 0
   end
   object dbedtPK_UNIDADES: TDBEdit
     Left = 387
-    Top = 88
+    Top = 16
     Width = 70
     Height = 21
     DataField = 'PK_UNIDADES'
     DataSource = dsEMBALAGEM
-    TabOrder = 6
-  end
-  object cbbFK_FILIAIS: TDBLookupComboboxEh
-    Left = 463
-    Top = 32
-    Width = 330
-    Height = 21
-    DataField = 'FK_FILIAIS'
-    DataSource = dsEMBALAGEM
-    EditButtons = <>
-    KeyField = 'PK_FILIAL'
-    ListField = 'RAZAOSOCIAL'
-    ListSource = dsFILIAIS
-    ShowHint = True
-    TabOrder = 3
-    Visible = True
-  end
-  object cbbFK_EMPRESAS: TDBLookupComboboxEh
-    Left = 95
-    Top = 32
-    Width = 286
-    Height = 21
-    DataField = 'FK_EMPRESAS'
-    DataSource = dsEMBALAGEM
-    EditButtons = <>
-    KeyField = 'PK_EMPRESA'
-    ListField = 'RAZAOSOCIAL'
-    ListSource = dsEMPRESAS
-    ShowHint = True
-    TabOrder = 1
-    Visible = True
+    TabOrder = 2
   end
   object cbbFK_PRODUTOS: TDBLookupComboboxEh
     Left = 95
-    Top = 88
+    Top = 16
     Width = 286
     Height = 21
     DataField = 'FK_PRODUTOS'
@@ -196,12 +132,12 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     ListField = 'DESCRICAO'
     ListSource = dsPRODUTOS
     ShowHint = True
-    TabOrder = 5
+    TabOrder = 1
     Visible = True
   end
   object cbbPK_UNIDADES: TDBLookupComboboxEh
     Left = 463
-    Top = 88
+    Top = 16
     Width = 170
     Height = 21
     DataField = 'PK_UNIDADES'
@@ -211,105 +147,105 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     ListField = 'DESCRICAO'
     ListSource = dsUNIDADES
     ShowHint = True
-    TabOrder = 7
+    TabOrder = 3
     Visible = True
   end
   object dbedtFK_EMPRESAS1: TDBEdit
     Left = 639
-    Top = 88
+    Top = 16
     Width = 70
     Height = 21
     DataField = 'QUANTUNIDADES'
     DataSource = dsEMBALAGEM
-    TabOrder = 8
+    TabOrder = 4
   end
   object dbedtFK_EMPRESAS2: TDBEdit
-    Left = 22
-    Top = 136
+    Left = 19
+    Top = 112
     Width = 99
     Height = 21
     DataField = 'CODIGOBARRAS'
     DataSource = dsEMBALAGEM
-    TabOrder = 10
+    TabOrder = 6
   end
   object dbedtFK_EMPRESAS3: TDBEdit
-    Left = 127
-    Top = 136
+    Left = 124
+    Top = 112
     Width = 70
     Height = 21
     DataField = 'MED_LARGURA'
     DataSource = dsEMBALAGEM
-    TabOrder = 11
+    TabOrder = 7
   end
   object dbedtFK_EMPRESAS4: TDBEdit
-    Left = 203
-    Top = 136
+    Left = 200
+    Top = 112
     Width = 70
     Height = 21
     DataField = 'MED_ALTURA'
     DataSource = dsEMBALAGEM
-    TabOrder = 12
+    TabOrder = 8
   end
   object dbedtFK_EMPRESAS5: TDBEdit
-    Left = 279
-    Top = 136
+    Left = 276
+    Top = 112
     Width = 70
     Height = 21
     DataField = 'MED_PROFUNDIDADE'
     DataSource = dsEMBALAGEM
-    TabOrder = 13
+    TabOrder = 9
   end
   object dbchckbxhPRODUTOFRACIONADO: TDBCheckBoxEh
     Left = 715
-    Top = 90
+    Top = 18
     Width = 97
     Height = 17
     Caption = 'Fracionado'
     DataField = 'PRODUTOFRACIONADO'
     DataSource = dsEMBALAGEM
-    TabOrder = 9
+    TabOrder = 5
     ValueChecked = 'S'
     ValueUnchecked = 'N'
   end
   object dbedtFK_EMPRESAS7: TDBEdit
-    Left = 431
-    Top = 136
+    Left = 428
+    Top = 112
     Width = 70
     Height = 21
     DataField = 'PESOLIQUIDO'
     DataSource = dsEMBALAGEM
-    TabOrder = 14
+    TabOrder = 10
   end
   object dbedtFK_EMPRESAS8: TDBEdit
-    Left = 507
-    Top = 136
+    Left = 504
+    Top = 112
     Width = 70
     Height = 21
     DataField = 'PESOBRUTO'
     DataSource = dsEMBALAGEM
-    TabOrder = 15
+    TabOrder = 11
   end
   object dbedtFK_EMPRESAS9: TDBEdit
-    Left = 583
-    Top = 136
+    Left = 580
+    Top = 112
     Width = 70
     Height = 21
     DataField = 'LASTROPALETE'
     DataSource = dsEMBALAGEM
-    TabOrder = 16
+    TabOrder = 12
   end
   object dbedtFK_EMPRESAS10: TDBEdit
-    Left = 659
-    Top = 136
+    Left = 656
+    Top = 112
     Width = 70
     Height = 21
     DataField = 'ALTURAPALETE'
     DataSource = dsEMBALAGEM
-    TabOrder = 17
+    TabOrder = 13
   end
   object dbgrdh1: TDBGridEh
-    Left = 22
-    Top = 163
+    Left = 19
+    Top = 139
     Width = 707
     Height = 120
     DataGrouping.GroupLevels = <>
@@ -322,7 +258,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     FooterFont.Name = 'Tahoma'
     FooterFont.Style = []
     RowDetailPanel.Color = clBtnFace
-    TabOrder = 18
+    TabOrder = 14
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
@@ -332,8 +268,8 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     end
   end
   object dbnvgr1: TDBNavigator
-    Left = 22
-    Top = 289
+    Left = 19
+    Top = 265
     Width = 700
     Height = 25
     DataSource = dsEMBALAGEM
@@ -348,7 +284,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
       'Gravar'
       'Cancelar'
       'atualizar')
-    TabOrder = 19
+    TabOrder = 15
   end
   object stat1: TStatusBar
     Left = 0
@@ -356,13 +292,12 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Width = 834
     Height = 19
     Panels = <>
-    ExplicitLeft = 568
-    ExplicitTop = 360
-    ExplicitWidth = 0
+    ExplicitLeft = -3
+    ExplicitTop = 553
   end
   object btn1: TBitBtn
-    Left = 659
-    Top = 328
+    Left = 656
+    Top = 304
     Width = 75
     Height = 25
     Caption = 'Fechar'
@@ -370,12 +305,12 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Kind = bkClose
     NumGlyphs = 2
     ParentDoubleBuffered = False
-    TabOrder = 21
+    TabOrder = 17
     OnClick = btn1Click
   end
   object btn2: TBitBtn
-    Left = 578
-    Top = 328
+    Left = 575
+    Top = 304
     Width = 75
     Height = 25
     Caption = 'Retornar'
@@ -400,60 +335,79 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     ModalResult = 6
     NumGlyphs = 2
     ParentDoubleBuffered = False
-    TabOrder = 22
+    TabOrder = 18
   end
   object btn3: TBitBtn
-    Left = 497
-    Top = 328
+    Left = 494
+    Top = 304
     Width = 75
     Height = 25
     Caption = 'btn1'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 23
+    TabOrder = 19
   end
   object btn4: TBitBtn
-    Left = 416
-    Top = 328
+    Left = 413
+    Top = 304
     Width = 75
     Height = 25
     Caption = 'btn1'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 24
+    TabOrder = 20
   end
   object btn5: TBitBtn
-    Left = 335
-    Top = 328
+    Left = 332
+    Top = 304
     Width = 75
     Height = 25
     Caption = 'btn1'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 25
+    TabOrder = 21
   end
   object edtCUBAGEM: TEdit
-    Left = 355
-    Top = 136
+    Left = 352
+    Top = 112
     Width = 70
     Height = 21
     Enabled = False
-    TabOrder = 26
+    TabOrder = 22
     Text = 'edtCUBAGEM'
   end
+  object edtDESCRICAO: TDBLabeledEdit
+    Left = 19
+    Top = 56
+    Width = 438
+    Height = 19
+    BevelInner = bvNone
+    BevelKind = bkFlat
+    BorderStyle = bsNone
+    DataField = 'DESCRICAO'
+    DataSource = dsEMBALAGEM
+    TabOrder = 23
+    BoldFocus = False
+    EditLabel.Width = 83
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Descri'#231#227'o (nome)'
+    LabelPosition = lpAbove
+    LabelSpacing = 3
+  end
   object dsEMBALAGEM: TDataSource
-    Left = 632
-    Top = 224
+    DataSet = ibtbEMBALAGEM
+    Left = 629
+    Top = 200
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
-    Left = 752
-    Top = 136
+    Left = 749
+    Top = 112
   end
   object dsUNIDADES: TDataSource
     DataSet = ibqryUNIDADES
-    Left = 736
-    Top = 280
+    Left = 733
+    Top = 256
   end
   object ibqryUNIDADES: TIBQuery
     Database = dmod.bdindustrias
@@ -461,8 +415,8 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Active = True
     SQL.Strings = (
       'select * from UNIDADES')
-    Left = 560
-    Top = 376
+    Left = 557
+    Top = 352
   end
   object ibqryEMPRESAS: TIBQuery
     Database = dmod.bdindustrias
@@ -471,18 +425,18 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     SQL.Strings = (
       'select * from EMPRESA'
       'ORDER BY RAZAOSOCIAL')
-    Left = 376
-    Top = 384
+    Left = 373
+    Top = 360
   end
   object dsEMPRESAS: TDataSource
     DataSet = ibqryEMPRESAS
-    Left = 744
-    Top = 176
+    Left = 741
+    Top = 152
   end
   object dsFILIAIS: TDataSource
     DataSet = ibqryFILIAIS
-    Left = 744
-    Top = 128
+    Left = 741
+    Top = 104
   end
   object ibqryFILIAIS: TIBQuery
     Database = dmod.bdindustrias
@@ -491,8 +445,8 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     SQL.Strings = (
       'select * from FILIAL'
       'ORDER BY RAZAOSOCIAL')
-    Left = 456
-    Top = 376
+    Left = 453
+    Top = 352
   end
   object ibqryPRODUTOS: TIBQuery
     Database = dmod.bdindustrias
@@ -500,13 +454,13 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Active = True
     SQL.Strings = (
       'select * from PRODUTOS')
-    Left = 208
-    Top = 376
+    Left = 205
+    Top = 352
   end
   object dsPRODUTOS: TDataSource
     DataSet = ibqryPRODUTOS
-    Left = 528
-    Top = 184
+    Left = 525
+    Top = 160
   end
   object ibtbEMBALAGEM: TIBTable
     Database = dmod.bdindustrias
@@ -576,63 +530,90 @@ object frmEMBALAGEM: TfrmEMBALAGEM
       item
         Name = 'ALTURAPALETE'
         DataType = ftFloat
+      end
+      item
+        Name = 'DESCRICAO'
+        DataType = ftWideString
+        Size = 20
       end>
     IndexDefs = <
       item
         Name = 'PK_PRODUTOS_EMBALAGEM'
         Fields = 'FK_EMPRESAS;FK_FILIAIS;FK_PRODUTOS;PK_PROD_EMBALAGEM'
         Options = [ixUnique]
+      end
+      item
+        Name = 'PRODUTOS_EMBALAGEM_DESCRICAO_A'
+        Fields = 'DESCRICAO'
       end>
     StoreDefs = True
     TableName = 'PRODUTOS_EMBALAGEM'
-    Left = 304
-    Top = 376
+    Left = 301
+    Top = 352
     object smlntfldEMBALAGEMFK_EMPRESAS: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_EMPRESAS'
     end
     object smlntfldEMBALAGEMFK_FILIAIS: TSmallintField
+      DisplayWidth = 10
       FieldName = 'FK_FILIAIS'
     end
     object intgrfldEMBALAGEMFK_PRODUTOS: TIntegerField
+      DisplayWidth = 10
       FieldName = 'FK_PRODUTOS'
     end
     object intgrfldEMBALAGEMPK_PROD_EMBALAGEM: TIntegerField
+      DisplayWidth = 10
       FieldName = 'PK_PROD_EMBALAGEM'
     end
     object intgrfldEMBALAGEMPK_UNIDADES: TIntegerField
+      DisplayWidth = 10
       FieldName = 'PK_UNIDADES'
     end
     object fltfldEMBALAGEMQUANTUNIDADES: TFloatField
+      DisplayWidth = 10
       FieldName = 'QUANTUNIDADES'
     end
     object ibstrngfldEMBALAGEMPRODUTOFRACIONADO: TIBStringField
+      DisplayWidth = 1
       FieldName = 'PRODUTOFRACIONADO'
       Size = 1
     end
     object ibstrngfldEMBALAGEMCODIGOBARRAS: TIBStringField
+      DisplayWidth = 30
       FieldName = 'CODIGOBARRAS'
       Size = 30
     end
     object fltfldEMBALAGEMMED_LARGURA: TFloatField
+      DisplayWidth = 10
       FieldName = 'MED_LARGURA'
     end
     object fltfldEMBALAGEMMED_ALTURA: TFloatField
+      DisplayWidth = 10
       FieldName = 'MED_ALTURA'
     end
     object fltfldEMBALAGEMMED_PROFUNDIDADE: TFloatField
+      DisplayWidth = 10
       FieldName = 'MED_PROFUNDIDADE'
     end
     object fltfldEMBALAGEMPESOLIQUIDO: TFloatField
+      DisplayWidth = 10
       FieldName = 'PESOLIQUIDO'
     end
     object fltfldEMBALAGEMPESOBRUTO: TFloatField
+      DisplayWidth = 10
       FieldName = 'PESOBRUTO'
     end
     object fltfldEMBALAGEMLASTROPALETE: TFloatField
+      DisplayWidth = 10
       FieldName = 'LASTROPALETE'
     end
     object fltfldEMBALAGEMALTURAPALETE: TFloatField
+      DisplayWidth = 10
       FieldName = 'ALTURAPALETE'
+    end
+    object ibstrngfldEMBALAGEMDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
     end
   end
 end

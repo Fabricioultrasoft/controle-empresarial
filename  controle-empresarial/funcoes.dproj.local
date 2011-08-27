@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/08/25 13:07:14.000.906,=designide.dcp</Transaction>
+    <Transaction>2011/08/25 13:07:14.000.921,=xmlrtl.dcp</Transaction>
+    <Transaction>2011/08/25 13:07:14.000.843,=rtl.dcp</Transaction>
+    <Transaction>2011/08/25 13:07:14.000.906,=vcl.dcp</Transaction>
+    <Transaction>2011/08/25 13:07:14.000.921,=vclx.dcp</Transaction>
+    <Transaction>2011/08/25 13:07:14.000.890,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\Arredonda.pas</Transaction>
+    <Transaction>2011/08/25 13:07:14.000.921,=vclactnband.dcp</Transaction>
+    <Transaction>2011/08/25 13:12:21.000.281,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\BSGrid3d.pas</Transaction>
+    <Transaction>2011/08/25 13:13:21.000.843,C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\BSGrid3d.pas=</Transaction>
+    <Transaction>2011/08/25 13:19:20.000.593,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\CelsoDBEdit.pas</Transaction>
+    <Transaction>2011/08/25 13:19:24.000.984,=vcldb.dcp</Transaction>
+    <Transaction>2011/08/25 13:19:24.000.999,=dbrtl.dcp</Transaction>
+    <Transaction>2011/08/25 13:55:18.000.453,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\DBLabeledEdit.pas</Transaction>
+    <Transaction>2011/08/25 19:09:27.000.343,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\ERombBtn.pas</Transaction>
+    <Transaction>2011/08/26 00:11:54.000.984,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\MaskEditMCT.pas</Transaction>
+    <Transaction>2011/08/26 01:08:21.000.796,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\SuperEdit.pas</Transaction>
+    <Transaction>2011/08/26 01:10:18.000.343,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\sxdbgrid2excel.pas</Transaction>
+    <Transaction>2011/08/26 01:10:36.000.031,C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\sxdbgrid2excel.pas=</Transaction>
+    <Transaction>2011/08/26 01:12:22.000.015,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\sxdbgrid2excel.pas</Transaction>
+    <Transaction>2011/08/26 08:18:53.000.140,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\FocusEdit.pas</Transaction>
+    <Transaction>2011/08/26 08:22:14.000.468,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\tbDoc.pas</Transaction>
+    <Transaction>2011/08/26 08:25:04.000.218,C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\tbDoc.pas=</Transaction>
+    <Transaction>2011/08/26 08:38:40.000.984,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\BSGrid3d.pas</Transaction>
+    <Transaction>2011/08/26 08:54:50.000.640,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\DBGrid3D.pas</Transaction>
+    <Transaction>2011/08/26 08:58:02.000.531,=C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias\BSNAVIG.PAS</Transaction>
+  </Transactions>
+</BorlandProject>
