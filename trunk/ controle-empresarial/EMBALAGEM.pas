@@ -19,9 +19,9 @@ type
     cbbPK_UNIDADES: TDBLookupComboboxEh;
     dbedtFK_EMPRESAS1: TDBEdit;
     dbedtFK_EMPRESAS2: TDBEdit;
-    dbedtFK_EMPRESAS3: TDBEdit;
-    dbedtFK_EMPRESAS4: TDBEdit;
-    dbedtFK_EMPRESAS5: TDBEdit;
+    dbedtMED_LARGURA: TDBEdit;
+    dbedtMED_ALTURA: TDBEdit;
+    dbedtMED_PROFUNDIDADE: TDBEdit;
     dbchckbxhPRODUTOFRACIONADO: TDBCheckBoxEh;
     dbedtFK_EMPRESAS7: TDBEdit;
     dbedtFK_EMPRESAS8: TDBEdit;
@@ -73,8 +73,17 @@ type
     edtCUBAGEM: TEdit;
     ibstrngfldEMBALAGEMDESCRICAO: TIBStringField;
     edtDESCRICAO: TDBLabeledEdit;
+    ibstrngfldEMBALAGEMTIPOCONVERSAO: TIBStringField;
+    fltfldEMBALAGEMFATORCONVERSAO: TFloatField;
+    dbrgrpTIPOCONVERSAO: TDBRadioGroup;
+    edtFATORCONVERSAO: TDBLabeledEdit;
+    btn6: TSpeedButton;
+    strngfldEMBALAGEMunidades: TStringField;
     procedure btn1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure dbedtMED_PROFUNDIDADEExit(Sender: TObject);
+    procedure btn6Click(Sender: TObject);
+    procedure dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
+    procedure ibtbEMBALAGEMNewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -94,16 +103,52 @@ begin
 Close;
 end;
 
-procedure TfrmEMBALAGEM.FormCreate(Sender: TObject);
+procedure TfrmEMBALAGEM.btn6Click(Sender: TObject);
 begin
-ibtbEMBALAGEM.Open;
-ibqryUNIDADES.Open;
-ibqryEMPRESAS.Open;
-ibqryFILIAIS.Open;
-ibqryPRODUTOS.Open;
-//edtCUBAGEM.Text := FloatToStr(dbedtFK_EMPRESAS3.Field.Value *
-////dbedtFK_EMPRESAS4.Field.Value * dbedtFK_EMPRESAS5.Field.Value );
+if ibtbEMBALAGEM.Filtered = False then
+begin
+  ibtbEMBALAGEM.Filter := 'fk_produtos = ' + IntToStr(dbedtFK_PRODUTOS.Field.Value);
+  ibtbEMBALAGEM.Filtered := True;
+  ibtbEMBALAGEM.Refresh;
 
+end
+else
+ibtbEMBALAGEM.Filtered := False;
+ibtbEMBALAGEM.Refresh;
+end;
+
+procedure TfrmEMBALAGEM.dbedtMED_PROFUNDIDADEExit(Sender: TObject);
+begin
+/// verifica se a tabela está sendo editada ou inserindo registros
+///  se estiver, calcular o campo CUBAGEM automaticamente
+
+ if (ibtbEMBALAGEM.State = dsEdit ) or (ibtbEMBALAGEM.State = dsInsert)  then
+ begin
+   // calcular o campo edtCUBAGEM
+   edtCUBAGEM.Text := FloatToStr( dbedtMED_LARGURA.Field.Value *
+   dbedtMED_ALTURA.Field.Value *
+   dbedtMED_PROFUNDIDADE.Field.Value  );
+   edtCUBAGEM.Refresh;
+
+ end;
+///
+end;
+
+procedure TfrmEMBALAGEM.dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
+begin
+if (Button = nbPost) AND ((ibtbEMBALAGEM.State = dsEdit) OR (ibtbEMBALAGEM.State = dsinsert))  then
+begin
+  // botao de gravacao
+smlntfldEMBALAGEMFK_EMPRESAS.Value := 1;
+smlntfldEMBALAGEMFK_FILIAIS.Value := 1;
+ibtbEMBALAGEM.Post;
+end;
+end;
+
+procedure TfrmEMBALAGEM.ibtbEMBALAGEMNewRecord(DataSet: TDataSet);
+begin
+ibtbEMBALAGEM.FieldByName('fk_empresas').value := 1;
+ibtbEMBALAGEM.FieldByName('fk_filiais').Value := 1;
 end;
 
 end.

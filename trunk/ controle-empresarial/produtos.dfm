@@ -74,6 +74,13 @@ object frmProdutos: TfrmProdutos
     Caption = 'C. Custo'
     FocusControl = dbedtFK_CENTROCUSTO
   end
+  object lbl38: TLabel
+    Left = 648
+    Top = 192
+    Width = 22
+    Height = 13
+    Caption = 'lbl38'
+  end
   object btn1: TBitBtn
     Left = 696
     Top = 504
@@ -124,203 +131,14 @@ object frmProdutos: TfrmProdutos
   end
   object pgcESTOQUES: TPageControl
     Left = 16
-    Top = 185
+    Top = 136
     Width = 789
-    Height = 353
-    ActivePage = tsEMBALAGEM
+    Height = 402
+    ActivePage = tsMEDIDAS
     TabOrder = 13
     object tsCLASSIFICACAO: TTabSheet
       Caption = 'Classifica'#231#227'o/Localiza'#231#227'o'
-      object btn2: TSpeedButton
-        Left = 67
-        Top = 24
-        Width = 23
-        Height = 22
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000120B0000120B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-          33333FFFFFFFFFFFFFFF000000000000000077777777777777770FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07FFFFFFFFFFFFFF70CCCCCCCCCCCCCC07777777777777777088CCCCCCCCC
-          C8807FF7777777777FF700000000000000007777777777777777333333333333
-          3333333333333333333333333333333333333333333333333333}
-        NumGlyphs = 2
-      end
-      object btn4: TSpeedButton
-        Left = 67
-        Top = 64
-        Width = 23
-        Height = 22
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000120B0000120B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-          33333FFFFFFFFFFFFFFF000000000000000077777777777777770FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07FFFFFFFFFFFFFF70CCCCCCCCCCCCCC07777777777777777088CCCCCCCCC
-          C8807FF7777777777FF700000000000000007777777777777777333333333333
-          3333333333333333333333333333333333333333333333333333}
-        NumGlyphs = 2
-      end
-      object btn6: TSpeedButton
-        Left = 67
-        Top = 104
-        Width = 23
-        Height = 22
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000120B0000120B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-          33333FFFFFFFFFFFFFFF000000000000000077777777777777770FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07FFFFFFFFFFFFFF70CCCCCCCCCCCCCC07777777777777777088CCCCCCCCC
-          C8807FF7777777777FF700000000000000007777777777777777333333333333
-          3333333333333333333333333333333333333333333333333333}
-        NumGlyphs = 2
-      end
-      object btn8: TSpeedButton
-        Left = 67
-        Top = 152
-        Width = 23
-        Height = 22
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000120B0000120B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-          33333FFFFFFFFFFFFFFF000000000000000077777777777777770FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
-          FFF07FFFFFFFFFFFFFF70CCCCCCCCCCCCCC07777777777777777088CCCCCCCCC
-          C8807FF7777777777FF700000000000000007777777777777777333333333333
-          3333333333333333333333333333333333333333333333333333}
-        NumGlyphs = 2
-      end
-      object edtFK_SECOES: TDBEditEh
-        Left = 4
-        Top = 24
-        Width = 57
-        Height = 21
-        DataField = 'FK_SECOES'
-        DataSource = dsPRODUTOS
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 0
-        Visible = True
-        OnDblClick = edtFK_SECOESDblClick
-      end
-      object cbb1: TDBLookupComboboxEh
-        Left = 96
-        Top = 24
-        Width = 278
-        Height = 21
-        DataField = 'FK_SECOES'
-        DataSource = dsPRODUTOS
-        EditButtons = <>
-        KeyField = 'PK_SECAO'
-        ListField = 'DESCRICAO'
-        ListSource = dsSECAO
-        ShowHint = True
-        TabOrder = 1
-        Visible = True
-      end
-      object edtFK_GRUPOS: TDBEditEh
-        Left = 4
-        Top = 64
-        Width = 57
-        Height = 21
-        DataField = 'FK_GRUPOS'
-        DataSource = dsPRODUTOS
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 2
-        Visible = True
-        OnDblClick = edtFK_GRUPOSDblClick
-      end
-      object cbb2: TDBLookupComboboxEh
-        Left = 96
-        Top = 64
-        Width = 278
-        Height = 21
-        DataField = 'FK_GRUPOS'
-        DataSource = dsPRODUTOS
-        EditButtons = <>
-        KeyField = 'PK_GRUPO'
-        ListField = 'DESCRICAO'
-        ListSource = dsGRUPOS
-        ShowHint = True
-        TabOrder = 3
-        Visible = True
-      end
-      object edtFK_SUBGRUPOS: TDBEditEh
-        Left = 4
-        Top = 104
-        Width = 57
-        Height = 21
-        DataField = 'FK_SUBGRUPOS'
-        DataSource = dsPRODUTOS
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 4
-        Visible = True
-      end
-      object cbb4: TDBLookupComboboxEh
-        Left = 96
-        Top = 103
-        Width = 278
-        Height = 21
-        DataField = 'FK_SUBGRUPOS'
-        DataSource = dsPRODUTOS
-        EditButtons = <>
-        KeyField = 'PK_SUBGRUPOS'
-        ListField = 'DESCRICAO'
-        ListSource = dsSUBGRUPOS
-        ShowHint = True
-        TabOrder = 5
-        Visible = True
-      end
-      object edtPK_PROD_FAMILIA: TDBEditEh
-        Left = 4
-        Top = 152
-        Width = 57
-        Height = 21
-        DataField = 'FK_FAMILIAS'
-        DataSource = dsPRODUTOS
-        EditButtons = <>
-        ShowHint = True
-        TabOrder = 6
-        Visible = True
-      end
-      object cbbFK_FAMILIAS: TDBLookupComboboxEh
-        Left = 96
-        Top = 152
-        Width = 278
-        Height = 21
-        DataField = 'FK_FAMILIAS'
-        DataSource = dsPRODUTOS
-        EditButtons = <>
-        KeyField = 'PK_FAMILIA'
-        ListField = 'DESCRICAO'
-        ListSource = dsFAMILIAS
-        ShowHint = True
-        TabOrder = 7
-        Visible = True
-      end
+      ExplicitHeight = 325
       object dbchckbxhCONTROLALOTE: TDBCheckBoxEh
         Left = 424
         Top = 26
@@ -329,7 +147,7 @@ object frmProdutos: TfrmProdutos
         Caption = 'Controla Lote'
         DataField = 'CONTROLALOTE'
         DataSource = dsPRODUTOS
-        TabOrder = 8
+        TabOrder = 0
         ValueChecked = 'S'
         ValueUnchecked = 'N'
         OnClick = dbchckbxhCONTROLALOTEClick
@@ -342,7 +160,7 @@ object frmProdutos: TfrmProdutos
         Caption = 'Controla Validade / Tempo / Tipo '
         DataField = 'CONTROLAVALIDADE'
         DataSource = dsPRODUTOS
-        TabOrder = 9
+        TabOrder = 1
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
@@ -354,7 +172,7 @@ object frmProdutos: TfrmProdutos
         Caption = 'Composto'
         DataField = 'PRODUTOCOMPOSTO'
         DataSource = dsPRODUTOS
-        TabOrder = 10
+        TabOrder = 2
         ValueChecked = 'S'
         ValueUnchecked = 'N'
         OnClick = dbchckbxhPRODUTOCOMPOSTOClick
@@ -367,7 +185,7 @@ object frmProdutos: TfrmProdutos
         Caption = 'Fracionado'
         DataField = 'PRODUTOFRACIONADO'
         DataSource = dsPRODUTOS
-        TabOrder = 11
+        TabOrder = 3
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
@@ -379,7 +197,7 @@ object frmProdutos: TfrmProdutos
         Caption = 'Produto Controlado'
         DataField = 'PRODUTOCONTROLADO'
         DataSource = dsPRODUTOS
-        TabOrder = 12
+        TabOrder = 4
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
@@ -391,7 +209,7 @@ object frmProdutos: TfrmProdutos
         Caption = 'Tem Vasilhame'
         DataField = 'TEMVASILHAME'
         DataSource = dsPRODUTOS
-        TabOrder = 13
+        TabOrder = 5
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
@@ -403,7 +221,7 @@ object frmProdutos: TfrmProdutos
         Caption = 'Emite Etiqueta Embalagem'
         DataField = 'EMITEETIQUEEMBALAGEM'
         DataSource = dsPRODUTOS
-        TabOrder = 14
+        TabOrder = 6
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
@@ -415,7 +233,7 @@ object frmProdutos: TfrmProdutos
         Caption = 'Emite Etiqueta de Barras'
         DataField = 'EMITEETIQUETABARRA'
         DataSource = dsPRODUTOS
-        TabOrder = 15
+        TabOrder = 7
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
@@ -425,9 +243,10 @@ object frmProdutos: TfrmProdutos
         Width = 161
         Height = 17
         Caption = 'Emite Etiqueta de Gondola'
+        Checked = True
         DataField = 'EMITEETIQUETAGONDOLA'
         DataSource = dsPRODUTOS
-        TabOrder = 16
+        TabOrder = 8
         ValueChecked = 'S'
         ValueUnchecked = 'N'
       end
@@ -440,7 +259,7 @@ object frmProdutos: TfrmProdutos
         DataSource = dsPRODUTOS
         EditButtons = <>
         ShowHint = True
-        TabOrder = 17
+        TabOrder = 9
         Visible = True
       end
       object cbb3: TDBComboBoxEh
@@ -466,7 +285,7 @@ object frmProdutos: TfrmProdutos
           'ANOS'
           'NAO APLIC')
         ShowHint = True
-        TabOrder = 18
+        TabOrder = 10
         Visible = True
       end
       object edtPK_VASILHAME: TDBEditEh
@@ -478,7 +297,7 @@ object frmProdutos: TfrmProdutos
         DataSource = dsPRODUTOS
         EditButtons = <>
         ShowHint = True
-        TabOrder = 19
+        TabOrder = 11
         Visible = True
       end
       object cbb8: TDBLookupComboboxEh
@@ -490,7 +309,7 @@ object frmProdutos: TfrmProdutos
         DataSource = dsPRODUTOS
         EditButtons = <>
         ShowHint = True
-        TabOrder = 20
+        TabOrder = 12
         Visible = True
       end
       object dbchckbxhCONTROLAVALIDADE: TDBCheckBoxEh
@@ -501,17 +320,259 @@ object frmProdutos: TfrmProdutos
         Caption = 'Controlado'
         DataField = 'PRODUTOCONTROLADO'
         DataSource = dsPRODUTOS
-        TabOrder = 21
+        TabOrder = 13
         ValueChecked = 'S'
         ValueUnchecked = 'N'
+      end
+      object pnl1: TPanel
+        Left = 3
+        Top = 3
+        Width = 398
+        Height = 204
+        BevelInner = bvRaised
+        BevelKind = bkSoft
+        BevelOuter = bvLowered
+        TabOrder = 14
+        object btn2: TSpeedButton
+          Left = 67
+          Top = 40
+          Width = 23
+          Height = 22
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            33333FFFFFFFFFFFFFFF000000000000000077777777777777770FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07FFFFFFFFFFFFFF70CCCCCCCCCCCCCC07777777777777777088CCCCCCCCC
+            C8807FF7777777777FF700000000000000007777777777777777333333333333
+            3333333333333333333333333333333333333333333333333333}
+          NumGlyphs = 2
+        end
+        object btn4: TSpeedButton
+          Left = 67
+          Top = 80
+          Width = 23
+          Height = 22
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            33333FFFFFFFFFFFFFFF000000000000000077777777777777770FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07FFFFFFFFFFFFFF70CCCCCCCCCCCCCC07777777777777777088CCCCCCCCC
+            C8807FF7777777777FF700000000000000007777777777777777333333333333
+            3333333333333333333333333333333333333333333333333333}
+          NumGlyphs = 2
+        end
+        object btn6: TSpeedButton
+          Left = 67
+          Top = 120
+          Width = 23
+          Height = 22
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            33333FFFFFFFFFFFFFFF000000000000000077777777777777770FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07FFFFFFFFFFFFFF70CCCCCCCCCCCCCC07777777777777777088CCCCCCCCC
+            C8807FF7777777777FF700000000000000007777777777777777333333333333
+            3333333333333333333333333333333333333333333333333333}
+          NumGlyphs = 2
+        end
+        object btn8: TSpeedButton
+          Left = 67
+          Top = 168
+          Width = 23
+          Height = 22
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            33333FFFFFFFFFFFFFFF000000000000000077777777777777770FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07F3FF3FF3FF3FFF70F00F00F00F000F07F773773773777370FFFFFFFFFFF
+            FFF07FFFFFFFFFFFFFF70CCCCCCCCCCCCCC07777777777777777088CCCCCCCCC
+            C8807FF7777777777FF700000000000000007777777777777777333333333333
+            3333333333333333333333333333333333333333333333333333}
+          NumGlyphs = 2
+        end
+        object lbl39: TLabel
+          Left = 165
+          Top = 8
+          Width = 73
+          Height = 16
+          Caption = 'Classifica'#231#227'o'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl40: TLabel
+          Left = 4
+          Top = 24
+          Width = 41
+          Height = 13
+          Caption = 'Empresa'
+        end
+        object lbl41: TLabel
+          Left = 4
+          Top = 64
+          Width = 20
+          Height = 13
+          Caption = 'Filial'
+        end
+        object lbl42: TLabel
+          Left = 4
+          Top = 104
+          Width = 69
+          Height = 13
+          Caption = 'Departamento'
+        end
+        object lbl43: TLabel
+          Left = 4
+          Top = 152
+          Width = 37
+          Height = 13
+          Caption = 'Setores'
+        end
+        object edtFK_SECOES: TDBEditEh
+          Left = 4
+          Top = 40
+          Width = 57
+          Height = 21
+          DataField = 'FK_SECOES'
+          DataSource = dsPRODUTOS
+          EditButtons = <>
+          ShowHint = True
+          TabOrder = 0
+          Visible = True
+          OnDblClick = edtFK_SECOESDblClick
+        end
+        object cbbFK_SECOES: TDBLookupComboboxEh
+          Left = 96
+          Top = 40
+          Width = 278
+          Height = 21
+          DataField = 'FK_SECOES'
+          DataSource = dsPRODUTOS
+          EditButtons = <>
+          KeyField = 'PK_SECAO'
+          ListField = 'DESCRICAO'
+          ListSource = dsSECAO
+          ShowHint = True
+          TabOrder = 1
+          Visible = True
+        end
+        object edtFK_GRUPOS: TDBEditEh
+          Left = 4
+          Top = 80
+          Width = 57
+          Height = 21
+          DataField = 'FK_GRUPOS'
+          DataSource = dsPRODUTOS
+          EditButtons = <>
+          ShowHint = True
+          TabOrder = 2
+          Visible = True
+          OnDblClick = edtFK_GRUPOSDblClick
+        end
+        object cbbFK_GRUPOS: TDBLookupComboboxEh
+          Left = 96
+          Top = 80
+          Width = 278
+          Height = 21
+          DataField = 'FK_GRUPOS'
+          DataSource = dsPRODUTOS
+          EditButtons = <>
+          KeyField = 'PK_GRUPO'
+          ListField = 'DESCRICAO'
+          ListSource = dsGRUPOS
+          ShowHint = True
+          TabOrder = 3
+          Visible = True
+        end
+        object edtFK_SUBGRUPOS: TDBEditEh
+          Left = 4
+          Top = 120
+          Width = 57
+          Height = 21
+          DataField = 'FK_SUBGRUPOS'
+          DataSource = dsPRODUTOS
+          EditButtons = <>
+          ShowHint = True
+          TabOrder = 4
+          Visible = True
+        end
+        object cbbFK_SUBGRUPOS: TDBLookupComboboxEh
+          Left = 96
+          Top = 119
+          Width = 278
+          Height = 21
+          DataField = 'FK_SUBGRUPOS'
+          DataSource = dsPRODUTOS
+          EditButtons = <>
+          KeyField = 'PK_SUBGRUPOS'
+          ListField = 'DESCRICAO'
+          ListSource = dsSUBGRUPOS
+          ShowHint = True
+          TabOrder = 5
+          Visible = True
+        end
+        object edtPK_PROD_FAMILIA: TDBEditEh
+          Left = 4
+          Top = 168
+          Width = 57
+          Height = 21
+          DataField = 'FK_FAMILIAS'
+          DataSource = dsPRODUTOS
+          EditButtons = <>
+          ShowHint = True
+          TabOrder = 6
+          Visible = True
+        end
+        object cbbFK_FAMILIAS: TDBLookupComboboxEh
+          Left = 96
+          Top = 168
+          Width = 278
+          Height = 21
+          DataField = 'FK_FAMILIAS'
+          DataSource = dsPRODUTOS
+          EditButtons = <>
+          KeyField = 'PK_FAMILIA'
+          ListField = 'DESCRICAO'
+          ListSource = dsFAMILIAS
+          ShowHint = True
+          TabOrder = 7
+          Visible = True
+        end
       end
     end
     object tsEMBALAGEM: TTabSheet
       Caption = 'Embalagens'
       ImageIndex = 1
+      ExplicitHeight = 325
       object dbgrdhEMBALAGEM: TDBGridEh
         Left = 3
-        Top = 11
+        Top = 115
         Width = 775
         Height = 142
         ColumnDefValues.AlwaysShowEditButton = True
@@ -620,7 +681,7 @@ object frmProdutos: TfrmProdutos
       end
       object dbnvgr4: TDBNavigator
         Left = 3
-        Top = 159
+        Top = 263
         Width = 231
         Height = 25
         DataSource = dsEMBALAGEM
@@ -642,12 +703,13 @@ object frmProdutos: TfrmProdutos
     object tsFORNECEDORES: TTabSheet
       Caption = 'Fornecedores'
       ImageIndex = 2
+      ExplicitHeight = 325
       object pgc1: TPageControl
         Left = 4
         Top = 3
         Width = 774
         Height = 319
-        ActivePage = tsFORNECEDORES1
+        ActivePage = tsCOMPRASHISTORICOS
         TabOrder = 0
         object tsFORNECEDORES1: TTabSheet
           Caption = 'Dados de Fornecimento'
@@ -909,11 +971,16 @@ object frmProdutos: TfrmProdutos
           Caption = 'Hist'#243'rico de Compras'
           ImageIndex = 2
         end
+        object tsCOMPRADORES: TTabSheet
+          Caption = 'Compradores '
+          ImageIndex = 3
+        end
       end
     end
     object tsCUSTOS: TTabSheet
       Caption = 'Custos e Pre'#231'os'
       ImageIndex = 3
+      ExplicitHeight = 325
       object dbnvgr3: TDBNavigator
         Left = 3
         Top = 297
@@ -1208,6 +1275,7 @@ object frmProdutos: TfrmProdutos
     object ts5: TTabSheet
       Caption = 'Estoques e Saldos'
       ImageIndex = 4
+      ExplicitHeight = 325
       object pgc3: TPageControl
         Left = 0
         Top = 3
@@ -1408,12 +1476,13 @@ object frmProdutos: TfrmProdutos
     object tsDADOSFISCAIS: TTabSheet
       Caption = 'Dados Fiscais'
       ImageIndex = 5
+      ExplicitHeight = 325
       object pgcISS: TPageControl
         Left = 0
         Top = 3
         Width = 778
         Height = 326
-        ActivePage = tsDADOSFISCAIS1
+        ActivePage = tsSubsTrib
         TabOrder = 0
         object tsDADOSFISCAIS1: TTabSheet
           Caption = 'Dados Fiscais'
@@ -2099,6 +2168,7 @@ object frmProdutos: TfrmProdutos
     object tsCOMPOSICAO: TTabSheet
       Caption = 'Composi'#231#227'o'
       ImageIndex = 6
+      ExplicitHeight = 325
       object dbgrdh2: TDBGridEh
         Left = 3
         Top = 0
@@ -2178,6 +2248,7 @@ object frmProdutos: TfrmProdutos
     object tsVENDAS: TTabSheet
       Caption = 'Vendas'
       ImageIndex = 7
+      ExplicitHeight = 325
       object pgc2: TPageControl
         Left = 3
         Top = 0
@@ -2193,6 +2264,7 @@ object frmProdutos: TfrmProdutos
     object tsLOTES: TTabSheet
       Caption = 'Lotes'
       ImageIndex = 8
+      ExplicitHeight = 325
       object pgc4: TPageControl
         Left = 3
         Top = 3
@@ -2238,6 +2310,7 @@ object frmProdutos: TfrmProdutos
     object tsMEDIDAS: TTabSheet
       Caption = 'Medidas'
       ImageIndex = 9
+      ExplicitHeight = 325
       object lbl17: TLabel
         Left = 3
         Top = 8
@@ -2369,10 +2442,12 @@ object frmProdutos: TfrmProdutos
     object ts1: TTabSheet
       Caption = 'Controle de Qualidade'
       ImageIndex = 10
+      ExplicitHeight = 325
     end
     object ts2: TTabSheet
       Caption = 'Tipos de Produtos'
       ImageIndex = 11
+      ExplicitHeight = 325
     end
   end
   object dbnvgr1: TDBNavigator
@@ -2391,6 +2466,7 @@ object frmProdutos: TfrmProdutos
     Width = 61
     Height = 17
     Caption = 'Ativo'
+    Checked = True
     DataField = 'PRODUTOATIVO'
     DataSource = dsPRODUTOS
     TabOrder = 2
@@ -2532,6 +2608,7 @@ object frmProdutos: TfrmProdutos
   object ibqryFORN_PROD: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from PRODUTOS_FORNECEDOR')
     Left = 232
@@ -2674,6 +2751,7 @@ object frmProdutos: TfrmProdutos
   object ibtbPRODUTOS: TIBTable
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'PK_PRODUTOS'
@@ -2695,17 +2773,19 @@ object frmProdutos: TfrmProdutos
       item
         Name = 'DESCRICAO'
         Attributes = [faRequired]
-        DataType = ftString
+        DataType = ftWideString
         Size = 100
       end
       item
         Name = 'PRODUTOATIVO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'FLAG_PROD'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -2716,7 +2796,7 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'OPE_INC'
-        DataType = ftString
+        DataType = ftWideString
         Size = 10
       end
       item
@@ -2725,7 +2805,7 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'OPE_ALT'
-        DataType = ftString
+        DataType = ftWideString
         Size = 10
       end
       item
@@ -2738,27 +2818,30 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'RESUMIDA'
-        DataType = ftString
+        DataType = ftWideString
         Size = 50
       end
       item
         Name = 'CODBARRA'
-        DataType = ftString
+        DataType = ftWideString
         Size = 13
       end
       item
         Name = 'TEMVALIDADE'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'CONTROLAVALIDADE'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'CONTROLALOTE'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -2769,32 +2852,38 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'TIPOVALIDADE'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'MESANOREFERENCIA'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 6
       end
       item
         Name = 'EMITEETIQUETABARRA'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'EMITEETIQUETAGONDOLA'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'EMITEETIQUEEMBALAGEM'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'TEMVASILHAME'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -2803,7 +2892,8 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'PRODUTOCONTROLADO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -2814,17 +2904,19 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'PRODUTOFRACIONADO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'PRODUTOREFERENCIA'
-        DataType = ftString
+        DataType = ftWideString
         Size = 50
       end
       item
         Name = 'PRODUTOCOMPOSTO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -2849,7 +2941,8 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'SITUACAOPRODUTO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -2858,12 +2951,13 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'FK_CENTROCUSTO'
-        DataType = ftString
+        DataType = ftWideString
         Size = 10
       end
       item
         Name = 'FK_TIPOAPROPRIACAO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -2874,12 +2968,14 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'TIPORASTREABILIDADE'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'PRODUTOIMPORTADO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -2940,17 +3036,19 @@ object frmProdutos: TfrmProdutos
       end
       item
         Name = 'EMPROMOCAO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'CODIGOTEMPO'
-        DataType = ftString
+        DataType = ftWideString
         Size = 10
       end
       item
         Name = 'IMOBILIZAR'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end>
     IndexDefs = <
@@ -2961,8 +3059,8 @@ object frmProdutos: TfrmProdutos
       end>
     StoreDefs = True
     TableName = 'PRODUTOS'
-    Left = 152
-    Top = 400
+    Left = 144
+    Top = 416
     object intgrfldPRODUTOSPK_PRODUTOS: TIntegerField
       FieldName = 'PK_PRODUTOS'
       Required = True
@@ -3196,8 +3294,8 @@ object frmProdutos: TfrmProdutos
   end
   object dsTIPOS: TDataSource
     DataSet = ibqryTIPOS
-    Left = 608
-    Top = 416
+    Left = 720
+    Top = 512
   end
   object ibtbFISCAL: TIBTable
     Database = dmod.bdindustrias
@@ -3635,8 +3733,8 @@ object frmProdutos: TfrmProdutos
   end
   object dsFISCAL: TDataSource
     DataSet = ibtbFISCAL
-    Left = 544
-    Top = 424
+    Left = 520
+    Top = 472
   end
   object ibqryEMBALAGEM: TIBQuery
     Database = dmod.bdindustrias
@@ -3657,8 +3755,8 @@ object frmProdutos: TfrmProdutos
   end
   object dsCENTROCUSTO: TDataSource
     DataSet = ibqryCENTROCUSTO
-    Left = 480
-    Top = 440
+    Left = 328
+    Top = 464
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
@@ -3668,6 +3766,7 @@ object frmProdutos: TfrmProdutos
   object ibqryREGRAS: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from PRODUTOS_TOLERANCIA_REC')
     Left = 736
@@ -3742,12 +3841,13 @@ object frmProdutos: TfrmProdutos
   end
   object dsREGRAS: TDataSource
     DataSet = ibqryREGRAS
-    Left = 448
-    Top = 408
+    Left = 376
+    Top = 416
   end
   object ibqryFORNECEDORES: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from FORNECEDORES')
     Left = 696
@@ -3756,6 +3856,7 @@ object frmProdutos: TfrmProdutos
   object ibqryCOMPOSICAO: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from PRODUTOS_COMPOSICOES')
     Left = 40
@@ -3815,11 +3916,73 @@ object frmProdutos: TfrmProdutos
   object ibtbMEDIDAS: TIBTable
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'FK_EMPRESAS'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_FILIAIS'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_PRODUTOS'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_UNIDADES'
+        Attributes = [faRequired]
+        DataType = ftSmallint
+      end
+      item
+        Name = 'MED_ALTURA'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MED_LARGURA'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MED_PROFUNDIDADE'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MED_CUBAGEM'
+        Attributes = [faReadonly]
+        DataType = ftFloat
+      end
+      item
+        Name = 'PESOLIQUIDO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PESOBRUTO'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'PK_PRODUTOS_MEDIDAS'
+        Fields = 'FK_EMPRESAS;FK_FILIAIS;FK_PRODUTOS;FK_UNIDADES'
+        Options = [ixUnique]
+      end
+      item
+        Name = 'FK_PRODUTOS_MEDIDA_PRODUTOS'
+        Fields = 'FK_EMPRESAS;FK_FILIAIS;FK_PRODUTOS'
+      end
+      item
+        Name = 'FK_PRODUTOS_MEDIDA_UNIDADES'
+        Fields = 'FK_UNIDADES'
+      end>
     IndexFieldNames = 'FK_EMPRESAS;FK_FILIAIS;FK_PRODUTOS'
     MasterSource = dsPRODUTOS
+    StoreDefs = True
     TableName = 'PRODUTOS_MEDIDAS'
     Left = 56
-    Top = 432
+    Top = 416
     object smlntfldMEDIDASFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
       Required = True
