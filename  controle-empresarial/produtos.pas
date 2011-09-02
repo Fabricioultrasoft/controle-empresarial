@@ -20,23 +20,11 @@ type
     tsCLASSIFICACAO: TTabSheet;
     dbnvgr1: TDBNavigator;
     dbchckbxh7: TDBCheckBoxEh;
-    edtFK_SECOES: TDBEditEh;
-    cbb1: TDBLookupComboboxEh;
-    edtFK_GRUPOS: TDBEditEh;
-    cbb2: TDBLookupComboboxEh;
-    edtFK_SUBGRUPOS: TDBEditEh;
-    cbb4: TDBLookupComboboxEh;
-    edtPK_PROD_FAMILIA: TDBEditEh;
-    cbbFK_FAMILIAS: TDBLookupComboboxEh;
     tsEMBALAGEM: TTabSheet;
     dbgrdhEMBALAGEM: TDBGridEh;
     tsFORNECEDORES: TTabSheet;
     tsCUSTOS: TTabSheet;
     dbnvgr3: TDBNavigator;
-    btn2: TSpeedButton;
-    btn4: TSpeedButton;
-    btn6: TSpeedButton;
-    btn8: TSpeedButton;
     dbnvgr4: TDBNavigator;
     dbcbo1: TDBLookupComboBox;
     btn10: TSpeedButton;
@@ -390,6 +378,26 @@ type
     btn5: TBitBtn;
     ts9: TTabSheet;
     tsCONSUMO: TTabSheet;
+    pnl1: TPanel;
+    edtFK_SECOES: TDBEditEh;
+    btn2: TSpeedButton;
+    cbbFK_SECOES: TDBLookupComboboxEh;
+    edtFK_GRUPOS: TDBEditEh;
+    btn4: TSpeedButton;
+    cbbFK_GRUPOS: TDBLookupComboboxEh;
+    edtFK_SUBGRUPOS: TDBEditEh;
+    btn6: TSpeedButton;
+    cbbFK_SUBGRUPOS: TDBLookupComboboxEh;
+    edtPK_PROD_FAMILIA: TDBEditEh;
+    btn8: TSpeedButton;
+    cbbFK_FAMILIAS: TDBLookupComboboxEh;
+    lbl38: TLabel;
+    lbl39: TLabel;
+    lbl40: TLabel;
+    lbl41: TLabel;
+    lbl42: TLabel;
+    lbl43: TLabel;
+    tsCOMPRADORES: TTabSheet;
     procedure dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
     procedure FormCreate(Sender: TObject);
     procedure edtFK_SECOESDblClick(Sender: TObject);
@@ -424,17 +432,27 @@ begin
   begin
     // quer cadastrar
     EMBALAGEM.frmEMBALAGEM := EMBALAGEM.TfrmEMBALAGEM.Create(SELF);
-    EMBALAGEM.frmEMBALAGEM.abreModal := True;
-    EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.Open;
-    EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.Append;
-    EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.FieldByName('fk_empresas').Value := 1;
-    EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.FieldByName('fk_filiais').Value := 1;
-    EMBALAGEM.frmEMBALAGEM.ibtbEMBALAGEM.FieldByName('fk_produtos').Value :=
+    with EMBALAGEM.frmEMBALAGEM  DO
+    BEGIN
+      ibtbEMBALAGEM.Open;
+      ibqryUNIDADES.Open;
+      ibqryEMPRESAS.Open;
+      ibqryFILIAIS.Open;
+      ibqryPRODUTOS.Open;
+      //edtCUBAGEM.Text := FloatToStr(dbedtFK_EMPRESAS3.Field.Value *
+      ////dbedtFK_EMPRESAS4.Field.Value * dbedtFK_EMPRESAS5.Field.Value );
+
+
+      ibtbEMBALAGEM.Append;
+      ibtbEMBALAGEM.FieldByName('fk_empresas').Value := 1;
+      ibtbEMBALAGEM.FieldByName('fk_filiais').Value := 1;
+      ibtbEMBALAGEM.FieldByName('fk_produtos').Value :=
       edtPK_PRODUTOS.Field.Value;
     // embalagem.frmEMBALAGEM.ibtbEMBALAGEM.Refresh;
-    EMBALAGEM.frmEMBALAGEM.ShowModal;
-    EMBALAGEM.frmEMBALAGEM.Free;
-    ibqryEMBALAGEM.Refresh;
+      ShowModal;
+      Free;
+      ibqryEMBALAGEM.Refresh;
+    END;
 
 
   end;
