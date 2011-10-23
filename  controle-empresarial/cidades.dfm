@@ -231,8 +231,6 @@ object frmcidades: Tfrmcidades
     Width = 828
     Height = 19
     Panels = <>
-    ExplicitTop = 476
-    ExplicitWidth = 798
   end
   object edtcodigo: TEdit
     Left = 24
@@ -298,7 +296,7 @@ object frmcidades: Tfrmcidades
   end
   object dbedtCODESTADUAL: TDBEdit
     Left = 455
-    Top = 72
+    Top = 71
     Width = 66
     Height = 21
     CharCase = ecUpperCase
@@ -373,7 +371,7 @@ object frmcidades: Tfrmcidades
     Top = 147
     Width = 766
     Height = 239
-    ActivePage = ts7
+    ActivePage = ts3
     TabOrder = 24
     object ts1: TTabSheet
       Caption = 'Bairros'
@@ -614,7 +612,6 @@ object frmcidades: Tfrmcidades
   object ibqryBAIRROS: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from BAIRROS')
     Left = 656
@@ -628,7 +625,6 @@ object frmcidades: Tfrmcidades
   object ibqryCLIENTES: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from CLIENTES')
     Left = 520
@@ -642,7 +638,6 @@ object frmcidades: Tfrmcidades
   object ibqryFORNECEDORES: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from FORNECEDORES')
     Left = 752
@@ -661,7 +656,6 @@ object frmcidades: Tfrmcidades
   object ibqryDISTRITOS: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from CIDADES_DISTRITOS')
     Left = 624
@@ -820,9 +814,29 @@ object frmcidades: Tfrmcidades
       end>
     IndexDefs = <
       item
+        Name = 'CIDADES_PK_CIDADES_A'
+        Fields = 'PK_CIDADES'
+      end
+      item
         Name = 'INXCIDADES_02'
         Fields = 'SEQUENCIAL'
         Options = [ixUnique]
+      end
+      item
+        Name = 'CIDADES_NOMECIDADE_A'
+        Fields = 'NOMECIDADE'
+      end
+      item
+        Name = 'CIDADES_CEP_A'
+        Fields = 'CEP'
+      end
+      item
+        Name = 'CIDADES_CODIGOIBGE_A'
+        Fields = 'CODIGOIBGE'
+      end
+      item
+        Name = 'I_CIDADES_'
+        Fields = 'UF;NOMECIDADE'
       end>
     StoreDefs = True
     TableName = 'CIDADES'
@@ -954,7 +968,7 @@ object frmcidades: Tfrmcidades
     Active = True
     SQL.Strings = (
       'select * from CIDADES_MESOREGIAO')
-    Left = 136
+    Left = 48
     Top = 376
   end
   object ibqryMICROREGIAO: TIBQuery
@@ -963,12 +977,12 @@ object frmcidades: Tfrmcidades
     Active = True
     SQL.Strings = (
       'select * from CIDADES_MICROREGIAO')
-    Left = 248
-    Top = 376
+    Left = 136
+    Top = 384
   end
   object dsMESOREGIAO: TDataSource
     DataSet = ibqryMESOREGIAO
-    Left = 352
+    Left = 224
     Top = 384
   end
   object dsMICROREGIAO: TDataSource

@@ -13,7 +13,6 @@ object frmProdutos: TfrmProdutos
   OldCreateOrder = False
   Position = poDesktopCenter
   ShowHint = True
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object dbtxt1: TDBText
@@ -32,7 +31,7 @@ object frmProdutos: TfrmProdutos
     ParentFont = False
   end
   object dbtxt2: TDBText
-    Left = 87
+    Left = 79
     Top = 8
     Width = 362
     Height = 32
@@ -96,6 +95,7 @@ object frmProdutos: TfrmProdutos
     Top = 56
     Width = 65
     Height = 21
+    Hint = 'C'#243'digo do produto, autom'#225'tico, n'#227'o precisa alterar'
     DataField = 'PK_PRODUTOS'
     DataSource = dsPRODUTOS
     EditButtons = <>
@@ -108,6 +108,7 @@ object frmProdutos: TfrmProdutos
     Top = 56
     Width = 370
     Height = 21
+    Hint = 'Descri'#231#227'o completa do produto'
     CharCase = ecUpperCase
     DataField = 'DESCRICAO'
     DataSource = dsPRODUTOS
@@ -121,6 +122,9 @@ object frmProdutos: TfrmProdutos
     Top = 56
     Width = 270
     Height = 21
+    Hint = 
+      'Descri'#231#227'o resumida do produto, vai aparecer nas notas fiscais, c' +
+      'upons, etc.'
     CharCase = ecUpperCase
     DataField = 'RESUMIDA'
     DataSource = dsPRODUTOS
@@ -134,16 +138,16 @@ object frmProdutos: TfrmProdutos
     Top = 136
     Width = 789
     Height = 402
-    ActivePage = tsMEDIDAS
+    ActivePage = tsCUSTOS
     TabOrder = 13
     object tsCLASSIFICACAO: TTabSheet
       Caption = 'Classifica'#231#227'o/Localiza'#231#227'o'
-      ExplicitHeight = 325
       object dbchckbxhCONTROLALOTE: TDBCheckBoxEh
         Left = 424
         Top = 26
         Width = 113
         Height = 17
+        Hint = 'Precisa-se controlar o lote deste produto? Marque esta caixa'
         Caption = 'Controla Lote'
         DataField = 'CONTROLALOTE'
         DataSource = dsPRODUTOS
@@ -157,6 +161,9 @@ object frmProdutos: TfrmProdutos
         Top = 216
         Width = 177
         Height = 17
+        Hint = 
+          'Produto '#233' controlado a validade? Diga o tempo e a unidade de med' +
+          'ida'
         Caption = 'Controla Validade / Tempo / Tipo '
         DataField = 'CONTROLAVALIDADE'
         DataSource = dsPRODUTOS
@@ -169,6 +176,7 @@ object frmProdutos: TfrmProdutos
         Top = 49
         Width = 97
         Height = 17
+        Hint = 'O produto '#233' composto? Marque esta caixa'
         Caption = 'Composto'
         DataField = 'PRODUTOCOMPOSTO'
         DataSource = dsPRODUTOS
@@ -182,6 +190,7 @@ object frmProdutos: TfrmProdutos
         Top = 72
         Width = 97
         Height = 17
+        Hint = 'O produto pode ser fracionado? Marque esta caixa'
         Caption = 'Fracionado'
         DataField = 'PRODUTOFRACIONADO'
         DataSource = dsPRODUTOS
@@ -194,6 +203,7 @@ object frmProdutos: TfrmProdutos
         Top = 95
         Width = 129
         Height = 17
+        Hint = 'Produto '#233' controlado? Marque esta caixa'
         Caption = 'Produto Controlado'
         DataField = 'PRODUTOCONTROLADO'
         DataSource = dsPRODUTOS
@@ -206,6 +216,9 @@ object frmProdutos: TfrmProdutos
         Top = 191
         Width = 145
         Height = 17
+        Hint = 
+          'Produto tem vasilhame?? marque a caixa e entre o codigo e descri' +
+          #231#227'o do vasilhame'
         Caption = 'Tem Vasilhame'
         DataField = 'TEMVASILHAME'
         DataSource = dsPRODUTOS
@@ -218,6 +231,7 @@ object frmProdutos: TfrmProdutos
         Top = 118
         Width = 161
         Height = 17
+        Hint = 'Emite etiqueta de EMBALAGEM, ao alterar?'
         Caption = 'Emite Etiqueta Embalagem'
         DataField = 'EMITEETIQUEEMBALAGEM'
         DataSource = dsPRODUTOS
@@ -230,6 +244,7 @@ object frmProdutos: TfrmProdutos
         Top = 141
         Width = 145
         Height = 17
+        Hint = 'Emite etiqueta de Barras, ao alterar?'
         Caption = 'Emite Etiqueta de Barras'
         DataField = 'EMITEETIQUETABARRA'
         DataSource = dsPRODUTOS
@@ -242,8 +257,8 @@ object frmProdutos: TfrmProdutos
         Top = 164
         Width = 161
         Height = 17
+        Hint = 'Emite etiqueta de gondola, ao alterar?'
         Caption = 'Emite Etiqueta de Gondola'
-        Checked = True
         DataField = 'EMITEETIQUETAGONDOLA'
         DataSource = dsPRODUTOS
         TabOrder = 8
@@ -312,18 +327,6 @@ object frmProdutos: TfrmProdutos
         TabOrder = 12
         Visible = True
       end
-      object dbchckbxhCONTROLAVALIDADE: TDBCheckBoxEh
-        Left = 424
-        Top = 241
-        Width = 177
-        Height = 17
-        Caption = 'Controlado'
-        DataField = 'PRODUTOCONTROLADO'
-        DataSource = dsPRODUTOS
-        TabOrder = 13
-        ValueChecked = 'S'
-        ValueUnchecked = 'N'
-      end
       object pnl1: TPanel
         Left = 3
         Top = 3
@@ -332,7 +335,7 @@ object frmProdutos: TfrmProdutos
         BevelInner = bvRaised
         BevelKind = bkSoft
         BevelOuter = bvLowered
-        TabOrder = 14
+        TabOrder = 13
         object btn2: TSpeedButton
           Left = 67
           Top = 40
@@ -429,30 +432,30 @@ object frmProdutos: TfrmProdutos
         object lbl40: TLabel
           Left = 4
           Top = 24
-          Width = 41
+          Width = 29
           Height = 13
-          Caption = 'Empresa'
+          Caption = 'Se'#231#227'o'
         end
         object lbl41: TLabel
           Left = 4
           Top = 64
-          Width = 20
+          Width = 29
           Height = 13
-          Caption = 'Filial'
+          Caption = 'Grupo'
         end
         object lbl42: TLabel
           Left = 4
           Top = 104
-          Width = 69
+          Width = 47
           Height = 13
-          Caption = 'Departamento'
+          Caption = 'SubGrupo'
         end
         object lbl43: TLabel
           Left = 4
           Top = 152
-          Width = 37
+          Width = 32
           Height = 13
-          Caption = 'Setores'
+          Caption = 'Familia'
         end
         object edtFK_SECOES: TDBEditEh
           Left = 4
@@ -548,6 +551,7 @@ object frmProdutos: TfrmProdutos
           ShowHint = True
           TabOrder = 6
           Visible = True
+          OnDblClick = edtPK_PROD_FAMILIADblClick
         end
         object cbbFK_FAMILIAS: TDBLookupComboboxEh
           Left = 96
@@ -569,7 +573,6 @@ object frmProdutos: TfrmProdutos
     object tsEMBALAGEM: TTabSheet
       Caption = 'Embalagens'
       ImageIndex = 1
-      ExplicitHeight = 325
       object dbgrdhEMBALAGEM: TDBGridEh
         Left = 3
         Top = 115
@@ -701,21 +704,20 @@ object frmProdutos: TfrmProdutos
       end
     end
     object tsFORNECEDORES: TTabSheet
-      Caption = 'Fornecedores'
+      Caption = 'Fornecedores / Compras'
       ImageIndex = 2
-      ExplicitHeight = 325
       object pgc1: TPageControl
         Left = 4
         Top = 3
         Width = 774
         Height = 319
-        ActivePage = tsCOMPRASHISTORICOS
+        ActivePage = tsFORNECEDORES1
         TabOrder = 0
         object tsFORNECEDORES1: TTabSheet
           Caption = 'Dados de Fornecimento'
           object dbgrdhFORNECEDOR: TDBGridEh
             Left = 3
-            Top = 3
+            Top = 0
             Width = 766
             Height = 145
             DataGrouping.GroupLevels = <>
@@ -907,7 +909,7 @@ object frmProdutos: TfrmProdutos
             Left = 0
             Top = 0
             Width = 763
-            Height = 206
+            Height = 265
             DataGrouping.GroupLevels = <>
             DataSource = dsREGRAS
             Flat = False
@@ -930,20 +932,28 @@ object frmProdutos: TfrmProdutos
                 FieldName = 'fornecedor'
                 Footers = <>
                 Title.Caption = 'Fornecedor'
-                Width = 250
+                Width = 258
+              end
+              item
+                EditButtons = <>
+                FieldName = 'TIPOREGRAS'
+                Footers = <>
+                Title.Caption = 'Tp'
+                Width = 15
               end
               item
                 EditButtons = <>
                 FieldName = 'PK_REGRAS_ENTRADA'
                 Footers = <>
                 Title.Caption = 'Regra'
+                Width = 39
               end
               item
                 EditButtons = <>
                 FieldName = 'DESCRICAO'
                 Footers = <>
                 Title.Caption = 'Descri'#231#227'o'
-                Width = 230
+                Width = 149
               end
               item
                 EditButtons = <>
@@ -956,6 +966,12 @@ object frmProdutos: TfrmProdutos
                 FieldName = 'PERCVALOR'
                 Footers = <>
                 Title.Caption = 'Valor'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'DATALIMITE'
+                Footers = <>
+                Title.Caption = 'Limite'
               end
               item
                 EditButtons = <>
@@ -974,13 +990,102 @@ object frmProdutos: TfrmProdutos
         object tsCOMPRADORES: TTabSheet
           Caption = 'Compradores '
           ImageIndex = 3
+          object dbgrdh5: TDBGridEh
+            Left = 0
+            Top = 3
+            Width = 763
+            Height = 120
+            DataGrouping.GroupLevels = <>
+            DataSource = dsCOMPRADORES
+            Flat = False
+            FooterColor = clWindow
+            FooterFont.Charset = DEFAULT_CHARSET
+            FooterFont.Color = clWindowText
+            FooterFont.Height = -11
+            FooterFont.Name = 'Tahoma'
+            FooterFont.Style = []
+            RowDetailPanel.Color = clBtnFace
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            Columns = <
+              item
+                EditButtons = <>
+                FieldName = 'FK_COMPRADOR'
+                Footers = <>
+                Title.Caption = 'Comprador'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_TABELAPRECOS'
+                Footers = <>
+                Title.Caption = 'Tabela'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ALICOTADESCONTO'
+                Footers = <>
+                Title.Caption = 'Desc. %'
+              end
+              item
+                EditButtons = <>
+                FieldName = 'DATAPRIMCOMPRA'
+                Footers = <>
+                Title.Caption = 'Prim. Compra'
+                Width = 88
+              end
+              item
+                EditButtons = <>
+                FieldName = 'DATAULTIMACOMPRA'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ULTIMACOTACAO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_EMBALAGEM'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ULTIMOCUSTOPLENO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_EMPRESAS'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_FILIAIS'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_PRODUTOS'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PK_PROD_COMPRADORES'
+                Footers = <>
+              end>
+            object RowDetailData: TRowDetailPanelControlEh
+            end
+          end
         end
       end
     end
     object tsCUSTOS: TTabSheet
       Caption = 'Custos e Pre'#231'os'
       ImageIndex = 3
-      ExplicitHeight = 325
       object dbnvgr3: TDBNavigator
         Left = 3
         Top = 297
@@ -1005,99 +1110,21 @@ object frmProdutos: TfrmProdutos
         Left = 3
         Top = 3
         Width = 775
-        Height = 319
-        ActivePage = tsSUBCUSTOS
+        Height = 358
+        ActivePage = tsCUSTOSHISTORICOS
         TabOrder = 2
         object tsSUBCUSTOS: TTabSheet
           Caption = 'Custos e Pre'#231'os'
-          object dbgrdhHISTORICO: TDBGridEh
-            Left = -8
-            Top = 119
-            Width = 775
-            Height = 90
-            DataGrouping.GroupLevels = <>
-            EvenRowColor = 16776176
-            Flat = False
-            FooterColor = clWindow
-            FooterFont.Charset = DEFAULT_CHARSET
-            FooterFont.Color = clWindowText
-            FooterFont.Height = -11
-            FooterFont.Name = 'Tahoma'
-            FooterFont.Style = []
-            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-            RowDetailPanel.Color = clBtnFace
-            EditButtonsShowOptions = [sebShowOnlyForCurCellEh]
-            SumList.Active = True
-            TabOrder = 0
-            TitleFont.Charset = DEFAULT_CHARSET
-            TitleFont.Color = clWindowText
-            TitleFont.Height = -11
-            TitleFont.Name = 'Tahoma'
-            TitleFont.Style = []
-            Columns = <
-              item
-                EditButtons = <>
-                FieldName = 'PK_EMPRESA'
-                Footers = <>
-                Title.Caption = 'Empresa'
-                Width = 43
-              end
-              item
-                EditButtons = <>
-                FieldName = 'PK_FILIAL'
-                Footers = <>
-                Title.Caption = 'Filial'
-                Width = 26
-              end
-              item
-                EditButtons = <>
-                FieldName = 'PK_DATAALTERACAO'
-                Footers = <>
-                Title.Caption = 'Data Alt.'
-              end
-              item
-                EditButtons = <>
-                FieldName = 'MOTIVO'
-                Footers = <>
-              end
-              item
-                EditButtons = <>
-                FieldName = 'MOTIVODESC'
-                Footers = <>
-                Width = 202
-              end
-              item
-                EditButtons = <>
-                FieldName = 'CUSTOREPOSICAO'
-                Footers = <>
-                Title.Caption = 'C. Reposi'#231#227'o'
-                Width = 69
-              end
-              item
-                EditButtons = <>
-                FieldName = 'CUSTOCONTABIL'
-                Footers = <>
-                Title.Caption = 'C.Cont'#225'bil'
-                Width = 71
-              end
-              item
-                EditButtons = <>
-                FieldName = 'PRECOVENDA'
-                Footers = <>
-                Title.Caption = 'P.Venda'
-                Width = 80
-              end>
-            object RowDetailData: TRowDetailPanelControlEh
-            end
-          end
+          ExplicitHeight = 291
           object dbgrdhPRECOS: TDBGridEh
             Left = -11
             Top = 3
             Width = 778
-            Height = 110
+            Height = 270
             ColumnDefValues.HighlightRequired = True
             ColumnDefValues.ToolTips = True
             DataGrouping.GroupLevels = <>
+            DataSource = dsPRECOS
             Flat = False
             FooterColor = clWindow
             FooterFont.Charset = DEFAULT_CHARSET
@@ -1107,7 +1134,7 @@ object frmProdutos: TfrmProdutos
             FooterFont.Style = []
             RowDetailPanel.Color = clBtnFace
             SumList.Active = True
-            TabOrder = 1
+            TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
             TitleFont.Height = -11
@@ -1134,7 +1161,7 @@ object frmProdutos: TfrmProdutos
                 FieldName = 'MARGEMMINIMA'
                 Footers = <>
                 Title.Caption = 'M.Min'
-                Width = 38
+                Width = 56
               end
               item
                 EditButtons = <>
@@ -1142,13 +1169,6 @@ object frmProdutos: TfrmProdutos
                 Footers = <>
                 Title.Caption = 'M.Max'
                 Width = 48
-              end
-              item
-                EditButtons = <>
-                FieldName = 'MARGEMMEDIA'
-                Footers = <>
-                Title.Caption = 'M.M'#233'd'
-                Width = 47
               end
               item
                 EditButtons = <>
@@ -1269,19 +1289,109 @@ object frmProdutos: TfrmProdutos
         object tsCUSTOSHISTORICOS: TTabSheet
           Caption = 'Hist'#243'ricos de Pre'#231'os e Custos'
           ImageIndex = 1
+          ExplicitHeight = 291
+          object dbgrdh4: TDBGridEh
+            Left = 0
+            Top = 0
+            Width = 764
+            Height = 233
+            DataGrouping.GroupLevels = <>
+            DataSource = dsHISTORICOS
+            Flat = False
+            FooterColor = clWindow
+            FooterFont.Charset = DEFAULT_CHARSET
+            FooterFont.Color = clWindowText
+            FooterFont.Height = -11
+            FooterFont.Name = 'Tahoma'
+            FooterFont.Style = []
+            RowDetailPanel.Color = clBtnFace
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            Columns = <
+              item
+                EditButtons = <>
+                FieldName = 'PK_DATAALTERACAO'
+                Footers = <>
+                Title.Caption = 'Data'
+                Width = 62
+              end
+              item
+                EditButtons = <>
+                FieldName = 'Motivo'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOREPOSICAOANTERIOR'
+                Footers = <>
+                Title.Caption = 'Rep. Anterior'
+                Width = 79
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOCONTABILANTERIOR'
+                Footers = <>
+                Title.Caption = 'Cont. anterior'
+                Width = 79
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRECOVENDAANTERIOR'
+                Footers = <>
+                Title.Caption = 'Venda Anterior'
+                Width = 80
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOREPOSICAO'
+                Footers = <>
+                Title.Caption = 'Custo Atual'
+                Width = 74
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CUSTOCONTABIL'
+                Footers = <>
+                Title.Caption = 'Contabil'
+                Width = 82
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRECOVENDA'
+                Footers = <>
+                Title.Caption = 'Pre'#231'o Venda'
+                Width = 73
+              end
+              item
+                EditButtons = <>
+                FieldName = 'Unidades'
+                Footers = <>
+                Width = 88
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_UNIDADES'
+                Footers = <>
+              end>
+            object RowDetailData: TRowDetailPanelControlEh
+            end
+          end
         end
       end
     end
     object ts5: TTabSheet
       Caption = 'Estoques e Saldos'
       ImageIndex = 4
-      ExplicitHeight = 325
       object pgc3: TPageControl
         Left = 0
         Top = 3
         Width = 778
         Height = 319
-        ActivePage = tsCONSUMO
+        ActivePage = ts4
         TabOrder = 0
         object ts4: TTabSheet
           Caption = 'Estoques e Saldos'
@@ -1290,7 +1400,8 @@ object frmProdutos: TfrmProdutos
             Top = 16
             Width = 160
             Height = 21
-            DataField = 'PK_UNIDADE'
+            DataField = 'FK_UNIDADES'
+            DataSource = dsESTOQUES
             EditButtons = <>
             KeyField = 'PK_UNIDADES'
             ListField = 'DSC_UNI'
@@ -1304,6 +1415,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEMINIMO'
+            DataSource = dsESTOQUES
             EditButtons = <>
             ShowHint = True
             TabOrder = 1
@@ -1315,6 +1427,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEMAXIMO'
+            DataSource = dsESTOQUES
             EditButtons = <>
             ShowHint = True
             TabOrder = 2
@@ -1326,6 +1439,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEMEDIO'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1338,6 +1452,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEGARANTIA'
+            DataSource = dsESTOQUES
             EditButtons = <>
             ShowHint = True
             TabOrder = 4
@@ -1349,6 +1464,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEINICIAL'
+            DataSource = dsESTOQUES
             EditButtons = <>
             ShowHint = True
             TabOrder = 5
@@ -1360,6 +1476,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ENTRADASACUMULADAS'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1372,6 +1489,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ULTIMAENTRADA'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1384,6 +1502,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'SAIDASACUMULADAS'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1396,6 +1515,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ULTIMASAIDA'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1408,6 +1528,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEATUAL'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1420,6 +1541,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEPEDIDO'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1432,6 +1554,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEFUTURO'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1444,6 +1567,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUERESERVADO'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1456,6 +1580,7 @@ object frmProdutos: TfrmProdutos
             Width = 77
             Height = 21
             DataField = 'ESTOQUEDISPONIVEL'
+            DataSource = dsESTOQUES
             EditButtons = <>
             Enabled = False
             ShowHint = True
@@ -1476,7 +1601,6 @@ object frmProdutos: TfrmProdutos
     object tsDADOSFISCAIS: TTabSheet
       Caption = 'Dados Fiscais'
       ImageIndex = 5
-      ExplicitHeight = 325
       object pgcISS: TPageControl
         Left = 0
         Top = 3
@@ -2168,7 +2292,6 @@ object frmProdutos: TfrmProdutos
     object tsCOMPOSICAO: TTabSheet
       Caption = 'Composi'#231#227'o'
       ImageIndex = 6
-      ExplicitHeight = 325
       object dbgrdh2: TDBGridEh
         Left = 3
         Top = 0
@@ -2248,29 +2371,35 @@ object frmProdutos: TfrmProdutos
     object tsVENDAS: TTabSheet
       Caption = 'Vendas'
       ImageIndex = 7
-      ExplicitHeight = 325
       object pgc2: TPageControl
         Left = 3
         Top = 0
         Width = 775
         Height = 322
-        ActivePage = ts3
+        ActivePage = ts11
         TabOrder = 0
         object ts3: TTabSheet
           Caption = 'Faixa de Comiss'#227'o'
+        end
+        object ts10: TTabSheet
+          Caption = 'Vendedores'
+          ImageIndex = 1
+        end
+        object ts11: TTabSheet
+          Caption = 'Hist'#243'ricos de Vendas'
+          ImageIndex = 2
         end
       end
     end
     object tsLOTES: TTabSheet
       Caption = 'Lotes'
       ImageIndex = 8
-      ExplicitHeight = 325
       object pgc4: TPageControl
         Left = 3
         Top = 3
         Width = 775
         Height = 318
-        ActivePage = ts9
+        ActivePage = ts7
         TabOrder = 0
         object ts7: TTabSheet
           Caption = 'Defini'#231#245'es '
@@ -2310,7 +2439,7 @@ object frmProdutos: TfrmProdutos
     object tsMEDIDAS: TTabSheet
       Caption = 'Medidas'
       ImageIndex = 9
-      ExplicitHeight = 325
+      ExplicitLeft = 0
       object lbl17: TLabel
         Left = 3
         Top = 8
@@ -2354,25 +2483,25 @@ object frmProdutos: TfrmProdutos
       object lbl36: TLabel
         Left = 303
         Top = 56
-        Width = 46
+        Width = 65
         Height = 13
-        Caption = 'P. L'#237'quido'
+        Caption = 'P. L'#237'quido(kg)'
         FocusControl = dbedtPESOLIQUIDO
       end
       object lbl37: TLabel
         Left = 378
         Top = 56
-        Width = 36
+        Width = 55
         Height = 13
-        Caption = 'P.Bruto'
+        Caption = 'P.Bruto(kg)'
         FocusControl = dbedtPESOBRUTO
       end
       object dbedtFK_UNIDADES: TDBEdit
         Left = 3
-        Top = 27
+        Top = 29
         Width = 69
         Height = 21
-        DataField = 'FK_UNIDADES'
+        DataField = 'FK_EMBALAGEM'
         DataSource = dsMEDIDAS
         TabOrder = 0
       end
@@ -2436,18 +2565,112 @@ object frmProdutos: TfrmProdutos
         Width = 440
         Height = 25
         DataSource = dsMEDIDAS
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+        Hints.Strings = (
+          'Primeiro '
+          'Anterior'
+          'Pr'#243'ximo'
+          #218'ltimo'
+          'Inserir '
+          'Apagar'
+          'Editar'
+          'Gravar'
+          'Cancelar'
+          'atualizar')
         TabOrder = 7
+      end
+      object edtFK_UNIDADES1: TDBLabeledEdit
+        Left = 78
+        Top = 29
+        Width = 69
+        Height = 19
+        BevelInner = bvNone
+        BevelKind = bkFlat
+        BorderStyle = bsNone
+        DataField = 'FK_UNIDADES'
+        DataSource = dsMEDIDAS
+        TabOrder = 8
+        BoldFocus = False
+        EditLabel.Width = 91
+        EditLabel.Height = 13
+        EditLabel.Caption = 'edtFK_UNIDADES1'
+        LabelPosition = lpAbove
+        LabelSpacing = 3
+      end
+      object dblkcbbFK_UNIDADES: TDBLookupComboBox
+        Left = 153
+        Top = 29
+        Width = 145
+        Height = 21
+        DataField = 'FK_UNIDADES'
+        DataSource = dsMEDIDAS
+        KeyField = 'PK_UNIDADES'
+        ListField = 'DESCRICAO'
+        ListSource = dsUNIDADES
+        TabOrder = 9
+      end
+      object btn7: TBitBtn
+        Left = 297
+        Top = 311
+        Width = 75
+        Height = 25
+        Caption = 'btn7'
+        DoubleBuffered = True
+        ParentDoubleBuffered = False
+        TabOrder = 10
+      end
+      object btn9: TBitBtn
+        Left = 378
+        Top = 311
+        Width = 75
+        Height = 25
+        Caption = 'btn7'
+        DoubleBuffered = True
+        ParentDoubleBuffered = False
+        TabOrder = 11
+      end
+      object btn11: TBitBtn
+        Left = 216
+        Top = 311
+        Width = 75
+        Height = 25
+        Caption = 'btn7'
+        DoubleBuffered = True
+        ParentDoubleBuffered = False
+        TabOrder = 12
+      end
+      object dbgrdh3: TDBGridEh
+        Left = 3
+        Top = 126
+        Width = 444
+        Height = 179
+        DataGrouping.GroupLevels = <>
+        DataSource = dsMEDIDAS
+        Flat = False
+        FooterColor = clWindow
+        FooterFont.Charset = DEFAULT_CHARSET
+        FooterFont.Color = clWindowText
+        FooterFont.Height = -11
+        FooterFont.Name = 'Tahoma'
+        FooterFont.Style = []
+        RowDetailPanel.Color = clBtnFace
+        TabOrder = 13
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        object RowDetailData: TRowDetailPanelControlEh
+        end
       end
     end
     object ts1: TTabSheet
       Caption = 'Controle de Qualidade'
       ImageIndex = 10
-      ExplicitHeight = 325
     end
     object ts2: TTabSheet
       Caption = 'Tipos de Produtos'
       ImageIndex = 11
-      ExplicitHeight = 325
     end
   end
   object dbnvgr1: TDBNavigator
@@ -2466,7 +2689,6 @@ object frmProdutos: TfrmProdutos
     Width = 61
     Height = 17
     Caption = 'Ativo'
-    Checked = True
     DataField = 'PRODUTOATIVO'
     DataSource = dsPRODUTOS
     TabOrder = 2
@@ -2522,6 +2744,7 @@ object frmProdutos: TfrmProdutos
     Top = 96
     Width = 49
     Height = 21
+    Hint = 'Unidade de medida padrao do produto'
     DataField = 'FK_UNIDADES'
     DataSource = dsPRODUTOS
     EditButtons = <>
@@ -2550,6 +2773,7 @@ object frmProdutos: TfrmProdutos
     Top = 96
     Width = 121
     Height = 21
+    Hint = 'Codigo de barras padr'#227'o do produto'
     DataField = 'CODBARRA'
     DataSource = dsPRODUTOS
     EditButtons = <>
@@ -2562,6 +2786,7 @@ object frmProdutos: TfrmProdutos
     Top = 96
     Width = 60
     Height = 21
+    Hint = 'Centro de custo ao qual pertence o produto'
     DataField = 'FK_CENTROCUSTO'
     DataSource = dsPRODUTOS
     TabOrder = 10
@@ -2611,12 +2836,12 @@ object frmProdutos: TfrmProdutos
     Active = True
     SQL.Strings = (
       'select * from PRODUTOS_FORNECEDOR')
-    Left = 232
-    Top = 424
+    Left = 208
+    Top = 416
   end
   object dsFORN_PROD: TDataSource
     DataSet = ibqryFORN_PROD
-    Left = 304
+    Left = 280
     Top = 416
   end
   object ibqryGRUPOS: TIBQuery
@@ -2624,21 +2849,21 @@ object frmProdutos: TfrmProdutos
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTOS_GRUPOS')
-    Left = 664
-    Top = 448
+    Left = 648
+    Top = 392
   end
   object dsGRUPOS: TDataSource
     DataSet = ibqryGRUPOS
-    Left = 256
-    Top = 504
+    Left = 208
+    Top = 528
   end
   object ibqrySUBGRUPOS: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTOS_SUBGRUPOS')
-    Left = 352
-    Top = 496
+    Left = 416
+    Top = 536
   end
   object dsSUBGRUPOS: TDataSource
     DataSet = ibqrySUBGRUPOS
@@ -2751,7 +2976,6 @@ object frmProdutos: TfrmProdutos
   object ibtbPRODUTOS: TIBTable
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     FieldDefs = <
       item
         Name = 'PK_PRODUTOS'
@@ -3060,7 +3284,7 @@ object frmProdutos: TfrmProdutos
     StoreDefs = True
     TableName = 'PRODUTOS'
     Left = 144
-    Top = 416
+    Top = 440
     object intgrfldPRODUTOSPK_PRODUTOS: TIntegerField
       FieldName = 'PK_PRODUTOS'
       Required = True
@@ -3289,8 +3513,8 @@ object frmProdutos: TfrmProdutos
     SQL.Strings = (
       'select * from PRODUTOS_TIPO'
       'ORDER BY DESCRICAO')
-    Left = 408
-    Top = 472
+    Left = 448
+    Top = 448
   end
   object dsTIPOS: TDataSource
     DataSet = ibqryTIPOS
@@ -3741,8 +3965,90 @@ object frmProdutos: TfrmProdutos
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTOS_EMBALAGEM')
-    Left = 632
-    Top = 512
+    Left = 544
+    Top = 328
+    object smlntfldEMBALAGEMFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"PRODUTOS_EMBALAGEM"."FK_EMPRESAS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldEMBALAGEMFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"PRODUTOS_EMBALAGEM"."FK_FILIAIS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object intgrfldEMBALAGEMFK_PRODUTOS: TIntegerField
+      FieldName = 'FK_PRODUTOS'
+      Origin = '"PRODUTOS_EMBALAGEM"."FK_PRODUTOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object intgrfldEMBALAGEMPK_PROD_EMBALAGEM: TIntegerField
+      FieldName = 'PK_PROD_EMBALAGEM'
+      Origin = '"PRODUTOS_EMBALAGEM"."PK_PROD_EMBALAGEM"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object intgrfldEMBALAGEMPK_UNIDADES: TIntegerField
+      FieldName = 'PK_UNIDADES'
+      Origin = '"PRODUTOS_EMBALAGEM"."PK_UNIDADES"'
+    end
+    object fltfldEMBALAGEMQUANTUNIDADES: TFloatField
+      FieldName = 'QUANTUNIDADES'
+      Origin = '"PRODUTOS_EMBALAGEM"."QUANTUNIDADES"'
+    end
+    object ibstrngfldEMBALAGEMPRODUTOFRACIONADO: TIBStringField
+      FieldName = 'PRODUTOFRACIONADO'
+      Origin = '"PRODUTOS_EMBALAGEM"."PRODUTOFRACIONADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibstrngfldEMBALAGEMCODIGOBARRAS: TIBStringField
+      FieldName = 'CODIGOBARRAS'
+      Origin = '"PRODUTOS_EMBALAGEM"."CODIGOBARRAS"'
+      Size = 30
+    end
+    object fltfldEMBALAGEMMED_LARGURA: TFloatField
+      FieldName = 'MED_LARGURA'
+      Origin = '"PRODUTOS_EMBALAGEM"."MED_LARGURA"'
+    end
+    object fltfldEMBALAGEMMED_ALTURA: TFloatField
+      FieldName = 'MED_ALTURA'
+      Origin = '"PRODUTOS_EMBALAGEM"."MED_ALTURA"'
+    end
+    object fltfldEMBALAGEMMED_PROFUNDIDADE: TFloatField
+      FieldName = 'MED_PROFUNDIDADE'
+      Origin = '"PRODUTOS_EMBALAGEM"."MED_PROFUNDIDADE"'
+    end
+    object fltfldEMBALAGEMPESOLIQUIDO: TFloatField
+      FieldName = 'PESOLIQUIDO'
+      Origin = '"PRODUTOS_EMBALAGEM"."PESOLIQUIDO"'
+    end
+    object fltfldEMBALAGEMPESOBRUTO: TFloatField
+      FieldName = 'PESOBRUTO'
+      Origin = '"PRODUTOS_EMBALAGEM"."PESOBRUTO"'
+    end
+    object fltfldEMBALAGEMLASTROPALETE: TFloatField
+      FieldName = 'LASTROPALETE'
+      Origin = '"PRODUTOS_EMBALAGEM"."LASTROPALETE"'
+    end
+    object fltfldEMBALAGEMALTURAPALETE: TFloatField
+      FieldName = 'ALTURAPALETE'
+      Origin = '"PRODUTOS_EMBALAGEM"."ALTURAPALETE"'
+    end
+    object ibstrngfldEMBALAGEMDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"PRODUTOS_EMBALAGEM"."DESCRICAO"'
+    end
+    object ibstrngfldEMBALAGEMTIPOCONVERSAO: TIBStringField
+      FieldName = 'TIPOCONVERSAO'
+      Origin = '"PRODUTOS_EMBALAGEM"."TIPOCONVERSAO"'
+      FixedChar = True
+      Size = 1
+    end
+    object fltfldEMBALAGEMFATORCONVERSAO: TFloatField
+      FieldName = 'FATORCONVERSAO'
+      Origin = '"PRODUTOS_EMBALAGEM"."FATORCONVERSAO"'
+    end
   end
   object ibqryCENTROCUSTO: TIBQuery
     Database = dmod.bdindustrias
@@ -3751,17 +4057,17 @@ object frmProdutos: TfrmProdutos
       'select * from CENTROCUSTO'
       'ORDER BY DESCRICAO')
     Left = 744
-    Top = 416
+    Top = 456
   end
   object dsCENTROCUSTO: TDataSource
     DataSet = ibqryCENTROCUSTO
-    Left = 328
-    Top = 464
+    Left = 336
+    Top = 440
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
-    Left = 480
-    Top = 128
+    Left = 568
+    Top = 88
   end
   object ibqryREGRAS: TIBQuery
     Database = dmod.bdindustrias
@@ -3769,8 +4075,8 @@ object frmProdutos: TfrmProdutos
     Active = True
     SQL.Strings = (
       'select * from PRODUTOS_TOLERANCIA_REC')
-    Left = 736
-    Top = 464
+    Left = 712
+    Top = 328
     object smlntfldREGRASFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
       Origin = '"PRODUTOS_TOLERANCIA_REC"."FK_EMPRESAS"'
@@ -3806,10 +4112,12 @@ object frmProdutos: TfrmProdutos
     object fltfldREGRASPERCQUANTIDADE: TFloatField
       FieldName = 'PERCQUANTIDADE'
       Origin = '"PRODUTOS_TOLERANCIA_REC"."PERCQUANTIDADE"'
+      DisplayFormat = '###0.000;0.00'
     end
     object fltfldREGRASPERCVALOR: TFloatField
       FieldName = 'PERCVALOR'
       Origin = '"PRODUTOS_TOLERANCIA_REC"."PERCVALOR"'
+      currency = True
     end
     object ibstrngfldREGRASUSER_INC: TIBStringField
       FieldName = 'USER_INC'
@@ -3838,11 +4146,22 @@ object frmProdutos: TfrmProdutos
       KeyFields = 'FK_FORNECEDORES'
       Lookup = True
     end
+    object ibstrngfldREGRASTIPOREGRAS: TIBStringField
+      FieldName = 'TIPOREGRAS'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."TIPOREGRAS"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibqryREGRASDATALIMITE: TDateField
+      FieldName = 'DATALIMITE'
+      Origin = '"PRODUTOS_TOLERANCIA_REC"."DATALIMITE"'
+      EditMask = '!99/99/0000;1;_'
+    end
   end
   object dsREGRAS: TDataSource
     DataSet = ibqryREGRAS
-    Left = 376
-    Top = 416
+    Left = 416
+    Top = 392
   end
   object ibqryFORNECEDORES: TIBQuery
     Database = dmod.bdindustrias
@@ -3856,7 +4175,6 @@ object frmProdutos: TfrmProdutos
   object ibqryCOMPOSICAO: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from PRODUTOS_COMPOSICOES')
     Left = 40
@@ -3910,13 +4228,12 @@ object frmProdutos: TfrmProdutos
   end
   object dsCOMPOSICAO: TDataSource
     DataSet = ibqryCOMPOSICAO
-    Left = 120
+    Left = 152
     Top = 504
   end
   object ibtbMEDIDAS: TIBTable
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     FieldDefs = <
       item
         Name = 'FK_EMPRESAS'
@@ -3962,6 +4279,20 @@ object frmProdutos: TfrmProdutos
       item
         Name = 'PESOBRUTO'
         DataType = ftFloat
+      end
+      item
+        Name = 'FK_EMBALAGEM'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FATORCONVERSAO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'TIPOCONVERSAO'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
       end>
     IndexDefs = <
       item
@@ -3981,8 +4312,8 @@ object frmProdutos: TfrmProdutos
     MasterSource = dsPRODUTOS
     StoreDefs = True
     TableName = 'PRODUTOS_MEDIDAS'
-    Left = 56
-    Top = 416
+    Left = 64
+    Top = 440
     object smlntfldMEDIDASFK_EMPRESAS: TSmallintField
       FieldName = 'FK_EMPRESAS'
       Required = True
@@ -4025,10 +4356,513 @@ object frmProdutos: TfrmProdutos
       FieldName = 'PESOBRUTO'
       DisplayFormat = '###0.000'
     end
+    object intgrfldMEDIDASFK_EMBALAGEM: TIntegerField
+      FieldName = 'FK_EMBALAGEM'
+    end
+    object smlntfldMEDIDASFATORCONVERSAO: TSmallintField
+      FieldName = 'FATORCONVERSAO'
+    end
+    object ibstrngfldMEDIDASTIPOCONVERSAO: TIBStringField
+      FieldName = 'TIPOCONVERSAO'
+      Size = 1
+    end
   end
   object dsMEDIDAS: TDataSource
     DataSet = ibtbMEDIDAS
-    Left = 664
+    Left = 624
+    Top = 296
+  end
+  object ibqryESTOQUES: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_ESTOQUES')
+    Left = 344
+    Top = 384
+    object smlntfldESTOQUESFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"PRODUTOS_ESTOQUES"."FK_EMPRESAS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldESTOQUESFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"PRODUTOS_ESTOQUES"."FK_FILIAIS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldESTOQUESFK_PRODUTOS: TSmallintField
+      FieldName = 'FK_PRODUTOS'
+      Origin = '"PRODUTOS_ESTOQUES"."FK_PRODUTOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldESTOQUESFK_UNIDADES: TSmallintField
+      FieldName = 'FK_UNIDADES'
+      Origin = '"PRODUTOS_ESTOQUES"."FK_UNIDADES"'
+    end
+    object fltfldESTOQUESESTOQUEGARANTIA: TFloatField
+      FieldName = 'ESTOQUEGARANTIA'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEGARANTIA"'
+    end
+    object fltfldESTOQUESESTOQUERESERVADO: TFloatField
+      FieldName = 'ESTOQUERESERVADO'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUERESERVADO"'
+    end
+    object fltfldESTOQUESESTOQUEMAXIMO: TFloatField
+      FieldName = 'ESTOQUEMAXIMO'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEMAXIMO"'
+    end
+    object fltfldESTOQUESESTOQUEMINIMO: TFloatField
+      FieldName = 'ESTOQUEMINIMO'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEMINIMO"'
+    end
+    object ibstrngfldESTOQUESUSER_INC: TIBStringField
+      FieldName = 'USER_INC'
+      Origin = '"PRODUTOS_ESTOQUES"."USER_INC"'
+      Size = 10
+    end
+    object dtmfldESTOQUESDATA_INC: TDateTimeField
+      FieldName = 'DATA_INC'
+      Origin = '"PRODUTOS_ESTOQUES"."DATA_INC"'
+    end
+    object ibstrngfldESTOQUESUSER_ALT: TIBStringField
+      FieldName = 'USER_ALT'
+      Origin = '"PRODUTOS_ESTOQUES"."USER_ALT"'
+      Size = 10
+    end
+    object dtmfldESTOQUESDATA_ALT: TDateTimeField
+      FieldName = 'DATA_ALT'
+      Origin = '"PRODUTOS_ESTOQUES"."DATA_ALT"'
+    end
+    object fltfldESTOQUESESTOQUEINICIAL: TFloatField
+      FieldName = 'ESTOQUEINICIAL'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEINICIAL"'
+    end
+    object fltfldESTOQUESENTRADASACUMULADAS: TFloatField
+      FieldName = 'ENTRADASACUMULADAS'
+      Origin = '"PRODUTOS_ESTOQUES"."ENTRADASACUMULADAS"'
+    end
+    object fltfldESTOQUESSAIDASACUMULADAS: TFloatField
+      FieldName = 'SAIDASACUMULADAS'
+      Origin = '"PRODUTOS_ESTOQUES"."SAIDASACUMULADAS"'
+    end
+    object dtmfldESTOQUESULTIMASAIDA: TDateTimeField
+      FieldName = 'ULTIMASAIDA'
+      Origin = '"PRODUTOS_ESTOQUES"."ULTIMASAIDA"'
+    end
+    object dtmfldESTOQUESULTIMAENTRADA: TDateTimeField
+      FieldName = 'ULTIMAENTRADA'
+      Origin = '"PRODUTOS_ESTOQUES"."ULTIMAENTRADA"'
+    end
+    object dtmfldESTOQUESULTIMOINVENTARIO: TDateTimeField
+      FieldName = 'ULTIMOINVENTARIO'
+      Origin = '"PRODUTOS_ESTOQUES"."ULTIMOINVENTARIO"'
+    end
+    object fltfldESTOQUESESTOQUEMEDIO: TFloatField
+      FieldName = 'ESTOQUEMEDIO'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEMEDIO"'
+    end
+    object fltfldESTOQUESESTOQUEATUAL: TFloatField
+      FieldName = 'ESTOQUEATUAL'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEATUAL"'
+    end
+    object fltfldESTOQUESESTOQUEPEDIDO: TFloatField
+      FieldName = 'ESTOQUEPEDIDO'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEPEDIDO"'
+    end
+    object fltfldESTOQUESESTOQUEFUTURO: TFloatField
+      FieldName = 'ESTOQUEFUTURO'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEFUTURO"'
+    end
+    object fltfldESTOQUESESTOQUEDISPONIVEL: TFloatField
+      FieldName = 'ESTOQUEDISPONIVEL'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUEDISPONIVEL"'
+    end
+    object fltfldESTOQUESPONTOPEDIDO: TFloatField
+      FieldName = 'PONTOPEDIDO'
+      Origin = '"PRODUTOS_ESTOQUES"."PONTOPEDIDO"'
+    end
+    object fltfldESTOQUESESTOQUESEGURANCA: TFloatField
+      FieldName = 'ESTOQUESEGURANCA'
+      Origin = '"PRODUTOS_ESTOQUES"."ESTOQUESEGURANCA"'
+    end
+  end
+  object dsESTOQUES: TDataSource
+    DataSet = ibqryESTOQUES
+    Left = 528
+    Top = 392
+  end
+  object ibqryHISTORICOS: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_PRECO_HISTOR')
+    Left = 96
+    Top = 488
+    object smlntfldHISTORICOSFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."FK_EMPRESAS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldHISTORICOSFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."FK_FILIAIS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object intgrfldHISTORICOSFK_PRODUTOS: TIntegerField
+      FieldName = 'FK_PRODUTOS'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."FK_PRODUTOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object dtmfldHISTORICOSPK_DATAALTERACAO: TDateTimeField
+      FieldName = 'PK_DATAALTERACAO'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."PK_DATAALTERACAO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      EditMask = '!99/99/0000;1;_'
+    end
+    object intgrfldHISTORICOSSEQUENCIAL: TIntegerField
+      FieldName = 'SEQUENCIAL'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."SEQUENCIAL"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibstrngfldHISTORICOSFK_MOTIVOALTERACAO: TIBStringField
+      FieldName = 'FK_MOTIVOALTERACAO'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."FK_MOTIVOALTERACAO"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibqryHISTORICOSCUSTOREPOSICAOANTERIOR: TIBBCDField
+      FieldName = 'CUSTOREPOSICAOANTERIOR'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."CUSTOREPOSICAOANTERIOR"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryHISTORICOSCUSTOCONTABILANTERIOR: TIBBCDField
+      FieldName = 'CUSTOCONTABILANTERIOR'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."CUSTOCONTABILANTERIOR"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryHISTORICOSPRECOVENDAANTERIOR: TIBBCDField
+      FieldName = 'PRECOVENDAANTERIOR'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."PRECOVENDAANTERIOR"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryHISTORICOSCUSTOREPOSICAO: TIBBCDField
+      FieldName = 'CUSTOREPOSICAO'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."CUSTOREPOSICAO"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryHISTORICOSCUSTOCONTABIL: TIBBCDField
+      FieldName = 'CUSTOCONTABIL'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."CUSTOCONTABIL"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryHISTORICOSPRECOVENDA: TIBBCDField
+      FieldName = 'PRECOVENDA'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."PRECOVENDA"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object smlntfldHISTORICOSFK_UNIDADES: TSmallintField
+      FieldName = 'FK_UNIDADES'
+      Origin = '"PRODUTOS_PRECO_HISTOR"."FK_UNIDADES"'
+    end
+    object strngfldHISTORICOSUnidades: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Unidades'
+      LookupDataSet = ibqryUNIDADES
+      LookupKeyFields = 'PK_UNIDADES'
+      LookupResultField = 'DESCRICAO'
+      KeyFields = 'FK_UNIDADES'
+      Lookup = True
+    end
+    object strngfldHISTORICOSMotivo: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Motivo'
+      LookupDataSet = ibqryMOTIVOS
+      LookupKeyFields = 'PK_PROD_PRECO_MOTIVO'
+      LookupResultField = 'DESCRICAO'
+      KeyFields = 'FK_MOTIVOALTERACAO'
+      Lookup = True
+    end
+  end
+  object dsHISTORICOS: TDataSource
+    DataSet = ibqryHISTORICOS
+    Left = 232
+    Top = 360
+  end
+  object ibqryMOTIVOS: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PROD_PRECO_MOTIVO')
+    Left = 344
+    Top = 488
+  end
+  object ibqryPRECOS: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    SQL.Strings = (
+      'select * from PRODUTOS_PRECOS')
+    Left = 264
+    Top = 488
+    object smlntfldPRECOSFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"PRODUTOS_PRECOS"."FK_EMPRESAS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldPRECOSFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"PRODUTOS_PRECOS"."FK_FILIAIS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object intgrfldPRECOSFK_PRODUTOS: TIntegerField
+      FieldName = 'FK_PRODUTOS'
+      Origin = '"PRODUTOS_PRECOS"."FK_PRODUTOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibstrngfldPRECOSFLAG_FIX: TIBStringField
+      FieldName = 'FLAG_FIX'
+      Origin = '"PRODUTOS_PRECOS"."FLAG_FIX"'
+      FixedChar = True
+      Size = 1
+    end
+    object fltfldPRECOSMARGEMMINIMA: TFloatField
+      FieldName = 'MARGEMMINIMA'
+      Origin = '"PRODUTOS_PRECOS"."MARGEMMINIMA"'
+      DisplayFormat = '##0.00%;0.00%'
+    end
+    object fltfldPRECOSMARGEMMAXIMA: TFloatField
+      FieldName = 'MARGEMMAXIMA'
+      Origin = '"PRODUTOS_PRECOS"."MARGEMMAXIMA"'
+      DisplayFormat = '##0.00%;0.00%'
+    end
+    object fltfldPRECOSMARGEMMEDIA: TFloatField
+      FieldName = 'MARGEMMEDIA'
+      Origin = '"PRODUTOS_PRECOS"."MARGEMMEDIA"'
+      DisplayFormat = '##0.00%;0.00%'
+    end
+    object fltfldPRECOSALICOTADESCVISTA: TFloatField
+      FieldName = 'ALICOTADESCVISTA'
+      Origin = '"PRODUTOS_PRECOS"."ALICOTADESCVISTA"'
+      DisplayFormat = '##0.00%;0.00%'
+    end
+    object fltfldPRECOSALICDESCPRAZO: TFloatField
+      FieldName = 'ALICDESCPRAZO'
+      Origin = '"PRODUTOS_PRECOS"."ALICDESCPRAZO"'
+      DisplayFormat = '##0.00%;0.00%'
+    end
+    object fltfldPRECOSALICDESCMAXIMO: TFloatField
+      FieldName = 'ALICDESCMAXIMO'
+      Origin = '"PRODUTOS_PRECOS"."ALICDESCMAXIMO"'
+      DisplayFormat = '##0.00%;0.00%'
+    end
+    object ibqryPRECOSCUSTOCONTABIL: TIBBCDField
+      FieldName = 'CUSTOCONTABIL'
+      Origin = '"PRODUTOS_PRECOS"."CUSTOCONTABIL"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryPRECOSCUSTOREPOSICAO: TIBBCDField
+      FieldName = 'CUSTOREPOSICAO'
+      Origin = '"PRODUTOS_PRECOS"."CUSTOREPOSICAO"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryPRECOSCUSTOMEDIO: TIBBCDField
+      FieldName = 'CUSTOMEDIO'
+      Origin = '"PRODUTOS_PRECOS"."CUSTOMEDIO"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryPRECOSCUSTOEMEDIOCALCULADO: TIBBCDField
+      FieldName = 'CUSTOEMEDIOCALCULADO'
+      Origin = '"PRODUTOS_PRECOS"."CUSTOEMEDIOCALCULADO"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibstrngfldPRECOSPODETERDESCPRAZO: TIBStringField
+      FieldName = 'PODETERDESCPRAZO'
+      Origin = '"PRODUTOS_PRECOS"."PODETERDESCPRAZO"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibqryPRECOSCUSTOMEDIOFINANCEIRO: TIBBCDField
+      FieldName = 'CUSTOMEDIOFINANCEIRO'
+      Origin = '"PRODUTOS_PRECOS"."CUSTOMEDIOFINANCEIRO"'
+      Precision = 18
+      Size = 2
+    end
+    object dtmfldPRECOSCUSTOMEDIODATAINICIO: TDateTimeField
+      FieldName = 'CUSTOMEDIODATAINICIO'
+      Origin = '"PRODUTOS_PRECOS"."CUSTOMEDIODATAINICIO"'
+    end
+    object dtmfldPRECOSCUSTOMEDIODATAFINAL: TDateTimeField
+      FieldName = 'CUSTOMEDIODATAFINAL'
+      Origin = '"PRODUTOS_PRECOS"."CUSTOMEDIODATAFINAL"'
+    end
+    object ibqryPRECOSPRECOVENDA: TIBBCDField
+      FieldName = 'PRECOVENDA'
+      Origin = '"PRODUTOS_PRECOS"."PRECOVENDA"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryPRECOSPRECOVENDAANTERIOR: TIBBCDField
+      FieldName = 'PRECOVENDAANTERIOR'
+      Origin = '"PRODUTOS_PRECOS"."PRECOVENDAANTERIOR"'
+      Precision = 18
+      Size = 2
+    end
+    object dtmfldPRECOSPRECOVENDADATA: TDateTimeField
+      FieldName = 'PRECOVENDADATA'
+      Origin = '"PRODUTOS_PRECOS"."PRECOVENDADATA"'
+    end
+    object ibqryPRECOSPRECOVENDAPROMOCAO: TIBBCDField
+      FieldName = 'PRECOVENDAPROMOCAO'
+      Origin = '"PRODUTOS_PRECOS"."PRECOVENDAPROMOCAO"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object dtmfldPRECOSINICIOPROMOCAO: TDateTimeField
+      FieldName = 'INICIOPROMOCAO'
+      Origin = '"PRODUTOS_PRECOS"."INICIOPROMOCAO"'
+    end
+    object dtmfldPRECOSFINALPROMOCAO: TDateTimeField
+      FieldName = 'FINALPROMOCAO'
+      Origin = '"PRODUTOS_PRECOS"."FINALPROMOCAO"'
+    end
+    object ibqryPRECOSCUSTODOLAR: TIBBCDField
+      FieldName = 'CUSTODOLAR'
+      Origin = '"PRODUTOS_PRECOS"."CUSTODOLAR"'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object ibqryPRECOSPRECOVENDADOLAR: TIBBCDField
+      FieldName = 'PRECOVENDADOLAR'
+      Origin = '"PRODUTOS_PRECOS"."PRECOVENDADOLAR"'
+      Precision = 18
+      Size = 2
+    end
+    object intgrfldPRECOSPK_EMBALAGEM: TIntegerField
+      FieldName = 'PK_EMBALAGEM'
+      Origin = '"PRODUTOS_PRECOS"."PK_EMBALAGEM"'
+    end
+    object ibstrngfldPRECOSTIPOPRECOVENDA: TIBStringField
+      FieldName = 'TIPOPRECOVENDA'
+      Origin = '"PRODUTOS_PRECOS"."TIPOPRECOVENDA"'
+      FixedChar = True
+      Size = 1
+    end
+    object smlntfldPRECOSFK_UNIDADES: TSmallintField
+      FieldName = 'FK_UNIDADES'
+      Origin = '"PRODUTOS_PRECOS"."FK_UNIDADES"'
+    end
+    object ibstrngfldPRECOSEMPROMOCAO: TIBStringField
+      FieldName = 'EMPROMOCAO'
+      Origin = '"PRODUTOS_PRECOS"."EMPROMOCAO"'
+      FixedChar = True
+      Size = 1
+    end
+    object fltfldPRECOSMARGEMPRATICADA: TFloatField
+      FieldName = 'MARGEMPRATICADA'
+      Origin = '"PRODUTOS_PRECOS"."MARGEMPRATICADA"'
+      DisplayFormat = '##0.00%;0.00%'
+    end
+  end
+  object dsPRECOS: TDataSource
+    DataSet = ibqryPRECOS
+    Left = 208
+    Top = 472
+  end
+  object ibqryCOMPRADORES: TIBQuery
+    Database = dmod.bdindustrias
+    Transaction = dmod.transIndustrias
+    Active = True
+    SQL.Strings = (
+      'select * from PRODUTOS_COMPRADORES')
+    Left = 456
+    Top = 232
+    object smlntfldCOMPRADORESFK_COMPRADOR: TSmallintField
+      FieldName = 'FK_COMPRADOR'
+      Origin = '"PRODUTOS_COMPRADORES"."FK_COMPRADOR"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object smlntfldCOMPRADORESFK_TABELAPRECOS: TSmallintField
+      FieldName = 'FK_TABELAPRECOS'
+      Origin = '"PRODUTOS_COMPRADORES"."FK_TABELAPRECOS"'
+    end
+    object fltfldCOMPRADORESALICOTADESCONTO: TFloatField
+      FieldName = 'ALICOTADESCONTO'
+      Origin = '"PRODUTOS_COMPRADORES"."ALICOTADESCONTO"'
+    end
+    object ibqryCOMPRADORESDATAPRIMCOMPRA: TDateField
+      FieldName = 'DATAPRIMCOMPRA'
+      Origin = '"PRODUTOS_COMPRADORES"."DATAPRIMCOMPRA"'
+    end
+    object ibqryCOMPRADORESDATAULTIMACOMPRA: TDateField
+      FieldName = 'DATAULTIMACOMPRA'
+      Origin = '"PRODUTOS_COMPRADORES"."DATAULTIMACOMPRA"'
+    end
+    object smlntfldCOMPRADORESFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+      Origin = '"PRODUTOS_COMPRADORES"."FK_EMPRESAS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object smlntfldCOMPRADORESFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+      Origin = '"PRODUTOS_COMPRADORES"."FK_FILIAIS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object intgrfldCOMPRADORESFK_PRODUTOS: TIntegerField
+      FieldName = 'FK_PRODUTOS'
+      Origin = '"PRODUTOS_COMPRADORES"."FK_PRODUTOS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object smlntfldCOMPRADORESPK_PROD_COMPRADORES: TSmallintField
+      FieldName = 'PK_PROD_COMPRADORES'
+      Origin = '"PRODUTOS_COMPRADORES"."PK_PROD_COMPRADORES"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object dtmfldCOMPRADORESULTIMACOTACAO: TDateTimeField
+      FieldName = 'ULTIMACOTACAO'
+      Origin = '"PRODUTOS_COMPRADORES"."ULTIMACOTACAO"'
+    end
+    object intgrfldCOMPRADORESFK_EMBALAGEM: TIntegerField
+      FieldName = 'FK_EMBALAGEM'
+      Origin = '"PRODUTOS_COMPRADORES"."FK_EMBALAGEM"'
+    end
+    object ibqryCOMPRADORESULTIMOCUSTOPLENO: TIBBCDField
+      FieldName = 'ULTIMOCUSTOPLENO'
+      Origin = '"PRODUTOS_COMPRADORES"."ULTIMOCUSTOPLENO"'
+      Precision = 18
+      Size = 2
+    end
+  end
+  object dsCOMPRADORES: TDataSource
+    DataSet = ibqryCOMPRADORES
+    Left = 448
     Top = 288
   end
 end

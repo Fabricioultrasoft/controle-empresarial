@@ -12,9 +12,9 @@ Interface
       ibtbAREAEXEC: TIBTable;
       dsAREAEXEC: TDataSource;
       dbgrdh1: TDBGridEh;
-      edt1: TDBEditEh;
-      edt2: TDBEditEh;
-      edt3: TDBEditEh;
+    edtPK_AREAEXEC: TDBEditEh;
+    edtAREA_DESCR: TDBEditEh;
+    edtAREA_DESCR1: TDBEditEh;
       dbnvgr1: TDBNavigator;
       stat1: TStatusBar;
       btn1: TBitBtn;

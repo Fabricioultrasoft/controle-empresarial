@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   dmodule,Dialogs, StdCtrls, Buttons, DB, IBCustomDataSet, IBQuery,
   DBGridEhGrouping, GridsEh, DBGridEh, Mask, DBCtrlsEh, ComCtrls, DBCtrls,
-  ExtCtrls, DBLookupEh, IBTable , EMBALAGEM, ACBrBase, ACBrEnterTab  ;
+  ExtCtrls, DBLookupEh, IBTable , EMBALAGEM, ACBrBase, ACBrEnterTab,
+  DBLabeledEdit  ;
 
 type
   TfrmProdutos = class(TForm)
@@ -247,7 +248,6 @@ type
     edtFK_UNIDADES: TDBEditEh;
     cbbFK_UNIDADES: TDBLookupComboboxEh;
     edtCODBARRA: TDBEditEh;
-    dbchckbxhCONTROLAVALIDADE: TDBCheckBoxEh;
     lbl11: TLabel;
     dbedtFK_CENTROCUSTO: TDBEdit;
     cbbFK_CENTROCUSTO: TDBLookupComboboxEh;
@@ -336,7 +336,6 @@ type
     ts8: TTabSheet;
     pgc5: TPageControl;
     tsSUBCUSTOS: TTabSheet;
-    dbgrdhHISTORICO: TDBGridEh;
     dbgrdhPRECOS: TDBGridEh;
     tsCUSTOSHISTORICOS: TTabSheet;
     tsCOMPRASHISTORICOS: TTabSheet;
@@ -398,14 +397,139 @@ type
     lbl42: TLabel;
     lbl43: TLabel;
     tsCOMPRADORES: TTabSheet;
+    ibqryESTOQUES: TIBQuery;
+    dsESTOQUES: TDataSource;
+    smlntfldESTOQUESFK_EMPRESAS: TSmallintField;
+    smlntfldESTOQUESFK_FILIAIS: TSmallintField;
+    smlntfldESTOQUESFK_PRODUTOS: TSmallintField;
+    smlntfldESTOQUESFK_UNIDADES: TSmallintField;
+    fltfldESTOQUESESTOQUEGARANTIA: TFloatField;
+    fltfldESTOQUESESTOQUERESERVADO: TFloatField;
+    fltfldESTOQUESESTOQUEMAXIMO: TFloatField;
+    fltfldESTOQUESESTOQUEMINIMO: TFloatField;
+    ibstrngfldESTOQUESUSER_INC: TIBStringField;
+    dtmfldESTOQUESDATA_INC: TDateTimeField;
+    ibstrngfldESTOQUESUSER_ALT: TIBStringField;
+    dtmfldESTOQUESDATA_ALT: TDateTimeField;
+    fltfldESTOQUESESTOQUEINICIAL: TFloatField;
+    fltfldESTOQUESENTRADASACUMULADAS: TFloatField;
+    fltfldESTOQUESSAIDASACUMULADAS: TFloatField;
+    dtmfldESTOQUESULTIMASAIDA: TDateTimeField;
+    dtmfldESTOQUESULTIMAENTRADA: TDateTimeField;
+    dtmfldESTOQUESULTIMOINVENTARIO: TDateTimeField;
+    fltfldESTOQUESESTOQUEMEDIO: TFloatField;
+    fltfldESTOQUESESTOQUEATUAL: TFloatField;
+    fltfldESTOQUESESTOQUEPEDIDO: TFloatField;
+    fltfldESTOQUESESTOQUEFUTURO: TFloatField;
+    fltfldESTOQUESESTOQUEDISPONIVEL: TFloatField;
+    fltfldESTOQUESPONTOPEDIDO: TFloatField;
+    fltfldESTOQUESESTOQUESEGURANCA: TFloatField;
+    intgrfldMEDIDASFK_EMBALAGEM: TIntegerField;
+    smlntfldMEDIDASFATORCONVERSAO: TSmallintField;
+    ibstrngfldMEDIDASTIPOCONVERSAO: TIBStringField;
+    edtFK_UNIDADES1: TDBLabeledEdit;
+    dblkcbbFK_UNIDADES: TDBLookupComboBox;
+    btn7: TBitBtn;
+    btn9: TBitBtn;
+    btn11: TBitBtn;
+    dbgrdh3: TDBGridEh;
+    smlntfldEMBALAGEMFK_EMPRESAS: TSmallintField;
+    smlntfldEMBALAGEMFK_FILIAIS: TSmallintField;
+    intgrfldEMBALAGEMFK_PRODUTOS: TIntegerField;
+    intgrfldEMBALAGEMPK_PROD_EMBALAGEM: TIntegerField;
+    intgrfldEMBALAGEMPK_UNIDADES: TIntegerField;
+    fltfldEMBALAGEMQUANTUNIDADES: TFloatField;
+    ibstrngfldEMBALAGEMPRODUTOFRACIONADO: TIBStringField;
+    ibstrngfldEMBALAGEMCODIGOBARRAS: TIBStringField;
+    fltfldEMBALAGEMMED_LARGURA: TFloatField;
+    fltfldEMBALAGEMMED_ALTURA: TFloatField;
+    fltfldEMBALAGEMMED_PROFUNDIDADE: TFloatField;
+    fltfldEMBALAGEMPESOLIQUIDO: TFloatField;
+    fltfldEMBALAGEMPESOBRUTO: TFloatField;
+    fltfldEMBALAGEMLASTROPALETE: TFloatField;
+    fltfldEMBALAGEMALTURAPALETE: TFloatField;
+    ibstrngfldEMBALAGEMDESCRICAO: TIBStringField;
+    ibstrngfldEMBALAGEMTIPOCONVERSAO: TIBStringField;
+    fltfldEMBALAGEMFATORCONVERSAO: TFloatField;
+    ibqryHISTORICOS: TIBQuery;
+    dsHISTORICOS: TDataSource;
+    dbgrdh4: TDBGridEh;
+    smlntfldHISTORICOSFK_EMPRESAS: TSmallintField;
+    smlntfldHISTORICOSFK_FILIAIS: TSmallintField;
+    intgrfldHISTORICOSFK_PRODUTOS: TIntegerField;
+    dtmfldHISTORICOSPK_DATAALTERACAO: TDateTimeField;
+    intgrfldHISTORICOSSEQUENCIAL: TIntegerField;
+    ibstrngfldHISTORICOSFK_MOTIVOALTERACAO: TIBStringField;
+    ibqryHISTORICOSCUSTOREPOSICAOANTERIOR: TIBBCDField;
+    ibqryHISTORICOSCUSTOCONTABILANTERIOR: TIBBCDField;
+    ibqryHISTORICOSPRECOVENDAANTERIOR: TIBBCDField;
+    ibqryHISTORICOSCUSTOREPOSICAO: TIBBCDField;
+    ibqryHISTORICOSCUSTOCONTABIL: TIBBCDField;
+    ibqryHISTORICOSPRECOVENDA: TIBBCDField;
+    smlntfldHISTORICOSFK_UNIDADES: TSmallintField;
+    strngfldHISTORICOSUnidades: TStringField;
+    ibqryMOTIVOS: TIBQuery;
+    strngfldHISTORICOSMotivo: TStringField;
+    ibqryPRECOS: TIBQuery;
+    dsPRECOS: TDataSource;
+    smlntfldPRECOSFK_EMPRESAS: TSmallintField;
+    smlntfldPRECOSFK_FILIAIS: TSmallintField;
+    intgrfldPRECOSFK_PRODUTOS: TIntegerField;
+    ibstrngfldPRECOSFLAG_FIX: TIBStringField;
+    fltfldPRECOSMARGEMMINIMA: TFloatField;
+    fltfldPRECOSMARGEMMAXIMA: TFloatField;
+    fltfldPRECOSMARGEMMEDIA: TFloatField;
+    fltfldPRECOSALICOTADESCVISTA: TFloatField;
+    fltfldPRECOSALICDESCPRAZO: TFloatField;
+    fltfldPRECOSALICDESCMAXIMO: TFloatField;
+    ibqryPRECOSCUSTOCONTABIL: TIBBCDField;
+    ibqryPRECOSCUSTOREPOSICAO: TIBBCDField;
+    ibqryPRECOSCUSTOMEDIO: TIBBCDField;
+    ibqryPRECOSCUSTOEMEDIOCALCULADO: TIBBCDField;
+    ibstrngfldPRECOSPODETERDESCPRAZO: TIBStringField;
+    ibqryPRECOSCUSTOMEDIOFINANCEIRO: TIBBCDField;
+    dtmfldPRECOSCUSTOMEDIODATAINICIO: TDateTimeField;
+    dtmfldPRECOSCUSTOMEDIODATAFINAL: TDateTimeField;
+    ibqryPRECOSPRECOVENDA: TIBBCDField;
+    ibqryPRECOSPRECOVENDAANTERIOR: TIBBCDField;
+    dtmfldPRECOSPRECOVENDADATA: TDateTimeField;
+    ibqryPRECOSPRECOVENDAPROMOCAO: TIBBCDField;
+    dtmfldPRECOSINICIOPROMOCAO: TDateTimeField;
+    dtmfldPRECOSFINALPROMOCAO: TDateTimeField;
+    ibqryPRECOSCUSTODOLAR: TIBBCDField;
+    ibqryPRECOSPRECOVENDADOLAR: TIBBCDField;
+    intgrfldPRECOSPK_EMBALAGEM: TIntegerField;
+    ibstrngfldPRECOSTIPOPRECOVENDA: TIBStringField;
+    smlntfldPRECOSFK_UNIDADES: TSmallintField;
+    ibstrngfldPRECOSEMPROMOCAO: TIBStringField;
+    fltfldPRECOSMARGEMPRATICADA: TFloatField;
+    ibqryCOMPRADORES: TIBQuery;
+    dsCOMPRADORES: TDataSource;
+    dbgrdh5: TDBGridEh;
+    smlntfldCOMPRADORESFK_EMPRESAS: TSmallintField;
+    smlntfldCOMPRADORESFK_FILIAIS: TSmallintField;
+    intgrfldCOMPRADORESFK_PRODUTOS: TIntegerField;
+    smlntfldCOMPRADORESFK_COMPRADOR: TSmallintField;
+    smlntfldCOMPRADORESPK_PROD_COMPRADORES: TSmallintField;
+    smlntfldCOMPRADORESFK_TABELAPRECOS: TSmallintField;
+    fltfldCOMPRADORESALICOTADESCONTO: TFloatField;
+    ibqryCOMPRADORESDATAPRIMCOMPRA: TDateField;
+    ibqryCOMPRADORESDATAULTIMACOMPRA: TDateField;
+    dtmfldCOMPRADORESULTIMACOTACAO: TDateTimeField;
+    intgrfldCOMPRADORESFK_EMBALAGEM: TIntegerField;
+    ibqryCOMPRADORESULTIMOCUSTOPLENO: TIBBCDField;
+    ts10: TTabSheet;
+    ts11: TTabSheet;
+    ibstrngfldREGRASTIPOREGRAS: TIBStringField;
+    ibqryREGRASDATALIMITE: TDateField;
     procedure dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
-    procedure FormCreate(Sender: TObject);
     procedure edtFK_SECOESDblClick(Sender: TObject);
     procedure edtFK_GRUPOSDblClick(Sender: TObject);
     procedure cbbFK_CENTROCUSTOExit(Sender: TObject);
     procedure dbchckbxhPRODUTOCOMPOSTOClick(Sender: TObject);
     procedure dbchckbxhCONTROLALOTEClick(Sender: TObject);
     procedure edtFK_UNIDADESDblClick(Sender: TObject);
+    procedure edtPK_PROD_FAMILIADblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -416,6 +540,8 @@ var
   frmProdutos: TfrmProdutos;
 
 implementation
+
+uses PROD_FAMILIAS;
 
 
 
@@ -513,6 +639,20 @@ ibqryCOMPOSICAO.SQL.Clear;
 ibqryCOMPOSICAO.SQL.Add(TEXTO);
 ibqryCOMPOSICAO.Open;
 
+ibqryHISTORICOS.Close;
+texto := 'select * from PRODUTOS_PRECO_HISTOR where FK_PRODUTOS = ';
+texto := texto + QuotedStr(edtPK_PRODUTOS.Field.Value);
+ibqryHISTORICOS.SQL.Clear;
+ibqryHISTORICOS.SQL.Add(TEXTO);
+ibqryHISTORICOS.Open;
+
+
+ibqryPRECOS.Close;
+texto := 'select * from PRODUTOS_PRECOS where FK_PRODUTOS = ';
+texto := texto + QuotedStr(edtPK_PRODUTOS.Field.Value);
+ibqryPRECOS.SQL.Clear;
+ibqryPRECOS.SQL.Add(TEXTO);
+ibqryPRECOS.Open;
 
 {
 ibqryPROD_FORN.Close;
@@ -573,38 +713,28 @@ begin
 
 end;
 
+procedure TfrmProdutos.edtPK_PROD_FAMILIADblClick(Sender: TObject);
+begin
+// ao se dar duplo clique em familias abrir tela de familias
+
+PROD_FAMILIAS.frmPROD_FAMILIAS := PROD_FAMILIAS.TfrmPROD_FAMILIAS.Create(self);
+with PROD_FAMILIAS.frmPROD_FAMILIAS do
+begin
+  ibtbFAMILIAS.Open;
+  ibqrySUBGRUPOS.Open;
+  ibqryGRUPOS.Open;
+  ibqrySECAO.Open;
+  ibqryTIPOPRODUTO.Open;
+  ibtbFAMILIAS.Locate('PK_FAMILIA',edtPK_PROD_FAMILIA.Field.Value,[loPartialKey]);
+  ShowModal;
+  Free;
+end;
+
+end;
+
 procedure TfrmProdutos.edtFK_GRUPOSDblClick(Sender: TObject);
 begin
 //prod_grupos.frmprod_grupos.ShowModal;
-end;
-
-procedure TfrmProdutos.FormCreate(Sender: TObject);
-begin
-
-ibtbPRODUTOS.Open;
-//ibqryPROD_FORN.Open;
-//ibqryUNIDADES.Open;
-//ibqryFORNECEDOR.Open;
-//ibqryPRECOHISTORICO.Open;
-//ibqryPRECOS.Open;
-ibqryEMBALAGEM.Open;
-ibqrySECAO.Open;
-ibqryFORN_PROD.Open;
-ibqryGRUPOS.Open;
-ibqryFAMILIAS.Open;
-ibqrySECAO.Open;
-ibqryGRUPOS.Open;
-ibqrySUBGRUPOS.Open;
-ibqryFAMILIAS.Open;
-ibqryCENTROCUSTO.Open;
-ibqryUNIDADES.Open;
-ibqryTIPOS.Open;
-ibqryFORNECEDORES.Open;
-ibqryREGRAS.Open;
-ibqryCOMPOSICAO.Open;
-ibtbMEDIDAS.Open;
-
-
 end;
 
 end.

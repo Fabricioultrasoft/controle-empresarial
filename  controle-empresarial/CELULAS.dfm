@@ -232,7 +232,7 @@ object frmCELULAS: TfrmCELULAS
     Top = 152
     Width = 801
     Height = 353
-    ActivePage = ts1
+    ActivePage = ts3
     TabOrder = 11
     object ts1: TTabSheet
       Caption = 'M'#225'quinas'
@@ -651,8 +651,9 @@ object frmCELULAS: TfrmCELULAS
     TabOrder = 12
   end
   object ibtbCELULAS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'FK_EMPRESAS'
@@ -721,6 +722,16 @@ object frmCELULAS: TfrmCELULAS
         Name = 'CODIGOANTIGO'
         DataType = ftWideString
         Size = 10
+      end
+      item
+        Name = 'PREDIAL'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'FK_FAMILIAS'
+        DataType = ftSmallint
       end>
     IndexDefs = <
       item
@@ -795,8 +806,9 @@ object frmCELULAS: TfrmCELULAS
     Top = 16
   end
   object ibqryPROCESSOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'SELECT * FROM PROCESSOS'
       'ORDER BY DESCRICAO')
@@ -901,7 +913,7 @@ object frmCELULAS: TfrmCELULAS
     Top = 16
   end
   object ibqryDEPARTAMENTOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from DEPARTAMENTOS order by descricao')
@@ -948,7 +960,7 @@ object frmCELULAS: TfrmCELULAS
     end
   end
   object ibqryCENTROCUSTO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from CENTROCUSTO')
@@ -1034,7 +1046,7 @@ object frmCELULAS: TfrmCELULAS
     Top = 136
   end
   object ibqryMAQUINAS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from MAQUINAS')
@@ -1047,7 +1059,7 @@ object frmCELULAS: TfrmCELULAS
     Top = 536
   end
   object ibqryEQUIPAMENTOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from EQUIPAMENTOS')
@@ -1060,8 +1072,9 @@ object frmCELULAS: TfrmCELULAS
     Top = 520
   end
   object ibqrySETORES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     DataSource = dsDEPTOS
     SQL.Strings = (
       'select * from SETORES')

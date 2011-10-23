@@ -194,7 +194,7 @@ object frmORCA_CLIENTES: TfrmORCA_CLIENTES
     Visible = True
   end
   object ibtbORCA_CLIENTES: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <
@@ -308,8 +308,8 @@ object frmORCA_CLIENTES: TfrmORCA_CLIENTES
       end>
     StoreDefs = True
     TableName = 'COMP_ORCAMENTOS'
-    Left = 712
-    Top = 552
+    Left = 680
+    Top = 32
     object intgrfldORCA_CLIENTESPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
     end
@@ -402,7 +402,7 @@ object frmORCA_CLIENTES: TfrmORCA_CLIENTES
   end
   object dsORCA_CLIENTES: TDataSource
     DataSet = ibtbORCA_CLIENTES
-    Left = 704
-    Top = 496
+    Left = 680
+    Top = 96
   end
 end

@@ -392,7 +392,6 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Width = 834
     Height = 19
     Panels = <>
-    ExplicitTop = 505
   end
   object btn1: TBitBtn
     Left = 656
@@ -593,7 +592,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     SQL.Strings = (
       'select * from PRODUTOS')
     Left = 21
-    Top = 296
+    Top = 304
   end
   object dsPRODUTOS: TDataSource
     DataSet = ibqryPRODUTOS

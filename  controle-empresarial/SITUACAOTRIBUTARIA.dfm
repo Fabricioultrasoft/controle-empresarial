@@ -2,8 +2,8 @@ object frmSTRIBUTARIA: TfrmSTRIBUTARIA
   Left = 0
   Top = 0
   Caption = 'FISCAL - SITUA'#199#195'O TRIBUT'#193'RIA'
-  ClientHeight = 294
-  ClientWidth = 451
+  ClientHeight = 308
+  ClientWidth = 487
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -82,10 +82,12 @@ object frmSTRIBUTARIA: TfrmSTRIBUTARIA
   end
   object stat1: TStatusBar
     Left = 0
-    Top = 275
-    Width = 451
+    Top = 289
+    Width = 487
     Height = 19
     Panels = <>
+    ExplicitTop = 275
+    ExplicitWidth = 451
   end
   object btn1: TBitBtn
     Left = 268
@@ -129,7 +131,7 @@ object frmSTRIBUTARIA: TfrmSTRIBUTARIA
     TabOrder = 8
   end
   object ibtbSITTIBRUTARIA: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <

@@ -390,7 +390,7 @@ object FRMbANCOS: TFRMbANCOS
     Top = 16
   end
   object tbBancos: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <
@@ -470,7 +470,7 @@ object FRMbANCOS: TFRMbANCOS
     end
   end
   object ibqryAgencias: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     SQL.Strings = (
@@ -565,11 +565,13 @@ object FRMbANCOS: TFRMbANCOS
     object ibqryAgenciasTELEFONE: TIBStringField
       FieldName = 'TELEFONE'
       Origin = '"BANCOS_AGENCIAS"."TELEFONE"'
+      EditMask = '0000\-0000;0;_'
       Size = 15
     end
     object ibqryAgenciasTELEFAX: TIBStringField
       FieldName = 'TELEFAX'
       Origin = '"BANCOS_AGENCIAS"."TELEFAX"'
+      EditMask = '0000\-0000;0;_'
       Size = 15
     end
     object ibqryAgenciasEMAIL: TIBStringField
@@ -587,9 +589,8 @@ object FRMbANCOS: TFRMbANCOS
     end
   end
   object ibqryBairros: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       ' select * from BAIRROS')
     Left = 592
@@ -657,13 +658,12 @@ object FRMbANCOS: TFRMbANCOS
     end
   end
   object ibqryCidades: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from CIDADES')
     Left = 672
-    Top = 64
+    Top = 72
     object ibqryCidadesPK_CIDADES: TIntegerField
       FieldName = 'PK_CIDADES'
       Origin = '"CIDADES"."PK_CIDADES"'

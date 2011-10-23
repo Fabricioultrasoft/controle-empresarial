@@ -84,6 +84,7 @@ object frmVENCTOIMPOSTOS: TfrmVENCTOIMPOSTOS
     Top = 29
     Width = 472
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'NOME'
     DataSource = dsVENCTOIMPOSTOS
     TabOrder = 0
@@ -220,8 +221,9 @@ object frmVENCTOIMPOSTOS: TfrmVENCTOIMPOSTOS
     TabOrder = 8
   end
   object ibtbVENCTOIMPOSTOS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'COD'
