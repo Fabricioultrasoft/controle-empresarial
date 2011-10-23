@@ -277,10 +277,6 @@ object frmLOCALESTOQUE: TfrmLOCALESTOQUE
     TabOrder = 17
     object ts1: TTabSheet
       Caption = 'Endere'#231'os'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dbgrdh1: TDBGridEh
         Left = 3
         Top = 3
@@ -419,8 +415,9 @@ object frmLOCALESTOQUE: TfrmLOCALESTOQUE
     end
   end
   object ibtbLOCALESTOQUE: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'FK_EMPRESAS'
@@ -441,7 +438,8 @@ object frmLOCALESTOQUE: TfrmLOCALESTOQUE
       end
       item
         Name = 'ESCOPODEPOSITO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
@@ -450,27 +448,28 @@ object frmLOCALESTOQUE: TfrmLOCALESTOQUE
       end
       item
         Name = 'FK_CENTROCUSTO'
-        DataType = ftString
+        DataType = ftWideString
         Size = 10
       end
       item
         Name = 'SITUACAO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'DESCRICAO'
-        DataType = ftString
+        DataType = ftWideString
         Size = 50
       end
       item
         Name = 'USER_INC'
-        DataType = ftString
+        DataType = ftWideString
         Size = 10
       end
       item
         Name = 'USER_ALT'
-        DataType = ftString
+        DataType = ftWideString
         Size = 10
       end
       item
@@ -483,12 +482,14 @@ object frmLOCALESTOQUE: TfrmLOCALESTOQUE
       end
       item
         Name = 'CRIARENDERECOS'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end
       item
         Name = 'TIPODEPOSITO'
-        DataType = ftString
+        Attributes = [faFixed]
+        DataType = ftWideString
         Size = 1
       end>
     IndexDefs = <
@@ -565,24 +566,27 @@ object frmLOCALESTOQUE: TfrmLOCALESTOQUE
     Top = 208
   end
   object ibqryEMPRESAS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from EMPRESA')
     Left = 520
     Top = 144
   end
   object ibqryFILIAIS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from FILIAL')
     Left = 128
     Top = 224
   end
   object ibqryCENTROCUSTO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from CENTROCUSTO')
     Left = 216
@@ -604,8 +608,9 @@ object frmLOCALESTOQUE: TfrmLOCALESTOQUE
     Top = 200
   end
   object ibqryDEPOSITOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from DEPOSITOS')
     Left = 328
@@ -622,7 +627,7 @@ object frmLOCALESTOQUE: TfrmLOCALESTOQUE
     Top = 160
   end
   object ibqryENDERECOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     OnCalcFields = ibqryENDERECOSCalcFields
     Active = True

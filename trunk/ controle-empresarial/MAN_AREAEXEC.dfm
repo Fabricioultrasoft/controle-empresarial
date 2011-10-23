@@ -61,37 +61,40 @@ object frmAREAEXEC: TfrmAREAEXEC
     object RowDetailData: TRowDetailPanelControlEh
     end
   end
-  object edt1: TDBEditEh
+  object edtPK_AREAEXEC: TDBEditEh
     Left = 8
     Top = 24
     Width = 57
     Height = 21
+    DataField = 'PK_AREAEXEC'
+    DataSource = dsAREAEXEC
     EditButtons = <>
     ShowHint = True
     TabOrder = 0
-    Text = 'edt1'
     Visible = True
   end
-  object edt2: TDBEditEh
+  object edtAREA_DESCR: TDBEditEh
     Left = 79
     Top = 24
     Width = 121
     Height = 21
+    DataField = 'AREA_DESCR'
+    DataSource = dsAREAEXEC
     EditButtons = <>
     ShowHint = True
     TabOrder = 1
-    Text = 'edt2'
     Visible = True
   end
-  object edt3: TDBEditEh
+  object edtAREA_DESCR1: TDBEditEh
     Left = 206
     Top = 24
     Width = 323
     Height = 21
+    DataField = 'AREA_DESCR'
+    DataSource = dsAREAEXEC
     EditButtons = <>
     ShowHint = True
     TabOrder = 2
-    Text = 'edt3'
     Visible = True
   end
   object dbnvgr1: TDBNavigator
@@ -205,8 +208,9 @@ object frmAREAEXEC: TfrmAREAEXEC
     TabOrder = 13
   end
   object ibtbAREAEXEC: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'PK_AREAEXEC'

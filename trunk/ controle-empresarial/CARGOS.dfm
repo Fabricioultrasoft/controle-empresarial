@@ -202,12 +202,10 @@ object frmCARGOS: TfrmCARGOS
     Top = 270
     Width = 819
     Height = 324
-    ActivePage = ts1
+    ActivePage = ts3
     TabOrder = 16
     object ts1: TTabSheet
       Caption = 'Seguran'#231'a do Trabalho'
-      ExplicitWidth = 633
-      ExplicitHeight = 247
       object pgc2: TPageControl
         Left = 0
         Top = 3
@@ -217,8 +215,6 @@ object frmCARGOS: TfrmCARGOS
         TabOrder = 0
         object ts4: TTabSheet
           Caption = 'Acidentes'
-          ExplicitLeft = 0
-          ExplicitWidth = 625
           object dbgrdh1: TDBGridEh
             Left = 0
             Top = 3
@@ -247,7 +243,6 @@ object frmCARGOS: TfrmCARGOS
         object ts5: TTabSheet
           Caption = 'Acidentes EPI'
           ImageIndex = 1
-          ExplicitWidth = 625
         end
         object ts6: TTabSheet
           Caption = 'Treinamentos'
@@ -282,14 +277,10 @@ object frmCARGOS: TfrmCARGOS
     object ts2: TTabSheet
       Caption = 'Funcion'#225'rios'
       ImageIndex = 1
-      ExplicitWidth = 633
-      ExplicitHeight = 247
     end
     object ts3: TTabSheet
       Caption = 'Fun'#231#245'es'
       ImageIndex = 2
-      ExplicitWidth = 633
-      ExplicitHeight = 247
     end
   end
   object dsCARGOS: TDataSource
@@ -298,8 +289,9 @@ object frmCARGOS: TfrmCARGOS
     Top = 56
   end
   object ibtbCARGOS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'FK_EMPRESAS'
@@ -441,8 +433,9 @@ object frmCARGOS: TfrmCARGOS
     end
   end
   object ibqryCARGOS_ACIDENTES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from ST_CARGOSACIDENTES')
     Left = 688
@@ -515,8 +508,9 @@ object frmCARGOS: TfrmCARGOS
     Top = 120
   end
   object ibqryACIDENTES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from ST_ACIDENTES')
     Left = 688
@@ -576,8 +570,9 @@ object frmCARGOS: TfrmCARGOS
     end
   end
   object ibqryCARGOS_TREINAMENTOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from ST_CARGOSTREINAMENTOS')
     Left = 736

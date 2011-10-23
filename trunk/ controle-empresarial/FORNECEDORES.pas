@@ -46,7 +46,6 @@ type
     btn1: TBitBtn;
     stat1: TStatusBar;
     pgc1: TPageControl;
-    ts1: TTabSheet;
     dsPROD_FORN: TDataSource;
     ibqryPRODUTOS: TIBQuery;
     intgrfldPRODUTOSPK_PRODUTOS1: TIntegerField;
@@ -105,7 +104,6 @@ type
     acbrntrtb1: TACBrEnterTab;
     dbedtNOMEBAIRRO: TDBEdit;
     dbedtNOMECIDADE: TDBEdit;
-    dbgrd1: TDBGrid;
     ibqryPROD_FORN: TIBQuery;
     smlntfldPRODUTOSVALIDADEPRODUTO: TSmallintField;
     ibstrngfldPRODUTOSTIPOVALIDADE: TIBStringField;
@@ -148,6 +146,11 @@ type
     tbFORNECEDORESEMAIL: TIBStringField;
     tbFORNECEDORESWEBSITE: TIBStringField;
     tbFORNECEDORESOBSERVACAO: TWideMemoField;
+    ts2: TTabSheet;
+    ts3: TTabSheet;
+    ts1: TTabSheet;
+    dbgrd1: TDBGrid;
+    ts4: TTabSheet;
     procedure btn1Click(Sender: TObject);
     procedure dbnvgr1DblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

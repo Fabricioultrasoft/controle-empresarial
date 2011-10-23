@@ -116,11 +116,10 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
     Top = 130
     Width = 785
     Height = 391
-    ActivePage = ts2
+    ActivePage = ts1
     TabOrder = 8
     object ts1: TTabSheet
       Caption = 'Atividades'
-      ExplicitLeft = 0
       object dbgrdh1: TDBGridEh
         Left = 3
         Top = 3
@@ -187,7 +186,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
         Left = 75
         Top = 129
         Width = 699
-        Height = 60
+        Height = 21
         DataField = 'DESCRICAO_ATIV'
         DataSource = dsFATOR_ATIV
         EditButtons = <>
@@ -200,7 +199,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
         Left = 75
         Top = 195
         Width = 699
-        Height = 64
+        Height = 21
         DataField = 'CONCLUSAOESPECIAL'
         DataSource = dsFATOR_ATIV
         EditButtons = <>
@@ -212,7 +211,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
         Left = 75
         Top = 265
         Width = 699
-        Height = 64
+        Height = 21
         DataField = 'CONCLUSAONESPECIAL'
         DataSource = dsFATOR_ATIV
         EditButtons = <>
@@ -232,7 +231,6 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
     object ts2: TTabSheet
       Caption = 'Descri'#231#227'o'
       ImageIndex = 1
-      ExplicitLeft = 0
       object dbgrdh2: TDBGridEh
         Left = 3
         Top = 3
@@ -299,7 +297,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
         Left = 75
         Top = 129
         Width = 699
-        Height = 60
+        Height = 21
         DataField = 'DESCRICAO_AGENTE'
         DataSource = dsFATOR_DESC
         EditButtons = <>
@@ -312,7 +310,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
         Left = 75
         Top = 195
         Width = 699
-        Height = 64
+        Height = 21
         DataField = 'CONCLUSAOESPECIAL'
         DataSource = dsFATOR_DESC
         EditButtons = <>
@@ -324,7 +322,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
         Left = 75
         Top = 265
         Width = 699
-        Height = 64
+        Height = 21
         DataField = 'CONCLUSAONESPECIAL'
         DataSource = dsFATOR_DESC
         EditButtons = <>
@@ -343,7 +341,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
     end
   end
   object ibtbFATORRISCO: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     FieldDefs = <
@@ -428,7 +426,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
     Top = 32
   end
   object ibqryUNIDADES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     SQL.Strings = (
@@ -442,7 +440,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
     Top = 24
   end
   object ibqryFATOR_ATIV: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     SQL.Strings = (
@@ -483,7 +481,7 @@ object frmAPOSENTADORIA: TfrmAPOSENTADORIA
     Top = 96
   end
   object ibqryFATOR_DESC: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     Active = True
     SQL.Strings = (

@@ -17,22 +17,22 @@ object frmFORNECEDOR: TfrmFORNECEDOR
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
-    Left = 95
+    Left = 299
     Top = 13
     Width = 60
     Height = 13
     Caption = 'Raz'#227'o Social'
   end
   object lbl2: TLabel
-    Left = 23
+    Left = 227
     Top = 13
     Width = 33
     Height = 13
     Caption = 'C'#243'digo'
   end
   object lbl3: TLabel
-    Left = 471
-    Top = 13
+    Left = 603
+    Top = 16
     Width = 35
     Height = 13
     Caption = 'Apelido'
@@ -129,7 +129,7 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     Caption = 'Nome da Cidade'
   end
   object dbedtPK_FORNECEDOR: TDBEdit
-    Left = 24
+    Left = 228
     Top = 32
     Width = 65
     Height = 21
@@ -139,16 +139,16 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     TabOrder = 0
   end
   object dbedt2: TDBEdit
-    Left = 95
+    Left = 299
     Top = 32
-    Width = 370
+    Width = 298
     Height = 21
     DataField = 'RAZAOSOCIAL'
     DataSource = dsFORNECEDOR
     TabOrder = 1
   end
   object dbedt3: TDBEdit
-    Left = 471
+    Left = 603
     Top = 32
     Width = 154
     Height = 21
@@ -306,22 +306,27 @@ object frmFORNECEDOR: TfrmFORNECEDOR
   end
   object pgc1: TPageControl
     Left = 26
-    Top = 192
+    Top = 223
     Width = 727
-    Height = 369
-    ActivePage = ts1
+    Height = 307
+    ActivePage = ts4
     TabOrder = 17
+    object ts2: TTabSheet
+      Caption = 'Contatos'
+      ImageIndex = 1
+    end
+    object ts3: TTabSheet
+      Caption = 'Cadastrais'
+      ImageIndex = 2
+    end
     object ts1: TTabSheet
       Caption = 'Produtos'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ImageIndex = 2
       object dbgrd1: TDBGrid
         Left = 3
         Top = 0
         Width = 713
-        Height = 185
+        Height = 161
         DataSource = dsPROD_FORN
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
@@ -437,6 +442,10 @@ object frmFORNECEDOR: TfrmFORNECEDOR
           end>
       end
     end
+    object ts4: TTabSheet
+      Caption = 'Fiscal'
+      ImageIndex = 3
+    end
   end
   object dbedtNOMEBAIRRO: TDBEdit
     Left = 79
@@ -465,11 +474,11 @@ object frmFORNECEDOR: TfrmFORNECEDOR
   end
   object dsPROD_FORN: TDataSource
     DataSet = ibqryPROD_FORN
-    Left = 584
-    Top = 24
+    Left = 608
+    Top = 80
   end
   object ibqryPRODUTOS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PROD_TESTE')
@@ -642,7 +651,7 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     end
   end
   object ibqryCEP: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'SELECT * FROM CEP0')
@@ -749,7 +758,7 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     end
   end
   object ibqryBAIRROS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from BAIRROS')
@@ -757,7 +766,7 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     Top = 152
   end
   object ibqryCIDADES: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from CIDADES')
@@ -770,7 +779,7 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     Top = 128
   end
   object ibqryPROD_FORN: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTO_FORNECEDOR')
@@ -778,7 +787,7 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     Top = 64
   end
   object tbFORNECEDORES: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     FieldDefs = <
       item
