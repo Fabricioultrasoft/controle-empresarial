@@ -2,7 +2,7 @@ object frmREGRAS: TfrmREGRAS
   Left = 0
   Top = 0
   Caption = 'PRODUTOS - FORNECEDORES - REGRAS DE RECEBIMENTO'
-  ClientHeight = 279
+  ClientHeight = 241
   ClientWidth = 838
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -257,13 +257,10 @@ object frmREGRAS: TfrmREGRAS
   end
   object stat1: TStatusBar
     Left = 0
-    Top = 260
+    Top = 222
     Width = 838
     Height = 19
     Panels = <>
-    ExplicitLeft = 616
-    ExplicitTop = 344
-    ExplicitWidth = 0
   end
   object ibtbREGRAS: TIBTable
     Database = dmod.bdindustrias
@@ -372,7 +369,7 @@ object frmREGRAS: TfrmREGRAS
     end
     object fltfldREGRASPERCQUANTIDADE: TFloatField
       FieldName = 'PERCQUANTIDADE'
-      DisplayFormat = '##00.000'
+      DisplayFormat = '##00.00%'
     end
     object fltfldREGRASPERCVALOR: TFloatField
       FieldName = 'PERCVALOR'
@@ -403,8 +400,8 @@ object frmREGRAS: TfrmREGRAS
   end
   object dsREGRAS: TDataSource
     DataSet = ibtbREGRAS
-    Left = 640
-    Top = 64
+    Left = 648
+    Top = 96
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
@@ -417,8 +414,8 @@ object frmREGRAS: TfrmREGRAS
     Active = True
     SQL.Strings = (
       'select * from PRODUTOS ORDER BY DESCRICAO')
-    Left = 592
-    Top = 216
+    Left = 536
+    Top = 128
   end
   object ibqryFORNECEDOR: TIBQuery
     Database = dmod.bdindustrias
@@ -426,17 +423,17 @@ object frmREGRAS: TfrmREGRAS
     Active = True
     SQL.Strings = (
       'select * from FORNECEDORES ORDER BY RAZAOSOCIAL')
-    Left = 488
-    Top = 216
+    Left = 456
+    Top = 128
   end
   object dsPRODUTOS: TDataSource
     DataSet = ibqryPRODUTOS
-    Left = 368
-    Top = 224
+    Left = 312
+    Top = 136
   end
   object dsFORNECEDOR: TDataSource
     DataSet = ibqryFORNECEDOR
-    Left = 280
-    Top = 216
+    Left = 368
+    Top = 136
   end
 end

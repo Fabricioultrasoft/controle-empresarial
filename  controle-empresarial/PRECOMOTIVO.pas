@@ -11,12 +11,6 @@ type
   TfrmPRECOMOTIVO = class(TForm)
     ibtbPRECOMOTIVO: TIBTable;
     dsPRECOMOTIVO: TDataSource;
-    ibstrngfldPRECOMOTIVOPK_PROD_PRECO_MOTIVO: TIBStringField;
-    ibstrngfldPRECOMOTIVODESCRICAO: TIBStringField;
-    ibstrngfldPRECOMOTIVOINICIOPROMOCAO: TIBStringField;
-    ibstrngfldPRECOMOTIVOFINALPROMOCAO: TIBStringField;
-    ibstrngfldPRECOMOTIVOTABELAGOVERNO: TIBStringField;
-    ibstrngfldPRECOMOTIVOTABELAFORNECEDOR: TIBStringField;
     edtPK_PROD_PRECO_MOTIVO: TDBLabeledEdit;
     edtDESCRICAO: TDBLabeledEdit;
     dbchkI: TDBCheckBox;
@@ -31,6 +25,14 @@ type
     btn4: TBitBtn;
     btn5: TBitBtn;
     stat1: TStatusBar;
+    smlntfldPRECOMOTIVOFK_EMPRESAS: TSmallintField;
+    smlntfldPRECOMOTIVOFK_FILIAIS: TSmallintField;
+    ibstrngfldPRECOMOTIVOPK_PROD_PRECO_MOTIVO: TIBStringField;
+    ibstrngfldPRECOMOTIVODESCRICAO: TIBStringField;
+    ibstrngfldPRECOMOTIVOINICIOPROMOCAO: TIBStringField;
+    ibstrngfldPRECOMOTIVOFINALPROMOCAO: TIBStringField;
+    ibstrngfldPRECOMOTIVOTABELAGOVERNO: TIBStringField;
+    ibstrngfldPRECOMOTIVOTABELAFORNECEDOR: TIBStringField;
     procedure btn1Click(Sender: TObject);
   private
     { Private declarations }

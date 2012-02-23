@@ -37,24 +37,6 @@ type
     ibstrngfldAGCORREIOSI: TIBStringField;
     ibqryBAIRROS: TIBQuery;
     ibqryCidades: TIBQuery;
-    intgrfldCidadesPK_CIDADES: TIntegerField;
-    ibstrngfldCidadesNOMECIDADE: TIBStringField;
-    ibstrngfldCidadesDESCRICAO_B: TIBStringField;
-    ibstrngfldCidadesCEP: TIBStringField;
-    ibstrngfldCidadesUF: TIBStringField;
-    intgrfldCidadesSITUACAO: TIntegerField;
-    ibstrngfldCidadesTIPO_LOCALIDADE: TIBStringField;
-    intgrfldCidadesLOC_NU_SEQUENCIAL_SUB: TIntegerField;
-    ibstrngfldCidadesIBGE: TIBStringField;
-    intgrfldCidadesQUANTCLIENTES: TIntegerField;
-    intgrfldCidadesQUANTFORNECEDORES: TIntegerField;
-    intgrfldCidadesQUANTTRANSPORTADORAS: TIntegerField;
-    intgrfldCidadesQUANTVENDEDORES: TIntegerField;
-    ibqryCidadesCOMPRASTOTAL: TIBBCDField;
-    ibqryCidadesVENDASTOTAL: TIBBCDField;
-    ibqryCidadesULTIMACOMPRA: TDateField;
-    ibqryCidadesULTIMAVENDA: TDateField;
-    smlntfldCidadesQUANTFILIAIS: TSmallintField;
     dsCIDADES: TDataSource;
     dbgrdh1: TDBGridEh;
     btn1: TBitBtn;
@@ -63,6 +45,7 @@ type
     lbledt1: TLabeledEdit;
     lbledt2: TLabeledEdit;
     btn4: TBitBtn;
+    btn5: TBitBtn;
     procedure btn1Click(Sender: TObject);
   private
     { Private declarations }

@@ -24,12 +24,12 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
-			<DCC_Description>funcoes diversas para programa Industrial</DCC_Description>
+			<DCC_Description>logfile</DCC_Description>
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
 			<DCC_Optimize>false</DCC_Optimize>
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
 			<GenPackage>true</GenPackage>
-			<DCC_UnitSearchPath>C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_UnitSearchPath>C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\Projects\Industrias;C:\Documents and Settings\Isaias\Meus documentos\RAD Studio\8.0\Imports;C:\Documents and Settings\Isaias\Meus documentos\Downloads\logfile;L:\documentos\componenteDelphi\Exemplos com Fontes\Exemplos com Fontes\ExemplosUm\AbreModoExclusivo;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_CBuilderOutput>All</DCC_CBuilderOutput>
 			<AppFileExt>bpl</AppFileExt>
 			<GenDll>true</GenDll>
@@ -48,6 +48,8 @@
 			<DelphiCompile Include="funcoes.dpk">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
+			<DCCReference Include="..\..\8.0\Imports\AddEmailLib_TLB.dcr"/>
+			<DCCReference Include="..\..\..\Downloads\logfile\LOGFILE.dcr"/>
 			<DCCReference Include="rtl.dcp"/>
 			<DCCReference Include="designide.dcp"/>
 			<DCCReference Include="vcl.dcp"/>
@@ -67,6 +69,9 @@
 			<DCCReference Include="DBGrid3D.pas"/>
 			<DCCReference Include="BSGrid3d.pas"/>
 			<DCCReference Include="BSNAVIG.PAS"/>
+			<DCCReference Include="..\..\8.0\Imports\AddEmailLib_TLB.pas"/>
+			<DCCReference Include="..\..\..\Downloads\logfile\LOGFILE.PAS"/>
+			<DCCReference Include="L:\documentos\componenteDelphi\Exemplos com Fontes\Exemplos com Fontes\ExemplosUm\AbreModoExclusivo\AbreModoExclusivo.pas"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

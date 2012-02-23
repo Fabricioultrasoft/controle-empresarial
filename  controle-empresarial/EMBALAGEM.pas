@@ -70,7 +70,6 @@ type
     fltfldEMBALAGEMPESOBRUTO: TFloatField;
     fltfldEMBALAGEMLASTROPALETE: TFloatField;
     fltfldEMBALAGEMALTURAPALETE: TFloatField;
-    edtCUBAGEM: TEdit;
     ibstrngfldEMBALAGEMDESCRICAO: TIBStringField;
     edtDESCRICAO: TDBLabeledEdit;
     ibstrngfldEMBALAGEMTIPOCONVERSAO: TIBStringField;
@@ -79,6 +78,7 @@ type
     edtFATORCONVERSAO: TDBLabeledEdit;
     btn6: TSpeedButton;
     strngfldEMBALAGEMunidades: TStringField;
+    medtCUBAGEM: TMaskEdit;
     procedure btn1Click(Sender: TObject);
     procedure dbedtMED_PROFUNDIDADEExit(Sender: TObject);
     procedure btn6Click(Sender: TObject);
@@ -125,10 +125,10 @@ begin
  if (ibtbEMBALAGEM.State = dsEdit ) or (ibtbEMBALAGEM.State = dsInsert)  then
  begin
    // calcular o campo edtCUBAGEM
-   edtCUBAGEM.Text := FloatToStr( dbedtMED_LARGURA.Field.Value *
+   medtCUBAGEM.Text := FloatToStr( dbedtMED_LARGURA.Field.Value *
    dbedtMED_ALTURA.Field.Value *
    dbedtMED_PROFUNDIDADE.Field.Value  );
-   edtCUBAGEM.Refresh;
+   medtCUBAGEM.Refresh;
 
  end;
 ///

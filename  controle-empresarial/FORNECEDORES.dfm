@@ -306,10 +306,10 @@ object frmFORNECEDOR: TfrmFORNECEDOR
   end
   object pgc1: TPageControl
     Left = 26
-    Top = 223
+    Top = 179
     Width = 727
-    Height = 307
-    ActivePage = ts4
+    Height = 351
+    ActivePage = ts1
     TabOrder = 17
     object ts2: TTabSheet
       Caption = 'Contatos'
@@ -469,8 +469,8 @@ object frmFORNECEDOR: TfrmFORNECEDOR
   end
   object dsFORNECEDOR: TDataSource
     DataSet = tbFORNECEDORES
-    Left = 576
-    Top = 120
+    Left = 536
+    Top = 280
   end
   object dsPROD_FORN: TDataSource
     DataSet = ibqryPROD_FORN
@@ -482,8 +482,8 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PROD_TESTE')
-    Left = 640
-    Top = 72
+    Left = 672
+    Top = 432
     object intgrfldPRODUTOSPK_PRODUTOS1: TIntegerField
       FieldName = 'PK_PRODUTOS'
       Origin = '"PROD_TESTE"."PK_PRODUTOS"'
@@ -655,8 +655,8 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'SELECT * FROM CEP0')
-    Left = 176
-    Top = 152
+    Left = 264
+    Top = 272
     object intgrfldCEPPK_LOGRADOURO: TIntegerField
       FieldName = 'PK_LOGRADOURO'
       Origin = '"LOGRADOURO"."PK_LOGRADOURO"'
@@ -762,16 +762,16 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from BAIRROS')
-    Left = 248
-    Top = 152
+    Left = 344
+    Top = 272
   end
   object ibqryCIDADES: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from CIDADES')
-    Left = 504
-    Top = 144
+    Left = 432
+    Top = 272
   end
   object acbrntrtb1: TACBrEnterTab
     EnterAsTab = True
@@ -783,8 +783,8 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from PRODUTO_FORNECEDOR')
-    Left = 576
-    Top = 64
+    Left = 592
+    Top = 368
   end
   object tbFORNECEDORES: TIBTable
     Database = dmod.bdindustrias
@@ -993,8 +993,8 @@ object frmFORNECEDOR: TfrmFORNECEDOR
     IndexFieldNames = 'RAZAOSOCIAL'
     StoreDefs = True
     TableName = 'FORNECEDORES'
-    Left = 704
-    Top = 128
+    Left = 632
+    Top = 264
     object tbFORNECEDORESPK_FORNECEDOR: TIntegerField
       FieldName = 'PK_FORNECEDOR'
     end

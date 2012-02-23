@@ -403,7 +403,7 @@ object frmCADASTROS: TfrmCADASTROS
     Visible = True
   end
   object ibtbCADASTROS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     FieldDefs = <
       item
@@ -600,8 +600,8 @@ object frmCADASTROS: TfrmCADASTROS
       end>
     StoreDefs = True
     TableName = 'CADASTROS'
-    Left = 704
-    Top = 328
+    Left = 624
+    Top = 368
     object intgrfldCADASTROSPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
     end
@@ -742,11 +742,11 @@ object frmCADASTROS: TfrmCADASTROS
   end
   object dsCADASTROS: TDataSource
     DataSet = ibtbCADASTROS
-    Left = 728
-    Top = 456
+    Left = 520
+    Top = 368
   end
   object ibqryTIPOCADASTRO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from TIPO_CADASTROS')
@@ -759,7 +759,7 @@ object frmCADASTROS: TfrmCADASTROS
     Top = 376
   end
   object ibqryBairros: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from BAIRROS')
@@ -828,7 +828,7 @@ object frmCADASTROS: TfrmCADASTROS
     end
   end
   object ibqryCidades: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from CIDADES')
@@ -920,7 +920,7 @@ object frmCADASTROS: TfrmCADASTROS
     end
   end
   object ibqryCEP: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from CEP0')
@@ -1034,8 +1034,8 @@ object frmCADASTROS: TfrmCADASTROS
   end
   object dsBAIRROS: TDataSource
     DataSet = ibqryBairros
-    Left = 136
-    Top = 368
+    Left = 144
+    Top = 360
   end
   object dsLOGRADOURO: TDataSource
     Left = 64

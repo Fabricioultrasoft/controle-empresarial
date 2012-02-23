@@ -111,6 +111,49 @@ object frmPRECOMOTIVO: TfrmPRECOMOTIVO
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'DESCRICAO'
+        Title.Caption = 'Descri'#231#227'o'
+        Width = 164
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'INICIOPROMOCAO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'FINALPROMOCAO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TABELAGOVERNO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TABELAFORNECEDOR'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'FK_EMPRESAS'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'FK_FILIAIS'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PK_PROD_PRECO_MOTIVO'
+        Visible = True
+      end>
   end
   object dbnvgr1: TDBNavigator
     Left = 26
@@ -179,9 +222,6 @@ object frmPRECOMOTIVO: TfrmPRECOMOTIVO
     Width = 495
     Height = 19
     Panels = <>
-    ExplicitLeft = 608
-    ExplicitTop = 456
-    ExplicitWidth = 0
   end
   object ibtbPRECOMOTIVO: TIBTable
     Database = dmod.bdindustrias
@@ -189,10 +229,18 @@ object frmPRECOMOTIVO: TfrmPRECOMOTIVO
     Active = True
     FieldDefs = <
       item
+        Name = 'FK_EMPRESAS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FK_FILIAIS'
+        DataType = ftSmallint
+      end
+      item
         Name = 'PK_PROD_PRECO_MOTIVO'
         Attributes = [faRequired, faFixed]
         DataType = ftWideString
-        Size = 10
+        Size = 1
       end
       item
         Name = 'DESCRICAO'
@@ -225,22 +273,29 @@ object frmPRECOMOTIVO: TfrmPRECOMOTIVO
       end>
     IndexDefs = <
       item
-        Name = 'PK_PROD_PRECO_MOTIVO_1'
+        Name = 'PK_P_PROD_PRECO_MOTIVO_1'
         Fields = 'PK_PROD_PRECO_MOTIVO'
         Options = [ixUnique]
       end
       item
-        Name = 'PROD_PRECO_MOTIVO_IDX1'
+        Name = 'P_PROD_PRECO_MOTIVO_DESCRICAO_A'
         Fields = 'DESCRICAO'
       end>
     IndexFieldNames = 'DESCRICAO'
     StoreDefs = True
-    TableName = 'PROD_PRECO_MOTIVO'
+    TableName = 'P_PROD_PRECO_MOTIVO'
     Left = 400
     Top = 8
+    object smlntfldPRECOMOTIVOFK_EMPRESAS: TSmallintField
+      FieldName = 'FK_EMPRESAS'
+    end
+    object smlntfldPRECOMOTIVOFK_FILIAIS: TSmallintField
+      FieldName = 'FK_FILIAIS'
+    end
     object ibstrngfldPRECOMOTIVOPK_PROD_PRECO_MOTIVO: TIBStringField
       FieldName = 'PK_PROD_PRECO_MOTIVO'
-      Size = 10
+      Required = True
+      Size = 1
     end
     object ibstrngfldPRECOMOTIVODESCRICAO: TIBStringField
       FieldName = 'DESCRICAO'

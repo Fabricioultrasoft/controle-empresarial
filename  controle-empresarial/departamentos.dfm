@@ -228,7 +228,7 @@ object frmDeptos: TfrmDeptos
   end
   object dbcboPK_FILIAL: TDBLookupComboBox
     Left = 95
-    Top = 160
+    Top = 157
     Width = 306
     Height = 21
     DataField = 'RESPONSAVEL'
@@ -252,7 +252,7 @@ object frmDeptos: TfrmDeptos
     DataField = 'PK_CENTROCUSTO'
     DataSource = dsDEPTOS
     KeyField = 'CC_CODIGO'
-    ListField = 'CC_DESCRIC'
+    ListField = 'DESCRICAO'
     ListSource = dsCENTROCUSTO
     TabOrder = 9
   end
@@ -361,7 +361,6 @@ object frmDeptos: TfrmDeptos
     Top = 56
   end
   object dsFILIAL: TDataSource
-    DataSet = ibqryFiliais
     Left = 208
     Top = 104
   end
@@ -379,8 +378,9 @@ object frmDeptos: TfrmDeptos
     Top = 272
   end
   object ibqryEmpresas: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from EMPRESA')
     Left = 264
@@ -489,129 +489,10 @@ object frmDeptos: TfrmDeptos
       Origin = '"EMPRESA"."DDD"'
     end
   end
-  object ibqryFiliais: TIBQuery
-    Database = dmod.bdIndustrias
-    Transaction = dmod.transIndustrias
-    SQL.Strings = (
-      'select * from FILIAL')
-    Left = 288
-    Top = 112
-    object ibqryFiliaisPK_EMPRESA: TIntegerField
-      FieldName = 'PK_EMPRESA'
-      Origin = '"FILIAL"."PK_EMPRESA"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object ibqryFiliaisPK_FILIAL: TIntegerField
-      FieldName = 'PK_FILIAL'
-      Origin = '"FILIAL"."PK_FILIAL"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object ibqryFiliaisRAZAOSOCIAL: TIBStringField
-      FieldName = 'RAZAOSOCIAL'
-      Origin = '"FILIAL"."RAZAOSOCIAL"'
-      Size = 100
-    end
-    object ibqryFiliaisENDERECO: TIBStringField
-      FieldName = 'ENDERECO'
-      Origin = '"FILIAL"."ENDERECO"'
-      Size = 100
-    end
-    object ibqryFiliaisEND_NUMERO: TIBStringField
-      FieldName = 'END_NUMERO'
-      Origin = '"FILIAL"."END_NUMERO"'
-      Size = 10
-    end
-    object ibqryFiliaisEND_COMPLEMENTO: TIBStringField
-      FieldName = 'END_COMPLEMENTO'
-      Origin = '"FILIAL"."END_COMPLEMENTO"'
-    end
-    object ibqryFiliaisPK_BAIRRO: TIntegerField
-      FieldName = 'PK_BAIRRO'
-      Origin = '"FILIAL"."PK_BAIRRO"'
-    end
-    object ibqryFiliaisPK_CIDADE: TIntegerField
-      FieldName = 'PK_CIDADE'
-      Origin = '"FILIAL"."PK_CIDADE"'
-    end
-    object ibqryFiliaisPK_PAIS: TIntegerField
-      FieldName = 'PK_PAIS'
-      Origin = '"FILIAL"."PK_PAIS"'
-    end
-    object ibqryFiliaisTELEFONE: TIBStringField
-      FieldName = 'TELEFONE'
-      Origin = '"FILIAL"."TELEFONE"'
-      Size = 15
-    end
-    object ibqryFiliaisTELEFAX: TIBStringField
-      FieldName = 'TELEFAX'
-      Origin = '"FILIAL"."TELEFAX"'
-      Size = 15
-    end
-    object ibqryFiliaisEMAIL: TIBStringField
-      FieldName = 'EMAIL'
-      Origin = '"FILIAL"."EMAIL"'
-      Size = 50
-    end
-    object ibqryFiliaisWEBSITE: TIBStringField
-      FieldName = 'WEBSITE'
-      Origin = '"FILIAL"."WEBSITE"'
-      Size = 50
-    end
-    object ibqryFiliaisCNAE: TIBStringField
-      FieldName = 'CNAE'
-      Origin = '"FILIAL"."CNAE"'
-      Size = 10
-    end
-    object ibqryFiliaisCNAE2: TIBStringField
-      FieldName = 'CNAE2'
-      Origin = '"FILIAL"."CNAE2"'
-      Size = 10
-    end
-    object ibqryFiliaisCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"FILIAL"."CNPJ"'
-      Size = 14
-    end
-    object ibqryFiliaisINSC_ESTADUAL: TIBStringField
-      FieldName = 'INSC_ESTADUAL'
-      Origin = '"FILIAL"."INSC_ESTADUAL"'
-    end
-    object ibqryFiliaisINSC_MUNICIPAL: TIBStringField
-      FieldName = 'INSC_MUNICIPAL'
-      Origin = '"FILIAL"."INSC_MUNICIPAL"'
-    end
-    object ibqryFiliaisCEP: TIBStringField
-      FieldName = 'CEP'
-      Origin = '"FILIAL"."CEP"'
-      FixedChar = True
-      Size = 8
-    end
-    object ibqryFiliaisUF: TIBStringField
-      FieldName = 'UF'
-      Origin = '"FILIAL"."UF"'
-      FixedChar = True
-      Size = 2
-    end
-    object ibqryFiliaisNOMEFANTASIA: TIBStringField
-      FieldName = 'NOMEFANTASIA'
-      Origin = '"FILIAL"."NOMEFANTASIA"'
-      Size = 50
-    end
-    object ibqryFiliaisDDD: TSmallintField
-      FieldName = 'DDD'
-      Origin = '"FILIAL"."DDD"'
-    end
-    object ibqryFiliaisFK_NATUREZAJURIDICA: TIBStringField
-      FieldName = 'FK_NATUREZAJURIDICA'
-      Origin = '"FILIAL"."FK_NATUREZAJURIDICA"'
-      Size = 10
-    end
-  end
   object tbDeptos: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'PK_EMPRESA'
@@ -628,7 +509,7 @@ object frmDeptos: TfrmDeptos
       end
       item
         Name = 'DESCRICAO'
-        DataType = ftString
+        DataType = ftWideString
         Size = 50
       end
       item
@@ -640,8 +521,13 @@ object frmDeptos: TfrmDeptos
         DataType = ftInteger
       end
       item
-        Name = 'PK_CENTROCUSTO'
-        DataType = ftString
+        Name = 'FK_CENTROCUSTO'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'CODIGOANTIGO'
+        DataType = ftWideString
         Size = 10
       end>
     IndexDefs = <
@@ -654,59 +540,43 @@ object frmDeptos: TfrmDeptos
     TableName = 'DEPARTAMENTOS'
     Left = 312
     Top = 16
-    object tbDeptosPK_EMPRESA: TIntegerField
+    object intgrfldDeptosPK_EMPRESA: TIntegerField
       FieldName = 'PK_EMPRESA'
-      Required = True
     end
-    object tbDeptosPK_FILIAL: TIntegerField
+    object intgrfldDeptosPK_FILIAL: TIntegerField
       FieldName = 'PK_FILIAL'
+    end
+    object intgrfldDeptosPK_DEPARTAMENTO: TIntegerField
+      FieldName = 'PK_DEPARTAMENTO'
       Required = True
     end
-    object tbDeptosPK_DEPARTAMENTO: TIntegerField
-      FieldName = 'PK_DEPARTAMENTO'
-    end
-    object tbDeptosDESCRICAO: TIBStringField
+    object ibstrngfldDeptosDESCRICAO: TIBStringField
       FieldName = 'DESCRICAO'
       Size = 50
     end
-    object tbDeptosRESPONSAVEL: TIntegerField
+    object intgrfldDeptosRESPONSAVEL: TIntegerField
       FieldName = 'RESPONSAVEL'
     end
-    object tbDeptosQUANTFUNCIONARIOS: TIntegerField
+    object intgrfldDeptosQUANTFUNCIONARIOS: TIntegerField
       FieldName = 'QUANTFUNCIONARIOS'
     end
-    object ibstrngfldDeptosPK_CENTROCUSTO: TIBStringField
-      FieldName = 'PK_CENTROCUSTO'
+    object ibstrngfldDeptosFK_CENTROCUSTO: TIBStringField
+      FieldName = 'FK_CENTROCUSTO'
+      Size = 10
+    end
+    object ibstrngfldDeptosCODIGOANTIGO: TIBStringField
+      FieldName = 'CODIGOANTIGO'
       Size = 10
     end
   end
   object ibqryCENTROCUSTO: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from CENTROCUSTO')
     Left = 312
     Top = 280
-    object ibstrngfldCENTROCUSTOCC_CODIGO: TIBStringField
-      FieldName = 'CC_CODIGO'
-      Origin = '"CENTROCUSTO"."CC_CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Size = 30
-    end
-    object ibstrngfldCENTROCUSTOCC_DESCRIC: TIBStringField
-      FieldName = 'CC_DESCRIC'
-      Origin = '"CENTROCUSTO"."CC_DESCRIC"'
-      Size = 50
-    end
-    object smlntfldCENTROCUSTOPESO: TSmallintField
-      FieldName = 'PESO'
-      Origin = '"CENTROCUSTO"."PESO"'
-    end
-    object ibstrngfldCENTROCUSTORESPONSAVEL: TIBStringField
-      FieldName = 'RESPONSAVEL'
-      Origin = '"CENTROCUSTO"."RESPONSAVEL"'
-    end
   end
   object dsCENTROCUSTO: TDataSource
     DataSet = ibqryCENTROCUSTO
