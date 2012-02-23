@@ -231,7 +231,7 @@ object frmDEPOSITOS: TfrmDEPOSITOS
     TabOrder = 14
   end
   object btn5: TBitBtn
-    Left = 672
+    Left = 591
     Top = 158
     Width = 75
     Height = 25
@@ -372,8 +372,6 @@ object frmDEPOSITOS: TfrmDEPOSITOS
         TabOrder = 1
         object ts2: TTabSheet
           Caption = 'Endere'#231'os'
-          ExplicitLeft = 0
-          ExplicitTop = 28
           object dbgrdh2: TDBGridEh
             Left = 3
             Top = 35
@@ -395,6 +393,147 @@ object frmDEPOSITOS: TfrmDEPOSITOS
             TitleFont.Height = -11
             TitleFont.Name = 'Tahoma'
             TitleFont.Style = []
+            Columns = <
+              item
+                EditButtons = <>
+                FieldName = 'FK_EMPRESA'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_FILIAL'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_DEPOSITO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_LOCALESTOQUE'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PK_LOCALESTOQUEENDERECO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'END_RUA'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'END_ENDERECO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'END_ANDAR'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'END_APARTAMENTO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'END_SALA'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'TIPOENDERECO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'TAMANHOENDERECO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MED_LARGURA'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MED_ALTURA'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MED_PROFUNDIDADE'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'SITUACAO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_PALETE'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ENDERECOMPLETO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'ENDERECOAJUSTADO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'MED_CUBAGEM'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'DESCRICAO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_TAMANHOPULMAO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'INDICEPERDA'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'PRIORIDADE'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CONFIGENDERECO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'FK_PRODUTOS'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'DATAULTMOVIMENTO'
+                Footers = <>
+              end
+              item
+                EditButtons = <>
+                FieldName = 'CAPACIDADE'
+                Footers = <>
+              end>
             object RowDetailData: TRowDetailPanelControlEh
             end
           end
@@ -428,7 +567,6 @@ object frmDEPOSITOS: TfrmDEPOSITOS
   object ibtbDEPOSITOS: TIBTable
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     FieldDefs = <
       item
         Name = 'FK_EMPRESAS'
@@ -555,11 +693,10 @@ object frmDEPOSITOS: TfrmDEPOSITOS
   object ibqryCENTROCUSTO: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from CENTROCUSTO')
-    Left = 224
-    Top = 80
+    Left = 248
+    Top = 104
   end
   object dsEMPRESAS: TDataSource
     DataSet = ibqryEMPRESAS
@@ -579,7 +716,6 @@ object frmDEPOSITOS: TfrmDEPOSITOS
   object ibqryLOCAIS: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from LOCALESTOQUE')
     Left = 776
@@ -670,11 +806,155 @@ object frmDEPOSITOS: TfrmDEPOSITOS
   object ibqryENDERECOS: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
-    Active = True
     SQL.Strings = (
       'select * from LOCALESTOQUEENDERECOS')
     Left = 776
     Top = 184
+    object smlntfldENDERECOSFK_EMPRESA: TSmallintField
+      FieldName = 'FK_EMPRESA'
+      Origin = '"LOCALESTOQUEENDERECOS"."FK_EMPRESA"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldENDERECOSFK_FILIAL: TSmallintField
+      FieldName = 'FK_FILIAL'
+      Origin = '"LOCALESTOQUEENDERECOS"."FK_FILIAL"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldENDERECOSFK_DEPOSITO: TSmallintField
+      FieldName = 'FK_DEPOSITO'
+      Origin = '"LOCALESTOQUEENDERECOS"."FK_DEPOSITO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldENDERECOSFK_LOCALESTOQUE: TSmallintField
+      FieldName = 'FK_LOCALESTOQUE'
+      Origin = '"LOCALESTOQUEENDERECOS"."FK_LOCALESTOQUE"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object smlntfldENDERECOSPK_LOCALESTOQUEENDERECO: TSmallintField
+      FieldName = 'PK_LOCALESTOQUEENDERECO'
+      Origin = '"LOCALESTOQUEENDERECOS"."PK_LOCALESTOQUEENDERECO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibstrngfldENDERECOSEND_RUA: TIBStringField
+      FieldName = 'END_RUA'
+      Origin = '"LOCALESTOQUEENDERECOS"."END_RUA"'
+      Required = True
+      Size = 5
+    end
+    object smlntfldENDERECOSEND_ENDERECO: TSmallintField
+      FieldName = 'END_ENDERECO'
+      Origin = '"LOCALESTOQUEENDERECOS"."END_ENDERECO"'
+      Required = True
+    end
+    object smlntfldENDERECOSEND_ANDAR: TSmallintField
+      FieldName = 'END_ANDAR'
+      Origin = '"LOCALESTOQUEENDERECOS"."END_ANDAR"'
+    end
+    object smlntfldENDERECOSEND_APARTAMENTO: TSmallintField
+      FieldName = 'END_APARTAMENTO'
+      Origin = '"LOCALESTOQUEENDERECOS"."END_APARTAMENTO"'
+    end
+    object smlntfldENDERECOSEND_SALA: TSmallintField
+      FieldName = 'END_SALA'
+      Origin = '"LOCALESTOQUEENDERECOS"."END_SALA"'
+      Required = True
+    end
+    object ibstrngfldENDERECOSTIPOENDERECO: TIBStringField
+      FieldName = 'TIPOENDERECO'
+      Origin = '"LOCALESTOQUEENDERECOS"."TIPOENDERECO"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibstrngfldENDERECOSTAMANHOENDERECO: TIBStringField
+      FieldName = 'TAMANHOENDERECO'
+      Origin = '"LOCALESTOQUEENDERECOS"."TAMANHOENDERECO"'
+      FixedChar = True
+      Size = 1
+    end
+    object ibqryENDERECOSMED_LARGURA: TIBBCDField
+      FieldName = 'MED_LARGURA'
+      Origin = '"LOCALESTOQUEENDERECOS"."MED_LARGURA"'
+      Precision = 18
+      Size = 2
+    end
+    object ibqryENDERECOSMED_ALTURA: TIBBCDField
+      FieldName = 'MED_ALTURA'
+      Origin = '"LOCALESTOQUEENDERECOS"."MED_ALTURA"'
+      Precision = 18
+      Size = 2
+    end
+    object ibqryENDERECOSMED_PROFUNDIDADE: TIBBCDField
+      FieldName = 'MED_PROFUNDIDADE'
+      Origin = '"LOCALESTOQUEENDERECOS"."MED_PROFUNDIDADE"'
+      Precision = 18
+      Size = 2
+    end
+    object ibstrngfldENDERECOSSITUACAO: TIBStringField
+      FieldName = 'SITUACAO'
+      Origin = '"LOCALESTOQUEENDERECOS"."SITUACAO"'
+      FixedChar = True
+      Size = 1
+    end
+    object smlntfldENDERECOSFK_PALETE: TSmallintField
+      FieldName = 'FK_PALETE'
+      Origin = '"LOCALESTOQUEENDERECOS"."FK_PALETE"'
+    end
+    object ibstrngfldENDERECOSENDERECOMPLETO: TIBStringField
+      FieldName = 'ENDERECOMPLETO'
+      Origin = '"LOCALESTOQUEENDERECOS"."ENDERECOMPLETO"'
+      Size = 25
+    end
+    object ibstrngfldENDERECOSENDERECOAJUSTADO: TIBStringField
+      FieldName = 'ENDERECOAJUSTADO'
+      Origin = '"LOCALESTOQUEENDERECOS"."ENDERECOAJUSTADO"'
+      Size = 25
+    end
+    object fmtbcdfldENDERECOSMED_CUBAGEM: TFMTBCDField
+      FieldKind = fkInternalCalc
+      FieldName = 'MED_CUBAGEM'
+      Origin = '"LOCALESTOQUEENDERECOS"."MED_CUBAGEM"'
+      ProviderFlags = []
+      ReadOnly = True
+      Precision = 18
+      Size = 6
+    end
+    object ibstrngfldENDERECOSDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"LOCALESTOQUEENDERECOS"."DESCRICAO"'
+      Size = 50
+    end
+    object ibstrngfldENDERECOSFK_TAMANHOPULMAO: TIBStringField
+      FieldName = 'FK_TAMANHOPULMAO'
+      Origin = '"LOCALESTOQUEENDERECOS"."FK_TAMANHOPULMAO"'
+      FixedChar = True
+      Size = 1
+    end
+    object fltfldENDERECOSINDICEPERDA: TFloatField
+      FieldName = 'INDICEPERDA'
+      Origin = '"LOCALESTOQUEENDERECOS"."INDICEPERDA"'
+    end
+    object smlntfldENDERECOSPRIORIDADE: TSmallintField
+      FieldName = 'PRIORIDADE'
+      Origin = '"LOCALESTOQUEENDERECOS"."PRIORIDADE"'
+    end
+    object ibstrngfldENDERECOSCONFIGENDERECO: TIBStringField
+      FieldName = 'CONFIGENDERECO'
+      Origin = '"LOCALESTOQUEENDERECOS"."CONFIGENDERECO"'
+      Size = 10
+    end
+    object intgrfldENDERECOSFK_PRODUTOS: TIntegerField
+      FieldName = 'FK_PRODUTOS'
+      Origin = '"LOCALESTOQUEENDERECOS"."FK_PRODUTOS"'
+    end
+    object dtmfldENDERECOSDATAULTMOVIMENTO: TDateTimeField
+      FieldName = 'DATAULTMOVIMENTO'
+      Origin = '"LOCALESTOQUEENDERECOS"."DATAULTMOVIMENTO"'
+    end
+    object fltfldENDERECOSCAPACIDADE: TFloatField
+      FieldName = 'CAPACIDADE'
+      Origin = '"LOCALESTOQUEENDERECOS"."CAPACIDADE"'
+    end
   end
   object dsENDERECOS: TDataSource
     DataSet = ibqryENDERECOS

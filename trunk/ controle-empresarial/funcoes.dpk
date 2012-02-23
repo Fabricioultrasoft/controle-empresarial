@@ -1,6 +1,8 @@
 package funcoes;
 
 {$R *.res}
+{$R '..\..\8.0\Imports\AddEmailLib_TLB.dcr'}
+{$R '..\..\..\Downloads\logfile\LOGFILE.dcr'}
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
@@ -22,7 +24,7 @@ package funcoes;
 {$WRITEABLECONST OFF}
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
-{$DESCRIPTION 'funcoes diversas para programa Industrial'}
+{$DESCRIPTION 'logfile'}
 {$IMPLICITBUILD ON}
 {$DEFINE DEBUG}
 
@@ -47,6 +49,9 @@ contains
   FocusEdit in 'FocusEdit.pas',
   DBGrid3D in 'DBGrid3D.pas',
   BSGrid3d in 'BSGrid3d.pas',
-  BSNAVIG in 'BSNAVIG.PAS';
+  BSNAVIG in 'BSNAVIG.PAS',
+  AddEmailLib_TLB in '..\..\8.0\Imports\AddEmailLib_TLB.pas',
+  LOGFILE in '..\..\..\Downloads\logfile\LOGFILE.PAS',
+  AbreModoExclusivo in 'L:\documentos\componenteDelphi\Exemplos com Fontes\Exemplos com Fontes\ExemplosUm\AbreModoExclusivo\AbreModoExclusivo.pas';
 
 end.

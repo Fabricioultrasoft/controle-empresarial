@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   dmodule,Dialogs, DB, IBCustomDataSet, IBTable, DBGridEhGrouping, GridsEh,
-  DBGridEh, StdCtrls, Mask, DBCtrlsEh, ExtCtrls, DBCtrls, Buttons, ComCtrls;
+  DBGridEh, StdCtrls, Mask, DBCtrlsEh, ExtCtrls, DBCtrls, Buttons, ComCtrls,
+  Grids, DBGrids, IBQuery;
 
 type
   TfrmMARCAS = class(TForm)
@@ -30,6 +31,14 @@ type
     btn4: TBitBtn;
     btn5: TBitBtn;
     btn6: TBitBtn;
+    intgrfldMARCASFK_FABRICANTE: TIntegerField;
+    smlntfldMARCASFK_EMPRESAS: TSmallintField;
+    smlntfldMARCASFK_FILIAIS: TSmallintField;
+    edtPK_PROD_MARCAS1: TDBEditEh;
+    dblkcbbFK_FABRICANTE: TDBLookupComboBox;
+    btn7: TSpeedButton;
+    dbgrd1: TDBGrid;
+    ibqryfabXmarcas: TIBQuery;
     procedure btn1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private

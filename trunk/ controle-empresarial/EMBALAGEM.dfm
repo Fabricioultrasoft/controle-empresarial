@@ -2,7 +2,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
   Left = 0
   Top = 0
   Caption = 'MATERIAIS - EMBALAGENS DE PRODUTOS'
-  ClientHeight = 378
+  ClientHeight = 472
   ClientWidth = 834
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -221,7 +221,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Height = 21
     DataField = 'PESOLIQUIDO'
     DataSource = dsEMBALAGEM
-    TabOrder = 14
+    TabOrder = 13
   end
   object dbedtFK_EMPRESAS8: TDBEdit
     Left = 504
@@ -230,7 +230,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Height = 21
     DataField = 'PESOBRUTO'
     DataSource = dsEMBALAGEM
-    TabOrder = 15
+    TabOrder = 14
   end
   object dbedtFK_EMPRESAS9: TDBEdit
     Left = 580
@@ -239,7 +239,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Height = 21
     DataField = 'LASTROPALETE'
     DataSource = dsEMBALAGEM
-    TabOrder = 16
+    TabOrder = 15
   end
   object dbedtFK_EMPRESAS10: TDBEdit
     Left = 656
@@ -248,7 +248,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Height = 21
     DataField = 'ALTURAPALETE'
     DataSource = dsEMBALAGEM
-    TabOrder = 17
+    TabOrder = 16
   end
   object dbgrdh1: TDBGridEh
     Left = 19
@@ -265,7 +265,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     FooterFont.Name = 'Tahoma'
     FooterFont.Style = []
     RowDetailPanel.Color = clBtnFace
-    TabOrder = 18
+    TabOrder = 17
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
@@ -383,15 +383,16 @@ object frmEMBALAGEM: TfrmEMBALAGEM
       'Gravar'
       'Cancelar'
       'atualizar')
-    TabOrder = 19
+    TabOrder = 18
     OnClick = dbnvgr1Click
   end
   object stat1: TStatusBar
     Left = 0
-    Top = 359
+    Top = 453
     Width = 834
     Height = 19
     Panels = <>
+    ExplicitTop = 359
   end
   object btn1: TBitBtn
     Left = 656
@@ -403,7 +404,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Kind = bkClose
     NumGlyphs = 2
     ParentDoubleBuffered = False
-    TabOrder = 21
+    TabOrder = 20
     OnClick = btn1Click
   end
   object btn2: TBitBtn
@@ -433,17 +434,19 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     ModalResult = 6
     NumGlyphs = 2
     ParentDoubleBuffered = False
-    TabOrder = 22
+    TabOrder = 21
   end
   object btn3: TBitBtn
     Left = 494
     Top = 304
     Width = 75
     Height = 25
-    Caption = 'btn1'
+    Caption = 'Cancelar'
     DoubleBuffered = True
+    Kind = bkCancel
+    NumGlyphs = 2
     ParentDoubleBuffered = False
-    TabOrder = 23
+    TabOrder = 22
   end
   object btn4: TBitBtn
     Left = 413
@@ -453,7 +456,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Caption = 'btn1'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 24
+    TabOrder = 23
   end
   object btn5: TBitBtn
     Left = 332
@@ -463,16 +466,7 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     Caption = 'btn1'
     DoubleBuffered = True
     ParentDoubleBuffered = False
-    TabOrder = 25
-  end
-  object edtCUBAGEM: TEdit
-    Left = 352
-    Top = 112
-    Width = 70
-    Height = 21
-    Enabled = False
-    TabOrder = 13
-    Text = 'edtCUBAGEM'
+    TabOrder = 24
   end
   object edtDESCRICAO: TDBLabeledEdit
     Left = 19
@@ -530,6 +524,15 @@ object frmEMBALAGEM: TfrmEMBALAGEM
     EditLabel.Caption = 'Fator Convers'#227'o'
     LabelPosition = lpAbove
     LabelSpacing = 3
+  end
+  object medtCUBAGEM: TMaskEdit
+    Left = 352
+    Top = 112
+    Width = 70
+    Height = 21
+    Enabled = False
+    TabOrder = 25
+    Text = 'medtCUBAGEM'
   end
   object dsEMBALAGEM: TDataSource
     DataSet = ibtbEMBALAGEM
@@ -682,6 +685,11 @@ object frmEMBALAGEM: TfrmEMBALAGEM
       end
       item
         Name = 'FATORCONVERSAO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MED_CUBAGEM'
+        Attributes = [faReadonly]
         DataType = ftFloat
       end>
     IndexDefs = <

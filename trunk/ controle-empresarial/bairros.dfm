@@ -260,7 +260,7 @@ object frmBairros: TfrmBairros
     Top = 144
   end
   object tbBairros: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     FieldDefs = <
       item
@@ -382,11 +382,11 @@ object frmBairros: TfrmBairros
     end
   end
   object ibqryCidades: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
     SQL.Strings = (
       'select * from CIDADES')
-    Left = 400
+    Left = 416
     Top = 144
     object intgrfldCidadesPK_CIDADES: TIntegerField
       FieldName = 'PK_CIDADES'

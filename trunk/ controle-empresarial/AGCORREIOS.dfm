@@ -18,7 +18,7 @@ object frmAgCorreios: TfrmAgCorreios
   object DBNavigator1: TDBNavigator
     Left = 24
     Top = 359
-    Width = 400
+    Width = 280
     Height = 25
     DataSource = dsAgCorreios
     Hints.Strings = (
@@ -322,6 +322,16 @@ object frmAgCorreios: TfrmAgCorreios
     ParentDoubleBuffered = False
     TabOrder = 16
   end
+  object btn5: TBitBtn
+    Left = 355
+    Top = 359
+    Width = 75
+    Height = 25
+    Caption = 'Mapa'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 20
+  end
   object dsAgCorreios: TDataSource
     DataSet = ibtbAGCORREIOS
     Left = 400
@@ -333,8 +343,9 @@ object frmAgCorreios: TfrmAgCorreios
     Top = 24
   end
   object ibtbAGCORREIOS: TIBTable
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     FieldDefs = <
       item
         Name = 'CODIGO'
@@ -395,8 +406,8 @@ object frmAgCorreios: TfrmAgCorreios
     IndexFieldNames = 'NOME'
     StoreDefs = True
     TableName = 'AGENCIACORREIO'
-    Left = 576
-    Top = 144
+    Left = 432
+    Top = 168
     object ibstrngfldAGCORREIOSCODIGO: TIBStringField
       FieldName = 'CODIGO'
       Size = 7
@@ -435,102 +446,22 @@ object frmAgCorreios: TfrmAgCorreios
     end
   end
   object ibqryBAIRROS: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from BAIRROS')
-    Left = 616
+    Left = 624
     Top = 144
   end
   object ibqryCidades: TIBQuery
-    Database = dmod.bdIndustrias
+    Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from CIDADES')
-    Left = 496
-    Top = 144
-    object intgrfldCidadesPK_CIDADES: TIntegerField
-      FieldName = 'PK_CIDADES'
-      Origin = '"CIDADES"."PK_CIDADES"'
-    end
-    object ibstrngfldCidadesNOMECIDADE: TIBStringField
-      FieldName = 'NOMECIDADE'
-      Origin = '"CIDADES"."NOMECIDADE"'
-      Size = 50
-    end
-    object ibstrngfldCidadesDESCRICAO_B: TIBStringField
-      FieldName = 'DESCRICAO_B'
-      Origin = '"CIDADES"."DESCRICAO_B"'
-      Size = 60
-    end
-    object ibstrngfldCidadesCEP: TIBStringField
-      FieldName = 'CEP'
-      Origin = '"CIDADES"."CEP"'
-      Size = 8
-    end
-    object ibstrngfldCidadesUF: TIBStringField
-      FieldName = 'UF'
-      Origin = '"CIDADES"."UF"'
-      Size = 2
-    end
-    object intgrfldCidadesSITUACAO: TIntegerField
-      FieldName = 'SITUACAO'
-      Origin = '"CIDADES"."SITUACAO"'
-    end
-    object ibstrngfldCidadesTIPO_LOCALIDADE: TIBStringField
-      FieldName = 'TIPO_LOCALIDADE'
-      Origin = '"CIDADES"."TIPO_LOCALIDADE"'
-      Size = 1
-    end
-    object intgrfldCidadesLOC_NU_SEQUENCIAL_SUB: TIntegerField
-      FieldName = 'LOC_NU_SEQUENCIAL_SUB'
-      Origin = '"CIDADES"."LOC_NU_SEQUENCIAL_SUB"'
-    end
-    object ibstrngfldCidadesIBGE: TIBStringField
-      FieldName = 'IBGE'
-      Origin = '"CIDADES"."IBGE"'
-      Size = 10
-    end
-    object intgrfldCidadesQUANTCLIENTES: TIntegerField
-      FieldName = 'QUANTCLIENTES'
-      Origin = '"CIDADES"."QUANTCLIENTES"'
-    end
-    object intgrfldCidadesQUANTFORNECEDORES: TIntegerField
-      FieldName = 'QUANTFORNECEDORES'
-      Origin = '"CIDADES"."QUANTFORNECEDORES"'
-    end
-    object intgrfldCidadesQUANTTRANSPORTADORAS: TIntegerField
-      FieldName = 'QUANTTRANSPORTADORAS'
-      Origin = '"CIDADES"."QUANTTRANSPORTADORAS"'
-    end
-    object intgrfldCidadesQUANTVENDEDORES: TIntegerField
-      FieldName = 'QUANTVENDEDORES'
-      Origin = '"CIDADES"."QUANTVENDEDORES"'
-    end
-    object ibqryCidadesCOMPRASTOTAL: TIBBCDField
-      FieldName = 'COMPRASTOTAL'
-      Origin = '"CIDADES"."COMPRASTOTAL"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryCidadesVENDASTOTAL: TIBBCDField
-      FieldName = 'VENDASTOTAL'
-      Origin = '"CIDADES"."VENDASTOTAL"'
-      Precision = 18
-      Size = 2
-    end
-    object ibqryCidadesULTIMACOMPRA: TDateField
-      FieldName = 'ULTIMACOMPRA'
-      Origin = '"CIDADES"."ULTIMACOMPRA"'
-    end
-    object ibqryCidadesULTIMAVENDA: TDateField
-      FieldName = 'ULTIMAVENDA'
-      Origin = '"CIDADES"."ULTIMAVENDA"'
-    end
-    object smlntfldCidadesQUANTFILIAIS: TSmallintField
-      FieldName = 'QUANTFILIAIS'
-      Origin = '"CIDADES"."QUANTFILIAIS"'
-    end
+    Left = 192
+    Top = 112
   end
   object dsCIDADES: TDataSource
     DataSet = ibqryCidades

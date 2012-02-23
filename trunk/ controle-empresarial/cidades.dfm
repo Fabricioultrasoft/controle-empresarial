@@ -371,7 +371,7 @@ object frmcidades: Tfrmcidades
     Top = 147
     Width = 766
     Height = 239
-    ActivePage = ts3
+    ActivePage = ts7
     TabOrder = 24
     object ts1: TTabSheet
       Caption = 'Bairros'
@@ -612,6 +612,7 @@ object frmcidades: Tfrmcidades
   object ibqryBAIRROS: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from BAIRROS')
     Left = 656
@@ -625,6 +626,7 @@ object frmcidades: Tfrmcidades
   object ibqryCLIENTES: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from CLIENTES')
     Left = 520
@@ -638,6 +640,7 @@ object frmcidades: Tfrmcidades
   object ibqryFORNECEDORES: TIBQuery
     Database = dmod.bdindustrias
     Transaction = dmod.transIndustrias
+    Active = True
     SQL.Strings = (
       'select * from FORNECEDORES')
     Left = 752

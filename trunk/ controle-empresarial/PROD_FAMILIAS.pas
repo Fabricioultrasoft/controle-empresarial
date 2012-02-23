@@ -62,9 +62,6 @@ type
     dbnvgr1: TDBNavigator;
     stat1: TStatusBar;
     lbl1: TLabel;
-    btn4: TBitBtn;
-    btn5: TBitBtn;
-    btn6: TBitBtn;
     edtPK_SUBSGRUPOS1: TDBLabeledEdit;
     dblkcbbPK_SUBSGRUPOS1: TDBLookupComboBox;
     btn7: TSpeedButton;
@@ -73,10 +70,19 @@ type
     btn8: TSpeedButton;
     smlntfldFAMILIASFK_GRUPOCOMPRADORES: TSmallintField;
     smlntfldFAMILIASFK_COMPRADOR: TSmallintField;
+    btn5: TBitBtn;
+    btn4: TBitBtn;
+    btn9: TBitBtn;
+    btn10: TBitBtn;
+    btn11: TBitBtn;
+    btn6: TBitBtn;
+    lbledt2: TLabeledEdit;
+    lbledt1: TLabeledEdit;
     procedure btfztd1Click(Sender: TObject);
     procedure btfztd2Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
     procedure btn5Click(Sender: TObject);
+    procedure btn11Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -98,6 +104,11 @@ end;
 procedure TfrmPROD_FAMILIAS.btfztd2Click(Sender: TObject);
 begin
 closemodal;
+end;
+
+procedure TfrmPROD_FAMILIAS.btn11Click(Sender: TObject);
+begin
+Close;
 end;
 
 procedure TfrmPROD_FAMILIAS.btn4Click(Sender: TObject);
